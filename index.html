@@ -171,7 +171,6 @@
     .guide-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-top: 3px solid var(--accent2);
       text-decoration: none;
       color: inherit;
       display: flex;
@@ -179,29 +178,48 @@
       transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
       position: relative;
       overflow: hidden;
+      border-radius: 2px;
     }
 
     .guide-card:hover {
       border-color: var(--gold);
-      border-top-color: var(--gold);
       transform: translateY(-3px);
-      box-shadow: 0 8px 32px var(--glow-gold);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
     }
 
     .guide-card-img {
       width: 100%;
-      height: 180px;
-      background: var(--surface2);
+      height: 200px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      color: var(--text3);
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--border);
+      align-items: flex-end;
+      justify-content: flex-start;
       overflow: hidden;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Per-card themed placeholder backgrounds */
+    .guide-card-img.bleed-bg {
+      background:
+        linear-gradient(160deg, rgba(139,26,26,0.55) 0%, rgba(22,19,31,0.95) 70%),
+        repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(255,255,255,0.015) 12px, rgba(255,255,255,0.015) 13px);
+      background-color: #1a0f0f;
+    }
+
+    .guide-card-img.tank-bg {
+      background:
+        linear-gradient(160deg, rgba(30,50,90,0.55) 0%, rgba(22,19,31,0.95) 70%),
+        repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(255,255,255,0.015) 12px, rgba(255,255,255,0.015) 13px);
+      background-color: #0f1520;
+    }
+
+    [data-theme="light"] .guide-card-img.bleed-bg {
+      background: linear-gradient(160deg, rgba(139,26,26,0.25) 0%, rgba(230,220,200,0.9) 70%);
+      background-color: #ede0d8;
+    }
+    [data-theme="light"] .guide-card-img.tank-bg {
+      background: linear-gradient(160deg, rgba(30,50,90,0.20) 0%, rgba(220,230,240,0.9) 70%);
+      background-color: #d8e0ed;
     }
 
     .guide-card-img img {
@@ -209,12 +227,32 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      position: absolute;
+      inset: 0;
     }
 
-    .guide-card-img .placeholder-text {
-      opacity: 0.4;
-      text-align: center;
-      padding: 1rem;
+    .guide-card-img .card-img-label {
+      position: relative;
+      z-index: 2;
+      padding: 1rem 1.1rem;
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1.1;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      letter-spacing: 0.04em;
+    }
+
+    .guide-card-img .card-img-sub {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text2);
+      font-weight: 400;
+      margin-bottom: 0.25rem;
+      text-shadow: none;
     }
 
     .guide-card-body { padding: 1.25rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
@@ -416,9 +454,12 @@
   <div class="guide-grid">
 
     <a class="guide-card" href="/samurai-bleed-build/">
-      <div class="guide-card-img">
-        <!-- Drop a screenshot here: /site/images/samurai-bleed-build-hero.jpg -->
-        <span class="placeholder-text">Samurai Bleed Build<br>Add screenshot here</span>
+      <div class="guide-card-img bleed-bg">
+        <!-- To add a screenshot: <img src="/images/samurai-bleed-build-hero.jpg" alt="Samurai Bleed Build"> -->
+        <div class="card-img-label">
+          <span class="card-img-sub">Elden Ring</span>
+          Samurai<br>Bleed Build
+        </div>
       </div>
       <div class="guide-card-body">
         <div class="guide-card-game">Elden Ring · Build Guide</div>
@@ -436,9 +477,12 @@
     </a>
 
     <a class="guide-card" href="/elden-ring-tank-build/">
-      <div class="guide-card-img">
-        <!-- Drop a screenshot here: /site/images/elden-ring-tank-build-hero.jpg -->
-        <span class="placeholder-text">Tank Build<br>Add screenshot here</span>
+      <div class="guide-card-img tank-bg">
+        <!-- To add a screenshot: <img src="/images/elden-ring-tank-build-hero.jpg" alt="Tank Build"> -->
+        <div class="card-img-label">
+          <span class="card-img-sub">Elden Ring</span>
+          Tank Build<br>(Great Shield)
+        </div>
       </div>
       <div class="guide-card-body">
         <div class="guide-card-game">Elden Ring · Build Guide</div>

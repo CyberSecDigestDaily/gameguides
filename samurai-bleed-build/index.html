@@ -240,7 +240,8 @@
     border-bottom-color: var(--gold);
   }
 
-  /* MAIN */
+  /* LAYOUT */
+  body { transition: background 0.25s, color 0.25s; }
   main {
     max-width: 960px;
     margin: 0 auto;
@@ -249,79 +250,105 @@
 
   /* SECTIONS */
   section {
-    margin-top: 60px;
-    padding-top: 8px;
+    padding: 56px 0 16px;
+    border-bottom: 1px solid var(--border);
   }
+  section:last-of-type { border-bottom: none; }
 
   h2 {
     font-family: 'Cinzel', serif;
-    font-size: 24px;
-    font-weight: 600;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 900;
     color: var(--gold2);
     letter-spacing: 2px;
-    text-transform: uppercase;
-    padding-bottom: 14px;
-    border-bottom: 2px solid var(--border);
-    margin-bottom: 28px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  h2 .icon {
-    color: var(--accent);
-    font-size: 18px;
-    flex-shrink: 0;
+    margin-bottom: 8px;
   }
 
   h3 {
     font-family: 'Cinzel', serif;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gold2);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 28px 0 12px;
+    font-size: 16px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin: 28px 0 10px;
   }
 
   h4 {
     font-family: 'Cinzel', serif;
-    font-size: 12px;
-    color: var(--text2);
-    letter-spacing: 1.5px;
+    font-size: 13px;
+    color: var(--text3);
+    letter-spacing: 1px;
     text-transform: uppercase;
     margin: 20px 0 8px;
   }
 
-  p { margin-bottom: 12px; }
+  p { margin-bottom: 14px; color: var(--text2); }
+  p strong { color: var(--text); }
 
-  strong { color: var(--gold2); font-weight: 600; }
+  strong { color: var(--text); font-weight: 600; }
 
   em { color: var(--accent); font-style: italic; }
 
-  /* CALLOUT */
-  .callout {
-    background: var(--surface2);
-    border-left: 3px solid var(--accent);
-    padding: 18px 22px;
-    margin: 20px 0;
-    font-size: 17px;
+  /* SUMMARY BOX (matches tank build) */
+  .summary-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
   }
-
-  .callout.gold {
-    border-left-color: var(--gold);
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
   }
-
-  .callout-title {
+  .summary-item { display: flex; flex-direction: column; gap: 3px; }
+  .summary-label {
     font-family: 'Cinzel', serif;
     font-size: 10px;
     letter-spacing: 2px;
     color: var(--accent);
     text-transform: uppercase;
-    margin-bottom: 6px;
+  }
+  .summary-value { font-size: 17px; color: var(--text); }
+
+  /* PRO/CON GRID (matches tank build) */
+  .pro-con-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .pro-box, .con-box { padding: 16px 20px; border-radius: 4px; }
+  .pro-box { background: rgba(93,184,122,0.07); border: 1px solid rgba(93,184,122,0.25); }
+  .con-box { background: rgba(224,80,64,0.07); border: 1px solid rgba(224,80,64,0.25); }
+  .pro-box h4 { color: var(--green); margin: 0 0 10px; text-transform: none; letter-spacing: 0.5px; font-size: 14px; }
+  .con-box h4 { color: var(--accent); margin: 0 0 10px; text-transform: none; letter-spacing: 0.5px; font-size: 14px; }
+  .pro-box li, .con-box li { list-style: none; padding: 4px 0; color: var(--text2); font-size: 16px; }
+  .pro-box li::before { content: '✓ '; color: var(--green); }
+  .con-box li::before { content: '✗ '; color: var(--accent); }
+
+  /* CALLOUT */
+  .callout {
+    border-left: 3px solid var(--gold);
+    background: rgba(212,168,76,0.06);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+    font-size: 17px;
+  }
+  .callout.gold { border-left-color: var(--gold); }
+  .callout.red {
+    border-left-color: var(--accent);
+    background: rgba(224,80,64,0.06);
   }
 
-  .callout.gold .callout-title { color: var(--gold); }
+  .callout-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .callout.red .callout-title { color: var(--accent); }
+  .callout p { margin-bottom: 0; }
 
   /* CARDS GRID */
   .card-grid {
@@ -933,7 +960,7 @@
     <li><button onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons</button></li>
     <li><button onclick="document.getElementById('aow').scrollIntoView({behavior:'smooth'})">Ashes of War</button></li>
     <li><button onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans</button></li>
-    <li><button onclick="document.getElementById('armor').scrollIntoView({behavior:'smooth'})">Armor</button></li>
+    <li><button onclick="document.getElementById('armor').scrollIntoView({behavior:'smooth'})">Armour</button></li>
     <li><button onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs</button></li>
     <li><button onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">Combat</button></li>
     <li><button onclick="document.getElementById('route').scrollIntoView({behavior:'smooth'})">Item Route</button></li>
@@ -947,12 +974,42 @@
 
 <!-- ═══════════ OVERVIEW ═══════════ -->
 <section id="overview">
-  <h2><span class="icon">⚔</span> Build Overview & Philosophy</h2>
+  <h2>Build Overview</h2>
   <div class="section-rule"></div>
 
-  <p>The Samurai Bleed build is widely considered one of the strongest archetypes in all of Elden Ring — not just in the base game, but including Shadow of the Erdtree. It combines the <strong>hemorrhage status effect</strong> (which removes a flat percentage of an enemy's maximum HP on trigger) with fast katana attack strings and high Arcane investment to cycle procs at an almost obscene rate.</p>
+  <div class="summary-box">
+    <p>Fast, aggressive, and lethal. The Samurai Bleed build stacks blood loss on enemies through rapid katana hits. When the gauge fills, Hemorrhage triggers — removing ~15% of the target's max HP instantly. Stack two procs on a boss and you've ripped 30% of their health bar in seconds, regardless of how much HP they have.</p>
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="summary-label">Build Identity</span>
+        <span class="summary-value">The Sanguine Ronin</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Starting Class</span>
+        <span class="summary-value">Samurai</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Primary Stats</span>
+        <span class="summary-value">Arcane · Dexterity</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Core Weapon</span>
+        <span class="summary-value">Rivers of Blood / Dual Uchigatana</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Core Mechanic</span>
+        <span class="summary-value">Hit → Buildup → Hemorrhage proc</span>
+      </div>
+      <div class="summary-item">
+        <span class="summary-label">Best For</span>
+        <span class="summary-value">PvE &amp; PvP, boss-shredding, high damage</span>
+      </div>
+    </div>
+  </div>
 
-  <p>The build works by stacking <strong>blood loss buildup</strong> on enemies through rapid hits. Once the buildup bar fills, <em>Hemorrhage</em> triggers — dealing approximately 15% of the target's max HP as an instantaneous burst. Since this is percentage-based, it scales lethally against every boss in the game regardless of their HP pool. Stack two procs back to back and you've ripped 30% off a boss health bar in seconds.</p>
+  <p>The Samurai Bleed build is widely considered one of the strongest archetypes in all of Elden Ring — not just in the base game, but including Shadow of the Erdtree. It combines the <strong>Hemorrhage status effect</strong> (which removes a flat percentage of an enemy's maximum HP on trigger) with fast katana attack strings and high Arcane investment to cycle procs at an almost obscene rate.</p>
+
+  <p>This is not a passive playstyle. You need to maintain constant pressure — bleed buildup decays if you stop attacking. The build rewards aggressive, read-then-commit play: learn when to get in, stay in, and rip two Hemorrhage procs before the boss can breathe.</p>
 
   <div class="callout gold">
     <div class="callout-title">Core Mechanic</div>
@@ -990,30 +1047,34 @@
     </div>
   </div>
 
-  <h3>Pros & Cons</h3>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-name">Strengths</div>
-      <p>Percentage-based Hemorrhage damage shreds bosses regardless of HP pool</p>
-      <p>Fast attack speed means constant buildup pressure</p>
-      <p>Multiple viable weapons at every stage of the game</p>
-      <p>Extremely fun and aggressive playstyle with big dramatic proc moments</p>
-      <p>Scales excellently into Shadow of the Erdtree</p>
+  <div class="pro-con-grid">
+    <div class="pro-box">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Percentage-based Hemorrhage shreds bosses regardless of HP pool</li>
+        <li>Fast attack strings mean constant buildup pressure</li>
+        <li>Multiple viable weapons at every stage of the game</li>
+        <li>Extremely fun, aggressive playstyle with big proc moments</li>
+        <li>Scales excellently into Shadow of the Erdtree</li>
+        <li>PvP viable with proper read-and-punish timing</li>
+      </ul>
     </div>
-    <div class="card">
-      <div class="card-name">Weaknesses</div>
-      <p>Bleed buildup <em>decays</em> if you stop attacking — you must maintain pressure</p>
-      <p>Some late-game bosses are immune or highly resistant</p>
-      <p>Runs no shield — requires solid dodge timing</p>
-      <p>FP hungry when spamming Corpse Piler (Rivers of Blood path)</p>
-      <p>Rivers of Blood is late-game locked — early game needs patience</p>
+    <div class="con-box">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Buildup decays if you stop attacking — constant pressure required</li>
+        <li>Some late-game bosses are immune or highly resistant</li>
+        <li>No shield — requires solid dodge timing</li>
+        <li>FP-hungry when spamming Corpse Piler</li>
+        <li>Rivers of Blood is late-game locked — early game needs patience</li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- ═══════════ STATS ═══════════ -->
 <section id="stats">
-  <h2><span class="icon">◈</span> Starting Class & Stat Distribution</h2>
+  <h2>Stats</h2>
   <div class="section-rule"></div>
 
   <p><strong>Recommended Class: Samurai.</strong> No other starting class matches this for a bleed build. The Samurai starts with the <strong>Uchigatana</strong> (a bleed-capable weapon), strong Dexterity, and respectable Vigor. The starting Land of Reeds armor is functional, and you have a Longbow for pulling enemies. This is not a close contest.</p>
@@ -1061,7 +1122,7 @@
 
 <!-- ═══════════ WEAPONS ═══════════ -->
 <section id="weapons">
-  <h2><span class="icon">刀</span> Weapons</h2>
+  <h2>Weapons</h2>
   <div class="section-rule"></div>
   <p>Every weapon listed here works across multiple stages. The <strong>Uchigatana</strong> can genuinely carry you to the final boss. Use the tier ratings to understand priority, not necessity.</p>
 
@@ -1157,7 +1218,7 @@
 
 <!-- ═══════════ ASHES OF WAR ═══════════ -->
 <section id="aow">
-  <h2><span class="icon">✦</span> Ashes of War</h2>
+  <h2>Ashes of War</h2>
   <div class="section-rule"></div>
 
   <h3>Priority Acquisitions</h3>
@@ -1196,7 +1257,7 @@
 
 <!-- ═══════════ TALISMANS ═══════════ -->
 <section id="talismans">
-  <h2><span class="icon">◉</span> Talismans</h2>
+  <h2>Talismans</h2>
   <div class="section-rule"></div>
 
   <h3>Core Four (Rivers of Blood / Dex-Arc Build)</h3>
@@ -1255,7 +1316,7 @@
 
 <!-- ═══════════ ARMOR ═══════════ -->
 <section id="armor">
-  <h2><span class="icon">◭</span> Armor</h2>
+  <h2>Armour</h2>
   <div class="section-rule"></div>
 
   <p>Armor choice matters for two things: equip load (must stay under 70% of max for medium roll — the sweet spot for this build) and the specific helmet slot, where two pieces have direct offensive synergy.</p>
@@ -1314,7 +1375,7 @@
 
 <!-- ═══════════ BUFFS ═══════════ -->
 <section id="buffs">
-  <h2><span class="icon">✧</span> Buffs, Incantations & Flask</h2>
+  <h2>Buffs &amp; Incantations</h2>
   <div class="section-rule"></div>
 
   <h3>Essential Incantations</h3>
@@ -1377,7 +1438,7 @@
 
 <!-- ═══════════ COMBAT ═══════════ -->
 <section id="combat">
-  <h2><span class="icon">☯</span> Combat Strategy</h2>
+  <h2>Combat Guide</h2>
   <div class="section-rule"></div>
 
   <h3>Core Principles</h3>
@@ -1410,7 +1471,7 @@
 
 <!-- ═══════════ ITEM ROUTE ═══════════ -->
 <section id="route">
-  <h2><span class="icon">◆</span> Acquisition Route</h2>
+  <h2>Acquisition Route</h2>
   <div class="section-rule"></div>
   <p>Follow this order to have the right items at the right time. Nothing here requires rushing — this is the natural exploration order of the game with deliberate detours.</p>
 
@@ -1460,7 +1521,7 @@
 
 <!-- ═══════════ BOSS NOTES ═══════════ -->
 <section id="bosses">
-  <h2><span class="icon">☠</span> Boss Immunity & Resistance Notes</h2>
+  <h2>Boss Notes</h2>
   <div class="section-rule"></div>
   <p>Not every boss in Elden Ring is susceptible to bleed. Know this before going in.</p>
 
@@ -1489,7 +1550,7 @@
 
 <!-- ═══════════ DLC ═══════════ -->
 <section id="dlc">
-  <h2><span class="icon">✶</span> Shadow of the Erdtree</h2>
+  <h2>Shadow of the Erdtree</h2>
   <div class="section-rule"></div>
 
   <p>The bleed build remains one of the strongest archetypes in the DLC — arguably stronger than in the base game. The DLC introduces new weapons with innate bleed, higher-scaling Arcane gear, and enemies with substantial HP pools that make the percentage-based Hemorrhage mechanic even more potent.</p>
@@ -1534,7 +1595,7 @@
 
 <!-- ═══════════ QUICK TIPS ═══════════ -->
 <section id="tips">
-  <h2><span class="icon">◈</span> Quick Tips & Reference</h2>
+  <h2>Quick Tips &amp; Reference</h2>
   <div class="section-rule"></div>
 
   <div class="tips-grid">
@@ -1621,7 +1682,7 @@
     { id: 'weapons',    label: 'Weapons' },
     { id: 'aow',        label: 'Ashes of War' },
     { id: 'talismans',  label: 'Talismans' },
-    { id: 'armor',      label: 'Armor' },
+    { id: 'armor',      label: 'Armour' },
     { id: 'buffs',      label: 'Buffs' },
     { id: 'combat',     label: 'Combat' },
     { id: 'route',      label: 'Item Route' },

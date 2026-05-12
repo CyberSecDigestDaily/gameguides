@@ -6,8 +6,6 @@
 (function () {
   'use strict';
 
-  /* ── THEME TOGGLE ───────────────────────────────────────────────────────── */
-
   const STORAGE_KEY = 'bg-theme';
 
   function applyTheme(theme) {
@@ -23,11 +21,6 @@
     }
   }
 
-  function initTheme() {
-    const saved = localStorage.getItem(STORAGE_KEY) || 'dark';
-    applyTheme(saved);
-  }
-
   function toggleTheme() {
     const current = document.documentElement.getAttribute('data-theme') || 'dark';
     const next = current === 'dark' ? 'light' : 'dark';
@@ -35,21 +28,14 @@
     applyTheme(next);
   }
 
-  /* ── INIT ───────────────────────────────────────────────────────────────── */
+  /* Apply theme immediately (before DOMContentLoaded) to prevent flash */
+  const saved = localStorage.getItem(STORAGE_KEY) || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
 
   document.addEventListener('DOMContentLoaded', function () {
-    initTheme();
-
+    applyTheme(saved);
     const toggleBtn = document.querySelector('.theme-toggle');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', toggleTheme);
-    }
+    if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
   });
-
-  /* Apply theme immediately (before DOMContentLoaded) to prevent flash */
-  (function () {
-    const saved = localStorage.getItem(STORAGE_KEY) || 'dark';
-    document.documentElement.setAttribute('data-theme', saved);
-  })();
 
 })();

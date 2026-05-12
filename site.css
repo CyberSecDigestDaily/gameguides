@@ -22,10 +22,13 @@
   --green:     #5db87a;
   --nav-bg:    #0f0c17;
   --glow:      rgba(224, 80, 64, 0.18);
+  --glow2:     rgba(212, 168, 76, 0.15);
   --glow-gold: rgba(212, 168, 76, 0.12);
 }
 
-[data-theme="light"] {
+/* Use html[data-theme] for higher specificity (0-1-1) so this beats
+   inline :root (0-1-0) on guide pages. */
+html[data-theme="light"] {
   --bg:        #f2ece0;
   --surface:   #e8e0d0;
   --surface2:  #ddd4c0;
@@ -41,6 +44,7 @@
   --green:     #276e40;
   --nav-bg:    #e0d8c8;
   --glow:      rgba(184, 32, 16, 0.10);
+  --glow2:     rgba(139, 96, 16, 0.10);
   --glow-gold: rgba(139, 96, 16, 0.10);
 }
 
