@@ -1,0 +1,201 @@
+/*
+  Blood Guides — Shared Site Styles
+  Covers: site nav, theme toggle button, light/dark CSS variables
+  All pages link to this file for shared components.
+*/
+
+/* ── THEME VARIABLES ──────────────────────────────────────────────────────── */
+
+:root {
+  --bg:        #16131f;
+  --surface:   #1f1c2e;
+  --surface2:  #2a263c;
+  --border:    #3e3858;
+  --accent:    #e05040;
+  --accent2:   #a83228;
+  --gold:      #d4a84c;
+  --gold2:     #f5d880;
+  --text:      #f0ead8;
+  --text2:     #c8bfb0;
+  --text3:     #d0c8bc;
+  --blue:      #5b8fd4;
+  --green:     #5db87a;
+  --nav-bg:    #0f0c17;
+  --glow:      rgba(224, 80, 64, 0.18);
+  --glow-gold: rgba(212, 168, 76, 0.12);
+}
+
+[data-theme="light"] {
+  --bg:        #f2ece0;
+  --surface:   #e8e0d0;
+  --surface2:  #ddd4c0;
+  --border:    #c4b89a;
+  --accent:    #b82010;
+  --accent2:   #8a1808;
+  --gold:      #8b6010;
+  --gold2:     #6a4808;
+  --text:      #1a1520;
+  --text2:     #3a3028;
+  --text3:     #4a4038;
+  --blue:      #2c5fa0;
+  --green:     #276e40;
+  --nav-bg:    #e0d8c8;
+  --glow:      rgba(184, 32, 16, 0.10);
+  --glow-gold: rgba(139, 96, 16, 0.10);
+}
+
+/* ── SITE NAV ─────────────────────────────────────────────────────────────── */
+
+.site-nav {
+  background: var(--nav-bg);
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  transition: background 0.25s;
+}
+
+.site-nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.site-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 0.8rem 1.2rem 0.8rem 0;
+  border-right: 1px solid var(--border);
+  margin-right: 0.8rem;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  transition: color 0.15s;
+}
+
+.site-nav-logo:hover { color: var(--gold2); }
+
+.site-nav-logo svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Sword SVG stroke colour changes with theme */
+[data-theme="light"] .site-nav-logo .sword-stroke { stroke: var(--gold); }
+[data-theme="light"] .site-nav-logo .sword-circle { fill: var(--gold); }
+
+.site-nav-links {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.site-nav-links a {
+  display: block;
+  padding: 0.85rem 1rem;
+  color: var(--text2);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+
+.site-nav-links a:hover,
+.site-nav-links .active { color: var(--gold); }
+
+/* Dropdown */
+.site-nav-links li { position: relative; }
+
+.site-nav-links li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--nav-bg);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  min-width: 230px;
+  list-style: none;
+  z-index: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.site-nav-links li:hover ul { display: block; }
+
+.site-nav-links li ul a {
+  padding: 0.65rem 1.1rem;
+  font-size: 0.7rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text2);
+}
+
+.site-nav-links li ul li:last-child a { border-bottom: none; }
+
+.site-nav-links li ul a:hover {
+  background: var(--surface);
+  color: var(--gold);
+}
+
+/* ── THEME TOGGLE BUTTON ──────────────────────────────────────────────────── */
+
+.theme-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text2);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.theme-toggle .toggle-icon { font-size: 0.85rem; }
+
+/* ── FOOTER ───────────────────────────────────────────────────────────────── */
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 2rem;
+  color: var(--text2);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* ── SMOOTH THEME TRANSITION ─────────────────────────────────────────────── */
+
+body,
+.site-nav,
+.site-nav-inner,
+.site-nav-logo,
+.site-footer {
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}

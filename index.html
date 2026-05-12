@@ -3,252 +3,373 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blood Guides — Gaming Guides, Builds &amp; Walkthroughs</title>
-  <meta name="description" content="Gaming guides for every genre — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
+  <title>Blood Guides — Gaming Builds, Guides &amp; Walkthroughs</title>
+  <meta name="description" content="Comprehensive gaming guides for every genre — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
 
-  <!-- Open Graph — controls Discord, Slack, iMessage, Twitter embeds -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://bloodguides.pages.dev/">
-  <meta property="og:site_name" content="Blood Guides">
-  <meta property="og:title" content="Blood Guides — Gaming Guides, Builds &amp; Walkthroughs">
-  <meta property="og:description" content="Gaming guides for every genre — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
-  <meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
-
-  <!-- Twitter / X card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blood Guides — Gaming Guides, Builds &amp; Walkthroughs">
-  <meta name="twitter:description" content="Gaming guides for every genre — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
-  <meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://bloodguides.pages.dev/">
+  <meta property="og:site_name"   content="Blood Guides">
+  <meta property="og:title"       content="Blood Guides — Gaming Builds, Guides &amp; Walkthroughs">
+  <meta property="og:description" content="Comprehensive gaming guides for every genre — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
+  <meta property="og:image"       content="https://bloodguides.pages.dev/og-image.png">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="https://bloodguides.pages.dev/og-image.png">
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/site.css">
+
   <style>
-    :root {
-      --bg-primary: #1a1520;
-      --bg-secondary: #211c2b;
-      --bg-card: #271f34;
-      --text-primary: #d0c8bc;
-      --text-secondary: #a09890;
-      --accent-gold: #c9a84c;
-      --accent-red: #8b1a1a;
-      --accent-red-hover: #a02020;
-      --border: #3a2f4a;
-    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Crimson Pro', Georgia, serif;
       font-size: 18px;
-      line-height: 1.7;
+      line-height: 1.75;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      transition: background 0.25s, color 0.25s;
     }
 
-    /* ── NAV ── */
-    nav {
-      background: #0f0c17;
-      border-bottom: 2px solid var(--accent-gold);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
-      color: var(--accent-gold);
-      text-decoration: none;
-      padding: 0.85rem 1.5rem 0.85rem 0;
-      border-right: 1px solid var(--border);
-      margin-right: 1rem;
-      white-space: nowrap;
-      letter-spacing: 0.04em;
-    }
-    .nav-logo svg {
-      width: 28px;
-      height: 28px;
-      flex-shrink: 0;
-    }
-    .nav-links {
-      display: flex;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-    .nav-links a {
-      display: block;
-      padding: 1rem 1.1rem;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.15s;
-      white-space: nowrap;
-    }
-    .nav-links a:hover { color: var(--accent-gold); }
-    .nav-links .active { color: var(--accent-gold); }
+    /* ── HERO ─────────────────────────────────────────────────────────────── */
 
-    /* Dropdown */
-    .nav-links li { position: relative; }
-    .nav-links li ul {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #0f0c17;
-      border: 1px solid var(--border);
-      border-top: 2px solid var(--accent-gold);
-      min-width: 230px;
-      list-style: none;
-      z-index: 200;
-    }
-    .nav-links li:hover ul { display: block; }
-    .nav-links li ul a {
-      padding: 0.65rem 1.2rem;
-      font-size: 0.72rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-links li ul li:last-child a { border-bottom: none; }
-    .nav-links li ul a:hover { background: var(--bg-secondary); color: var(--accent-gold); }
-
-    /* ── HERO ── */
-    header {
-      background: var(--bg-secondary);
-      padding: 3.5rem 2rem;
+    .hero {
+      position: relative;
+      padding: 100px 2rem 80px;
       text-align: center;
+      overflow: hidden;
       border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse at 50% 0%,   rgba(139,26,26,0.22) 0%, transparent 65%),
+        radial-gradient(ellipse at 20% 100%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        var(--bg);
     }
+
+    /* Subtle vertical lines texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        rgba(255,255,255,0.012) 80px,
+        rgba(255,255,255,0.012) 81px
+      );
+      pointer-events: none;
+    }
+
+    [data-theme="light"] .hero {
+      background:
+        radial-gradient(ellipse at 50% 0%,   rgba(139,26,26,0.10) 0%, transparent 65%),
+        radial-gradient(ellipse at 20% 100%, rgba(139,96,16,0.06) 0%, transparent 60%),
+        var(--bg);
+    }
+
     .hero-logo {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    .hero-logo svg { width: 52px; height: 52px; }
-    header h1 {
-      font-family: 'Cinzel', serif;
-      font-size: 2.8rem;
-      color: var(--accent-gold);
-      letter-spacing: 0.06em;
-    }
-    header p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+      gap: 1.2rem;
+      margin-bottom: 1rem;
     }
 
-    /* ── MAIN ── */
-    main {
-      max-width: 1100px;
-      width: 100%;
-      margin: 3rem auto;
-      padding: 0 2rem;
-      flex: 1;
-    }
-    .section { margin-bottom: 3rem; }
-    h2 {
+    .hero-logo svg { width: 60px; height: 60px; filter: drop-shadow(0 0 18px rgba(212,168,76,0.35)); }
+
+    .hero h1 {
       font-family: 'Cinzel', serif;
-      color: var(--accent-gold);
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      text-shadow: 0 0 60px rgba(212,168,76,0.2);
     }
+
+    [data-theme="light"] .hero h1 { text-shadow: none; }
+
+    .hero-tagline {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      color: var(--text2);
+      font-style: italic;
+      margin-top: 0.75rem;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-divider {
+      width: 240px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.8rem auto;
+      opacity: 0.6;
+    }
+
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-badge {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border: 1px solid var(--border);
+      color: var(--text3);
+    }
+
+    /* ── MAIN ─────────────────────────────────────────────────────────────── */
+
+    main { flex: 1; max-width: 1140px; width: 100%; margin: 0 auto; padding: 0 2rem 5rem; }
+
+    /* ── SECTION HEADING ──────────────────────────────────────────────────── */
+
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 4rem 0 0.4rem;
+    }
+
+    .section-rule {
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent2), var(--gold), transparent);
+      margin-bottom: 2rem;
+    }
+
+    .section-sub {
+      color: var(--text2);
+      font-size: 1rem;
+      font-style: italic;
+      margin-top: -0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── FEATURED GUIDE CARDS ─────────────────────────────────────────────── */
+
     .guide-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1.5rem;
     }
+
     .guide-card {
-      background: var(--bg-card);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1.5rem;
+      border-top: 3px solid var(--accent2);
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.2s, transform 0.2s;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
     }
+
     .guide-card:hover {
-      border-color: var(--accent-gold);
-      transform: translateY(-2px);
+      border-color: var(--gold);
+      border-top-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--glow-gold);
     }
-    .guide-card .tag {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-red-hover);
-      margin-bottom: 0.5rem;
-    }
-    .guide-card h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
-      color: var(--accent-gold);
-      margin-bottom: 0.5rem;
-    }
-    .guide-card p {
-      color: var(--text-secondary);
-      font-size: 0.93rem;
-    }
-    .coming-soon {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 1.5rem;
-      border: 1px dashed var(--border);
-      border-radius: 6px;
+
+    .guide-card-img {
+      width: 100%;
+      height: 180px;
+      background: var(--surface2);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--text3);
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
     }
 
-    /* ── FOOTER ── */
-    footer {
+    .guide-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .guide-card-img .placeholder-text {
+      opacity: 0.4;
       text-align: center;
-      padding: 1.5rem 2rem;
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-      border-top: 1px solid var(--border);
+      padding: 1rem;
+    }
+
+    .guide-card-body { padding: 1.25rem 1.4rem 1.4rem; flex: 1; display: flex; flex-direction: column; }
+
+    .guide-card-game {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .guide-card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .guide-card-desc {
+      color: var(--text2);
+      font-size: 0.93rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .guide-card-tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      color: var(--text3);
+    }
+
+    .tag.bleed   { border-color: var(--accent);  color: var(--accent);  background: var(--glow); }
+    .tag.str     { border-color: var(--blue);     color: var(--blue);    background: rgba(91,143,212,0.08); }
+    .tag.dex     { border-color: var(--green);    color: var(--green);   background: rgba(93,184,122,0.08); }
+    .tag.gold-t  { border-color: var(--gold);     color: var(--gold);    background: var(--glow-gold); }
+
+    /* ── ABOUT SECTION ────────────────────────────────────────────────────── */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 1.75rem;
+    }
+
+    .about-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 900;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-card p {
+      color: var(--text2);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ── COMING SOON ──────────────────────────────────────────────────────── */
+
+    .coming-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .coming-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px dashed var(--border);
+      padding: 1.25rem 1.4rem;
+      opacity: 0.65;
+    }
+
+    .coming-card .game-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 0.3rem;
+    }
+
+    .coming-card .guide-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      color: var(--text2);
+    }
+
+    .coming-badge {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border: 1px solid var(--accent2);
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────────────────────────────── */
+
+    @media (max-width: 680px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .hero { padding: 70px 1.25rem 55px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-inner">
-    <a class="nav-logo" href="/">
-      <!-- Inline sword logo -->
+<!-- NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
       <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <line x1="32" y1="6" x2="32" y2="50" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
-        <line x1="18" y1="26" x2="46" y2="26" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
-        <circle cx="32" cy="55" r="4.5" fill="#c9a84c"/>
-        <ellipse cx="32" cy="8" rx="4.5" ry="5.5" fill="#8b1a1a"/>
+        <line x1="32" y1="4" x2="32" y2="50" class="sword-stroke" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" class="sword-stroke" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" class="sword-circle" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
       </svg>
       Blood Guides
     </a>
-    <ul class="nav-links">
+    <ul class="site-nav-links">
       <li><a href="/" class="active">Home</a></li>
       <li>
         <a href="#">Elden Ring ▾</a>
         <ul>
           <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
           <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
-          <!-- New Elden Ring guides go here -->
         </ul>
       </li>
       <li><a href="#">Builds</a></li>
@@ -256,53 +377,153 @@
       <li><a href="#">Tips &amp; Mechanics</a></li>
       <li><a href="#">All Games</a></li>
     </ul>
+    <button class="theme-toggle" title="Toggle light/dark mode">
+      <span class="toggle-icon">☀️</span> Light
+    </button>
   </div>
-</nav>
+</header>
 
 <!-- HERO -->
-<header>
+<section class="hero">
   <div class="hero-logo">
     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <line x1="32" y1="6" x2="32" y2="50" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
-      <line x1="18" y1="26" x2="46" y2="26" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
-      <circle cx="32" cy="55" r="4.5" fill="#c9a84c"/>
-      <ellipse cx="32" cy="8" rx="4.5" ry="5.5" fill="#8b1a1a"/>
+      <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+      <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="32" cy="56" r="5.5" fill="#d4a84c"/>
+      <ellipse cx="32" cy="6" rx="5" ry="6.5" fill="#8b1a1a"/>
     </svg>
     <h1>Blood Guides</h1>
   </div>
-  <p>Gaming guides for every genre — builds, walkthroughs, tips, and strategies.</p>
-</header>
+  <p class="hero-tagline">Comprehensive builds, guides &amp; strategies — for every game, every playstyle.</p>
+  <div class="hero-divider"></div>
+  <div class="hero-badges">
+    <span class="hero-badge">Elden Ring</span>
+    <span class="hero-badge">Dark Souls</span>
+    <span class="hero-badge">Black Myth: Wukong</span>
+    <span class="hero-badge">Monster Hunter</span>
+    <span class="hero-badge">+ More Coming</span>
+  </div>
+</section>
 
-<!-- MAIN -->
+<!-- MAIN CONTENT -->
 <main>
 
-  <div class="section">
-    <h2>Elden Ring — Builds</h2>
-    <div class="guide-grid">
+  <!-- ── FEATURED GUIDES ─────────────────────────────────────────────────── -->
+  <h2 class="section-heading">Featured Guides</h2>
+  <div class="section-rule"></div>
+  <p class="section-sub">Fully tested, in-depth builds — stat tables, item locations, boss tips, and more.</p>
 
-      <a class="guide-card" href="/samurai-bleed-build/">
-        <div class="tag">Bleed · Dexterity</div>
-        <h3>Samurai Bleed Build</h3>
-        <p>Dual katanas, Rivers of Blood, and Nagakiba variants. The definitive bleed guide.</p>
-      </a>
+  <div class="guide-grid">
 
-      <a class="guide-card" href="/elden-ring-tank-build/">
-        <div class="tag">Strength · Faith · Endurance</div>
-        <h3>Tank Build (Great Shield)</h3>
-        <p>Classic strength tank, healer support, and spear variants. Guard counters, poise thresholds, and every shield location.</p>
-      </a>
+    <a class="guide-card" href="/samurai-bleed-build/">
+      <div class="guide-card-img">
+        <!-- Drop a screenshot here: /site/images/samurai-bleed-build-hero.jpg -->
+        <span class="placeholder-text">Samurai Bleed Build<br>Add screenshot here</span>
+      </div>
+      <div class="guide-card-body">
+        <div class="guide-card-game">Elden Ring · Build Guide</div>
+        <div class="guide-card-title">Samurai Bleed Build</div>
+        <p class="guide-card-desc">Dual katanas, Arcane investment, and Rivers of Blood. The definitive bleed guide covering all three variants — classic Dex/Arc, Sanguine RoB, and Nagakiba quality.</p>
+        <div class="guide-card-tags">
+          <span class="tag bleed">Bleed</span>
+          <span class="tag dex">Dexterity</span>
+          <span class="tag gold-t">Arcane</span>
+          <span class="tag">PvE ✓</span>
+          <span class="tag">PvP ✓</span>
+          <span class="tag">DLC ✓</span>
+        </div>
+      </div>
+    </a>
 
-      <div class="coming-soon">Moonveil Mage, Rivers of Blood, and more — coming soon.</div>
+    <a class="guide-card" href="/elden-ring-tank-build/">
+      <div class="guide-card-img">
+        <!-- Drop a screenshot here: /site/images/elden-ring-tank-build-hero.jpg -->
+        <span class="placeholder-text">Tank Build<br>Add screenshot here</span>
+      </div>
+      <div class="guide-card-body">
+        <div class="guide-card-game">Elden Ring · Build Guide</div>
+        <div class="guide-card-title">Tank Build (Great Shield)</div>
+        <p class="guide-card-desc">Three variants — Classic Strength Tank, Healer Support, and Spear Tank. Guard counters, poise thresholds, Flash Block technique, and every key item location.</p>
+        <div class="guide-card-tags">
+          <span class="tag str">Strength</span>
+          <span class="tag gold-t">Endurance</span>
+          <span class="tag">High Poise</span>
+          <span class="tag">Beginner Friendly</span>
+          <span class="tag">DLC ✓</span>
+        </div>
+      </div>
+    </a>
 
+  </div>
+
+  <!-- ── ABOUT ───────────────────────────────────────────────────────────── -->
+  <h2 class="section-heading">What Is Blood Guides?</h2>
+  <div class="section-rule"></div>
+
+  <div class="about-grid">
+    <div class="about-card">
+      <h3>No Fluff. Just Guides.</h3>
+      <p>Every guide on Blood Guides is written by someone who has actually played the build — tested in PvE, checked against bosses, verified with accurate item locations. No padding, no vague advice, no ads shoved in your face.</p>
+    </div>
+    <div class="about-card">
+      <h3>Every Game. Every Playstyle.</h3>
+      <p>Starting with Elden Ring and expanding across all genres — Soulslikes, action RPGs, shooters, strategy, and beyond. If a game has a meta worth optimising, we'll cover it.</p>
+    </div>
+    <div class="about-card">
+      <h3>Built for Readability</h3>
+      <p>Stat tables, item cards, variant tabs, boss notes, quick reference tables. Guides are structured so you can find exactly what you need — whether you want the full explanation or just the item locations.</p>
+    </div>
+    <div class="about-card">
+      <h3>Always Up to Date</h3>
+      <p>Guides are reviewed after major patches. Build recommendations reflect current patch viability — if something gets nerfed, the guide says so and tells you what to run instead.</p>
+    </div>
+  </div>
+
+  <!-- ── COMING SOON ─────────────────────────────────────────────────────── -->
+  <h2 class="section-heading">Coming Soon</h2>
+  <div class="section-rule"></div>
+  <p class="section-sub">Guides in progress — check back soon.</p>
+
+  <div class="coming-grid">
+    <div class="coming-card">
+      <div class="game-label">Elden Ring</div>
+      <div class="guide-name">Moonveil Mage Build</div>
+      <span class="coming-badge">In Progress</span>
+    </div>
+    <div class="coming-card">
+      <div class="game-label">Elden Ring</div>
+      <div class="guide-name">Rivers of Blood Full Guide</div>
+      <span class="coming-badge">Planned</span>
+    </div>
+    <div class="coming-card">
+      <div class="game-label">Elden Ring</div>
+      <div class="guide-name">Faith/Incantation Build</div>
+      <span class="coming-badge">Planned</span>
+    </div>
+    <div class="coming-card">
+      <div class="game-label">Dark Souls III</div>
+      <div class="guide-name">Pyromancer Build</div>
+      <span class="coming-badge">Planned</span>
+    </div>
+    <div class="coming-card">
+      <div class="game-label">Black Myth: Wukong</div>
+      <div class="guide-name">Immobilise Build</div>
+      <span class="coming-badge">Planned</span>
+    </div>
+    <div class="coming-card">
+      <div class="game-label">Monster Hunter Wilds</div>
+      <div class="guide-name">Bow Guide</div>
+      <span class="coming-badge">Planned</span>
     </div>
   </div>
 
 </main>
 
 <!-- FOOTER -->
-<footer>
-  <p>&copy; 2026 Blood Guides</p>
+<footer class="site-footer">
+  <p>&copy; 2026 Blood Guides &nbsp;·&nbsp; bloodguides.pages.dev</p>
 </footer>
 
+<script src="/site.js"></script>
 </body>
 </html>
