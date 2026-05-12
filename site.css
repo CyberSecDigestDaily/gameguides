@@ -1,10 +1,9 @@
 /*
   Blood Guides — Shared Site Styles
-  Covers: site nav, theme toggle button, light/dark CSS variables
-  All pages link to this file for shared components.
+  Covers: site nav, theme toggle, light/dark variables
 */
 
-/* ── THEME VARIABLES ──────────────────────────────────────────────────────── */
+/* ── THEME VARIABLES — DARK (default) ───────────────────────────────────── */
 
 :root {
   --bg:        #16131f;
@@ -26,37 +25,85 @@
   --glow-gold: rgba(212, 168, 76, 0.12);
 }
 
-/* Use html[data-theme] for higher specificity (0-1-1) so this beats
-   inline :root (0-1-0) on guide pages. */
+/* ── THEME VARIABLES — LIGHT ─────────────────────────────────────────────
+   html[data-theme] has specificity 0-1-1 which beats inline :root (0-1-0)
+   so this correctly overrides guide page inline CSS variables.          */
+
 html[data-theme="light"] {
-  --bg:        #f2ece0;
-  --surface:   #e8e0d0;
-  --surface2:  #ddd4c0;
-  --border:    #c4b89a;
-  --accent:    #b82010;
-  --accent2:   #8a1808;
-  --gold:      #8b6010;
-  --gold2:     #6a4808;
-  --text:      #1a1520;
-  --text2:     #3a3028;
-  --text3:     #4a4038;
-  --blue:      #2c5fa0;
-  --green:     #276e40;
-  --nav-bg:    #e0d8c8;
-  --glow:      rgba(184, 32, 16, 0.10);
-  --glow2:     rgba(139, 96, 16, 0.10);
-  --glow-gold: rgba(139, 96, 16, 0.10);
+  /* Base */
+  --bg:        #f7f4ef;
+  --surface:   #ffffff;
+  --surface2:  #f0ece4;
+  --border:    #ddd5c4;
+
+  /* Accent — slightly deeper for contrast on light bg */
+  --accent:    #c0200e;
+  --accent2:   #8c1608;
+
+  /* Gold — rich amber, readable on cream */
+  --gold:      #96640a;
+  --gold2:     #7a4e06;
+
+  /* Text — near-black with warmth */
+  --text:      #18151e;
+  --text2:     #3c3530;
+  --text3:     #5a5048;
+
+  /* Accent colours */
+  --blue:      #1e5296;
+  --green:     #1f6e38;
+
+  /* Nav stays dark in light mode — see .site-nav override below */
+  --nav-bg:    #0f0c17;
+
+  /* Glows — subtle for light */
+  --glow:      rgba(192, 32, 14, 0.08);
+  --glow2:     rgba(150, 100, 10, 0.08);
+  --glow-gold: rgba(150, 100, 10, 0.08);
 }
 
-/* ── SITE NAV ─────────────────────────────────────────────────────────────── */
+/* ── HERO — ALWAYS DARK (brand identity, never affected by theme) ────────── */
+
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(139,26,26,0.28) 0%, transparent 65%),
+    radial-gradient(ellipse at 20% 100%, rgba(201,168,76,0.08) 0%, transparent 60%),
+    #16131f !important;
+  color: #f0ead8 !important;
+}
+
+.hero::before {
+  background: repeating-linear-gradient(
+    90deg, transparent, transparent 80px,
+    rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px
+  ) !important;
+}
+
+/* Ensure all hero text stays legible in light mode */
+html[data-theme="light"] .hero { background:
+    radial-gradient(ellipse at 50% 0%,   rgba(139,26,26,0.32) 0%, transparent 65%),
+    radial-gradient(ellipse at 80% 80%,  rgba(201,168,76,0.10) 0%, transparent 60%),
+    #16131f !important;
+}
+html[data-theme="light"] .hero h1        { color: #d4a84c !important; text-shadow: 0 0 60px rgba(212,168,76,0.25) !important; }
+html[data-theme="light"] .hero-tag       { color: #e05040 !important; }
+html[data-theme="light"] .hero-tagline,
+html[data-theme="light"] .hero .subtitle { color: #c8bfb0 !important; font-style: italic; }
+html[data-theme="light"] .hero .badge    { border-color: #3e3858 !important; color: #d0c8bc !important; background: transparent !important; }
+html[data-theme="light"] .hero .badge.blue  { color: #5b8fd4 !important; border-color: #5b8fd4 !important; }
+html[data-theme="light"] .hero .badge.red   { color: #e05040 !important; border-color: #e05040 !important; }
+html[data-theme="light"] .hero .badge.green { color: #5db87a !important; border-color: #5db87a !important; }
+html[data-theme="light"] .hero .hero-divider { background: linear-gradient(90deg, transparent, #d4a84c, transparent) !important; }
+html[data-theme="light"] .hero-badge { color: #c8bfb0 !important; border-color: #3e3858 !important; }
+
+/* ── SITE NAV — always dark ──────────────────────────────────────────────── */
 
 .site-nav {
-  background: var(--nav-bg);
-  border-bottom: 2px solid var(--gold);
+  background: #0f0c17;
+  border-bottom: 2px solid #d4a84c;
   position: sticky;
   top: 0;
   z-index: 500;
-  transition: background 0.25s;
 }
 
 .site-nav-inner {
@@ -73,27 +120,18 @@ html[data-theme="light"] {
   gap: 0.5rem;
   font-family: 'Cinzel', serif;
   font-size: 1rem;
-  color: var(--gold);
+  color: #d4a84c;
   text-decoration: none;
   padding: 0.8rem 1.2rem 0.8rem 0;
-  border-right: 1px solid var(--border);
+  border-right: 1px solid #3e3858;
   margin-right: 0.8rem;
   white-space: nowrap;
   letter-spacing: 0.04em;
   transition: color 0.15s;
 }
 
-.site-nav-logo:hover { color: var(--gold2); }
-
-.site-nav-logo svg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-}
-
-/* Sword SVG stroke colour changes with theme */
-[data-theme="light"] .site-nav-logo .sword-stroke { stroke: var(--gold); }
-[data-theme="light"] .site-nav-logo .sword-circle { fill: var(--gold); }
+.site-nav-logo:hover { color: #f5d880; }
+.site-nav-logo svg { width: 24px; height: 24px; flex-shrink: 0; }
 
 .site-nav-links {
   display: flex;
@@ -105,7 +143,7 @@ html[data-theme="light"] {
 .site-nav-links a {
   display: block;
   padding: 0.85rem 1rem;
-  color: var(--text2);
+  color: #c8bfb0;
   text-decoration: none;
   font-family: 'Cinzel', serif;
   font-size: 0.72rem;
@@ -116,7 +154,7 @@ html[data-theme="light"] {
 }
 
 .site-nav-links a:hover,
-.site-nav-links .active { color: var(--gold); }
+.site-nav-links .active { color: #d4a84c; }
 
 /* Dropdown */
 .site-nav-links li { position: relative; }
@@ -126,13 +164,13 @@ html[data-theme="light"] {
   position: absolute;
   top: 100%;
   left: 0;
-  background: var(--nav-bg);
-  border: 1px solid var(--border);
-  border-top: 2px solid var(--gold);
-  min-width: 230px;
+  background: #0f0c17;
+  border: 1px solid #3e3858;
+  border-top: 2px solid #d4a84c;
+  min-width: 240px;
   list-style: none;
   z-index: 600;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
 
 .site-nav-links li:hover ul { display: block; }
@@ -140,18 +178,18 @@ html[data-theme="light"] {
 .site-nav-links li ul a {
   padding: 0.65rem 1.1rem;
   font-size: 0.7rem;
-  border-bottom: 1px solid var(--border);
-  color: var(--text2);
+  border-bottom: 1px solid #3e3858;
+  color: #c8bfb0;
 }
 
 .site-nav-links li ul li:last-child a { border-bottom: none; }
 
 .site-nav-links li ul a:hover {
-  background: var(--surface);
-  color: var(--gold);
+  background: #1f1c2e;
+  color: #d4a84c;
 }
 
-/* ── THEME TOGGLE BUTTON ──────────────────────────────────────────────────── */
+/* ── THEME TOGGLE — always dark nav ──────────────────────────────────────── */
 
 .theme-toggle {
   margin-left: auto;
@@ -162,10 +200,10 @@ html[data-theme="light"] {
   font-size: 0.65rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text2);
+  color: #c8bfb0;
   background: none;
-  border: 1px solid var(--border);
-  padding: 0.4rem 0.8rem;
+  border: 1px solid #3e3858;
+  padding: 0.4rem 0.85rem;
   cursor: pointer;
   border-radius: 2px;
   white-space: nowrap;
@@ -174,13 +212,80 @@ html[data-theme="light"] {
 }
 
 .theme-toggle:hover {
-  color: var(--gold);
-  border-color: var(--gold);
+  color: #d4a84c;
+  border-color: #d4a84c;
 }
 
-.theme-toggle .toggle-icon { font-size: 0.85rem; }
+.theme-toggle .toggle-icon { font-size: 0.9rem; }
 
-/* ── FOOTER ───────────────────────────────────────────────────────────────── */
+/* ── IN-PAGE SECTION NAV — adapts to theme ───────────────────────────────── */
+
+html[data-theme="light"] nav {
+  background: rgba(247, 244, 239, 0.97) !important;
+  border-bottom-color: var(--border) !important;
+}
+
+html[data-theme="light"] nav button {
+  color: var(--text2) !important;
+}
+
+html[data-theme="light"] nav button:hover {
+  color: var(--gold) !important;
+  border-bottom-color: var(--gold) !important;
+}
+
+/* ── LIGHT MODE CONTENT IMPROVEMENTS ─────────────────────────────────────── */
+
+/* Cards and surfaces get a crisp shadow in light mode */
+html[data-theme="light"] .card,
+html[data-theme="light"] .talisman-card,
+html[data-theme="light"] .item-card {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* Summary box: warm left border, clean white bg */
+html[data-theme="light"] .summary-box {
+  background: #ffffff;
+  border-color: var(--border);
+  border-left-color: var(--gold);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+
+/* Stat tables: clean rows */
+html[data-theme="light"] .stat-table th,
+html[data-theme="light"] .prog-table th {
+  background: var(--surface2);
+}
+
+html[data-theme="light"] .stat-table .highlight td,
+html[data-theme="light"] .stat-table .lv150 td {
+  background: rgba(150, 100, 10, 0.06);
+}
+
+/* Callout boxes in light mode */
+html[data-theme="light"] .callout {
+  background: rgba(150, 100, 10, 0.06);
+}
+html[data-theme="light"] .callout.red {
+  background: rgba(192, 32, 14, 0.06);
+}
+
+/* Pro/con grid stays legible */
+html[data-theme="light"] .pro-box { background: rgba(31, 110, 56, 0.07); border-color: rgba(31,110,56,0.3); }
+html[data-theme="light"] .con-box { background: rgba(192, 32, 14, 0.07); border-color: rgba(192,32,14,0.3); }
+
+/* Section rule in light mode */
+html[data-theme="light"] .section-rule {
+  background: linear-gradient(90deg, var(--accent2), var(--gold), transparent);
+  opacity: 0.6;
+}
+
+/* Data table alternating rows */
+html[data-theme="light"] .data-table td.highlight {
+  background: var(--surface2);
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────────────────── */
 
 .site-footer {
   text-align: center;
@@ -190,16 +295,13 @@ html[data-theme="light"] {
   border-top: 1px solid var(--border);
   font-family: 'Cinzel', serif;
   letter-spacing: 0.04em;
-  opacity: 0.65;
-  transition: background 0.25s, color 0.25s;
+  opacity: 0.7;
 }
 
-/* ── SMOOTH THEME TRANSITION ─────────────────────────────────────────────── */
+/* ── SMOOTH TRANSITIONS ───────────────────────────────────────────────────── */
 
 body,
-.site-nav,
-.site-nav-inner,
-.site-nav-logo,
+main,
 .site-footer {
   transition: background 0.25s, color 0.25s, border-color 0.25s;
 }
