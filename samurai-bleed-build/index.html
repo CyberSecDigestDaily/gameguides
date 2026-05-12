@@ -3,9 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elden Ring Samurai Bleed Build Guide | GameGuides</title>
-<meta name="description" content="Complete Elden Ring Samurai Bleed Build guide — weapons, stats, talismans, armour, buffs, summons, and boss tips for a powerful Rivers of Blood build.">
-<link rel="stylesheet" href="../site.css">
+<title>Elden Ring Samurai Bleed Build | Complete Guide 2026</title>
+<meta name="description" content="Complete Elden Ring Samurai Bleed Build guide. Rivers of Blood, Arcane scaling, talismans, armour, buffs, summons, and boss tips. Updated for Shadow of the Erdtree.">
+<meta property="og:title" content="Elden Ring Samurai Bleed Build | Complete Guide 2026">
+<meta property="og:description" content="The definitive Elden Ring bleed build. Rivers of Blood, Arcane scaling, and Corpse Piler to melt bosses. Updated for Shadow of the Erdtree.">
+<meta property="og:url" content="https://bloodguides.pages.dev/samurai-bleed-build/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
 <style>
 :root {
   --bg: #16131f; --surface: #1f1c2e; --surface2: #2a263c; --border: #3e3858;
@@ -22,19 +32,41 @@
 </style>
 </head>
 <body>
+<div id="page-top"></div>
 
-<!-- ── HEADER ─────────────────────────────────────────────── -->
-<header>
-  <div class="header-inner">
-    <a class="logo" href="/">⚔ GameGuides</a>
-    <nav class="header-nav">
-      <a href="/">Home</a>
-      <a href="/elden-ring/">Elden Ring</a>
-      <a href="/elden-ring-tank-build/">Tank Build</a>
-    </nav>
-    <button id="theme-toggle" aria-label="Toggle light/dark mode">☀</button>
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#" class="active">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+    <button class="theme-toggle" title="Toggle light/dark mode">
+      <span class="toggle-icon">☀️</span> Light
+    </button>
   </div>
 </header>
+
+<button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
 
 <!-- ── HERO ───────────────────────────────────────────────── -->
 <section class="hero">
@@ -50,22 +82,24 @@
   </div>
 </section>
 
-<!-- ── IN-PAGE NAV ─────────────────────────────────────────── -->
+<!-- IN-PAGE NAV -->
 <nav class="section-nav">
-  <a href="#overview">Overview</a>
-  <a href="#variants">Variants</a>
-  <a href="#stats">Stats</a>
-  <a href="#weapons">Weapons</a>
-  <a href="#ashes">Ashes of War</a>
-  <a href="#armour">Armour</a>
-  <a href="#talismans">Talismans</a>
-  <a href="#buffs">Buffs</a>
-  <a href="#summons">Summons</a>
-  <a href="#combat">Combat</a>
-  <a href="#acquisition">Acquisition Route</a>
-  <a href="#bosses">Boss Notes</a>
-  <a href="#dlc">DLC</a>
-  <a href="#tips">Quick Tips</a>
+  <ul>
+    <li><button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Overview</button></li>
+    <li><button onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants</button></li>
+    <li><button onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats</button></li>
+    <li><button onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons</button></li>
+    <li><button onclick="document.getElementById('ashes').scrollIntoView({behavior:'smooth'})">Ashes of War</button></li>
+    <li><button onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">Armour</button></li>
+    <li><button onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans</button></li>
+    <li><button onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs</button></li>
+    <li><button onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">Summons</button></li>
+    <li><button onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">Combat</button></li>
+    <li><button onclick="document.getElementById('acquisition').scrollIntoView({behavior:'smooth'})">Acquisition Route</button></li>
+    <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Notes</button></li>
+    <li><button onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">DLC</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
+  </ul>
 </nav>
 
 <!-- ── MAIN CONTENT ───────────────────────────────────────── -->
@@ -142,9 +176,9 @@
     <p>This build has three main configurations. Each suits different playstyles and progression stages. The core stat spread remains the same — only the weapon pairing and Ash of War changes.</p>
 
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab(this,'variant-standard')">Standard (Rivers of Blood)</button>
-      <button class="tab-btn" onclick="switchTab(this,'variant-dual')">Dual Wield</button>
-      <button class="tab-btn" onclick="switchTab(this,'variant-early')">Early Game Katana</button>
+      <button class="tab-btn active" onclick="switchTab(event,'variant-standard')">Standard (Rivers of Blood)</button>
+      <button class="tab-btn" onclick="switchTab(event,'variant-dual')">Dual Wield</button>
+      <button class="tab-btn" onclick="switchTab(event,'variant-early')">Early Game Katana</button>
     </div>
 
     <div id="variant-standard" class="tab-panel active">
@@ -736,66 +770,24 @@
 
 <!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer class="site-footer">
-  <p>© 2025 GameGuides · Built for players, by players · Not affiliated with FromSoftware</p>
+  <p>&copy; 2026 Blood Guides &nbsp;·&nbsp; bloodguides.pages.dev</p>
 </footer>
 
-<!-- ── FAB SCROLL TO TOP ──────────────────────────────────── -->
-<button id="fab-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
 <script>
-/* ── Theme toggle ── */
-(function(){
-  const btn = document.getElementById('theme-toggle');
-  const stored = localStorage.getItem('theme');
-  if(stored === 'light') document.documentElement.setAttribute('data-theme','light');
-  btn.addEventListener('click', function(){
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if(isLight){
-      document.documentElement.removeAttribute('data-theme');
-      localStorage.removeItem('theme');
-      btn.textContent = '☀';
-    } else {
-      document.documentElement.setAttribute('data-theme','light');
-      localStorage.setItem('theme','light');
-      btn.textContent = '🌙';
-    }
-  });
-})();
-
-/* ── FAB visibility ── */
-window.addEventListener('scroll', function(){
-  const fab = document.getElementById('fab-top');
-  if(window.scrollY > 400){
-    fab.classList.add('visible');
-  } else {
-    fab.classList.remove('visible');
-  }
+// FAB visibility
+window.addEventListener('scroll', () => {
+  document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
 });
 
-/* ── Tab switcher ── */
-function switchTab(btn, panelId){
-  const tabContainer = btn.closest('.tabs').parentElement;
-  tabContainer.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-  tabContainer.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
-  btn.classList.add('active');
-  document.getElementById(panelId).classList.add('active');
+// Tab switching (panel IDs passed directly — no prefix)
+function switchTab(e, id) {
+  const container = e.target.closest('section');
+  container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  container.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById(id).classList.add('active');
 }
-
-/* ── Active nav highlight ── */
-(function(){
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.section-nav a');
-  const observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        navLinks.forEach(function(a){ a.classList.remove('active'); });
-        const active = document.querySelector('.section-nav a[href="#'+entry.target.id+'"]');
-        if(active) active.classList.add('active');
-      }
-    });
-  }, {rootMargin: '-30% 0px -60% 0px'});
-  sections.forEach(function(s){ observer.observe(s); });
-})();
 </script>
+<script src="/site.js"></script>
 </body>
 </html>
