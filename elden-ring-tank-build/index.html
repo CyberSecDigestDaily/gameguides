@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elden Ring Tank Build | Complete Guide 2026</title>
+<meta name="description" content="The definitive Elden Ring tank build guide. Best shields, weapons, armour, talismans and tactics for all three tank variants. Updated for Shadow of the Erdtree.">
+<meta property="og:title" content="Elden Ring Tank Build | Complete Guide 2026">
+<meta property="og:description" content="The definitive Elden Ring tank build guide. Best shields, weapons, armour, talismans and tactics. Updated for Shadow of the Erdtree.">
+<meta property="og:url" content="https://bloodguides.pages.dev/elden-ring-tank-build/">
+<meta property="og:site_name" content="Blood Guides">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #16131f;
+  --surface: #1f1c2e;
+  --surface2: #2a263c;
+  --border: #3e3858;
+  --accent: #e05040;
+  --accent2: #a83228;
+  --gold: #d4a84c;
+  --gold2: #f5d880;
+  --text: #f0ead8;
+  --text2: #c8bfb0;
+  --text3: #d0c8bc;
+  --blue: #5b8fd4;
+  --green: #5db87a;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 19px;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* SITE NAV */
+.site-nav {
+  background: #0f0c17;
+  border-bottom: 2px solid var(--gold);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.site-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.site-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 0.8rem 1.2rem 0.8rem 0;
+  border-right: 1px solid var(--border);
+  margin-right: 0.8rem;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+}
+.site-nav-logo svg { width: 24px; height: 24px; flex-shrink: 0; }
+.site-nav-links { display: flex; list-style: none; flex-wrap: wrap; }
+.site-nav-links a {
+  display: block;
+  padding: 0.85rem 1rem;
+  color: var(--text2);
+  text-decoration: none;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+.site-nav-links a:hover { color: var(--gold); }
+.site-nav-links .active { color: var(--gold); }
+.site-nav-links li { position: relative; }
+.site-nav-links li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #0f0c17;
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  min-width: 220px;
+  list-style: none;
+  z-index: 300;
+}
+.site-nav-links li:hover ul { display: block; }
+.site-nav-links li ul a { padding: 0.6rem 1.1rem; font-size: 0.7rem; border-bottom: 1px solid var(--border); }
+.site-nav-links li ul li:last-child a { border-bottom: none; }
+.site-nav-links li ul a:hover { background: #1f1c2e; color: var(--gold); }
+
+/* HERO */
+.hero {
+  position: relative;
+  padding: 80px 40px 60px;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 0%, rgba(80,100,180,0.2) 0%, transparent 70%),
+              radial-gradient(ellipse at 50% 100%, rgba(11,10,14,1) 40%, transparent 100%);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 60px,
+    rgba(255,255,255,0.012) 60px,
+    rgba(255,255,255,0.012) 61px
+  );
+  pointer-events: none;
+}
+.hero-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 5px;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+h1.title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900;
+  color: var(--gold2);
+  text-shadow: 0 0 60px rgba(201,168,76,0.3), 0 2px 4px rgba(0,0,0,0.8);
+  letter-spacing: 2px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.subtitle {
+  font-size: clamp(15px, 2vw, 20px);
+  color: var(--text2);
+  max-width: 680px;
+  margin: 0 auto 24px;
+}
+.badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.badge {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+.badge.blue { color: var(--blue); border-color: var(--blue); background: rgba(91,143,212,0.08); }
+.badge.red { color: var(--accent); border-color: var(--accent); background: rgba(192,57,43,0.08); }
+.badge.green { color: var(--green); border-color: var(--green); background: rgba(93,184,122,0.08); }
+
+/* IN-PAGE NAV */
+nav.section-nav {
+  position: sticky;
+  top: 52px;
+  z-index: 100;
+  background: rgba(22,18,30,0.98);
+  border-bottom: 2px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 0 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+}
+nav.section-nav ul { display: flex; list-style: none; }
+nav.section-nav button {
+  display: block;
+  padding: 15px 18px;
+  background: none;
+  border: none;
+  color: var(--text2);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav.section-nav button:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* FAB */
+#fab-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 500;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text2);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.3s, background 0.2s;
+  pointer-events: none;
+}
+#fab-top.visible { opacity: 1; pointer-events: all; }
+#fab-top:hover { background: var(--surface); color: var(--gold); }
+
+/* LAYOUT */
+.content { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* SECTIONS */
+section { padding: 56px 0 16px; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+
+h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 900;
+  color: var(--gold2);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+.section-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent2), var(--gold), transparent);
+  margin-bottom: 28px;
+}
+h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  margin: 28px 0 10px;
+}
+h4 {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: var(--text3);
+  letter-spacing: 1px;
+  margin: 20px 0 8px;
+  text-transform: uppercase;
+}
+p { margin-bottom: 14px; color: var(--text2); }
+p strong { color: var(--text); }
+
+/* QUICK BUILD SUMMARY */
+.summary-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+.summary-item { display: flex; flex-direction: column; gap: 3px; }
+.summary-label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.summary-value { font-size: 17px; color: var(--text); }
+
+/* VARIANT TABS */
+.tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 2px solid var(--border); }
+.tab-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  background: none;
+  border: none;
+  color: var(--text2);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.tab-btn:hover { color: var(--gold); }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-panel { display: none; padding: 24px 0; }
+.tab-panel.active { display: block; }
+
+/* TABLES */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 17px;
+}
+.data-table th {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text3);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.data-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(62,56,88,0.4);
+  color: var(--text2);
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+.data-table td.highlight { color: var(--gold); font-weight: 600; }
+.data-table td.warn { color: var(--accent); }
+
+/* ITEM CARDS */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.item-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 18px 20px;
+}
+.item-card .item-name {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.item-card .item-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.item-card .item-tag.blue { color: var(--blue); }
+.item-card .item-tag.green { color: var(--green); }
+.item-card p { font-size: 16px; margin-bottom: 8px; }
+.item-card .item-stat {
+  font-size: 14px;
+  color: var(--text3);
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  margin-top: 10px;
+}
+
+/* TALISMAN GRID */
+.talisman-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.talisman-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+.talisman-card .t-num {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.talisman-card .t-name {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.talisman-card p { font-size: 15px; color: var(--text2); margin: 0; }
+
+/* CALLOUT BOXES */
+.callout {
+  border-left: 3px solid var(--gold);
+  background: rgba(212,168,76,0.06);
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout.red {
+  border-left-color: var(--accent);
+  background: rgba(224,80,64,0.06);
+}
+.callout.blue {
+  border-left-color: var(--blue);
+  background: rgba(91,143,212,0.06);
+}
+.callout.green {
+  border-left-color: var(--green);
+  background: rgba(93,184,122,0.06);
+}
+.callout-title {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.callout.red .callout-title { color: var(--accent); }
+.callout.blue .callout-title { color: var(--blue); }
+.callout.green .callout-title { color: var(--green); }
+.callout p { margin-bottom: 0; }
+
+/* STEP LIST */
+.step-list { list-style: none; padding: 0; margin: 12px 0; }
+.step-list li {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(62,56,88,0.4);
+  color: var(--text2);
+  font-size: 17px;
+  align-items: flex-start;
+}
+.step-list li:last-child { border-bottom: none; }
+.step-num {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  color: var(--accent);
+  min-width: 24px;
+  padding-top: 3px;
+}
+
+/* PRIORITY LIST */
+.priority-list { list-style: none; padding: 0; margin: 12px 0; }
+.priority-list li {
+  padding: 8px 0 8px 20px;
+  border-bottom: 1px solid rgba(62,56,88,0.3);
+  color: var(--text2);
+  position: relative;
+  font-size: 17px;
+}
+.priority-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+/* SECTION NAV BUTTONS */
+.section-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 32px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sec-btn {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text3);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.sec-btn:hover { color: var(--gold); border-color: var(--gold); }
+.sec-btn.center { color: var(--text2); }
+
+/* PRO/CON */
+.pro-con-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.pro-box, .con-box {
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+.pro-box { background: rgba(93,184,122,0.07); border: 1px solid rgba(93,184,122,0.25); }
+.con-box { background: rgba(224,80,64,0.07); border: 1px solid rgba(224,80,64,0.25); }
+.pro-box h4 { color: var(--green); margin: 0 0 10px; }
+.con-box h4 { color: var(--accent); margin: 0 0 10px; }
+.pro-box li, .con-box li { list-style: none; padding: 4px 0; color: var(--text2); font-size: 16px; }
+.pro-box li::before { content: '✓ '; color: var(--green); }
+.con-box li::before { content: '✗ '; color: var(--accent); }
+
+/* QUICK TIPS */
+.tips-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 16px 0; }
+.tip-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--gold);
+  padding: 16px 18px;
+  border-radius: 0 0 4px 4px;
+}
+.tip-card .tip-title { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold); letter-spacing: 1px; margin-bottom: 6px; }
+.tip-card p { font-size: 16px; margin: 0; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  color: var(--text2);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  opacity: 0.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .hero { padding: 50px 20px 40px; }
+  .content { padding: 0 16px 60px; }
+  .pro-con-grid { grid-template-columns: 1fr; }
+  nav.section-nav button { padding: 12px 12px; font-size: 10px; }
+  .tabs { overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+<div id="page-top"></div>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#" class="active">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+  </div>
+</header>
+
+<button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Complete Build Guide · 2026</span>
+  <h1 class="title">Elden Ring Tank Build</h1>
+  <p class="subtitle">The Immovable Wall — Three variants, one unbreakable playstyle. Block, counter, dominate.</p>
+  <div class="badges">
+    <span class="badge blue">Strength / Endurance</span>
+    <span class="badge">Patch 1.10 Viable</span>
+    <span class="badge red">High Poise</span>
+    <span class="badge">PvE ✓</span>
+    <span class="badge green">Beginner Friendly</span>
+    <span class="badge">DLC Compatible</span>
+  </div>
+</div>
+
+<!-- IN-PAGE NAV -->
+<nav class="section-nav">
+  <ul>
+    <li><button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Overview</button></li>
+    <li><button onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants</button></li>
+    <li><button onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats</button></li>
+    <li><button onclick="document.getElementById('shields').scrollIntoView({behavior:'smooth'})">Shields</button></li>
+    <li><button onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons</button></li>
+    <li><button onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">Armour</button></li>
+    <li><button onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans</button></li>
+    <li><button onclick="document.getElementById('ash').scrollIntoView({behavior:'smooth'})">Ashes of War</button></li>
+    <li><button onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs</button></li>
+    <li><button onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">Summons</button></li>
+    <li><button onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">Combat</button></li>
+    <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips</button></li>
+    <li><button onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">DLC</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Overview</h2>
+  <div class="section-rule"></div>
+
+  <div class="summary-box">
+    <div class="summary-grid">
+      <div class="summary-item"><span class="summary-label">Build Identity</span><span class="summary-value">The Immovable Wall</span></div>
+      <div class="summary-item"><span class="summary-label">Starting Class</span><span class="summary-value">Hero</span></div>
+      <div class="summary-item"><span class="summary-label">Primary Stats</span><span class="summary-value">Strength · Endurance · Vigor</span></div>
+      <div class="summary-item"><span class="summary-label">Core Weapon</span><span class="summary-value">Fingerprint Stone Shield + Giant Crusher</span></div>
+      <div class="summary-item"><span class="summary-label">Core Mechanic</span><span class="summary-value">Block → Guard Counter → Stagger</span></div>
+      <div class="summary-item"><span class="summary-label">Best For</span><span class="summary-value">PvE, beginners, boss-killers</span></div>
+    </div>
+  </div>
+
+  <p>The tank build in Elden Ring is built around a single, devastating idea: instead of dodging every attack, you absorb it. Your shield meets the blow, your stamina barely moves, and then you answer with a guard counter that deals enormous posture damage. Do it twice. Boss staggers. Critical hit. Repeat.</p>
+
+  <p>This is not a passive playstyle. It is a <strong>resource management game</strong> where your stamina bar is your health. Understanding how to manage it — when to raise your shield, when to drop it and recover, when to counter — separates a functional tank from an unstoppable one.</p>
+
+  <p>This guide covers three distinct variants: the <strong>Classic Strength Tank</strong> (maximum damage and poise), the <strong>Healer Tank</strong> (sustain-focused, excellent for prolonged fights), and the <strong>Spear Tank</strong> (attack while blocking, high counter-hit damage). All three share the same foundations and can be transitioned between as you progress.</p>
+
+  <div class="pro-con-grid">
+    <div class="pro-box">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Trivialises most PvE boss fights</li>
+        <li>Extremely high physical damage negation</li>
+        <li>Very beginner-friendly rhythm</li>
+        <li>Massive stagger and posture damage</li>
+        <li>High Vigor means you survive mistakes</li>
+        <li>Guard counters deal enormous damage</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Weak to non-physical (magic, fire, lightning)</li>
+        <li>Slower movement than lighter builds</li>
+        <li>Guard-breaks are fatal if stamina depletes</li>
+        <li>Grab attacks must be dodged, not blocked</li>
+        <li>Takes time to acquire peak gear</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <span></span>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants →</button>
+  </div>
+</section>
+
+<!-- VARIANTS -->
+<section id="variants">
+  <h2>Build Variants</h2>
+  <div class="section-rule"></div>
+
+  <p>Three proven approaches to the tank archetype. Choose based on your playstyle — all three converge on the same late-game gear with minor differences in secondary choices.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'classic')">Classic Strength</button>
+    <button class="tab-btn" onclick="switchTab(event,'healer')">Healer Tank</button>
+    <button class="tab-btn" onclick="switchTab(event,'spear')">Spear Tank</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-classic">
+    <h3>Classic Strength Tank</h3>
+    <p>The benchmark tank. Maximum poise, maximum physical damage negation, colossal weapon output. You stand there. Things die. The Fingerprint Stone Shield in the left hand, Giant Crusher in the right. Block everything physical, guard counter for stance breaks, follow up with a critical hit. Simple, devastating, and extremely satisfying.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Item</th><th>Notes</th></tr>
+      <tr><td>Right Hand</td><td class="highlight">Giant Crusher</td><td>Troll's Roar AoW — highest stance damage in game</td></tr>
+      <tr><td>Left Hand</td><td class="highlight">Fingerprint Stone Shield</td><td>Highest guard boost and damage negation available</td></tr>
+      <tr><td>Armour</td><td class="highlight">Bull-Goat Set</td><td>100 poise — nothing staggers you</td></tr>
+      <tr><td>Flask Mix</td><td>Leaden Hardtear + Opaline Hardtear</td><td>+33% poise, +15% all damage negation</td></tr>
+      <tr><td>Key Incantation</td><td>Black Flame's Protection</td><td>+35% physical negation — stack with shield</td></tr>
+    </table>
+    <p><strong>Stat priority:</strong> Vigor 60 → Endurance 50 → Strength 60 (two-handed Giant Crusher) → Strength 80 (one-handed cap)</p>
+  </div>
+
+  <div class="tab-panel" id="tab-healer">
+    <h3>Healer Tank</h3>
+    <p>Trades some raw blocking efficiency for sustained healing. You recover HP constantly through talismans, weapon passives, and the Icon Shield. Where the Classic Tank relies on high Vigor and flask discipline, the Healer Tank keeps its HP bar full automatically, making it exceptional for long dungeon runs and co-op. Lower damage output, but almost impossible to kill in PvE.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Item</th><th>Notes</th></tr>
+      <tr><td>Right Hand</td><td class="highlight">Butchering Knife or Great Stars</td><td>Great Stars heals 4HP per hit passively</td></tr>
+      <tr><td>Left Hand</td><td class="highlight">Icon Shield</td><td>Passive 3HP/second while equipped</td></tr>
+      <tr><td>Armour</td><td class="highlight">Twinned Set</td><td>Lighter, maintains mobility, decent poise</td></tr>
+      <tr><td>Flask Mix</td><td>Crimson Burst Crystal Tear + Opaline Hardtear</td><td>Slow HP restore + all negation buff</td></tr>
+      <tr><td>Key Talisman</td><td>Blessed Dew + Taker's Cameo</td><td>Passive regen + HP on kill</td></tr>
+    </table>
+    <p><strong>Stat priority:</strong> Vigor 50 → Endurance 40 → Strength 50 → Faith 26 (for incantation buffs)</p>
+  </div>
+
+  <div class="tab-panel" id="tab-spear">
+    <h3>Spear Tank (Counter-Hitter)</h3>
+    <p>The most technically demanding of the three variants. Thrusting weapons — spears, great spears, and heavy thrusting swords — have a unique property: you can attack while your shield is raised. This means you never lower your guard. Block, poke, block, poke. Counter-hits (hitting an enemy while they're attacking) deal bonus damage, and the Spear Talisman amplifies this by 15%. In skilled hands, this is the highest sustained DPS of all three variants.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Item</th><th>Notes</th></tr>
+      <tr><td>Right Hand</td><td class="highlight">Cross-Naginata (Occult + Seppuku)</td><td>Bleed proc every ~3 pokes — massive burst</td></tr>
+      <tr><td>Left Hand</td><td class="highlight">Fingerprint Stone Shield</td><td>Never need to lower it</td></tr>
+      <tr><td>Armour</td><td class="highlight">White Mask + Blaidd's Armour</td><td>White Mask: +10% damage after blood loss nearby</td></tr>
+      <tr><td>Key Talisman</td><td>Spear Talisman + Lord of Blood's Exultation</td><td>+15% counter-hit, +20% attack after bleed</td></tr>
+      <tr><td>Alternative Weapon</td><td>Mohgwyn's Sacred Spear</td><td>Bloodboon Ritual AoW — area bleed + fire</td></tr>
+    </table>
+    <p><strong>Stat priority:</strong> Vigor 50 → Dexterity 20 → Arcane 45 → Endurance 40</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">← Overview</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats →</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <h2>Stats &amp; Levelling</h2>
+  <div class="section-rule"></div>
+
+  <p>The Hero is the optimal starting class for all three variants. It starts with the best Strength and Endurance distribution relative to its level, and comes with an axe that gets you moving immediately.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Key Breakpoints</div>
+    <p><strong>Level 25:</strong> 20 Dexterity — unlocks Cross-Naginata for the Spear variant. <strong>Level 100:</strong> 48 Strength — one-hands the Fingerprint Stone Shield. <strong>Level 150:</strong> PvP soft cap — stop here if you plan to invade or co-op.</p>
+  </div>
+
+  <h3>Classic Strength Tank — Stat Progression</h3>
+  <table class="data-table">
+    <tr><th>Stat</th><th>Lv 50</th><th>Lv 100</th><th>Lv 150</th><th>Why</th></tr>
+    <tr><td>Vigor</td><td>30</td><td>40</td><td class="highlight">60</td><td>Even tanks take chip damage. Don't stop at 40.</td></tr>
+    <tr><td>Mind</td><td>9</td><td>9</td><td>18</td><td>Only if casting incantations — otherwise ignore.</td></tr>
+    <tr><td>Endurance</td><td>20</td><td>30</td><td class="highlight">50</td><td>Governs stamina and equip load — your lifeblood.</td></tr>
+    <tr><td>Strength</td><td>30</td><td class="highlight">48</td><td>80</td><td>48 = Fingerprint Shield. 80 = Giant Crusher soft cap.</td></tr>
+    <tr><td>Dexterity</td><td>10</td><td>10</td><td>10</td><td>Minimum only. Do not invest further.</td></tr>
+    <tr><td>Intelligence</td><td>7</td><td>7</td><td>7</td><td>Dump stat entirely.</td></tr>
+    <tr><td>Faith</td><td>8</td><td>8</td><td>20</td><td>Only if using Golden Vow / Black Flame Protection.</td></tr>
+    <tr><td>Arcane</td><td>11</td><td>11</td><td>11</td><td>Dump stat for Classic variant.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Two-Handing Shortcut</div>
+    <p>Two-handing a weapon multiplies your effective Strength by 1.5. If you have 32 Strength, you meet the 48 requirement for the Fingerprint Stone Shield when two-handing it. This lets you reach peak gear faster while still levelling Strength toward the hard cap.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">← Variants</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('shields').scrollIntoView({behavior:'smooth'})">Shields →</button>
+  </div>
+</section>
+
+<!-- SHIELDS -->
+<section id="shields">
+  <h2>Shields</h2>
+  <div class="section-rule"></div>
+
+  <p>The shield is the most important piece of equipment in this build — more important than your weapon. Two stats determine a shield's blocking effectiveness:</p>
+
+  <p><strong>Guard Boost</strong> — how much stamina you lose per blocked hit. The higher the number, the less stamina is consumed. At 100 guard boost, you lose almost nothing on a block.</p>
+  <p><strong>Guarded Damage Negation</strong> — what percentage of incoming damage is absorbed. Physical can reach 100% on greatshields. Elemental damage will always chip through to some degree.</p>
+
+  <h3>Shield Tier List</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">S-Tier · Endgame</div>
+      <div class="item-name">Fingerprint Stone Shield</div>
+      <p>The best shield in the game. Highest guard boost and physical damage negation of any shield. At max upgrade it reaches 86 guard boost — combine with the Greatshield Talisman and you barely spend stamina on blocks.</p>
+      <div class="item-stat">Guard Boost: 77 base → 86 upgraded · Physical: 100% · STR 48 · Weight: 29</div>
+      <div class="item-stat">📍 Cathedral of the Forsaken / Subterranean Shunning Grounds</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">A-Tier · Early–Mid</div>
+      <div class="item-name">Brass Shield</div>
+      <p>The best medium shield in the game and the go-to for the first half of your playthrough. Its guard boost rivals many greatshields while being lighter and not requiring heavy Strength investment. Excellent for guard counters.</p>
+      <div class="item-stat">Guard Boost: 56 · Physical: 100% · STR 16 · Weight: 7</div>
+      <div class="item-stat">📍 Rare drop from Godrick Soldiers holding the shield (Stormveil area)</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag blue">A-Tier · Offensive</div>
+      <div class="item-name">Visage Shield</div>
+      <p>A greatshield with the Tongues of Fire Ash of War — it breathes fire while you remain in a guarded position, dealing damage and stance damage to enemies pressing against you. Pair with Shard of Alexander for massive skill damage.</p>
+      <div class="item-stat">Guard Boost: 75 · STR 44 · Weight: 24</div>
+      <div class="item-stat">📍 Chest in Caelem Ruins, Caelid (after Mad Pumpkin Head Duo)</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag blue">A-Tier · Offensive</div>
+      <div class="item-name">One-Eyed Shield</div>
+      <p>A greatshield with Flame Spit, which launches a fireball from the barrel of the shield. Exceptional burst damage on AoW use. Weaker guard boost than the Fingerprint but adds significant offensive utility.</p>
+      <div class="item-stat">Guard Boost: 67 · STR 36 · Weight: 20.5</div>
+      <div class="item-stat">📍 Chief Guardian Arghanthy, Guardian's Garrison, Mountaintop of the Giants</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag green">B-Tier · Healer Variant</div>
+      <div class="item-name">Icon Shield</div>
+      <p>The choice for the Healer Tank variant. Passively restores 3HP per second while equipped — small but meaningful over a long fight. Much lower STR requirement makes it accessible far earlier than the Fingerprint.</p>
+      <div class="item-stat">Guard Boost: 53 · STR 22 · Passive: +3HP/sec</div>
+      <div class="item-stat">📍 Woodfolk Ruins, Altus Plateau</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">B-Tier · Early</div>
+      <div class="item-name">Great Turtle Shell</div>
+      <p>Increases stamina recovery speed while equipped. Useful on your back slot while you wield a weapon two-handed — the passive stamina regen helps you recover faster between shield raises.</p>
+      <div class="item-stat">Guard Boost: 49 · STR 14 · Passive: faster stamina recovery</div>
+      <div class="item-stat">📍 Sold by Miriel, Pastor of Vows at Church of Vows</div>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-title">Barricade Shield — Early Game Lifesaver</div>
+    <p>Before you have access to the Fingerprint Stone Shield, apply the <strong>Barricade Shield Ash of War</strong> to any medium or greatshield. It temporarily massively boosts your shield's guard boost and hardness. You can get it from the Night's Cavalry in Weeping Peninsula very early in the game. Slap it on a Heater Shield and you can block Margit's attacks with almost no stamina loss.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">← Stats</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons →</button>
+  </div>
+</section>
+
+<!-- WEAPONS -->
+<section id="weapons">
+  <h2>Weapons</h2>
+  <div class="section-rule"></div>
+
+  <p>Weapon choice depends on which variant you're running. Colossal weapons maximise stance damage and poise-breaking. Thrusting weapons allow attacking while blocking. Both approaches are valid — choose what fits your rhythm.</p>
+
+  <h3>Colossal &amp; Greatsword Options</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">S-Tier · Late Game</div>
+      <div class="item-name">Giant Crusher</div>
+      <p>The pinnacle weapon for the Classic Strength Tank. Made from a boulder — it hits like one. Paired with Troll's Roar, it generates a shockwave that knocks back surrounding enemies and frequently staggers bosses in two hits. One of the highest stance damage weapons in the game.</p>
+      <div class="item-stat">STR 60 · Scales: C Strength · AoW: Troll's Roar (recommended)</div>
+      <div class="item-stat">📍 Carriage near Outer Wall Phantom Tree site of grace, Altus Plateau</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">A-Tier · Early–Mid</div>
+      <div class="item-name">Lordsworn's Greatsword</div>
+      <p>Your best early-game weapon. Found immediately in Limgrave, infuses with Heavy for strong Strength scaling, and its default Ash of War — Stamp: Upward Cut — gives you a moment of hyper armour, letting you take a hit while dealing massive posture damage back.</p>
+      <div class="item-stat">STR 16 / DEX 10 · Scales well with Heavy infusion · AoW: Stamp Upward Cut</div>
+      <div class="item-stat">📍 Chest in a carriage west of Gatefront Ruins, Limgrave</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">A-Tier · All Game</div>
+      <div class="item-name">Greatsword</div>
+      <p>The classic colossal sword. Enormous damage, excellent stance-breaking, and an iconic two-handed moveset. Slower than the Lordsworn's but hits proportionally harder. With Heavy infusion and high Strength it becomes a boss-deleting machine.</p>
+      <div class="item-stat">STR 31 / DEX 12 · Heavy infusion recommended · AoW: Lion's Claw (recommended)</div>
+      <div class="item-stat">📍 Chest guarded by an Exile soldier in Caelid, southeast of Rotview Balcony</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag green">A-Tier · Healer Variant</div>
+      <div class="item-name">Great Stars</div>
+      <p>A great hammer with innate bleed buildup and a unique passive — it heals you slightly on every hit. Since you're staying close to enemies and trading blows, you land charged attacks frequently, healing while you deal damage. Works beautifully with the Healer Tank variant.</p>
+      <div class="item-stat">STR 22 / DEX 12 · Passive: heals 4HP on hit · Innate bleed</div>
+      <div class="item-stat">📍 Lying on a corpse suspended in chains in Leyndell, Royal Capital</div>
+    </div>
+  </div>
+
+  <h3>Thrusting Weapons (Spear Variant)</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag blue">S-Tier · Spear Variant</div>
+      <div class="item-name">Cross-Naginata (Occult)</div>
+      <p>The definitive Spear Tank weapon. With Occult infusion and the Seppuku Ash of War, it builds bleed extraordinarily quickly while still allowing you to attack behind your shield. The bleed procs — combined with Lord of Blood's Exultation and the White Mask — create massive damage windows.</p>
+      <div class="item-stat">STR 16 / DEX 20 · Occult infusion + Seppuku AoW · Innate bleed</div>
+      <div class="item-stat">📍 Corpse near a Giant Land Octopus in Gael Tunnel, Caelid</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag blue">A-Tier · Late Game</div>
+      <div class="item-name">Mohgwyn's Sacred Spear</div>
+      <p>A late-game reward with the incredible Bloodboon Ritual AoW — it applies bleed to all nearby enemies simultaneously while buffing the weapon with fire damage. Against groups or multi-hit bosses it's devastating. Requires trading Mohg's Remembrance.</p>
+      <div class="item-stat">STR 24 / DEX 14 / ARC 27 · AoW: Bloodboon Ritual</div>
+      <div class="item-stat">📍 Trade Mohg, Lord of Blood's Remembrance with Enia at Roundtable Hold</div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <tr><th>Weapon Type</th><th>Pro</th><th>Con</th></tr>
+    <tr><td class="highlight">Thrusting Sword / Spear</td><td>Attack while blocking. Counter-hit bonus.</td><td>Lower stance damage per hit.</td></tr>
+    <tr><td class="highlight">Great Spear</td><td>Long reach, high damage, attack while blocking.</td><td>Heavy. Slower recovery than spears.</td></tr>
+    <tr><td class="highlight">Colossal Sword / Hammer</td><td>Enormous stance damage. Breaks posture in 1–2 hits.</td><td>Cannot attack while blocking.</td></tr>
+    <tr><td class="highlight">Great Hammer</td><td>Very high posture damage. Strong hyperarmour frames.</td><td>Slow animations. Requires commitment.</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('shields').scrollIntoView({behavior:'smooth'})">← Shields</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">Armour →</button>
+  </div>
+</section>
+
+<!-- ARMOUR -->
+<section id="armour">
+  <h2>Armour</h2>
+  <div class="section-rule"></div>
+
+  <p>Poise is the defining stat for armour selection. Poise determines whether you flinch when hit — if your poise is high enough, enemy attacks bounce off you without interrupting your swing. Aim for at least <strong>51 poise for PvE</strong>, and closer to <strong>100 poise if you plan to trade hits</strong> with bosses in their face.</p>
+
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">S-Tier — Highest Poise</div>
+      <div class="item-name">Bull-Goat Set</div>
+      <p>The heaviest and most protective armour set in the game. 100 poise means almost nothing will interrupt your attacks. The highest physical damage negation available. The only downside is weight — you'll need Great-Jar's Arsenal and high Endurance to wear it without fat-rolling.</p>
+      <div class="item-stat">Poise: 100 · Physical: 45 · Weight: ~63</div>
+      <div class="item-stat">📍 Kill Great Horned Tragoth at Ruin-Strewn Precipice Overlook (invades after Magma Wyrm)</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">A-Tier — Alternative</div>
+      <div class="item-name">Fire Prelate Set</div>
+      <p>Close to the Bull-Goat in poise (96) with superior fire resistance and Focus stat. The set piece for fighting fire-based bosses. Dropped regularly from Fire Prelate enemies, making it easier to farm than the Bull-Goat set.</p>
+      <div class="item-stat">Poise: 96 · Physical: 36.5 · Fire: 37.4 · Weight: ~62</div>
+      <div class="item-stat">📍 Dropped by Fire Prelate enemies, Mountaintops of the Giants</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag blue">A-Tier — Bleed Variant</div>
+      <div class="item-name">White Mask + Blaidd's Armour</div>
+      <p>The Spear Tank bleed variant's armour pick. The White Mask provides a 10% damage boost for 20 seconds whenever blood loss occurs nearby — which your Cross-Naginata triggers constantly. Blaidd's Armour completes a 51 poise threshold with reasonable weight.</p>
+      <div class="item-stat">White Mask Poise: 5 · Blaidd's Armour Poise: 28 · Total ~51+ poise</div>
+      <div class="item-stat">📍 White Mask: War Surgeon set drop, Mohgwyn Palace. Blaidd's: Blaidd's questline.</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag green">B-Tier — Healer Variant</div>
+      <div class="item-name">Twinned Set</div>
+      <p>Lighter armour that maintains reasonable poise (50) while enabling faster movement — useful for the Healer Tank which relies on mobility to reset stamina. Good resistance stats across the board. Decent substitute if you haven't reached Bull-Goat yet.</p>
+      <div class="item-stat">Poise: 50 · Physical: 27.4 · Weight: 30</div>
+      <div class="item-stat">📍 D, Hunter of the Dead's armour — given after his death in Roundtable questline</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Poise Thresholds — What Actually Matters</div>
+    <p><strong>51 poise</strong> — minimum to not be staggered by most standard enemies. <strong>79 poise</strong> — resists most medium-weight boss attacks mid-swing. <strong>100 poise</strong> — near-universal hyper armour, lets you trade hits with almost anything. The Bull-Goat Set hits 100 naturally.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">← Weapons</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans →</button>
+  </div>
+</section>
+
+<!-- TALISMANS -->
+<section id="talismans">
+  <h2>Talismans</h2>
+  <div class="section-rule"></div>
+
+  <p>You have four talisman slots at endgame. The core four for the Classic variant are non-negotiable. The Spear and Healer variants swap two slots for their specific needs.</p>
+
+  <h3>Core Four — Classic Strength Tank</h3>
+  <div class="talisman-grid">
+    <div class="talisman-card">
+      <div class="t-num">SLOT 1 — ESSENTIAL</div>
+      <div class="t-name">Greatshield Talisman</div>
+      <p>Reduces stamina damage taken while blocking by 20%. The most important late-game talisman for any shield build. Makes the Fingerprint Stone Shield's already-dominant guard boost feel effortless.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Carriage chest near Erdtree-Gazing Hill, Altus Plateau</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">SLOT 2 — ESSENTIAL</div>
+      <div class="t-name">Great-Jar's Arsenal</div>
+      <p>Raises maximum equip load by 19%. Mandatory if you want to wear Bull-Goat armour, wield the Fingerprint Shield, and still maintain a medium roll. Without this, you will fat-roll. Fat-rolling is dangerous.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Complete the Great-Jar's three-duel challenge, north of Caelid</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">SLOT 3 — CORE</div>
+      <div class="t-name">Curved Sword Talisman</div>
+      <p>Enhances guard counter attacks by 20%. Guard counters are your primary damage and posture-break tool. This talisman amplifies your most-used mechanic. Essential for boss fights.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest in the Foot of the Four Belfries, Liurnia</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">SLOT 4 — FLEXIBLE</div>
+      <div class="t-name">Erdtree's Favor +2</div>
+      <p>Boosts HP, Stamina, and Equip Load simultaneously. Pure stat efficiency — it makes everything slightly better and has no drawback. Replace with a situational talisman when fighting specific bosses.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Subterranean Shunning Grounds, near the Forsaken Depths site of grace</p>
+    </div>
+  </div>
+
+  <h3>Situational &amp; Variant Swaps</h3>
+  <div class="talisman-grid">
+    <div class="talisman-card">
+      <div class="t-num">EARLY GAME</div>
+      <div class="t-name">Green Turtle Talisman</div>
+      <p>Raises stamina recovery speed by 8/second. Your most important talisman before Altus Plateau. Stamina recovery is everything for a blocking build.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest sealed by imp statue, Summonwater Village, Limgrave</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">PHYSICAL REDUCTION</div>
+      <div class="t-name">Dragoncrest Greatshield Talisman</div>
+      <p>Reduces all physical damage received by 20%. Stacks multiplicatively with your armour and shield. Exceptional for boss fights where you're taking physical chip damage through your guard.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest guarded by pests, Elphael, Brace of the Haligtree</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">ELEMENTAL FIGHTS</div>
+      <div class="t-name">Drake Talismans</div>
+      <p>Reduces a specific elemental damage type by 5–9%. Swap in before fire, lightning, or magic bosses. Malenia, Fire Giant, Maliketh — each has an optimal Drake swap.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Various locations — check Fextralife for specific drake talisman locations</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">SPEAR VARIANT</div>
+      <div class="t-name">Spear Talisman</div>
+      <p>Increases counter-hit damage by 15%. Since the Spear Tank attacks while blocking — hitting enemies mid-attack constantly — this is essentially a permanent 15% damage increase.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest in Lakeside Crystal Cave, Liurnia</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">BLEED VARIANT</div>
+      <div class="t-name">Lord of Blood's Exultation</div>
+      <p>Increases attack power by 20% for 20 seconds after blood loss occurs nearby. Your Cross-Naginata triggers this constantly. The most powerful damage talisman for the Spear bleed variant.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Defeat Esgar, Priest of Blood in Leyndell Catacombs</p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">HEALER VARIANT</div>
+      <div class="t-name">Blessed Dew Talisman</div>
+      <p>Slowly restores HP over time. Stack with Icon Shield passive heal and Great Stars on-hit healing for a near-unkillable sustain loop. The cornerstone of the Healer Tank.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Outskirts of Leyndell, Royal Capital — outside the colosseum</p>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">← Armour</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('ash').scrollIntoView({behavior:'smooth'})">Ashes of War →</button>
+  </div>
+</section>
+
+<!-- ASHES OF WAR -->
+<section id="ash">
+  <h2>Ashes of War</h2>
+  <div class="section-rule"></div>
+
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Must-Have · Early Game</div>
+      <div class="item-name">Barricade Shield</div>
+      <p>Temporarily maximises your shield's guard boost and hardness. Before you have the Fingerprint Stone Shield, this makes any medium shield perform like a greatshield. Essential for the entire early game. Get this first.</p>
+      <div class="item-stat">📍 Night's Cavalry patrol, Weeping Peninsula (only appears at night)</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag red">Best for Giant Crusher</div>
+      <div class="item-name">Troll's Roar</div>
+      <p>Releases a shockwave that knocks back surrounding enemies, then follows with a ground slam. On the Giant Crusher the posture damage is obscene — most bosses stagger within two uses. The definitive late-game Ash for the Classic tank.</p>
+      <div class="item-stat">📍 Atop a rock southeast of Church of Repose, Mountaintops of the Giants</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Shield Offensive</div>
+      <div class="item-name">Shield Crash</div>
+      <p>Two-hand your shield and charge forward, ramming enemies multiple times. Procs status effects if your shield is infused with bleed or madness. Surprisingly well-tracking. Can stagger smaller enemies and interrupt humanoids completely. The Spiked Palisade Shield with this is particularly brutal.</p>
+      <div class="item-stat">📍 Purchase from Knight Bernahl at Volcano Manor</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Greatsword Early–Mid</div>
+      <div class="item-name">Lion's Claw</div>
+      <p>A full somersault followed by a ground slam. High poise damage, catches enemies off guard, and looks incredibly aggressive for a tank. Excellent on the Greatsword or Giant Crusher before you acquire Troll's Roar.</p>
+      <div class="item-stat">📍 Dropped by a Lion Guardian at Fort Gael, Caelid</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Healer Variant</div>
+      <div class="item-name">Wild Strokes</div>
+      <p>A series of far-reaching successive strikes. Pairs well with the Butchering Knife and the Godskin Swaddling Cloth talisman — consecutive attacks with this AoW trigger the talisman's HP restoration constantly.</p>
+      <div class="item-stat">📍 Purchased from Blackguard Big Boggart</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag blue">Spear Variant</div>
+      <div class="item-name">Seppuku</div>
+      <p>Stab yourself to coat your weapon in blood, increasing bleed buildup and attack power for a duration. Combined with the Cross-Naginata's naturally fast poking moveset, bleed procs in 3–4 hits per cycle. Also triggers the White Mask and Lord of Blood's Exultation.</p>
+      <div class="item-stat">📍 Scarab beetle on frozen lake, Mountaintops of the Giants</div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">← Talismans</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs →</button>
+  </div>
+</section>
+
+<!-- BUFFS -->
+<section id="buffs">
+  <h2>Buffs, Consumables &amp; Flask</h2>
+  <div class="section-rule"></div>
+
+  <h3>Incantations</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag">Universal</div>
+      <div class="item-name">Golden Vow</div>
+      <p>Increases your damage by 15% and reduces damage taken by 10% for 80 seconds. One of the best general-purpose buffs in the game. Available as an Ash of War (pick it up from a mounted Godrick Knight near Deathtouched Catacombs) or as an incantation requiring Faith 25.</p>
+    </div>
+    <div class="item-card">
+      <div class="item-tag red">Best Defensive Buff</div>
+      <div class="item-name">Black Flame's Protection</div>
+      <p>Raises physical damage negation by 35% for 70 seconds. Stacks with your shield, armour, and Dragoncrest Greatshield Talisman for near-total physical immunity during boss fights. Requires Faith 15. Essential for the Classic variant's boss kit.</p>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-title">⚠️ Boiled Crab cannot be used with Golden Vow</div>
+    <p>Boiled Crab and Golden Vow share a buff category — they cancel each other out. Use one or the other, never both. Golden Vow is generally preferable because it also boosts your damage output. Use Boiled Crab for fights where you need maximum physical reduction and aren't casting.</p>
+  </div>
+
+  <h3>Key Consumables</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th>Effect</th><th>Duration</th><th>Notes</th></tr>
+    <tr><td class="highlight">Boiled Crab</td><td>Physical damage taken -20%</td><td>60 sec</td><td>Cannot use with Golden Vow. Buy from Blackguard Big Boggart.</td></tr>
+    <tr><td class="highlight">Pickled Turtle Neck</td><td>Stamina recovery +10/sec</td><td>60 sec</td><td>Stack with Green Turtle Talisman early game. Craftable.</td></tr>
+    <tr><td class="highlight">Shield Grease</td><td>Stamina damage while blocking -35%, damage taken while blocking -20%</td><td>60 sec</td><td>Huge for hard boss fights. Craftable with Glintstone Craftsman Cookbook [4].</td></tr>
+  </table>
+
+  <h3>Flask of Wondrous Physick</h3>
+  <table class="data-table">
+    <tr><th>Tear</th><th>Effect</th><th>Best For</th></tr>
+    <tr><td class="highlight">Opaline Hardtear</td><td>All damage negation +15% for 3 min</td><td>Every build — use this almost always</td></tr>
+    <tr><td class="highlight">Leaden Hardtear</td><td>Poise +33% for 3 min</td><td>Classic Tank — nothing staggers you</td></tr>
+    <tr><td class="highlight">Greenburst Crystal Tear</td><td>Stamina recovery +15/sec for 3 min</td><td>Any variant — incredible for prolonged fights</td></tr>
+    <tr><td class="highlight">Crimson Burst Crystal Tear</td><td>HP slowly restored for 3 min</td><td>Healer Tank — stacks with other regen</td></tr>
+    <tr><td class="highlight">Strength-Knot Crystal Tear</td><td>Strength +10 for 3 min</td><td>Lets you meet weapon requirements earlier</td></tr>
+  </table>
+
+  <h3>Flask Distribution</h3>
+  <p>At maximum flasks: run a <strong>12 Crimson / 2 Cerulean split</strong>. You will rarely need FP. If using incantation buffs frequently, go 10 Crimson / 4 Cerulean. If using the Visage or One-Eyed Shield's AoW often, you may need more FP — the Cerulean Hidden Tear eliminates this entirely for one use.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('ash').scrollIntoView({behavior:'smooth'})">← Ashes of War</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">Summons →</button>
+  </div>
+</section>
+
+<!-- SUMMONS -->
+<section id="summons">
+  <h2>Spirit Summons</h2>
+  <div class="section-rule"></div>
+
+  <p>As a tank, your summons work best when they draw aggro away from you, giving you space to block and counter safely. Aggressive, high-HP summons that occupy the boss are ideal.</p>
+
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Top Pick — Aggro Control</div>
+      <div class="item-name">Omenkiller Rollo</div>
+      <p>Extremely aggressive — draws boss aggro immediately and maintains it. Deals high damage and has a large health pool. Costs 113 FP but can be summoned for free using the Cerulean Hidden Tear in your Flask. One of the best summons for tank playstyles.</p>
+      <div class="item-stat">📍 Defeat the Fell Twins, Capital Outskirts</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag red">Top Pick — Mirror Build</div>
+      <div class="item-name">Mimic Tear</div>
+      <p>Copies your exact build — shield, weapon, armour, and all. You effectively have two tanks fighting the boss simultaneously. The aggro split alone is often enough to trivialise fights. Widely considered the best summon in the game.</p>
+      <div class="item-stat">📍 Chest behind an imp fog gate in Night's Sacred Ground, Nokron</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Aggressive Aggro</div>
+      <div class="item-name">Dung Eater Puppet</div>
+      <p>Very tanky single-unit summon that deals bleed damage. Large health pool means it holds aggro for an extended period. Excellent for fights where you need the boss locked down for a long time while you set up guard counters.</p>
+      <div class="item-stat">📍 Purchase from Finger Reader Enia after Dung Eater questline</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Group Utility</div>
+      <div class="item-name">Greatshield Soldier Ashes</div>
+      <p>Summons five shield-bearing soldiers. They swarm bosses from all sides, making it nearly impossible for the boss to ignore them. Can stunlock smaller bosses outright. Excellent distraction while you line up guard counters from the front.</p>
+      <div class="item-stat">📍 Corpse in a graveyard, Nokron, Eternal City</div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">← Buffs</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">Combat →</button>
+  </div>
+</section>
+
+<!-- COMBAT -->
+<section id="combat">
+  <h2>Combat Guide</h2>
+  <div class="section-rule"></div>
+
+  <h3>The Core Loop</h3>
+  <p>Every fight with this build follows the same rhythm: raise shield as the attack comes in → absorb the hit → immediately press Heavy Attack → repeat until posture breaks → critical hit. The guard counter is the engine of the build. It deals 20–30% more posture damage than a normal heavy attack and is what separates a tank that wins efficiently from one that slowly chips away for five minutes.</p>
+
+  <div class="callout">
+    <div class="callout-title">Guard Counter Timing</div>
+    <p>The guard counter window opens the moment a blocked attack resolves. You don't need to wait — press Heavy Attack immediately as the hit connects with your shield. The faster you transition from block to counter, the more posture damage you deal before the enemy recovers.</p>
+  </div>
+
+  <h3>Flash Block — The Most Important Technique</h3>
+  <p>Stamina regenerates significantly slower while your shield is raised. Most players make the mistake of holding block constantly. Don't. <strong>Only raise your shield when an attack is actually coming</strong>, then release it the moment the attack resolves. That brief window of shield-down recovery between enemy attacks is what keeps your stamina healthy across a full boss fight.</p>
+
+  <p>Learn enemy combo lengths. Most bosses have a predictable 2–4 hit string followed by a recovery. Block the string, release block to recover stamina, raise again for the next string. This rhythm — raise, block, release, counter — is the entire playbook.</p>
+
+  <h3>What to Dodge (Not Block)</h3>
+  <div class="callout red">
+    <div class="callout-title">Grab Attacks — Never Block</div>
+    <p>Shields do absolutely nothing against grab attacks. When you see a boss wind up a grab animation — typically a slow roar, an extended hand movement, or a dramatically different wind-up — you must dodge. No amount of poise, guard boost, or faith in your shield will save you. Roll away. Every major boss has at least one grab. Learn them.</p>
+  </div>
+
+  <p><strong>Elemental attacks</strong> also present a problem. Even the Fingerprint Stone Shield won't absorb 100% of magic, fire, lightning, or holy damage. For boss phases that are heavily elemental, dodge those specific attacks rather than blocking through chip damage. Block the physical follow-ups and counter those.</p>
+
+  <h3>Equip Load and Rolling</h3>
+  <p>Even as a tank, you must maintain a <strong>medium roll</strong> (below 70% equip load). The fat roll (70%+) leaves you on the ground too long after a dodge and gets you killed by grab follow-ups. Great-Jar's Arsenal, Erdtree's Favor +2, and sufficient Endurance are your tools for staying in medium load with full Bull-Goat armour.</p>
+
+  <h3>Combat Priority List</h3>
+  <ul class="step-list">
+    <li><span class="step-num">1</span>Cast Golden Vow and Black Flame's Protection before entering the fog gate. Drink Flask of Wondrous Physick.</li>
+    <li><span class="step-num">2</span>Summon your spirit ashes at the fog gate entrance — do it before the fight starts.</li>
+    <li><span class="step-num">3</span>Let your summon engage first. Give the boss one second to commit to attacking your summon before raising your shield and moving in.</li>
+    <li><span class="step-num">4</span>Identify the boss's combo strings. Block, flash-release to regen stamina, block the next hit.</li>
+    <li><span class="step-num">5</span>Guard counter immediately after each blocked hit. Watch the boss's posture health — when it breaks, land your critical hit.</li>
+    <li><span class="step-num">6</span>Dodge grab attempts. Block everything else physical.</li>
+    <li><span class="step-num">7</span>Swap to a Drake Talisman or pop a Boiled Crab if the boss enters a heavily elemental phase.</li>
+  </ul>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">← Summons</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips →</button>
+  </div>
+</section>
+
+<!-- BOSS TIPS -->
+<section id="bosses">
+  <h2>Boss-Specific Tips</h2>
+  <div class="section-rule"></div>
+
+  <h3>Margit the Fell Omen — First Major Test</h3>
+  <p>The tank build is almost custom-designed for Margit. His swings are wide and telegraphed — ideal for blocking. Block the first 2–3 hits of each combo, guard counter on the last hit, repeat. He frequently stagger-breaks after 3–4 guard counters. The one attack to dodge is his Erdtree seal slam if he raises it above his head — that's a grab setup. Everything else, block it.</p>
+
+  <h3>Malenia, Blade of Miquella — Hardest Fight in the Game</h3>
+  <p>Malenia is the tank build's greatest test. Her Waterfowl Dance is the single most dangerous sequence. Block the first flurry completely — she will heal from each hit (approximately 150–250 HP per hit she lands). Accept the heal and survive. Dodge the second and third flurries if you can. After she finishes, guard counter heavily. She will stagger. Critical hit. This sequence repeats. Never get greedy.</p>
+
+  <div class="callout red">
+    <div class="callout-title">Malenia's Lifesteal — Managing the Heal</div>
+    <p>Malenia heals on every attack that makes contact — including blocked hits. This is unavoidable. The strategy is to deal more damage than she heals, which the tank's guard counter and posture-break loop does efficiently. Get two stance breaks per phase transition and you win the DPS race comfortably.</p>
+  </div>
+
+  <h3>Fire Giant — Use Elemental Resistance</h3>
+  <p>The Fire Giant deals primarily fire damage in his second phase. Swap to a Fire Drake Talisman, use Boiled Crab, and consider applying Shield Grease before entering phase two. His rolling attacks can be blocked effectively — guard counter his giant slam attacks for massive posture damage. Target the wounded ankle in phase one with guard counters from close range.</p>
+
+  <h3>Starscourge Radahn — Straightforward</h3>
+  <p>Radahn is one of the easier fights for a tank. His arrows in the opening can be blocked. His charge can be blocked or dodged. Block the ground slam, guard counter. In phase two, block his meteor arrival, reposition, and resume. Summon every NPC available — they significantly reduce his aggro on you.</p>
+
+  <h3>Maliketh, the Black Blade — Patience</h3>
+  <p>Maliketh's black flame attacks deal percentage-based damage and reduce your max HP temporarily. You cannot out-tank these — dodge his projectile attacks specifically, block his physical slashes. Equip the Pearldrake Talisman (holy/non-physical variant) before this fight. His phase two is aggressive but has clear windows after each combo — guard counter consistently and he falls.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">← Combat</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">DLC →</button>
+  </div>
+</section>
+
+<!-- DLC -->
+<section id="dlc">
+  <h2>Shadow of the Erdtree</h2>
+  <div class="section-rule"></div>
+
+  <p>The tank build remains viable in the DLC but demands greater attention to mechanics. Enemies hit significantly harder — a fully upgraded Fingerprint Stone Shield can still block the majority of physical attacks, but you will feel the stamina pressure more acutely than in the base game.</p>
+
+  <div class="callout red">
+    <div class="callout-title">Scadutree Fragments — Collect These First</div>
+    <p>Scadutree Fragments are the DLC's power scaling system. They directly increase your damage output and damage negation up to 20 stacks. A tank build without Scadutree Fragments in the DLC is dramatically weaker than the same build fully stacked. Prioritise collecting these before engaging any DLC boss. Without them, even a fully optimised Fingerprint Shield setup will feel inadequate.</p>
+  </div>
+
+  <h3>New DLC Tools for Tank Builds</h3>
+  <p>The DLC introduces a new crystal tear that allows occasional perfect blocks — similar to Sekiro's deflect system. When activated at the right moment, it negates stamina consumption entirely and staggers the attacker. For a tank build, this is a powerful upgrade to add to your repertoire, though the classic flash-block approach remains reliable without it.</p>
+
+  <p>Several new greatshields and colossal weapons are available in the DLC. The Messmer Knight equipment in particular is worth acquiring — the armour set offers competitive poise at lighter weight than the Bull-Goat, making it a viable mid-DLC swap if equip load becomes an issue.</p>
+
+  <h3>DLC Boss Notes</h3>
+  <p>Messmer the Impaler is the DLC's standout fight for tank players. His fire attacks chip through any shield, but his physical slashes are highly blockable with strong guard counters available after most combos. Equip the Fire Drake Talisman and maintain high stamina discipline. His second phase adds delay to all attacks — watch for the fire burst window and guard counter into it immediately after.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">← Boss Tips</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips →</button>
+  </div>
+</section>
+
+<!-- QUICK TIPS -->
+<section id="tips">
+  <h2>Quick Tips &amp; Reference</h2>
+  <div class="section-rule"></div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-title">Get Barricade Shield First</div>
+      <p>Night's Cavalry, Weeping Peninsula. Night only. This AoW makes any shield viable for the entire early game. Top priority before anything else.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Flash Block Always</div>
+      <p>Never hold block constantly. Raise your shield only as attacks arrive. Releasing between hits triples your stamina recovery rate and keeps you in the fight.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Guard Counter Immediately</div>
+      <p>The moment a blocked attack resolves, press Heavy Attack. Don't pause. The guard counter window is generous but the faster you transition, the better the posture damage.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Dodge Every Grab</div>
+      <p>Shields do nothing against grab attacks. Learn every boss's grab animation — it's usually a slow wind-up or a distinct roar. When in doubt and you see a grab, roll backward.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Two-Hand for STR Requirements</div>
+      <p>Two-handing multiplies your Strength by 1.5 for requirement purposes. 32 STR two-handed = 48 STR — enough to wield the Fingerprint Stone Shield immediately.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Swap Talismans Per Boss</div>
+      <p>Keep a full bag of Drake Talismans. Fire Giant → Fire Drake. Maliketh → Holy Drake. Don't go in with a general setup against elemental specialists.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Scadutree Fragments — DLC</div>
+      <p>Collect every Scadutree Fragment before fighting DLC bosses. They scale your damage and damage negation directly. Without them, the DLC feels impossible even on a fully optimised tank.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Medium Roll at All Times</div>
+      <p>Stay below 70% equip load. Fat-rolling is a death sentence when grab animations appear. Use Great-Jar's Arsenal and Erdtree's Favor +2 to keep the Fingerprint Shield and Bull-Goat in medium range.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Upgrade Your Shield First</div>
+      <p>In the early game, upgrade your shield before your weapon. A +4 Brass Shield blocks dramatically more stamina damage than a +0 one. Visit Smithing Master Hewg at Roundtable Hold early.</p>
+    </div>
+  </div>
+
+  <h3>Item Location Quick Reference</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th>Location</th></tr>
+    <tr><td class="highlight">Fingerprint Stone Shield</td><td>Cathedral of the Forsaken, Subterranean Shunning Grounds</td></tr>
+    <tr><td class="highlight">Giant Crusher</td><td>Carriage near Outer Wall Phantom Tree, Altus Plateau</td></tr>
+    <tr><td class="highlight">Bull-Goat Set</td><td>Kill Great Horned Tragoth at Ruin-Strewn Precipice Overlook</td></tr>
+    <tr><td class="highlight">Barricade Shield AoW</td><td>Night's Cavalry, Weeping Peninsula (night patrol)</td></tr>
+    <tr><td class="highlight">Green Turtle Talisman</td><td>Sealed chest, Summonwater Village, Limgrave</td></tr>
+    <tr><td class="highlight">Greatshield Talisman</td><td>Carriage chest near Erdtree-Gazing Hill, Altus Plateau</td></tr>
+    <tr><td class="highlight">Great-Jar's Arsenal</td><td>Complete Great-Jar's three-duel challenge, north Caelid</td></tr>
+    <tr><td class="highlight">Curved Sword Talisman</td><td>Foot of the Four Belfries, Liurnia</td></tr>
+    <tr><td class="highlight">Troll's Roar AoW</td><td>Rock southeast of Church of Repose, Mountaintops of the Giants</td></tr>
+    <tr><td class="highlight">Cross-Naginata</td><td>Corpse near Giant Land Octopus, Gael Tunnel, Caelid</td></tr>
+    <tr><td class="highlight">Brass Shield</td><td>Rare drop from Godrick Soldiers (Stormveil area) holding it</td></tr>
+    <tr><td class="highlight">Mimic Tear</td><td>Chest behind imp fog gate, Night's Sacred Ground, Nokron</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">← DLC</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <span></span>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Blood Guides</p>
+</footer>
+
+<script>
+// FAB visibility
+window.addEventListener('scroll', () => {
+  document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
+});
+
+// Tab switching
+function switchTab(e, id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+</body>
+</html>
