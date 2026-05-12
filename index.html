@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blood Guides — Elden Ring Build Guides</title>
-  <meta name="description" content="In-depth Elden Ring build guides. Tested, optimised, and explained clearly for every playstyle.">
+  <title>Blood Guides — In-Depth Gaming Build Guides</title>
+  <meta name="description" content="Comprehensive build guides, walkthroughs, and tips for action RPGs. Clear, tested, and no fluff.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <style>
@@ -45,23 +46,29 @@
       padding: 0 2rem;
       display: flex;
       align-items: center;
-      gap: 0;
     }
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
       font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--accent-gold);
       text-decoration: none;
-      padding: 1rem 1.5rem 1rem 0;
+      padding: 0.85rem 1.5rem 0.85rem 0;
       border-right: 1px solid var(--border);
       margin-right: 1rem;
       white-space: nowrap;
       letter-spacing: 0.04em;
     }
+    .nav-logo svg {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 0;
       flex-wrap: wrap;
     }
     .nav-links a {
@@ -70,7 +77,7 @@
       color: var(--text-primary);
       text-decoration: none;
       font-family: 'Cinzel', serif;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       transition: color 0.15s;
@@ -89,36 +96,44 @@
       background: #0f0c17;
       border: 1px solid var(--border);
       border-top: 2px solid var(--accent-gold);
-      min-width: 220px;
+      min-width: 230px;
       list-style: none;
       z-index: 200;
     }
     .nav-links li:hover ul { display: block; }
     .nav-links li ul a {
       padding: 0.65rem 1.2rem;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       border-bottom: 1px solid var(--border);
     }
     .nav-links li ul li:last-child a { border-bottom: none; }
     .nav-links li ul a:hover { background: var(--bg-secondary); color: var(--accent-gold); }
 
-    /* ── HEADER ── */
+    /* ── HERO ── */
     header {
       background: var(--bg-secondary);
-      padding: 3rem 2rem;
+      padding: 3.5rem 2rem;
       text-align: center;
       border-bottom: 1px solid var(--border);
     }
+    .hero-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .hero-logo svg { width: 52px; height: 52px; }
     header h1 {
       font-family: 'Cinzel', serif;
       font-size: 2.8rem;
       color: var(--accent-gold);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
+      letter-spacing: 0.06em;
     }
     header p {
       color: var(--text-secondary);
       font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
 
     /* ── MAIN ── */
@@ -129,15 +144,15 @@
       padding: 0 2rem;
       flex: 1;
     }
+    .section { margin-bottom: 3rem; }
     h2 {
       font-family: 'Cinzel', serif;
       color: var(--accent-gold);
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       margin-bottom: 1.5rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border);
     }
-    .section { margin-bottom: 3rem; }
     .guide-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -181,6 +196,9 @@
       padding: 1.5rem;
       border: 1px dashed var(--border);
       border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* ── FOOTER ── */
@@ -191,8 +209,6 @@
       font-size: 0.85rem;
       border-top: 1px solid var(--border);
     }
-    footer a { color: var(--text-secondary); text-decoration: none; }
-    footer a:hover { color: var(--accent-gold); }
   </style>
 </head>
 <body>
@@ -200,34 +216,52 @@
 <!-- NAVIGATION -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="/">Blood Guides</a>
+    <a class="nav-logo" href="/">
+      <!-- Inline sword logo -->
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="6" x2="32" y2="50" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="18" y1="26" x2="46" y2="26" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="32" cy="55" r="4.5" fill="#c9a84c"/>
+        <ellipse cx="32" cy="8" rx="4.5" ry="5.5" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
     <ul class="nav-links">
       <li><a href="/" class="active">Home</a></li>
       <li>
         <a href="#">Elden Ring ▾</a>
         <ul>
           <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
-          <!-- Add new guides here -->
+          <!-- New Elden Ring guides go here -->
         </ul>
       </li>
       <li><a href="#">Builds</a></li>
       <li><a href="#">Walkthroughs</a></li>
       <li><a href="#">Tips &amp; Mechanics</a></li>
+      <li><a href="#">All Games</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- HEADER -->
+<!-- HERO -->
 <header>
-  <h1>Blood Guides</h1>
-  <p>In-depth Elden Ring build guides. No fluff, just what works.</p>
+  <div class="hero-logo">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <line x1="32" y1="6" x2="32" y2="50" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+      <line x1="18" y1="26" x2="46" y2="26" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="32" cy="55" r="4.5" fill="#c9a84c"/>
+      <ellipse cx="32" cy="8" rx="4.5" ry="5.5" fill="#8b1a1a"/>
+    </svg>
+    <h1>Blood Guides</h1>
+  </div>
+  <p>In-depth build guides and walkthroughs. No fluff, just what works.</p>
 </header>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <main>
 
   <div class="section">
-    <h2>Elden Ring — Featured Builds</h2>
+    <h2>Elden Ring — Builds</h2>
     <div class="guide-grid">
 
       <a class="guide-card" href="/samurai-bleed-build/">
@@ -236,7 +270,7 @@
         <p>Dual katanas, Rivers of Blood, and Nagakiba variants. The definitive bleed guide.</p>
       </a>
 
-      <div class="coming-soon">More builds coming soon — Rivers of Blood, Moonveil Mage, and more.</div>
+      <div class="coming-soon">Rivers of Blood, Moonveil Mage, and more — coming soon.</div>
 
     </div>
   </div>
