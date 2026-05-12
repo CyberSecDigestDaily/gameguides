@@ -114,10 +114,82 @@
     background: rgba(192,57,43,0.08);
   }
 
-  /* NAV */
-  nav {
+  /* SITE NAV */
+  .site-nav {
+    background: #0f0c17;
+    border-bottom: 2px solid var(--gold);
     position: sticky;
     top: 0;
+    z-index: 200;
+  }
+  .site-nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .site-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    text-decoration: none;
+    padding: 0.8rem 1.2rem 0.8rem 0;
+    border-right: 1px solid var(--border);
+    margin-right: 0.8rem;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .site-nav-logo svg { width: 24px; height: 24px; flex-shrink: 0; }
+  .site-nav-links {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+  .site-nav-links a {
+    display: block;
+    padding: 0.85rem 1rem;
+    color: var(--text2);
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.15s;
+    white-space: nowrap;
+  }
+  .site-nav-links a:hover { color: var(--gold); }
+  .site-nav-links li { position: relative; }
+  .site-nav-links li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #0f0c17;
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    min-width: 220px;
+    list-style: none;
+    z-index: 300;
+  }
+  .site-nav-links li:hover ul { display: block; }
+  .site-nav-links li ul a {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.7rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+  }
+  .site-nav-links li ul li:last-child a { border-bottom: none; }
+  .site-nav-links li ul a:hover { background: #1f1c2e; color: var(--gold); }
+  .site-nav-links .active { color: var(--gold); }
+
+  /* IN-PAGE NAV */
+  nav {
+    position: sticky;
+    top: 52px;
     z-index: 100;
     background: rgba(22,18,30,0.98);
     border-bottom: 2px solid var(--border);
@@ -714,6 +786,35 @@
 </head>
 <body>
 <div id="page-top"></div>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#" class="active">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+  </div>
+</header>
+
 <button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">&#8593; Top</button>
 
 <!-- HERO -->
