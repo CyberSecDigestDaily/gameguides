@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elden Ring – Samurai Bleed Build | Complete Guide 2026</title>
+<title>Elden Ring Samurai Bleed Build | Complete Guide 2026</title>
+<meta name="description" content="The definitive Elden Ring Samurai Bleed build guide. Best katanas, Ashes of War, talismans and combat tactics for Dex/Arc bleed. Updated for Shadow of the Erdtree.">
+<meta property="og:title" content="Elden Ring Samurai Bleed Build | Complete Guide 2026">
+<meta property="og:description" content="The definitive Elden Ring Samurai Bleed build guide. Best katanas, talismans and combat tactics for Dex/Arc bleed. Updated for Shadow of the Erdtree.">
+<meta property="og:url" content="https://bloodguides.pages.dev/samurai-bleed-build/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elden Ring Samurai Bleed Build | Complete Guide 2026">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -18,6 +28,8 @@
     --text: #f0ead8;
     --text2: #c8bfb0;
     --text3: #d0c8bc;
+    --blue: #5b8fd4;
+    --green: #5db87a;
     --glow: rgba(224, 80, 64, 0.2);
     --glow2: rgba(212, 168, 76, 0.15);
   }
@@ -776,11 +788,88 @@
     background: var(--surface);
   }
 
+  /* SECTION RULE */
+  .section-rule {
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent2), var(--gold), transparent);
+    margin-bottom: 28px;
+    margin-top: 4px;
+  }
+
+  /* QUICK TIPS GRID */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .tip-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--gold);
+    padding: 16px 18px;
+  }
+  .tip-card .tip-title {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .tip-card p { font-size: 16px; margin: 0; color: var(--text2); }
+
+  /* QUICK REFERENCE TABLE */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    margin: 16px 0;
+  }
+  .data-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text2);
+    padding: 10px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .data-table td.highlight {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    color: var(--gold);
+    background: var(--surface);
+    white-space: nowrap;
+  }
+  .data-table tr:hover td { background: var(--surface2); }
+
+  /* CALLOUT COLOUR VARIANTS */
+  .callout.blue {
+    border-left-color: var(--blue);
+    background: rgba(91,143,212,0.06);
+  }
+  .callout.blue .callout-title { color: var(--blue); }
+  .callout.green {
+    border-left-color: var(--green);
+    background: rgba(93,184,122,0.06);
+  }
+  .callout.green .callout-title { color: var(--green); }
+
   /* RESPONSIVE */
   @media (max-width: 600px) {
     .route-item { grid-template-columns: 1fr; gap: 4px; }
     .immunity-list { column-count: 1; }
     h2 { font-size: 16px; }
+    .tips-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -805,6 +894,7 @@
         <a href="#" class="active">Elden Ring ▾</a>
         <ul>
           <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
         </ul>
       </li>
       <li><a href="/">Builds</a></li>
@@ -844,6 +934,8 @@
     <li><button onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">Combat</button></li>
     <li><button onclick="document.getElementById('route').scrollIntoView({behavior:'smooth'})">Item Route</button></li>
     <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Notes</button></li>
+    <li><button onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">DLC</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
   </ul>
 </nav>
 
@@ -852,6 +944,7 @@
 <!-- ═══════════ OVERVIEW ═══════════ -->
 <section id="overview">
   <h2><span class="icon">⚔</span> Build Overview & Philosophy</h2>
+  <div class="section-rule"></div>
 
   <p>The Samurai Bleed build is widely considered one of the strongest archetypes in all of Elden Ring — not just in the base game, but including Shadow of the Erdtree. It combines the <strong>hemorrhage status effect</strong> (which removes a flat percentage of an enemy's maximum HP on trigger) with fast katana attack strings and high Arcane investment to cycle procs at an almost obscene rate.</p>
 
@@ -917,6 +1010,7 @@
 <!-- ═══════════ STATS ═══════════ -->
 <section id="stats">
   <h2><span class="icon">◈</span> Starting Class & Stat Distribution</h2>
+  <div class="section-rule"></div>
 
   <p><strong>Recommended Class: Samurai.</strong> No other starting class matches this for a bleed build. The Samurai starts with the <strong>Uchigatana</strong> (a bleed-capable weapon), strong Dexterity, and respectable Vigor. The starting Land of Reeds armor is functional, and you have a Longbow for pulling enemies. This is not a close contest.</p>
 
@@ -964,6 +1058,7 @@
 <!-- ═══════════ WEAPONS ═══════════ -->
 <section id="weapons">
   <h2><span class="icon">刀</span> Weapons</h2>
+  <div class="section-rule"></div>
   <p>Every weapon listed here works across multiple stages. The <strong>Uchigatana</strong> can genuinely carry you to the final boss. Use the tier ratings to understand priority, not necessity.</p>
 
   <h3>Tier S — Endgame Powerhouses</h3>
@@ -1059,6 +1154,7 @@
 <!-- ═══════════ ASHES OF WAR ═══════════ -->
 <section id="aow">
   <h2><span class="icon">✦</span> Ashes of War</h2>
+  <div class="section-rule"></div>
 
   <h3>Priority Acquisitions</h3>
   <div class="card-grid">
@@ -1097,6 +1193,7 @@
 <!-- ═══════════ TALISMANS ═══════════ -->
 <section id="talismans">
   <h2><span class="icon">◉</span> Talismans</h2>
+  <div class="section-rule"></div>
 
   <h3>Core Four (Rivers of Blood / Dex-Arc Build)</h3>
   <div class="talisman-grid">
@@ -1155,6 +1252,7 @@
 <!-- ═══════════ ARMOR ═══════════ -->
 <section id="armor">
   <h2><span class="icon">◭</span> Armor</h2>
+  <div class="section-rule"></div>
 
   <p>Armor choice matters for two things: equip load (must stay under 70% of max for medium roll — the sweet spot for this build) and the specific helmet slot, where two pieces have direct offensive synergy.</p>
 
@@ -1213,6 +1311,7 @@
 <!-- ═══════════ BUFFS ═══════════ -->
 <section id="buffs">
   <h2><span class="icon">✧</span> Buffs, Incantations & Flask</h2>
+  <div class="section-rule"></div>
 
   <h3>Essential Incantations</h3>
   <table class="stat-table">
@@ -1275,6 +1374,7 @@
 <!-- ═══════════ COMBAT ═══════════ -->
 <section id="combat">
   <h2><span class="icon">☯</span> Combat Strategy</h2>
+  <div class="section-rule"></div>
 
   <h3>Core Principles</h3>
   <ul class="priority-list">
@@ -1307,6 +1407,7 @@
 <!-- ═══════════ ITEM ROUTE ═══════════ -->
 <section id="route">
   <h2><span class="icon">◆</span> Acquisition Route</h2>
+  <div class="section-rule"></div>
   <p>Follow this order to have the right items at the right time. Nothing here requires rushing — this is the natural exploration order of the game with deliberate detours.</p>
 
   <div class="route-item">
@@ -1356,6 +1457,7 @@
 <!-- ═══════════ BOSS NOTES ═══════════ -->
 <section id="bosses">
   <h2><span class="icon">☠</span> Boss Immunity & Resistance Notes</h2>
+  <div class="section-rule"></div>
   <p>Not every boss in Elden Ring is susceptible to bleed. Know this before going in.</p>
 
   <ul class="immunity-list">
@@ -1379,6 +1481,116 @@
   <h3>Malenia Strategy (Rivers of Blood)</h3>
   <p>Rivers of Blood Corpse Piler became famous specifically because of Malenia. She is designed around bleed — her healing on hit is difficult to counteract — but the trick is: <strong>Corpse Piler's range</strong> lets you initiate from mid-range, bypassing her aggressive combo starters. Start the Corpse Piler animation just before she closes, catching the faster portion of the combo. Two activations deals two Hemorrhage procs and often kills her before she can heal more than once. Keep Black Knife Tiche alive as long as possible to split her attention.</p>
 
+</section>
+
+<!-- ═══════════ DLC ═══════════ -->
+<section id="dlc">
+  <h2><span class="icon">✶</span> Shadow of the Erdtree</h2>
+  <div class="section-rule"></div>
+
+  <p>The bleed build remains one of the strongest archetypes in the DLC — arguably stronger than in the base game. The DLC introduces new weapons with innate bleed, higher-scaling Arcane gear, and enemies with substantial HP pools that make the percentage-based Hemorrhage mechanic even more potent.</p>
+
+  <div class="callout gold">
+    <div class="callout-title">Scadutree Fragments — Do This First</div>
+    Scadutree Fragments are the DLC's scaling system. They increase your damage output and damage negation — up to 20 stacks. Without them, even a fully optimised bleed build will feel underpowered against DLC bosses. Collect as many as you can find before engaging any DLC content. They are scattered throughout the Realm of Shadow as glowing items and rewards.
+  </div>
+
+  <h3>DLC Weapons Worth Grabbing</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-name">Euporia</div>
+      <div class="card-sub">Twinblade · Dex/Arc · Faith Touch</div>
+      <p>A holy-bleed hybrid twinblade with superb Arcane scaling. Requires a Faith investment to unlock its full potential but rewards it with exceptional damage. The running heavy attack pattern makes it a bleed machine comparable to the Godskin Peeler.</p>
+      <div class="location">📍 Shadow of the Erdtree — obtained during Miquella's questline progression.</div>
+    </div>
+    <div class="card">
+      <div class="card-name">Backhand Blade</div>
+      <div class="card-sub">Dagger · Dex · Unique Moveset</div>
+      <p>Unique Ash of War with exceptional backstep and attack combo. Can be paired with Blood affinity for an aggressive, mobile off-hand that constantly ticks bleed buildup. Excellent with the Rivers of Blood main-hand setup.</p>
+      <div class="location">📍 Early DLC area. Dropped by a Finger Maiden enemy near the starting region of the Realm of Shadow.</div>
+    </div>
+    <div class="card">
+      <div class="card-name">Messmer's Soldier Katana</div>
+      <div class="card-sub">Katana · Dex/Arc · Fire Bleed</div>
+      <p>A DLC katana that deals fire+bleed damage and scales well with Arcane. A natural upgrade path from the Uchigatana mid-DLC if you want something fresh. Bleed buildup is solid and the fire damage adds utility against resistant enemies.</p>
+      <div class="location">📍 Dropped by Messmer's Knight enemies throughout the DLC region.</div>
+    </div>
+  </div>
+
+  <h3>DLC Boss Notes</h3>
+  <p><strong>Messmer the Impaler</strong> — Highly susceptible to bleed. His phase two adds delay animations designed to bait your combo timing. Wait for his combos to fully resolve before initiating Corpse Piler. Rivers of Blood mid-range initiations are particularly effective here. Two full procs typically ends phase one.</p>
+
+  <p><strong>Romina, Saint of the Bud</strong> — Apply Seppuku before the fight and lead with Swarm of Flies for immediate buildup. She has wide sweep attacks but clear recovery windows. Her rot attacks can be avoided by staying close — the wide arc misses at melee range. Two Hemorrhage procs per phase is achievable with the classic Dex/Arc setup.</p>
+
+  <div class="callout">
+    <div class="callout-title">Scadutree Blessing Stacking</div>
+    At maximum Scadutree stacks, your Hemorrhage proc value increases substantially because your base damage increases — and Hemorrhage is partly based on weapon AR in addition to the flat HP percentage. Stack Fragments aggressively: the DLC is balanced around ~10–15 stacks minimum for mid-DLC bosses.
+  </div>
+</section>
+
+<!-- ═══════════ QUICK TIPS ═══════════ -->
+<section id="tips">
+  <h2><span class="icon">◈</span> Quick Tips & Reference</h2>
+  <div class="section-rule"></div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-title">Blood Affinity — Not Occult</div>
+      <p>Blood affinity adds both Arcane scaling AND increases blood loss buildup. Occult can match it in raw AR on some weapons but never beats it for bleed proc speed. Default to Blood unless testing proves otherwise.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Seppuku Timing</div>
+      <p>Apply Seppuku immediately before entering a boss fight, never mid-combat. The animation leaves you vulnerable. Budget ~30 seconds of uptime per application and reapply when the buff fades if the boss still lives.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Maintain Pressure — Buildup Decays</div>
+      <p>Blood loss buildup on enemies decays if you stop attacking for a few seconds. You must keep hitting. Read enemy animations for safe openings rather than waiting — this build punishes passivity.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Jump Attacks Stack Buildup</div>
+      <p>Jump attacks deal excellent stance damage and apply solid bleed. With Claw Talisman (+15%) and Raptor's Black Feathers (+10%), jump attacks become a 25% bonus damage option — strong for mid-game before Seppuku.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Corpse Piler Timing</div>
+      <p>The first hit of Corpse Piler is slow. Start the animation before the boss closes distance — you'll miss the first hit but land the faster follow-ups. Two activations typically procs Hemorrhage twice on a boss.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Hugging Large Bosses</div>
+      <p>Get in close to the chest of large enemies. Most of their arm and tail sweeps will miss entirely while you connect freely with katana attacks. This is especially effective on Dragon bosses.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">White Mask + Lord of Blood</div>
+      <p>White Mask (+10% attack when blood loss occurs nearby) stacks with Lord of Blood's Exultation (+20%). After a Hemorrhage proc you have a combined ~32% attack bonus window — unleash your heaviest combos immediately.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Arcane over Dexterity at Endgame</div>
+      <p>After ~45 Dexterity, invest in Arcane first. It simultaneously raises weapon AR and blood loss buildup value. If you hit Arcane 50 and have Faith 15, consider Golden Vow (Faith 25) over further Dex — it often outperforms additional stat points.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Elden Beast — Drop Bleed</div>
+      <p>Elden Beast is fully immune to bleed. For this fight, rely on raw weapon AR and your buff stack (Flame Grant Me Strength + Golden Vow). Rivers of Blood's fire + physical portions still deal damage — just no Hemorrhage procs.</p>
+    </div>
+  </div>
+
+  <h3>Item Location Quick Reference</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th>Location</th></tr>
+    <tr><td class="highlight">Rivers of Blood</td><td>Church of Repose, Mountaintops of the Giants — kill invader Bloody Finger Okina</td></tr>
+    <tr><td class="highlight">Seppuku AoW</td><td>Invisible Teardrop Scarab, frozen lake near Freezing Lake grace, Mountaintops of the Giants</td></tr>
+    <tr><td class="highlight">Uchigatana #2</td><td>Deathtouched Catacombs, northwest Limgrave — body at lower level</td></tr>
+    <tr><td class="highlight">Nagakiba</td><td>Kill Bloody Finger Hunter Yura near Murkwater Cave OR end of his questline (Altus Plateau)</td></tr>
+    <tr><td class="highlight">Reduvia</td><td>Kill invader Blood Finger Nerijus near Murkwater Cave, Limgrave (Yura assists)</td></tr>
+    <tr><td class="highlight">Bloodhound's Step AoW</td><td>Night's Cavalry on bridge near Lenne's Rise, Dragonbarrow (night only)</td></tr>
+    <tr><td class="highlight">Lord of Blood's Exultation</td><td>Chest past boss in Leyndell Catacombs (underground Leyndell)</td></tr>
+    <tr><td class="highlight">Rotten Winged Sword Insignia</td><td>Millicent questline completion reward (help her at the end)</td></tr>
+    <tr><td class="highlight">Shard of Alexander</td><td>Iron Fist Alexander questline — fight him at end in Crumbling Farum Azula</td></tr>
+    <tr><td class="highlight">White Mask</td><td>Defeat three hostile NPC invaders near Mohg's invasion site, Mountaintops of Giants</td></tr>
+    <tr><td class="highlight">Carian Filigreed Crest</td><td>Purchase from War Counselor Iji, northwest Liurnia (after Blaidd questline trigger)</td></tr>
+    <tr><td class="highlight">Bloodhound's Fang</td><td>Forlorn Hound Evergaol, south Limgrave</td></tr>
+    <tr><td class="highlight">Eleonora's Poleblade</td><td>Defeat invader Eleonora at Second Church of Marika, Altus Plateau (end of Yura questline)</td></tr>
+    <tr><td class="highlight">Godskin Peeler</td><td>Windmill Village Godskin Apostle, Altus Plateau</td></tr>
+    <tr><td class="highlight">Black Knife Tiche</td><td>Night's Sacred Ground, Ringleader's Evergaol, Mountaintops of Giants</td></tr>
+  </table>
 </section>
 
 <div class="divider"><span>⚔ Ranni's blessing upon your travels ⚔</span></div>
@@ -1410,6 +1622,8 @@
     { id: 'combat',     label: 'Combat' },
     { id: 'route',      label: 'Item Route' },
     { id: 'bosses',     label: 'Boss Notes' },
+    { id: 'dlc',        label: 'DLC' },
+    { id: 'tips',       label: 'Quick Tips' },
   ];
 
   /* ── Inject prev/next nav at bottom of every section ── */
