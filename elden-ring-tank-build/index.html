@@ -32,6 +32,18 @@
     radial-gradient(ellipse at 50% 100%, rgba(11,10,14,1) 40%,  transparent 100%),
     #16131f !important;
 }
+/* Wiki links */
+.wiki-link { display: inline-block; font-size: 11px; color: var(--gold); text-decoration: none; margin-left: 4px; opacity: .75; }
+.wiki-link:hover { opacity: 1; text-decoration: underline; }
+/* Levelling progression cards */
+.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
+.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
+.prog-header.mid { background: rgba(91,143,212,.15); color: var(--blue); }
+.prog-header.end { background: rgba(192,57,43,.15); color: var(--accent); }
+.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
+.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -232,16 +244,35 @@
 
   <div class="callout blue">
     <div class="callout-title">Key Breakpoints</div>
-    <p><strong>Level 25:</strong> 20 Dexterity — unlocks Cross-Naginata for the Spear variant. <strong>Level 100:</strong> 48 Strength — one-hands the Fingerprint Stone Shield. <strong>Level 150:</strong> PvP soft cap — stop here if you plan to invade or co-op.</p>
+    <p><strong>Strength 32:</strong> two-handing gives you effective 48 Str — enough to wield the Fingerprint Stone Shield immediately. <strong>Strength 48:</strong> one-hand requirement for Fingerprint Shield. <strong>Strength 80:</strong> Giant Crusher soft cap. <strong>Endurance 50:</strong> maximum equip load for Bull-Goat + Fingerprint without talisman dependency.</p>
   </div>
 
-  <h3>Classic Strength Tank — Stat Progression</h3>
+  <h3>Levelling Roadmap</h3>
+  <div class="progression-grid">
+    <div class="prog-stage">
+      <div class="prog-header early">🌱 Early Game — Levels 1–40</div>
+      <p><strong>Priority order:</strong> Vigor 30 → Endurance 25 → Strength 30 → Endurance 20</p>
+      <p>Endurance is your stamina bar — as a tank, this is effectively your second HP pool. Get it to 20 immediately. Strength 30 covers most early-game weapons. Pick up the Green Turtle Talisman in Limgrave early — stamina recovery is everything right now.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header mid">⚔️ Mid Game — Levels 40–80</div>
+      <p><strong>Priority order:</strong> Strength 48 → Vigor 40 → Endurance 35</p>
+      <p>Strength 48 lets you one-hand the Fingerprint Stone Shield. Note: two-handing gives effective 48 Str at just 32 — use this shortcut to get peak gear early while still levelling Strength. Push Endurance to 35 for the stamina pool needed to survive boss combos.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header end">🔥 End Game — Levels 80–150</div>
+      <p><strong>Priority order:</strong> Vigor 60 → Strength 80 → Endurance 50 → Faith 20</p>
+      <p>Vigor 60 is non-negotiable for endgame content even as a tank — chip damage accumulates. Strength 80 is the Giant Crusher soft cap. Endurance 50 covers full Bull-Goat + Fingerprint load. Faith 20 unlocks Black Flame's Protection and Golden Vow.</p>
+    </div>
+  </div>
+
+  <h3>Classic Strength Tank — Stat Reference</h3>
   <table class="data-table">
     <tr><th>Stat</th><th>Lv 50</th><th>Lv 100</th><th>Lv 150</th><th>Why</th></tr>
     <tr><td>Vigor</td><td>30</td><td>40</td><td class="highlight">60</td><td>Even tanks take chip damage. Don't stop at 40.</td></tr>
     <tr><td>Mind</td><td>9</td><td>9</td><td>18</td><td>Only if casting incantations — otherwise ignore.</td></tr>
     <tr><td>Endurance</td><td>20</td><td>30</td><td class="highlight">50</td><td>Governs stamina and equip load — your lifeblood.</td></tr>
-    <tr><td>Strength</td><td>30</td><td class="highlight">48</td><td>80</td><td>48 = Fingerprint Shield. 80 = Giant Crusher soft cap.</td></tr>
+    <tr><td>Strength</td><td>30</td><td class="highlight">48</td><td>80</td><td>48 = Fingerprint Shield one-hand. 80 = Giant Crusher soft cap.</td></tr>
     <tr><td>Dexterity</td><td>10</td><td>10</td><td>10</td><td>Minimum only. Do not invest further.</td></tr>
     <tr><td>Intelligence</td><td>7</td><td>7</td><td>7</td><td>Dump stat entirely.</td></tr>
     <tr><td>Faith</td><td>8</td><td>8</td><td>20</td><td>Only if using Golden Vow / Black Flame Protection.</td></tr>
@@ -265,60 +296,82 @@
   <h2>Shields</h2>
   <div class="section-rule"></div>
 
-  <p>The shield is the most important piece of equipment in this build — more important than your weapon. Two stats determine a shield's blocking effectiveness:</p>
+  <p>The shield is the most important piece of equipment in this build — more important than your weapon. Two stats determine a shield's blocking effectiveness: <strong>Guard Boost</strong> (how little stamina you lose per blocked hit) and <strong>Guarded Damage Negation</strong> (how much damage is absorbed). Your shield choices evolve significantly across the game.</p>
 
-  <p><strong>Guard Boost</strong> — how much stamina you lose per blocked hit. The higher the number, the less stamina is consumed. At 100 guard boost, you lose almost nothing on a block.</p>
-  <p><strong>Guarded Damage Negation</strong> — what percentage of incoming damage is absorbed. Physical can reach 100% on greatshields. Elemental damage will always chip through to some degree.</p>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'shields-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'shields-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'shields-end')">🔥 End Game</button>
+  </div>
 
-  <h3>Shield Tier List</h3>
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag red">S-Tier · Endgame</div>
-      <div class="item-name">Fingerprint Stone Shield</div>
-      <p>The best shield in the game. Highest guard boost and physical damage negation of any shield. At max upgrade it reaches 86 guard boost — combine with the Greatshield Talisman and you barely spend stamina on blocks.</p>
-      <div class="item-stat">Guard Boost: 77 base → 86 upgraded · Physical: 100% · STR 48 · Weight: 29</div>
-      <div class="item-stat">📍 Cathedral of the Forsaken / Subterranean Shunning Grounds</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag">A-Tier · Early–Mid</div>
-      <div class="item-name">Brass Shield</div>
-      <p>The best medium shield in the game and the go-to for the first half of your playthrough. Its guard boost rivals many greatshields while being lighter and not requiring heavy Strength investment. Excellent for guard counters.</p>
-      <div class="item-stat">Guard Boost: 56 · Physical: 100% · STR 16 · Weight: 7</div>
-      <div class="item-stat">📍 Rare drop from Godrick Soldiers holding the shield (Stormveil area)</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag blue">A-Tier · Offensive</div>
-      <div class="item-name">Visage Shield</div>
-      <p>A greatshield with the Tongues of Fire Ash of War — it breathes fire while you remain in a guarded position, dealing damage and stance damage to enemies pressing against you. Pair with Shard of Alexander for massive skill damage.</p>
-      <div class="item-stat">Guard Boost: 75 · STR 44 · Weight: 24</div>
-      <div class="item-stat">📍 Chest in Caelem Ruins, Caelid (after Mad Pumpkin Head Duo)</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag blue">A-Tier · Offensive</div>
-      <div class="item-name">One-Eyed Shield</div>
-      <p>A greatshield with Flame Spit, which launches a fireball from the barrel of the shield. Exceptional burst damage on AoW use. Weaker guard boost than the Fingerprint but adds significant offensive utility.</p>
-      <div class="item-stat">Guard Boost: 67 · STR 36 · Weight: 20.5</div>
-      <div class="item-stat">📍 Chief Guardian Arghanthy, Guardian's Garrison, Mountaintop of the Giants</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag green">B-Tier · Healer Variant</div>
-      <div class="item-name">Icon Shield</div>
-      <p>The choice for the Healer Tank variant. Passively restores 3HP per second while equipped — small but meaningful over a long fight. Much lower STR requirement makes it accessible far earlier than the Fingerprint.</p>
-      <div class="item-stat">Guard Boost: 53 · STR 22 · Passive: +3HP/sec</div>
-      <div class="item-stat">📍 Woodfolk Ruins, Altus Plateau</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag">B-Tier · Early</div>
-      <div class="item-name">Great Turtle Shell</div>
-      <p>Increases stamina recovery speed while equipped. Useful on your back slot while you wield a weapon two-handed — the passive stamina regen helps you recover faster between shield raises.</p>
-      <div class="item-stat">Guard Boost: 49 · STR 14 · Passive: faster stamina recovery</div>
-      <div class="item-stat">📍 Sold by Miriel, Pastor of Vows at Church of Vows</div>
+  <div class="tab-panel active" id="tab-shields-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>The Barricade Shield Ash of War is the single highest-priority pickup in the early game. Apply it to any shield and you can block effectively for the entire first third of the game.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Get This First — Most Important Early Pickup</div>
+        <div class="item-name">Any Shield + Barricade Shield AoW</div>
+        <p>Before you have access to great shields, apply the Barricade Shield Ash of War to any medium shield — even the basic Heater Shield. It temporarily massively boosts your shield's guard boost and hardness, letting you block Margit's attacks with almost no stamina loss. Available from Night's Cavalry in Weeping Peninsula — patrol at night only.</p>
+        <div class="item-stat">Apply to: Heater Shield (STR 8) or any medium shield · Patrol: Weeping Peninsula at night</div>
+        <div class="item-stat">📍 Night's Cavalry patrol, Weeping Peninsula (night only) <a href="https://eldenring.wiki.fextralife.com/Barricade+Shield" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">A-Tier · Best Medium Shield</div>
+        <div class="item-name">Brass Shield</div>
+        <p>The best medium shield in the game. Its guard boost rivals many greatshields while being significantly lighter and requiring far less Strength. 100% physical negation. Farm this from Godrick Soldiers holding the shield in Stormveil Castle — it makes early-game blocking effortless.</p>
+        <div class="item-stat">Guard Boost: 56 · Physical: 100% · STR 16 · Weight: 7</div>
+        <div class="item-stat">📍 Rare drop from Godrick Soldiers holding the shield, Stormveil Castle area <a href="https://eldenring.wiki.fextralife.com/Brass+Shield" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Stamina Passive</div>
+        <div class="item-name">Great Turtle Shell</div>
+        <p>Increases stamina recovery speed while equipped. Useful as a passive — keep it on your back slot while two-handing your weapon. The stamina regen helps you recover faster between shield raises, especially in extended fights.</p>
+        <div class="item-stat">Guard Boost: 49 · STR 14 · Passive: faster stamina recovery</div>
+        <div class="item-stat">📍 Sold by Miriel, Pastor of Vows at Church of Vows <a href="https://eldenring.wiki.fextralife.com/Great+Turtle+Shell" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
-  <div class="callout red">
-    <div class="callout-title">Barricade Shield — Early Game Lifesaver</div>
-    <p>Before you have access to the Fingerprint Stone Shield, apply the <strong>Barricade Shield Ash of War</strong> to any medium or greatshield. It temporarily massively boosts your shield's guard boost and hardness. You can get it from the Night's Cavalry in Weeping Peninsula very early in the game. Slap it on a Heater Shield and you can block Margit's attacks with almost no stamina loss.</p>
+  <div class="tab-panel" id="tab-shields-mid">
+    <h3>Mid Game — Caelid through Mountaintops</h3>
+    <p>Two offensive greatshields become available. The Visage Shield and One-Eyed Shield both let you deal damage while staying in a guarded position — useful if you want offensive utility before reaching the Fingerprint Stone Shield.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag blue">Offensive Option</div>
+        <div class="item-name">Visage Shield</div>
+        <p>A greatshield with the Tongues of Fire Ash of War — it breathes fire while you remain guarded, dealing damage and stance damage to enemies pressing against you. Pair with Shard of Alexander for substantial skill damage. A fun mid-game option if you want to punish enemies for pushing into your shield.</p>
+        <div class="item-stat">Guard Boost: 75 · STR 44 · Weight: 24</div>
+        <div class="item-stat">📍 Chest in Caelem Ruins, Caelid (after Mad Pumpkin Head Duo) <a href="https://eldenring.wiki.fextralife.com/Visage+Shield" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Offensive Option</div>
+        <div class="item-name">One-Eyed Shield</div>
+        <p>A greatshield with Flame Spit — launches a fireball from the barrel of the shield. Exceptional burst damage on AoW use. Weaker guard boost than the Fingerprint but adds significant offensive range. Available in Mountaintops of the Giants.</p>
+        <div class="item-stat">Guard Boost: 67 · STR 36 · Weight: 20.5</div>
+        <div class="item-stat">📍 Dropped by Chief Guardian Arghanthy, Guardian's Garrison, Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/One-Eyed+Shield" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag green">Healer Variant Only</div>
+        <div class="item-name">Icon Shield</div>
+        <p>Passively restores 3HP per second while equipped — small but meaningful over a long fight. The choice for the Healer Tank variant. Much lower STR requirement makes it accessible far earlier than the Fingerprint.</p>
+        <div class="item-stat">Guard Boost: 53 · STR 22 · Passive: +3HP/sec</div>
+        <div class="item-stat">📍 Woodfolk Ruins, Altus Plateau <a href="https://eldenring.wiki.fextralife.com/Icon+Shield" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-shields-end">
+    <h3>End Game — Subterranean Shunning Grounds</h3>
+    <p>The Fingerprint Stone Shield is the undisputed best shield in the game. Once you have it, combined with the Greatshield Talisman, blocking feels nearly stamina-free against physical attacks.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">S-Tier · Best in Game</div>
+        <div class="item-name">Fingerprint Stone Shield</div>
+        <p>The definitive tank shield. Highest guard boost and physical damage negation of any shield in the game. At max upgrade it reaches 86 guard boost — combine with the Greatshield Talisman (+20% stamina reduction on blocks) and you barely spend any stamina blocking most attacks. Requires Strength 48 (or 32 two-handed).</p>
+        <div class="item-stat">Guard Boost: 77 base → 86 upgraded · Physical: 100% · STR 48 · Weight: 29</div>
+        <div class="item-stat">📍 Cathedral of the Forsaken, Subterranean Shunning Grounds (below Leyndell) <a href="https://eldenring.wiki.fextralife.com/Fingerprint+Stone+Shield" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
   </div>
 
   <div class="section-footer">
@@ -333,55 +386,81 @@
   <h2>Weapons</h2>
   <div class="section-rule"></div>
 
-  <p>Weapon choice depends on which variant you're running. Colossal weapons maximise stance damage and poise-breaking. Thrusting weapons allow attacking while blocking. Both approaches are valid — choose what fits your rhythm.</p>
+  <p>Weapon choice depends on which variant you're running. Colossal weapons maximise stance damage and poise-breaking. Thrusting weapons allow attacking while blocking. Both approaches are valid — choose what fits your rhythm. Your weapons evolve significantly across the game.</p>
 
-  <h3>Colossal &amp; Greatsword Options</h3>
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag red">S-Tier · Late Game</div>
-      <div class="item-name">Giant Crusher</div>
-      <p>The pinnacle weapon for the Classic Strength Tank. Made from a boulder — it hits like one. Paired with Troll's Roar, it generates a shockwave that knocks back surrounding enemies and frequently staggers bosses in two hits. One of the highest stance damage weapons in the game.</p>
-      <div class="item-stat">STR 60 · Scales: C Strength · AoW: Troll's Roar (recommended)</div>
-      <div class="item-stat">📍 Carriage near Outer Wall Phantom Tree site of grace, Altus Plateau</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag">A-Tier · Early–Mid</div>
-      <div class="item-name">Lordsworn's Greatsword</div>
-      <p>Your best early-game weapon. Found immediately in Limgrave, infuses with Heavy for strong Strength scaling, and its default Ash of War — Stamp: Upward Cut — gives you a moment of hyper armour, letting you take a hit while dealing massive posture damage back.</p>
-      <div class="item-stat">STR 16 / DEX 10 · Scales well with Heavy infusion · AoW: Stamp Upward Cut</div>
-      <div class="item-stat">📍 Chest in a carriage west of Gatefront Ruins, Limgrave</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag">A-Tier · All Game</div>
-      <div class="item-name">Greatsword</div>
-      <p>The classic colossal sword. Enormous damage, excellent stance-breaking, and an iconic two-handed moveset. Slower than the Lordsworn's but hits proportionally harder. With Heavy infusion and high Strength it becomes a boss-deleting machine.</p>
-      <div class="item-stat">STR 31 / DEX 12 · Heavy infusion recommended · AoW: Lion's Claw (recommended)</div>
-      <div class="item-stat">📍 Chest guarded by an Exile soldier in Caelid, southeast of Rotview Balcony</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag green">A-Tier · Healer Variant</div>
-      <div class="item-name">Great Stars</div>
-      <p>A great hammer with innate bleed buildup and a unique passive — it heals you slightly on every hit. Since you're staying close to enemies and trading blows, you land charged attacks frequently, healing while you deal damage. Works beautifully with the Healer Tank variant.</p>
-      <div class="item-stat">STR 22 / DEX 12 · Passive: heals 4HP on hit · Innate bleed</div>
-      <div class="item-stat">📍 Lying on a corpse suspended in chains in Leyndell, Royal Capital</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'weapons-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-weapons-early">
+    <h3>Early Game — Limgrave</h3>
+    <p>The Lordsworn's Greatsword is available immediately and is the best early-game weapon for this build. Infuse it Heavy as soon as you find the Whetstone Knife.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best Early Weapon — Get Immediately</div>
+        <div class="item-name">Lordsworn's Greatsword (Heavy)</div>
+        <p>Found in a carriage right at the start of the game, west of Gatefront Ruins. Infuse Heavy for strong Strength scaling. Its default Ash of War — Stamp: Upward Cut — gives you hyper armour, letting you take a hit while dealing massive posture damage back. This weapon carries you through the entire early game.</p>
+        <div class="item-stat">STR 16 / DEX 10 · Heavy infusion · AoW: Stamp Upward Cut (default)</div>
+        <div class="item-stat">📍 Chest in a carriage west of Gatefront Ruins, Limgrave <a href="https://eldenring.wiki.fextralife.com/Lordsworn's+Greatsword" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Hero Starting Weapon</div>
+        <div class="item-name">Battle Axe (Heavy)</div>
+        <p>The Hero's starting weapon. Reliable and effective early — infuse Heavy immediately. Good enough to clear Limgrave and Stormveil. Replace it with the Lordsworn's Greatsword the moment you find it. If you want to stick with a faster weapon rhythm, the axe works through Liurnia before transitioning.</p>
+        <div class="item-stat">STR 14 / DEX 8 · Heavy infusion · AoW: Stamp Upward Cut</div>
+        <div class="item-stat">📍 Starting equipment for Hero class <a href="https://eldenring.wiki.fextralife.com/Battle+Axe" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
-  <h3>Thrusting Weapons (Spear Variant)</h3>
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag blue">S-Tier · Spear Variant</div>
-      <div class="item-name">Cross-Naginata (Occult)</div>
-      <p>The definitive Spear Tank weapon. With Occult infusion and the Seppuku Ash of War, it builds bleed extraordinarily quickly while still allowing you to attack behind your shield. The bleed procs — combined with Lord of Blood's Exultation and the White Mask — create massive damage windows.</p>
-      <div class="item-stat">STR 16 / DEX 20 · Occult infusion + Seppuku AoW · Innate bleed</div>
-      <div class="item-stat">📍 Corpse near a Giant Land Octopus in Gael Tunnel, Caelid</div>
+  <div class="tab-panel" id="tab-weapons-mid">
+    <h3>Mid Game — Caelid through Altus Plateau</h3>
+    <p>Three strong options open up here. The Greatsword is a pure upgrade over the Lordsworn's. Giant Crusher becomes available in Altus — earlier than many players expect. Cross-Naginata is the Spear variant's core weapon.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Colossal Upgrade</div>
+        <div class="item-name">Greatsword (Heavy)</div>
+        <p>The classic colossal sword. Enormous damage, excellent stance-breaking, iconic two-handed moveset. Slower than the Lordsworn's but hits proportionally harder. With Heavy infusion and high Strength it becomes a boss-deleting machine. Found in Caelid — accessible once you reach that region.</p>
+        <div class="item-stat">STR 31 / DEX 12 · Heavy infusion recommended · AoW: Lion's Claw (recommended)</div>
+        <div class="item-stat">📍 Chest guarded by an Exile soldier in Caelid, southeast of Rotview Balcony <a href="https://eldenring.wiki.fextralife.com/Greatsword" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag red">Healer Variant</div>
+        <div class="item-name">Great Stars</div>
+        <p>A great hammer with innate bleed and a unique passive — it heals you slightly on every hit. Since you're staying close and trading blows, you land charged attacks frequently, healing while you deal damage. The cornerstone of the Healer Tank variant. Found in Leyndell.</p>
+        <div class="item-stat">STR 22 / DEX 12 · Passive: heals 4HP on hit · Innate bleed</div>
+        <div class="item-stat">📍 Corpse suspended in chains in Leyndell, Royal Capital <a href="https://eldenring.wiki.fextralife.com/Great+Stars" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Spear Variant Core Weapon</div>
+        <div class="item-name">Cross-Naginata (Occult + Seppuku)</div>
+        <p>The definitive Spear Tank weapon. With Occult infusion and Seppuku Ash of War, it builds bleed extraordinarily quickly while allowing you to attack behind your shield. The bleed procs combined with Lord of Blood's Exultation and the White Mask create massive damage windows every few hits.</p>
+        <div class="item-stat">STR 16 / DEX 20 · Occult infusion + Seppuku AoW · Innate bleed</div>
+        <div class="item-stat">📍 Corpse near a Giant Land Octopus in Gael Tunnel, Caelid <a href="https://eldenring.wiki.fextralife.com/Cross-Naginata" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag blue">A-Tier · Late Game</div>
-      <div class="item-name">Mohgwyn's Sacred Spear</div>
-      <p>A late-game reward with the incredible Bloodboon Ritual AoW — it applies bleed to all nearby enemies simultaneously while buffing the weapon with fire damage. Against groups or multi-hit bosses it's devastating. Requires trading Mohg's Remembrance.</p>
-      <div class="item-stat">STR 24 / DEX 14 / ARC 27 · AoW: Bloodboon Ritual</div>
-      <div class="item-stat">📍 Trade Mohg, Lord of Blood's Remembrance with Enia at Roundtable Hold</div>
+  </div>
+
+  <div class="tab-panel" id="tab-weapons-end">
+    <h3>End Game — Altus Plateau and Beyond</h3>
+    <p>Giant Crusher is technically available mid-game but requires STR 60 to wield effectively. Mohgwyn's Sacred Spear is the late-game pinnacle for the Spear variant.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">S-Tier · Classic Variant Pinnacle</div>
+        <div class="item-name">Giant Crusher</div>
+        <p>The best weapon for the Classic Strength Tank. Made from a boulder — it hits like one. Paired with Troll's Roar, it generates a shockwave that staggers bosses frequently and one of the highest stance damage weapons in the game. The combination of two Troll's Roar activations breaks most boss postures entirely.</p>
+        <div class="item-stat">STR 60 · Scales: C Strength · AoW: Troll's Roar (recommended)</div>
+        <div class="item-stat">📍 Carriage near Outer Wall Phantom Tree site of grace, Altus Plateau <a href="https://eldenring.wiki.fextralife.com/Giant+Crusher" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">S-Tier · Spear Variant Late Game</div>
+        <div class="item-name">Mohgwyn's Sacred Spear</div>
+        <p>A late-game reward with the incredible Bloodboon Ritual AoW — applies bleed to all nearby enemies simultaneously while buffing the weapon with fire damage. Against groups or multi-hit bosses it's devastating. Requires trading Mohg's Remembrance at Roundtable Hold.</p>
+        <div class="item-stat">STR 24 / DEX 14 / ARC 27 · AoW: Bloodboon Ritual (locked)</div>
+        <div class="item-stat">📍 Trade Mohg, Lord of Blood's Remembrance with Enia at Roundtable Hold <a href="https://eldenring.wiki.fextralife.com/Mohgwyn's+Sacred+Spear" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
@@ -405,36 +484,74 @@
   <h2>Armour</h2>
   <div class="section-rule"></div>
 
-  <p>Poise is the defining stat for armour selection. Poise determines whether you flinch when hit — if your poise is high enough, enemy attacks bounce off you without interrupting your swing. Aim for at least <strong>51 poise for PvE</strong>, and closer to <strong>100 poise if you plan to trade hits</strong> with bosses in their face.</p>
+  <p>Poise is the defining stat for armour selection — it determines whether you flinch when hit. Aim for at least <strong>51 poise for PvE</strong>, and closer to <strong>100 poise if you plan to trade hits directly</strong> with bosses. Your armour options improve significantly as you progress.</p>
 
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag red">S-Tier — Highest Poise</div>
-      <div class="item-name">Bull-Goat Set</div>
-      <p>The heaviest and most protective armour set in the game. 100 poise means almost nothing will interrupt your attacks. The highest physical damage negation available. The only downside is weight — you'll need Great-Jar's Arsenal and high Endurance to wear it without fat-rolling.</p>
-      <div class="item-stat">Poise: 100 · Physical: 45 · Weight: ~63</div>
-      <div class="item-stat">📍 Kill Great Horned Tragoth at Ruin-Strewn Precipice Overlook (invades after Magma Wyrm)</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'armour-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'armour-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'armour-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-armour-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>Any heavy armour available in Limgrave and Stormveil works. Target 51 poise minimum. The Knight Set and Vagabond Knight Set are reliable early picks.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Early Target</div>
+        <div class="item-name">Vagabond Knight Set</div>
+        <p>Found in Stormveil Castle. One of the best full sets available in the early game with solid physical defence and ~47 poise. Slightly under the 51 poise threshold but close — adding a heavier helm pushes it over. A reliable early set that keeps you tanky without needing extreme Endurance investment.</p>
+        <div class="item-stat">Poise: ~47 · Physical: ~30 · Weight: ~37</div>
+        <div class="item-stat">📍 Found in Stormveil Castle, dropped by Godrick soldiers or as world loot <a href="https://eldenring.wiki.fextralife.com/Vagabond+Knight+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Alternative Early Heavy</div>
+        <div class="item-name">Knight Set</div>
+        <p>Balanced full set with 51 poise achievable at moderate weight. Good physical defence for its weight class. Available early in Limgrave from a merchant or world drops. A safe early pick that provides the minimum poise threshold without the extreme weight of endgame sets.</p>
+        <div class="item-stat">Poise: 51 · Physical: ~27 · Weight: ~34</div>
+        <div class="item-stat">📍 Sold by Knight Bernahl or found on corpses in Stormveil Castle <a href="https://eldenring.wiki.fextralife.com/Knight+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag">A-Tier — Alternative</div>
-      <div class="item-name">Fire Prelate Set</div>
-      <p>Close to the Bull-Goat in poise (96) with superior fire resistance and Focus stat. The set piece for fighting fire-based bosses. Dropped regularly from Fire Prelate enemies, making it easier to farm than the Bull-Goat set.</p>
-      <div class="item-stat">Poise: 96 · Physical: 36.5 · Fire: 37.4 · Weight: ~62</div>
-      <div class="item-stat">📍 Dropped by Fire Prelate enemies, Mountaintops of the Giants</div>
+  </div>
+
+  <div class="tab-panel" id="tab-armour-mid">
+    <h3>Mid Game — Altus Plateau through Mountaintops</h3>
+    <p>Two strong mid-game options become available. Twinned Set is accessible through D's questline. Fire Prelate Set is farmable once you reach Mountaintops.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag green">Healer Variant Pick</div>
+        <div class="item-name">Twinned Set</div>
+        <p>Lighter armour that maintains reasonable poise (50) while enabling faster movement — useful for the Healer Tank which relies on mobility to reset stamina. Decent resistance stats across the board. Also a good mid-game bridge for the Classic variant before reaching Bull-Goat.</p>
+        <div class="item-stat">Poise: 50 · Physical: 27.4 · Weight: 30</div>
+        <div class="item-stat">📍 D, Hunter of the Dead's armour — given after his death in the Roundtable questline <a href="https://eldenring.wiki.fextralife.com/Twinned+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag red">Farmable High-Poise Set</div>
+        <div class="item-name">Fire Prelate Set</div>
+        <p>96 poise — only 4 below Bull-Goat — with superior fire resistance. Dropped regularly from Fire Prelate enemies in Mountaintops of the Giants, making it easier to obtain than the Bull-Goat. Excellent if you haven't completed the Ruin-Strewn Precipice fight yet.</p>
+        <div class="item-stat">Poise: 96 · Physical: 36.5 · Fire: 37.4 · Weight: ~62</div>
+        <div class="item-stat">📍 Dropped by Fire Prelate enemies, Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/Fire+Prelate+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Spear Variant Pick</div>
+        <div class="item-name">White Mask + Blaidd's Armour</div>
+        <p>The Spear Tank bleed variant's armour combination. White Mask provides a 10% damage boost for 20 seconds whenever blood loss occurs nearby — which your Cross-Naginata triggers constantly. Blaidd's Armour reaches the 51 poise threshold at reasonable weight.</p>
+        <div class="item-stat">White Mask Poise: 5 · Blaidd's Armour Poise: 28 · Total ~51+ poise</div>
+        <div class="item-stat">📍 White Mask: War Surgeon enemies, Mohgwyn Palace · Blaidd's: Blaidd's questline <a href="https://eldenring.wiki.fextralife.com/White+Mask" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag blue">A-Tier — Bleed Variant</div>
-      <div class="item-name">White Mask + Blaidd's Armour</div>
-      <p>The Spear Tank bleed variant's armour pick. The White Mask provides a 10% damage boost for 20 seconds whenever blood loss occurs nearby — which your Cross-Naginata triggers constantly. Blaidd's Armour completes a 51 poise threshold with reasonable weight.</p>
-      <div class="item-stat">White Mask Poise: 5 · Blaidd's Armour Poise: 28 · Total ~51+ poise</div>
-      <div class="item-stat">📍 White Mask: War Surgeon set drop, Mohgwyn Palace. Blaidd's: Blaidd's questline.</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag green">B-Tier — Healer Variant</div>
-      <div class="item-name">Twinned Set</div>
-      <p>Lighter armour that maintains reasonable poise (50) while enabling faster movement — useful for the Healer Tank which relies on mobility to reset stamina. Good resistance stats across the board. Decent substitute if you haven't reached Bull-Goat yet.</p>
-      <div class="item-stat">Poise: 50 · Physical: 27.4 · Weight: 30</div>
-      <div class="item-stat">📍 D, Hunter of the Dead's armour — given after his death in Roundtable questline</div>
+  </div>
+
+  <div class="tab-panel" id="tab-armour-end">
+    <h3>End Game — Ruin-Strewn Precipice and Beyond</h3>
+    <p>Bull-Goat is the endgame gold standard. 100 poise means almost nothing interrupts your attacks. Pair with Great-Jar's Arsenal to manage the weight.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">S-Tier — Best in Game</div>
+        <div class="item-name">Bull-Goat Set</div>
+        <p>The heaviest and most protective armour in the game. 100 poise means almost nothing will interrupt your attacks or swings. The highest physical damage negation available. Requires Great-Jar's Arsenal and sufficient Endurance to avoid fat-rolling. Once you have it, you are an immovable wall.</p>
+        <div class="item-stat">Poise: 100 · Physical: 45 · Weight: ~63</div>
+        <div class="item-stat">📍 Kill Great Horned Tragoth at Ruin-Strewn Precipice Overlook — NPC invasion after the Magma Wyrm fight <a href="https://eldenring.wiki.fextralife.com/Bull-Goat+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
@@ -463,25 +580,25 @@
       <div class="t-num">SLOT 1 — ESSENTIAL</div>
       <div class="t-name">Greatshield Talisman</div>
       <p>Reduces stamina damage taken while blocking by 20%. The most important late-game talisman for any shield build. Makes the Fingerprint Stone Shield's already-dominant guard boost feel effortless.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Carriage chest near Erdtree-Gazing Hill, Altus Plateau</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Carriage chest near Erdtree-Gazing Hill, Altus Plateau <a href="https://eldenring.wiki.fextralife.com/Greatshield+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">SLOT 2 — ESSENTIAL</div>
       <div class="t-name">Great-Jar's Arsenal</div>
       <p>Raises maximum equip load by 19%. Mandatory if you want to wear Bull-Goat armour, wield the Fingerprint Shield, and still maintain a medium roll. Without this, you will fat-roll. Fat-rolling is dangerous.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Complete the Great-Jar's three-duel challenge, north of Caelid</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Complete the Great-Jar's three-duel challenge, north of Caelid <a href="https://eldenring.wiki.fextralife.com/Great-Jar's+Arsenal" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">SLOT 3 — CORE</div>
       <div class="t-name">Curved Sword Talisman</div>
       <p>Enhances guard counter attacks by 20%. Guard counters are your primary damage and posture-break tool. This talisman amplifies your most-used mechanic. Essential for boss fights.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest in the Foot of the Four Belfries, Liurnia</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest in the Foot of the Four Belfries, Liurnia <a href="https://eldenring.wiki.fextralife.com/Curved+Sword+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">SLOT 4 — FLEXIBLE</div>
       <div class="t-name">Erdtree's Favor +2</div>
       <p>Boosts HP, Stamina, and Equip Load simultaneously. Pure stat efficiency — it makes everything slightly better and has no drawback. Replace with a situational talisman when fighting specific bosses.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Subterranean Shunning Grounds, near the Forsaken Depths site of grace</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Subterranean Shunning Grounds, near the Forsaken Depths site of grace <a href="https://eldenring.wiki.fextralife.com/Erdtree's+Favor+%2B2" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
   </div>
 
@@ -491,13 +608,13 @@
       <div class="t-num">EARLY GAME</div>
       <div class="t-name">Green Turtle Talisman</div>
       <p>Raises stamina recovery speed by 8/second. Your most important talisman before Altus Plateau. Stamina recovery is everything for a blocking build.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest sealed by imp statue, Summonwater Village, Limgrave</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest sealed by imp statue, Summonwater Village, Limgrave <a href="https://eldenring.wiki.fextralife.com/Green+Turtle+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">PHYSICAL REDUCTION</div>
       <div class="t-name">Dragoncrest Greatshield Talisman</div>
       <p>Reduces all physical damage received by 20%. Stacks multiplicatively with your armour and shield. Exceptional for boss fights where you're taking physical chip damage through your guard.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest guarded by pests, Elphael, Brace of the Haligtree</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest guarded by pests, Elphael, Brace of the Haligtree <a href="https://eldenring.wiki.fextralife.com/Dragoncrest+Greatshield+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">ELEMENTAL FIGHTS</div>
@@ -509,19 +626,19 @@
       <div class="t-num">SPEAR VARIANT</div>
       <div class="t-name">Spear Talisman</div>
       <p>Increases counter-hit damage by 15%. Since the Spear Tank attacks while blocking — hitting enemies mid-attack constantly — this is essentially a permanent 15% damage increase.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest in Lakeside Crystal Cave, Liurnia</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest in Lakeside Crystal Cave, Liurnia <a href="https://eldenring.wiki.fextralife.com/Spear+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">BLEED VARIANT</div>
       <div class="t-name">Lord of Blood's Exultation</div>
       <p>Increases attack power by 20% for 20 seconds after blood loss occurs nearby. Your Cross-Naginata triggers this constantly. The most powerful damage talisman for the Spear bleed variant.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Defeat Esgar, Priest of Blood in Leyndell Catacombs</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Defeat Esgar, Priest of Blood in Leyndell Catacombs <a href="https://eldenring.wiki.fextralife.com/Lord+of+Blood's+Exultation" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">HEALER VARIANT</div>
       <div class="t-name">Blessed Dew Talisman</div>
       <p>Slowly restores HP over time. Stack with Icon Shield passive heal and Great Stars on-hit healing for a near-unkillable sustain loop. The cornerstone of the Healer Tank.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Outskirts of Leyndell, Royal Capital — outside the colosseum</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Outskirts of Leyndell, Royal Capital — outside the colosseum <a href="https://eldenring.wiki.fextralife.com/Blessed+Dew+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
   </div>
 
@@ -542,37 +659,37 @@
       <div class="item-tag red">Must-Have · Early Game</div>
       <div class="item-name">Barricade Shield</div>
       <p>Temporarily maximises your shield's guard boost and hardness. Before you have the Fingerprint Stone Shield, this makes any medium shield perform like a greatshield. Essential for the entire early game. Get this first.</p>
-      <div class="item-stat">📍 Night's Cavalry patrol, Weeping Peninsula (only appears at night)</div>
+      <div class="item-stat">📍 Night's Cavalry patrol, Weeping Peninsula (only appears at night) <a href="https://eldenring.wiki.fextralife.com/Barricade+Shield" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
     <div class="item-card">
       <div class="item-tag red">Best for Giant Crusher</div>
       <div class="item-name">Troll's Roar</div>
       <p>Releases a shockwave that knocks back surrounding enemies, then follows with a ground slam. On the Giant Crusher the posture damage is obscene — most bosses stagger within two uses. The definitive late-game Ash for the Classic tank.</p>
-      <div class="item-stat">📍 Atop a rock southeast of Church of Repose, Mountaintops of the Giants</div>
+      <div class="item-stat">📍 Atop a rock southeast of Church of Repose, Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/Troll's+Roar" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
     <div class="item-card">
       <div class="item-tag">Shield Offensive</div>
       <div class="item-name">Shield Crash</div>
       <p>Two-hand your shield and charge forward, ramming enemies multiple times. Procs status effects if your shield is infused with bleed or madness. Surprisingly well-tracking. Can stagger smaller enemies and interrupt humanoids completely. The Spiked Palisade Shield with this is particularly brutal.</p>
-      <div class="item-stat">📍 Purchase from Knight Bernahl at Volcano Manor</div>
+      <div class="item-stat">📍 Purchase from Knight Bernahl at Volcano Manor <a href="https://eldenring.wiki.fextralife.com/Shield+Crash" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
     <div class="item-card">
       <div class="item-tag">Greatsword Early–Mid</div>
       <div class="item-name">Lion's Claw</div>
       <p>A full somersault followed by a ground slam. High poise damage, catches enemies off guard, and looks incredibly aggressive for a tank. Excellent on the Greatsword or Giant Crusher before you acquire Troll's Roar.</p>
-      <div class="item-stat">📍 Dropped by a Lion Guardian at Fort Gael, Caelid</div>
+      <div class="item-stat">📍 Dropped by a Lion Guardian at Fort Gael, Caelid <a href="https://eldenring.wiki.fextralife.com/Lion's+Claw" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
     <div class="item-card">
       <div class="item-tag">Healer Variant</div>
       <div class="item-name">Wild Strokes</div>
       <p>A series of far-reaching successive strikes. Pairs well with the Butchering Knife and the Godskin Swaddling Cloth talisman — consecutive attacks with this AoW trigger the talisman's HP restoration constantly.</p>
-      <div class="item-stat">📍 Purchased from Blackguard Big Boggart</div>
+      <div class="item-stat">📍 Purchased from Blackguard Big Boggart <a href="https://eldenring.wiki.fextralife.com/Wild+Strikes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
     <div class="item-card">
       <div class="item-tag blue">Spear Variant</div>
       <div class="item-name">Seppuku</div>
       <p>Stab yourself to coat your weapon in blood, increasing bleed buildup and attack power for a duration. Combined with the Cross-Naginata's naturally fast poking moveset, bleed procs in 3–4 hits per cycle. Also triggers the White Mask and Lord of Blood's Exultation.</p>
-      <div class="item-stat">📍 Scarab beetle on frozen lake, Mountaintops of the Giants</div>
+      <div class="item-stat">📍 Scarab beetle on frozen lake, Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/Seppuku" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
   </div>
 
@@ -640,32 +757,81 @@
   <h2>Spirit Summons</h2>
   <div class="section-rule"></div>
 
-  <p>As a tank, your summons work best when they draw aggro away from you, giving you space to block and counter safely. Aggressive, high-HP summons that occupy the boss are ideal.</p>
+  <p>As a tank, your summons work best when they draw aggro away from you, giving you space to block and counter safely. Aggressive, high-HP summons that occupy the boss are ideal. Your best options open up progressively across the game.</p>
 
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag red">Top Pick — Aggro Control</div>
-      <div class="item-name">Omenkiller Rollo</div>
-      <p>Extremely aggressive — draws boss aggro immediately and maintains it. Deals high damage and has a large health pool. Costs 113 FP but can be summoned for free using the Cerulean Hidden Tear in your Flask. One of the best summons for tank playstyles.</p>
-      <div class="item-stat">📍 Defeat the Fell Twins, Capital Outskirts</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'summons-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'summons-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'summons-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-summons-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>These summons are available from the very start and remain useful well into mid-game. Lone Wolf Ashes are your best early pick for creating chaos and splitting boss attention.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best Early Pick</div>
+        <div class="item-name">Lone Wolf Ashes</div>
+        <p>Three aggressive wolves that immediately split boss aggro. Their multi-target nature forces the boss to choose — one wolf gets attacked while the others continue biting. This chaos gives you safe windows to raise your shield and counter. Cheap FP and effective across the entire early game.</p>
+        <div class="item-stat">FP Cost: 55 · Three targets · Immediate aggro on summon</div>
+        <div class="item-stat">📍 Given by Melina at the first Site of Grace in Limgrave <a href="https://eldenring.wiki.fextralife.com/Lone+Wolf+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Durable Aggro</div>
+        <div class="item-name">Spirit Jellyfish Ashes</div>
+        <p>Higher HP than the wolves — harder for bosses to kill in one hit. Floats around the boss and occasionally applies poison. Excellent for bosses that one-shot the wolves, as the jellyfish persists much longer and maintains passive aggro pressure without requiring your attention.</p>
+        <div class="item-stat">FP Cost: 36 · High survivability · Applies poison</div>
+        <div class="item-stat">📍 Given by Roderika at Stormhill Shack (her first meeting) <a href="https://eldenring.wiki.fextralife.com/Spirit+Jellyfish+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Persistent Distraction</div>
+        <div class="item-name">Skeletal Militiaman Ashes</div>
+        <p>Two skeleton warriors that self-revive after being killed — unless the enemy follows up on the downed body. Against mobile bosses that move away to attack you after killing a skeleton, they revive and re-engage. Persistent aggro source that requires no FP to maintain once summoned.</p>
+        <div class="item-stat">FP Cost: 33 · Self-reviving · Two units</div>
+        <div class="item-stat">📍 Graveyard at Summonwater Village, Limgrave <a href="https://eldenring.wiki.fextralife.com/Skeletal+Militiaman+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag red">Top Pick — Mirror Build</div>
-      <div class="item-name">Mimic Tear</div>
-      <p>Copies your exact build — shield, weapon, armour, and all. You effectively have two tanks fighting the boss simultaneously. The aggro split alone is often enough to trivialise fights. Widely considered the best summon in the game.</p>
-      <div class="item-stat">📍 Chest behind an imp fog gate in Night's Sacred Ground, Nokron</div>
+  </div>
+
+  <div class="tab-panel" id="tab-summons-mid">
+    <h3>Mid Game — Altus Plateau through Leyndell</h3>
+    <p>Two major upgrades unlock once you defeat Radahn and enter Nokron. Mimic Tear is one of the best summons in the game for this build — two tanks fighting simultaneously is extremely effective.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Major Upgrade — Mirror Tank</div>
+        <div class="item-name">Mimic Tear</div>
+        <p>Copies your exact build — shield, weapon, armour, and all. You effectively have two tanks fighting the boss simultaneously. The aggro split alone often trivialises fights. Costs HP instead of FP. Widely considered the best summon in the game.</p>
+        <div class="item-stat">HP Cost: ~800 · Copies full build · No FP needed</div>
+        <div class="item-stat">📍 Chest behind imp fog gate in Night's Sacred Ground, Nokron, Eternal City (reach Nokron after defeating Radahn) <a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Shield Wall Pressure</div>
+        <div class="item-name">Greatshield Soldier Ashes</div>
+        <p>Summons five shield-bearing soldiers. They swarm bosses from all sides, making it nearly impossible for the boss to ignore them. Can stunlock smaller bosses outright. Excellent distraction while you line up guard counters from the front. Available from Nokron.</p>
+        <div class="item-stat">FP Cost: 104 · Five units · Spreads aggro across all of them</div>
+        <div class="item-stat">📍 Corpse in a graveyard, Nokron, Eternal City <a href="https://eldenring.wiki.fextralife.com/Greatshield+Soldier+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag">Aggressive Aggro</div>
-      <div class="item-name">Dung Eater Puppet</div>
-      <p>Very tanky single-unit summon that deals bleed damage. Large health pool means it holds aggro for an extended period. Excellent for fights where you need the boss locked down for a long time while you set up guard counters.</p>
-      <div class="item-stat">📍 Purchase from Finger Reader Enia after Dung Eater questline</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag">Group Utility</div>
-      <div class="item-name">Greatshield Soldier Ashes</div>
-      <p>Summons five shield-bearing soldiers. They swarm bosses from all sides, making it nearly impossible for the boss to ignore them. Can stunlock smaller bosses outright. Excellent distraction while you line up guard counters from the front.</p>
-      <div class="item-stat">📍 Corpse in a graveyard, Nokron, Eternal City</div>
+  </div>
+
+  <div class="tab-panel" id="tab-summons-end">
+    <h3>End Game — Leyndell and Beyond</h3>
+    <p>Omenkiller Rollo and the Dung Eater Puppet are the endgame aggro specialists. Both have enormous health pools and draw sustained boss attention throughout full fights.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Top Aggro Pick</div>
+        <div class="item-name">Omenkiller Rollo</div>
+        <p>Extremely aggressive — draws boss aggro immediately and holds it. Large health pool means he survives long enough for you to set up multiple guard counter cycles. Costs 113 FP but can be summoned for free using the Cerulean Hidden Tear in your Flask of Wondrous Physick. One of the best summons for tank playstyles.</p>
+        <div class="item-stat">FP Cost: 113 · High HP · Immediate sustained aggro</div>
+        <div class="item-stat">📍 Defeat the Fell Twins at Capital Outskirts, near Leyndell <a href="https://eldenring.wiki.fextralife.com/Omenkiller+Rollo+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Long-Duration Lockdown</div>
+        <div class="item-name">Dung Eater Puppet</div>
+        <p>Very tanky single-unit summon that deals bleed damage. Large health pool means it holds aggro for an extended period — excellent for fights where you need the boss locked down while you set up guard counter sequences. Requires completing the Dung Eater questline.</p>
+        <div class="item-stat">FP Cost: 118 · Very high HP · Bleed damage</div>
+        <div class="item-stat">📍 Purchase from Finger Reader Enia at Roundtable Hold after completing Dung Eater questline <a href="https://eldenring.wiki.fextralife.com/Dung+Eater+Puppet+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
@@ -829,18 +995,18 @@
   <h3>Item Location Quick Reference</h3>
   <table class="data-table">
     <tr><th>Item</th><th>Location</th></tr>
-    <tr><td class="highlight">Fingerprint Stone Shield</td><td>Cathedral of the Forsaken, Subterranean Shunning Grounds</td></tr>
-    <tr><td class="highlight">Giant Crusher</td><td>Carriage near Outer Wall Phantom Tree, Altus Plateau</td></tr>
-    <tr><td class="highlight">Bull-Goat Set</td><td>Kill Great Horned Tragoth at Ruin-Strewn Precipice Overlook</td></tr>
-    <tr><td class="highlight">Barricade Shield AoW</td><td>Night's Cavalry, Weeping Peninsula (night patrol)</td></tr>
-    <tr><td class="highlight">Green Turtle Talisman</td><td>Sealed chest, Summonwater Village, Limgrave</td></tr>
-    <tr><td class="highlight">Greatshield Talisman</td><td>Carriage chest near Erdtree-Gazing Hill, Altus Plateau</td></tr>
-    <tr><td class="highlight">Great-Jar's Arsenal</td><td>Complete Great-Jar's three-duel challenge, north Caelid</td></tr>
-    <tr><td class="highlight">Curved Sword Talisman</td><td>Foot of the Four Belfries, Liurnia</td></tr>
-    <tr><td class="highlight">Troll's Roar AoW</td><td>Rock southeast of Church of Repose, Mountaintops of the Giants</td></tr>
-    <tr><td class="highlight">Cross-Naginata</td><td>Corpse near Giant Land Octopus, Gael Tunnel, Caelid</td></tr>
-    <tr><td class="highlight">Brass Shield</td><td>Rare drop from Godrick Soldiers (Stormveil area) holding it</td></tr>
-    <tr><td class="highlight">Mimic Tear</td><td>Chest behind imp fog gate, Night's Sacred Ground, Nokron</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Fingerprint+Stone+Shield" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Fingerprint Stone Shield</a></td><td>Cathedral of the Forsaken, Subterranean Shunning Grounds</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Giant+Crusher" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Giant Crusher</a></td><td>Carriage near Outer Wall Phantom Tree, Altus Plateau</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Bull-Goat+Set" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Bull-Goat Set</a></td><td>Kill Great Horned Tragoth at Ruin-Strewn Precipice Overlook</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Barricade+Shield" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Barricade Shield AoW</a></td><td>Night's Cavalry, Weeping Peninsula (night patrol)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Green+Turtle+Talisman" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Green Turtle Talisman</a></td><td>Sealed chest, Summonwater Village, Limgrave</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Greatshield+Talisman" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Greatshield Talisman</a></td><td>Carriage chest near Erdtree-Gazing Hill, Altus Plateau</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Great-Jar's+Arsenal" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Great-Jar's Arsenal</a></td><td>Complete Great-Jar's three-duel challenge, north Caelid</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Curved+Sword+Talisman" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Curved Sword Talisman</a></td><td>Foot of the Four Belfries, Liurnia</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Troll's+Roar" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Troll's Roar AoW</a></td><td>Rock southeast of Church of Repose, Mountaintops of the Giants</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Cross-Naginata" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Cross-Naginata</a></td><td>Corpse near Giant Land Octopus, Gael Tunnel, Caelid</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Brass+Shield" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Brass Shield</a></td><td>Rare drop from Godrick Soldiers (Stormveil area) holding it</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Mimic Tear</a></td><td>Chest behind imp fog gate, Night's Sacred Ground, Nokron</td></tr>
   </table>
 
   <div class="section-footer">
@@ -862,10 +1028,11 @@ window.addEventListener('scroll', () => {
   document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
 });
 
-// Tab switching
+// Tab switching — scoped to the parent section so multiple tab groups coexist
 function switchTab(e, id) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  const section = e.target.closest('section');
+  section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   e.target.classList.add('active');
   document.getElementById('tab-' + id).classList.add('active');
 }

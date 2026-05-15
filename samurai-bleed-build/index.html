@@ -32,6 +32,18 @@
     radial-gradient(ellipse at 50% 100%, rgba(11,10,14,1) 40%,  transparent 100%),
     #16131f !important;
 }
+/* Wiki links */
+.wiki-link { display: inline-block; font-size: 11px; color: var(--gold); text-decoration: none; margin-left: 4px; opacity: .75; }
+.wiki-link:hover { opacity: 1; text-decoration: underline; }
+/* Levelling progression cards */
+.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
+.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
+.prog-header.mid { background: rgba(91,143,212,.15); color: var(--blue); }
+.prog-header.end { background: rgba(192,57,43,.15); color: var(--accent); }
+.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
+.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -232,7 +244,26 @@
     <p><strong>Dexterity 18:</strong> Rivers of Blood minimum requirement — hit this before acquiring the weapon. <strong>Arcane 45:</strong> first significant bleed buildup scaling improvement. <strong>Arcane 60:</strong> endgame soft cap — push here before the DLC. <strong>Vigor 60:</strong> mandatory before any endgame boss.</p>
   </div>
 
-  <h3>Standard Bleed Build — Stat Progression</h3>
+  <h3>Levelling Roadmap</h3>
+  <div class="progression-grid">
+    <div class="prog-stage">
+      <div class="prog-header early">🌱 Early Game — Levels 1–40</div>
+      <p><strong>Priority order:</strong> Vigor 30 → Dexterity 18 → Arcane 30 → Endurance 20 → Faith 15</p>
+      <p>Push Vigor to 30 first — this build has no poise and you die fast. Hit Dexterity 18 as soon as possible so you can wield Rivers of Blood the moment you reach Mountaintops. Faith 15 unlocks Flame, Grant Me Strength. Run your Blood-infused Uchigatana through this entire phase.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header mid">⚔️ Mid Game — Levels 40–80</div>
+      <p><strong>Priority order:</strong> Arcane 45 → Vigor 50 → Dexterity 30 → Endurance 25</p>
+      <p>Rivers of Blood is in your hands now. Arcane 45 is the first major bleed breakpoint — Corpse Piler will proc blood loss measurably faster. Push Vigor to 50 before Leyndell or Mountaintops bosses. Dexterity 30 adds meaningful physical damage.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header end">🔥 End Game — Levels 80–150</div>
+      <p><strong>Priority order:</strong> Vigor 60 → Arcane 60 → Dexterity 40 → Endurance 30</p>
+      <p>Vigor 60 is non-negotiable — you cannot take hits with this build. Arcane 60 is the soft cap for Rivers of Blood damage and bleed buildup rate. Dexterity 40 is the physical damage soft cap. After level 150 returns diminish sharply.</p>
+    </div>
+  </div>
+
+  <h3>Standard Bleed Build — Stat Reference</h3>
   <table class="data-table">
     <tr><th>Stat</th><th>Lv 50</th><th>Lv 100</th><th>Lv 150</th><th>Why</th></tr>
     <tr><td>Vigor</td><td>30</td><td>50</td><td class="highlight">60</td><td>Low poise build — you die if you take a hit unprepared. 60 is the endgame floor.</td></tr>
@@ -262,44 +293,84 @@
   <h2>Weapons</h2>
   <div class="section-rule"></div>
 
-  <p>Rivers of Blood is the centrepiece. It cannot be infused or have its ash of war changed — Corpse Piler is permanently attached. Upgrade it to +10 with Somber Smithing Stones as a priority. Your off-hand weapon should complement the bleed gameplan — either adding its own bleed buildup or carrying Seppuku as a pre-fight buff.</p>
+  <p>The Samurai Bleed build has a clear weapon progression. Rivers of Blood isn't available until mid-to-late game, but a Blood-infused Uchigatana carries the entire early game effectively. Use the tabs below to find the right weapons for your current stage.</p>
 
-  <h3>Main Hand Options</h3>
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag red">S-Tier · Endgame · Main Hand</div>
-      <div class="item-name">Rivers of Blood</div>
-      <p>The core weapon of this build. Corpse Piler fires a rapid series of blood slashes in a wide arc, each applying bleed buildup individually. A full skill sequence can proc bleed twice against large bosses. Arcane-scaled — every point you invest directly boosts both damage and buildup speed.</p>
-      <div class="item-stat">DEX 18 / ARC 20 · Scales: D Dex / D Arc (Arcane scaling improves massively at upgrade) · AoW: Corpse Piler (locked)</div>
-      <div class="item-stat">📍 Dropped by Bloody Finger Okina — NPC invasion near Church of Repose, Mountaintops of the Giants</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'weapons-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-weapons-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>Start Blood-infused and stay there. Your Samurai Uchigatana is immediately competitive — upgrade it consistently and don't wait for better gear.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Main Weapon — Start Here</div>
+        <div class="item-name">Uchigatana (Blood Affinity)</div>
+        <p>Your starting weapon as Samurai. Apply Blood affinity at any Site of Grace using the Whetstone Knife — this maximises bleed buildup per hit. With Seppuku as the ash of war, it's a surprisingly effective boss-killer even before Arcane reaches meaningful levels.</p>
+        <div class="item-stat">STR 11 / DEX 15 · Blood infusion · AoW: Seppuku (preferred) or Unsheathe</div>
+        <div class="item-stat">📍 Starting weapon (Samurai class) · Also sold by Patches, Murkwater Cave <a href="https://eldenring.wiki.fextralife.com/Uchigatana" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Optional Off-Hand</div>
+        <div class="item-name">Reduvia</div>
+        <p>A dagger with innate bleed and its own ranged skill — Blood Blade — which fires a projectile that applies bleed buildup from range. Useful for topping off a bleed bar safely. Found very early from an NPC invasion. Only requires Arcane 13, so it scales with your existing investment.</p>
+        <div class="item-stat">STR 5 / DEX 13 / ARC 13 · Innate bleed · AoW: Blood Blade (locked)</div>
+        <div class="item-stat">📍 Defeat Bloody Finger Nerijus — NPC invasion near Murkwater Cave, Limgrave <a href="https://eldenring.wiki.fextralife.com/Reduvia" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
-  <h3>Off-Hand Options</h3>
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag">A-Tier · Standard Off-Hand</div>
-      <div class="item-name">Uchigatana (Seppuku)</div>
-      <p>The Samurai starting weapon. Infuse Blood for maximum bleed buildup per hit. Seppuku as the ash of war turns it into a buff station — activating Seppuku boosts bleed buildup on all your weapons temporarily. It also doubles as a second bleed source in dual-wield sequences.</p>
-      <div class="item-stat">STR 11 / DEX 15 · Blood infusion · AoW: Seppuku</div>
-      <div class="item-stat">📍 Starting equipment for Samurai class · Also sold by Patches in Murkwater Cave</div>
+  <div class="tab-panel" id="tab-weapons-mid">
+    <h3>Mid Game — Altus Plateau through Leyndell</h3>
+    <p>Two strong weapons open up here. The Nagakiba is a strict improvement for dual-wield. Eleonora's Poleblade is an excellent Rivers of Blood stand-in with combined fire and bleed damage.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Dual-Wield Upgrade</div>
+        <div class="item-name">Nagakiba (Blood Affinity)</div>
+        <p>The longest katana in the game. The extra reach means your dual-wield L1 attacks connect at medium range far more consistently than the Uchigatana. Blood infusion with Seppuku or Blood Slash. If building toward the dual-wield variant, replace your Uchigatana with this.</p>
+        <div class="item-stat">STR 18 / DEX 22 · Blood infusion · AoW: Seppuku or Blood Slash</div>
+        <div class="item-stat">📍 Bloody Finger Hunter Yura questline reward, or drop from him at Raya Lucaria <a href="https://eldenring.wiki.fextralife.com/Nagakiba" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Rivers of Blood Stand-In</div>
+        <div class="item-name">Eleonora's Poleblade</div>
+        <p>A twin-bladed weapon with built-in bleed and fire damage. Its Ash of War — Bloodblade Dance — fires a flurry of slashes similar in feel to Corpse Piler. An excellent stop-gap before Rivers of Blood. Scales with Arcane so it benefits from your existing investment immediately.</p>
+        <div class="item-stat">STR 12 / DEX 21 / ARC 19 · Cannot be infused · AoW: Bloodblade Dance (locked)</div>
+        <div class="item-stat">📍 Defeat Bloody Finger Eleonora at Second Church of Marika, Altus Plateau <a href="https://eldenring.wiki.fextralife.com/Eleonora's+Poleblade" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag blue">A-Tier · Dual Wield Option</div>
-      <div class="item-name">Nagakiba (Blood Slash)</div>
-      <p>The longest katana in the game. In dual-wield stance the extra reach means your L1 attacks land more consistently at medium range. Infuse Blood. Pairs with the Rotten Winged Sword Insignia and Millicent's Prosthesis for a sustained attack buff that climbs as you hit. Better than Uchigatana for pure dual-wield pressure.</p>
-      <div class="item-stat">STR 18 / DEX 22 · Blood infusion · AoW: Blood Slash or Seppuku</div>
-      <div class="item-stat">📍 Bloody Finger Hunter Yura — reward from questline, or drop from him in Raya Lucaria</div>
+  </div>
+
+  <div class="tab-panel" id="tab-weapons-end">
+    <h3>End Game — Mountaintops and Beyond</h3>
+    <p>Rivers of Blood is the definitive weapon for this build. Once you have it, prioritise upgrading it to +10 above everything else. Your off-hand weapon from mid-game carries forward unchanged.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">S-Tier · The Core Weapon</div>
+        <div class="item-name">Rivers of Blood</div>
+        <p>The engine of the entire build. Corpse Piler fires a rapid series of blood slashes in a wide arc, each applying bleed buildup individually. A full held activation can proc bleed twice against large bosses. Arcane-scaled — every stat point you invest directly boosts both damage and buildup speed. Upgrade to +10 immediately.</p>
+        <div class="item-stat">DEX 18 / ARC 20 · Scales: D Dex / D Arc (improves significantly with upgrade) · AoW: Corpse Piler (locked)</div>
+        <div class="item-stat">📍 Dropped by Bloody Finger Okina — NPC invasion near Church of Repose, Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/Rivers+of+Blood" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">A-Tier · Off-Hand Choice</div>
+        <div class="item-name">Uchigatana or Nagakiba (Seppuku)</div>
+        <p>Your mid-game off-hand carries forward unchanged. Uchigatana for the Standard variant, Nagakiba for dual-wield. Keep Seppuku as the ash of war — activating it before every boss boosts bleed buildup on all your weapons, including Rivers of Blood. Do not swap this out.</p>
+        <div class="item-stat">Blood infusion · AoW: Seppuku · Apply before every fog gate</div>
+        <div class="item-stat">📍 Carried over from earlier — no new acquisition needed</div>
+      </div>
     </div>
   </div>
 
   <h3>Upgrade Materials</h3>
   <table class="data-table">
     <tr><th>Material</th><th>Use</th><th>Where to Find</th></tr>
+    <tr><td class="highlight">Smithing Stone [1–8]</td><td>Uchigatana / Nagakiba upgrade</td><td>Mines, world drops, Smithing-Stone Bell Bearings from merchants</td></tr>
+    <tr><td class="highlight">Ancient Dragon Smithing Stone</td><td>Standard weapons +25</td><td>Rare — Mountaintops of the Giants and Crumbling Farum Azula</td></tr>
     <tr><td class="highlight">Somber Smithing Stone [1–9]</td><td>Rivers of Blood +1 to +9</td><td>World drops, Bell Bearing from Elden Beast area merchant</td></tr>
-    <tr><td class="highlight">Somber Ancient Dragon Stone</td><td>Rivers of Blood +10</td><td>Crumbling Farum Azula — rare loot or bought after boss</td></tr>
-    <tr><td class="highlight">Smithing Stone [1–8]</td><td>Uchigatana / Nagakiba upgrade</td><td>Mines, world drops, Smithing-Stone Bell Bearings</td></tr>
-    <tr><td class="highlight">Ancient Dragon Smithing Stone</td><td>Standard weapons +25</td><td>Rare — Mountaintops of the Giants and Farum Azula</td></tr>
+    <tr><td class="highlight">Somber Ancient Dragon Stone</td><td>Rivers of Blood +10</td><td>Crumbling Farum Azula — rare loot or purchased after boss</td></tr>
   </table>
 
   <div class="section-footer">
@@ -326,21 +397,21 @@
       <div class="item-name">Seppuku</div>
       <p>Plunges the weapon into your own stomach, coating it in blood and dramatically increasing bleed buildup per hit for approximately 60 seconds. More importantly, the buff affects all sources of bleed — including Rivers of Blood. Activate this on your off-hand weapon before every fog gate. The animation is quick and the window to do it safely is generous.</p>
       <div class="item-stat">FP Cost: 11 · Duration: ~60 sec · Apply to off-hand before boss fights</div>
-      <div class="item-stat">📍 Scarab beetle on frozen lake, Mountaintops of the Giants</div>
+      <div class="item-stat">📍 Scarab beetle on frozen lake, Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/Seppuku" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
     <div class="item-card">
       <div class="item-tag">Dual Wield Option</div>
       <div class="item-name">Blood Slash</div>
       <p>A wide horizontal blood slash that applies bleed buildup in an arc. Used on the Nagakiba off-hand in the dual-wield variant as an alternative to Seppuku. Less useful as a buff but effective as an additional bleed source during combat when you want to mix skills rather than pre-buffing.</p>
       <div class="item-stat">FP Cost: 6 · Applies bleed · Can infuse on any slashing weapon</div>
-      <div class="item-stat">📍 Purchase from Knight Bernahl at Volcano Manor</div>
+      <div class="item-stat">📍 Purchase from Knight Bernahl at Volcano Manor <a href="https://eldenring.wiki.fextralife.com/Blood+Slash" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
     <div class="item-card">
       <div class="item-tag blue">Early Game Option</div>
       <div class="item-name">Unsheathe</div>
       <p>The Samurai's default ash of war. Two modes — a quick-draw slash and a longer charged version. Excellent early game before Seppuku is available. The charged version deals surprisingly high stance damage on the follow-through and the quick version is great for punishing recovery windows. A reliable fallback against bleed-immune enemies throughout the game.</p>
       <div class="item-stat">FP Cost: 5–10 · Two modes: quick slash and charged follow-through</div>
-      <div class="item-stat">📍 Starting AoW for Samurai class · Also found from Teardrop Scarab, Limgrave</div>
+      <div class="item-stat">📍 Starting AoW for Samurai class · Also found from Teardrop Scarab, Limgrave <a href="https://eldenring.wiki.fextralife.com/Unsheathe" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
     </div>
   </div>
 
@@ -356,36 +427,81 @@
   <h2>Armour</h2>
   <div class="section-rule"></div>
 
-  <p>Unlike the tank build, poise is a secondary consideration here. You are not trading hits — you are dodging. Armour is chosen to maintain medium load for the fast roll while providing reasonable defence. The White Reed Set is the aesthetic pick, but there are performance-first alternatives if you're struggling with survivability.</p>
+  <p>Unlike the tank build, poise is secondary here — you are dodging, not trading hits. Armour is chosen to maintain medium equip load for the fast roll while providing reasonable defence. The right choice shifts as you progress through the game.</p>
 
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag">A-Tier — Thematic · Balanced</div>
-      <div class="item-name">White Reed Set</div>
-      <p>The classic Samurai armour set. Lightweight at 17.2 total weight, providing comfortable medium load even with two katanas equipped. Decent balanced resistances across the board. Looks excellent with the katana aesthetic and keeps you well under the 70% load threshold without needing equip load talismans.</p>
-      <div class="item-stat">Poise: 20 · Physical: ~25 · Weight: 17.2</div>
-      <div class="item-stat">📍 Spiritcaller's Cave, Mountaintops of the Giants</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'armour-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'armour-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'armour-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-armour-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>Your Samurai starting set is fine here. Don't chase armour — focus on levelling instead. Any medium-weight set that keeps you under 70% equip load works.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag">Starting Set — Solid</div>
+        <div class="item-name">Samurai Set (Land of Reeds)</div>
+        <p>Your Samurai starting armour. Lightweight at 17.2 total weight, balanced resistances, thematic. Keeps you comfortably under 70% load with two katanas equipped. There is no reason to replace this before mid-game — it performs well.</p>
+        <div class="item-stat">Poise: 20 · Physical: ~25 · Weight: 17.2</div>
+        <div class="item-stat">📍 Starting equipment for Samurai class <a href="https://eldenring.wiki.fextralife.com/Land+of+Reeds+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Alternative — More Defence</div>
+        <div class="item-name">Godrick Knight Set</div>
+        <p>More physical defence than the Samurai set at moderate weight. Found in Stormveil Castle. If you're struggling in early dungeons and want more mitigation without going heavy, this is a straightforward upgrade.</p>
+        <div class="item-stat">Poise: 33 · Physical: ~31 · Weight: 27.3</div>
+        <div class="item-stat">📍 Dropped by Godrick Knights in Stormveil Castle <a href="https://eldenring.wiki.fextralife.com/Godrick+Knight+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag red">S-Tier — Offensive Chest</div>
-      <div class="item-name">Raptor's Black Feathers</div>
-      <p>A chest piece with a hidden passive — it boosts jump attack damage. Jump attacks apply bleed buildup twice per landing frame on some enemies, making each jump attack significantly more efficient for bleed stacking. Mix with any lighter head, hands, and leg pieces to stay under medium load. Best-in-slot chest for performance.</p>
-      <div class="item-stat">Poise: 7 · Weight: 7.8 · Passive: jump attack damage up</div>
-      <div class="item-stat">📍 Sage's Cave, Altus Plateau — chest in the cave</div>
+  </div>
+
+  <div class="tab-panel" id="tab-armour-mid">
+    <h3>Mid Game — Altus Plateau</h3>
+    <p>Raptor's Black Feathers is the first genuinely impactful armour pickup for this build. Get it the moment you reach Altus Plateau — it's one of the best pieces you'll wear for the rest of the game.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best-in-Slot Chest — Get This Now</div>
+        <div class="item-name">Raptor's Black Feathers</div>
+        <p>A chest piece with a critical passive — it boosts jump attack damage. Jump attacks apply bleed buildup twice per landing hit on many enemies, making them far more efficient for building the bleed meter. Use this as your chest piece for the rest of the game. Mix with any lightweight legs and gloves to stay under 70% load.</p>
+        <div class="item-stat">Poise: 7 · Weight: 7.8 · Passive: jump attack damage up</div>
+        <div class="item-stat">📍 Sage's Cave, Altus Plateau — chest inside the cave <a href="https://eldenring.wiki.fextralife.com/Raptor's+Black+Feathers" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Head Slot Target</div>
+        <div class="item-name">White Mask</div>
+        <p>Raises attack power by 10% for 20 seconds whenever blood loss occurs nearby — which your build triggers constantly. Functions as a near-permanent damage bonus in any bleed-viable fight. Reachable mid-game via Mohgwyn Palace invasion route. Worth hunting for early.</p>
+        <div class="item-stat">Poise: 5 · Weight: 3.4 · Passive: +10% attack after nearby blood loss</div>
+        <div class="item-stat">📍 Dropped by War Surgeon enemies, Mohgwyn Palace <a href="https://eldenring.wiki.fextralife.com/White+Mask" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag blue">A-Tier — Survivability</div>
-      <div class="item-name">Bloodsoaked Set</div>
-      <p>Heavier and better defended than the White Reed Set. Use this if you're dying frequently and want more physical negation without sacrificing the bleed aesthetic. The additional defence buys more margin for error in long boss fights — particularly useful against faster bosses in the DLC where a single mistake can be fatal.</p>
-      <div class="item-stat">Poise: 31 · Physical: ~30 · Weight: 22.3</div>
-      <div class="item-stat">📍 Volcano Manor area — dropped by Miquellan Knight Sword enemies</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag green">A-Tier — Bleed Variant</div>
-      <div class="item-name">White Mask</div>
-      <p>A helmet with a powerful passive — raises attack power by 10% for 20 seconds whenever blood loss occurs nearby. Since you proc bleed constantly, this is essentially a permanent 10% damage bonus in any bleed-viable fight. Pair with any body armour you like. Always slot this helmet if you have it.</p>
-      <div class="item-stat">Poise: 5 · Weight: 3.4 · Passive: +10% attack after nearby blood loss</div>
-      <div class="item-stat">📍 War Surgeon Set drop — Mohgwyn Palace, dropped by War Surgeon enemies</div>
+  </div>
+
+  <div class="tab-panel" id="tab-armour-end">
+    <h3>End Game — Mountaintops and Beyond</h3>
+    <p>The optimal combination is White Mask (head) + Raptor's Black Feathers (chest) + any light legs and arms. Both pieces have passives that directly amplify bleed performance. White Reed Set remains a viable aesthetic alternative.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">S-Tier Combo</div>
+        <div class="item-name">White Mask + Raptor's Black Feathers</div>
+        <p>The optimal combination. White Mask's +10% attack on blood loss and Raptor's jump attack bonus stack to create a constantly refreshing damage amplifier. Pair with any lightweight legs and gauntlets — Ronin's Set legs work well to reach ~51 poise without exceeding medium load.</p>
+        <div class="item-stat">Target: below 70% equip load · Aim for 51+ poise if dual-wielding heavy katanas</div>
+        <div class="item-stat">📍 White Mask: Mohgwyn Palace · Raptor's: Sage's Cave, Altus Plateau</div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">A-Tier — Aesthetic Pick</div>
+        <div class="item-name">White Reed Set</div>
+        <p>The classic full Samurai look. Lightweight at 17.2 total weight, comfortable medium load even with two katanas. If you prefer the full Samurai aesthetic over mixing pieces, use this — it performs fine even without the passive bonuses of the White Mask combination.</p>
+        <div class="item-stat">Poise: 20 · Physical: ~25 · Weight: 17.2</div>
+        <div class="item-stat">📍 Spiritcaller's Cave, Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/White+Reed+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">A-Tier — Survivability</div>
+        <div class="item-name">Bloodsoaked Set</div>
+        <p>Heavier and better defended. If you're dying frequently and want more physical negation without losing the bleed aesthetic, use this. The additional defence buys margin for error in long boss fights — particularly useful against faster DLC bosses where a single mistake is often fatal.</p>
+        <div class="item-stat">Poise: 31 · Physical: ~30 · Weight: 22.3</div>
+        <div class="item-stat">📍 Volcano Manor area — dropped by Miquellan Knight Sword enemies <a href="https://eldenring.wiki.fextralife.com/Bloodsoaked+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
@@ -414,25 +530,25 @@
       <div class="t-num">SLOT 1 — ESSENTIAL</div>
       <div class="t-name">Lord of Blood's Exultation</div>
       <p>Raises attack power by 20% for 20 seconds whenever blood loss occurs nearby — including your own procs. Since you trigger bleed constantly, this buff is nearly permanent in any bleed-viable fight. The single most important talisman for this build.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Leyndell Catacombs — dropped by Esgar, Priest of Blood</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Leyndell Catacombs — dropped by Esgar, Priest of Blood <a href="https://eldenring.wiki.fextralife.com/Lord+of+Blood's+Exultation" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">SLOT 2 — ESSENTIAL</div>
       <div class="t-name">Millicent's Prosthesis</div>
       <p>Raises attack power by up to 8% on successive hits (stacks 5 times) and boosts Dexterity by 5 points. Both bonuses apply simultaneously. The multi-hit nature of Corpse Piler builds stacks almost instantly, and the Dex bonus is free scaling on Rivers of Blood.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Millicent's questline reward — Mountaintops of the Giants</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Millicent's questline reward — Mountaintops of the Giants <a href="https://eldenring.wiki.fextralife.com/Millicent's+Prosthesis" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">SLOT 3 — CORE</div>
       <div class="t-name">Shard of Alexander</div>
       <p>Increases the damage of skills — specifically Ashes of War — by 15%. Corpse Piler is an Ash of War. This is a direct, unconditional 15% Corpse Piler damage increase. No conditions, no timing, no stacks. Just more damage on every cast of your main skill.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 End of Iron Fist Alexander's questline — Crumbling Farum Azula</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 End of Iron Fist Alexander's questline — Crumbling Farum Azula <a href="https://eldenring.wiki.fextralife.com/Shard+of+Alexander" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">SLOT 4 — FLEXIBLE</div>
       <div class="t-name">Rotten Winged Sword Insignia</div>
       <p>Raises attack power with successive hits — up to +13% at maximum stacks. Stacks additively with Millicent's Prosthesis for a combined maximum of +21%. Rewards the sustained multi-hit pressure of Corpse Piler spam and dual L1 chains. Use instead of Shard of Alexander in the dual-wield variant.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Millicent's questline — drops if you invade and kill her (Haligtree area)</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Millicent's questline — drops if you invade and kill her (Haligtree area) <a href="https://eldenring.wiki.fextralife.com/Rotten+Winged+Sword+Insignia" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
   </div>
 
@@ -442,25 +558,25 @@
       <div class="t-num">EARLY GAME</div>
       <div class="t-name">White Mask (helmet)</div>
       <p>Not a talisman but functions like one — +10% attack whenever blood loss occurs nearby. Slot the White Mask as your helmet before you have Lord of Blood's Exultation for a similar passive damage boost.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 War Surgeon enemies, Mohgwyn Palace</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 War Surgeon enemies, Mohgwyn Palace <a href="https://eldenring.wiki.fextralife.com/White+Mask" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">FP MANAGEMENT</div>
       <div class="t-name">Carian Filigreed Crest</div>
       <p>Reduces FP cost of skills by 25%. Swap in against bosses with long phases where you'll be casting Corpse Piler relentlessly. Prevents constant flask top-ups mid-fight.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Purchased from War Counselor Iji, Liurnia of the Lakes</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Purchased from War Counselor Iji, Liurnia of the Lakes <a href="https://eldenring.wiki.fextralife.com/Carian+Filigreed+Crest" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">EQUIP LOAD</div>
       <div class="t-name">Erdtree's Favor +2</div>
       <p>Boosts HP, Stamina, and Equip Load simultaneously. Swap in if dual-wielding heavy katanas pushes you over medium roll threshold. Pure stat efficiency with no downside.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Subterranean Shunning Grounds, near Forsaken Depths site of grace</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Subterranean Shunning Grounds, near Forsaken Depths site of grace <a href="https://eldenring.wiki.fextralife.com/Erdtree's+Favor+%2B2" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
     <div class="talisman-card">
       <div class="t-num">STAMINA</div>
       <div class="t-name">Green Turtle Talisman</div>
       <p>Raises stamina recovery by 8 per second. Swap in against bosses with long aggressive combos where you need to dodge repeatedly before getting a Corpse Piler window. Keeps you mobile throughout extended fights.</p>
-      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest sealed by imp statue, Summonwater Village, Limgrave</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest sealed by imp statue, Summonwater Village, Limgrave <a href="https://eldenring.wiki.fextralife.com/Green+Turtle+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
     </div>
   </div>
 
@@ -527,32 +643,81 @@
   <h2>Spirit Summons</h2>
   <div class="section-rule"></div>
 
-  <p>As a bleed build, your summons work best when they draw and split aggro, giving you the uninterrupted windows you need to land Corpse Piler sequences. Aggressive, survivable summons that can hold a boss's attention for several seconds are ideal. Avoid fragile summons that die before you get your bleed setup running.</p>
+  <p>As a bleed build, your summons work best when they draw and split aggro, giving you the uninterrupted windows you need to land Corpse Piler sequences. The best choice shifts across the game — start with what's accessible and upgrade when better options open up.</p>
 
-  <div class="item-grid">
-    <div class="item-card">
-      <div class="item-tag red">Top Pick — Survives Everything</div>
-      <div class="item-name">Black Knife Tiche</div>
-      <p>The best summon for this build. Tiche is extremely mobile and exceptionally difficult for bosses to kill — she survives full fights intact where other summons die in phase one. Her Black Knife attacks deal percentage-based HP damage which scales into the endgame. She draws aggro immediately and holds it long enough for you to land Seppuku and open Corpse Piler uncontested.</p>
-      <div class="item-stat">📍 Defeat the Alecto, Black Knife Ringleader boss at Ringleader's Evergaol, Liurnia</div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'summons-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'summons-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'summons-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-summons-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>These summons are accessible from the very start and are strong options through mid-game. The Lone Wolf Ashes in particular are excellent for splitting boss aggro immediately.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best Early Pick</div>
+        <div class="item-name">Lone Wolf Ashes</div>
+        <p>Three aggressive wolves summoned simultaneously. Their multi-target nature forces bosses into erratic behaviour — one wolf gets attacked while the others continue biting. This chaos creates the uncontested Corpse Piler windows you need. Cheap FP cost and consistently effective well into Liurnia.</p>
+        <div class="item-stat">FP Cost: 55 · Three targets · Immediate aggro on summon</div>
+        <div class="item-stat">📍 Given by Melina at the first Site of Grace in Limgrave <a href="https://eldenring.wiki.fextralife.com/Lone+Wolf+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Durable Option</div>
+        <div class="item-name">Spirit Jellyfish Ashes</div>
+        <p>Surprisingly high HP for such an early summon. Floats around the boss, periodically applying poison. It doesn't draw as much aggro as the wolves but survives much longer — useful for fights where wolves get one-shot. The poison chip damage is a bonus on top of the aggro split.</p>
+        <div class="item-stat">FP Cost: 36 · High survivability · Applies poison</div>
+        <div class="item-stat">📍 Given by Roderika at Stormhill Shack (her first meeting) <a href="https://eldenring.wiki.fextralife.com/Spirit+Jellyfish+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Persistent Aggro</div>
+        <div class="item-name">Skeletal Militiaman Ashes</div>
+        <p>Two skeleton warriors that self-revive after being killed — unless the enemy performs a follow-up attack on the downed body. Against bosses that move away to attack you, they revive and re-engage. Persistent aggro source that requires no FP to maintain once summoned.</p>
+        <div class="item-stat">FP Cost: 33 · Self-reviving · Two units</div>
+        <div class="item-stat">📍 Graveyard at Summonwater Village, Limgrave <a href="https://eldenring.wiki.fextralife.com/Skeletal+Militiaman+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag red">Top Pick — Mirror Build</div>
-      <div class="item-name">Mimic Tear</div>
-      <p>Copies your exact equipment at summon — including Rivers of Blood. Two Corpse Piler users simultaneously doubles your bleed proc rate, often leading to near-instant blood loss on bosses before their first attack lands. Costs HP instead of FP. Less survivable than Tiche but more offensive. One of the game's most powerful summons.</p>
-      <div class="item-stat">📍 Chest behind imp fog gate in Night's Sacred Ground, Nokron, Eternal City</div>
+  </div>
+
+  <div class="tab-panel" id="tab-summons-mid">
+    <h3>Mid Game — Altus Plateau through Leyndell</h3>
+    <p>Two major unlocks become available once you defeat Radahn and enter Nokron. Mimic Tear in particular is a transformative pickup the moment you have Rivers of Blood.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Major Upgrade — Get This</div>
+        <div class="item-name">Mimic Tear</div>
+        <p>Copies your exact equipment at the moment of summoning — including Rivers of Blood. Two Corpse Piler users simultaneously doubles your bleed proc rate. Once you have Rivers of Blood equipped, summon Mimic Tear before every boss. It costs HP instead of FP. One of the strongest summons in the game for this build.</p>
+        <div class="item-stat">HP Cost: ~800 · Copies full build · No FP needed</div>
+        <div class="item-stat">📍 Chest behind imp fog gate in Night's Sacred Ground, Nokron, Eternal City (reach Nokron after defeating Radahn) <a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Ranged Pressure</div>
+        <div class="item-name">Latenna the Albinauric</div>
+        <p>A stationary archer summon that fires high-damage arrows from a fixed position. Best in enclosed boss arenas where the boss stays within range. She deals strong damage without engaging in melee — so she rarely dies if placed near a wall or pillar.</p>
+        <div class="item-stat">FP Cost: 74 · Stationary · High single-target damage</div>
+        <div class="item-stat">📍 Given by Latenna at Slumbering Wolf's Shack after showing her the Haligtree Medallion <a href="https://eldenring.wiki.fextralife.com/Latenna+the+Albinauric+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
-    <div class="item-card">
-      <div class="item-tag">Aggressive Bleed Source</div>
-      <div class="item-name">Bloodhound Knight Floh</div>
-      <p>An aggressive melee summon with built-in bleed. Floh applies bleed independently of your attacks — two simultaneous bleed sources significantly accelerate proc speed against high-HP bosses. More accessible than Tiche earlier in the game and pairs exceptionally well with this build specifically.</p>
-      <div class="item-stat">📍 Purchase from Finger Reader Enia at Roundtable Hold after Mohg's questline</div>
-    </div>
-    <div class="item-card">
-      <div class="item-tag">Ranged Pressure</div>
-      <div class="item-name">Latenna the Albinauric</div>
-      <p>A stationary ranged summon that fires high-damage arrows from a fixed position. Best used in enclosed boss arenas where the boss stays in her range. She deals excellent damage without engaging in melee, meaning she rarely dies if positioned near a wall. Useful for bosses that are difficult to approach — she maintains pressure while you manoeuvre.</p>
-      <div class="item-stat">📍 Latenna's questline — given by Latenna at Slumbering Wolf's Shack after conversation</div>
+  </div>
+
+  <div class="tab-panel" id="tab-summons-end">
+    <h3>End Game — Mountaintops and Beyond</h3>
+    <p>Black Knife Tiche is the top pick at endgame — she survives full fights intact where other summons die in phase one. Bloodhound Knight Floh adds its own bleed source, synergising directly with the build.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best Overall — Top Pick</div>
+        <div class="item-name">Black Knife Tiche</div>
+        <p>The best endgame summon for this build. Tiche is extremely mobile and almost impossible for bosses to kill — she survives full fights intact where other summons die in phase one. Her Black Knife attacks deal percentage-based HP damage, scaling into all endgame content. She draws aggro immediately and holds it long enough for your full pre-fight buff sequence and first Corpse Piler window.</p>
+        <div class="item-stat">FP Cost: 132 · Extremely mobile · HP-scaling damage</div>
+        <div class="item-stat">📍 Defeat Alecto, Black Knife Ringleader at Ringleader's Evergaol, Liurnia <a href="https://eldenring.wiki.fextralife.com/Black+Knife+Tiche" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag green">Bleed Synergy</div>
+        <div class="item-name">Bloodhound Knight Floh</div>
+        <p>An aggressive melee summon with built-in bleed. Floh applies bleed independently of your attacks — two simultaneous bleed sources significantly accelerate proc speed against high-HP bosses. Use when Tiche's FP cost is a concern, or for fights where you want sustained melee pressure from two directions.</p>
+        <div class="item-stat">FP Cost: 95 · Applies bleed · Aggressive melee</div>
+        <div class="item-stat">📍 Purchase from Finger Reader Enia at Roundtable Hold after progressing Mohg's questline <a href="https://eldenring.wiki.fextralife.com/Bloodhound+Knight+Floh+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
     </div>
   </div>
 
@@ -746,18 +911,18 @@
   <h3>Item Location Quick Reference</h3>
   <table class="data-table">
     <tr><th>Item</th><th>Location</th></tr>
-    <tr><td class="highlight">Rivers of Blood</td><td>Bloody Finger Okina invasion, Church of Repose, Mountaintops of the Giants</td></tr>
-    <tr><td class="highlight">Uchigatana</td><td>Starting weapon (Samurai class) · Also sold by Patches, Murkwater Cave</td></tr>
-    <tr><td class="highlight">Nagakiba</td><td>Bloody Finger Hunter Yura questline reward, or drop</td></tr>
-    <tr><td class="highlight">Seppuku AoW</td><td>Teardrop Scarab on frozen lake, Mountaintops of the Giants</td></tr>
-    <tr><td class="highlight">Lord of Blood's Exultation</td><td>Esgar, Priest of Blood — Leyndell Catacombs</td></tr>
-    <tr><td class="highlight">Millicent's Prosthesis</td><td>Millicent questline reward, Mountaintops of the Giants</td></tr>
-    <tr><td class="highlight">Rotten Winged Sword Insignia</td><td>Millicent questline — invade and kill Millicent at Haligtree</td></tr>
-    <tr><td class="highlight">Shard of Alexander</td><td>Iron Fist Alexander questline reward, Crumbling Farum Azula</td></tr>
-    <tr><td class="highlight">Black Knife Tiche</td><td>Defeat Alecto, Black Knife Ringleader at Ringleader's Evergaol, Liurnia</td></tr>
-    <tr><td class="highlight">Mimic Tear</td><td>Chest behind imp fog gate, Night's Sacred Ground, Nokron</td></tr>
-    <tr><td class="highlight">White Mask</td><td>War Surgeon enemies, Mohgwyn Palace</td></tr>
-    <tr><td class="highlight">Raptor's Black Feathers</td><td>Sage's Cave, Altus Plateau</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Rivers+of+Blood" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Rivers of Blood</a></td><td>Bloody Finger Okina invasion, Church of Repose, Mountaintops of the Giants</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Uchigatana" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Uchigatana</a></td><td>Starting weapon (Samurai class) · Also sold by Patches, Murkwater Cave</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Nagakiba" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Nagakiba</a></td><td>Bloody Finger Hunter Yura questline reward, or drop</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Seppuku" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Seppuku AoW</a></td><td>Teardrop Scarab on frozen lake, Mountaintops of the Giants</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Lord+of+Blood's+Exultation" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Lord of Blood's Exultation</a></td><td>Esgar, Priest of Blood — Leyndell Catacombs</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Millicent's+Prosthesis" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Millicent's Prosthesis</a></td><td>Millicent questline reward, Mountaintops of the Giants</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Rotten+Winged+Sword+Insignia" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Rotten Winged Sword Insignia</a></td><td>Millicent questline — invade and kill Millicent at Haligtree</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Shard+of+Alexander" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Shard of Alexander</a></td><td>Iron Fist Alexander questline reward, Crumbling Farum Azula</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Black+Knife+Tiche" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Black Knife Tiche</a></td><td>Defeat Alecto, Black Knife Ringleader at Ringleader's Evergaol, Liurnia</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Mimic Tear</a></td><td>Chest behind imp fog gate, Night's Sacred Ground, Nokron</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/White+Mask" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">White Mask</a></td><td>War Surgeon enemies, Mohgwyn Palace</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Raptor's+Black+Feathers" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Raptor's Black Feathers</a></td><td>Sage's Cave, Altus Plateau</td></tr>
   </table>
 
   <div class="section-footer">
@@ -779,10 +944,11 @@ window.addEventListener('scroll', () => {
   document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
 });
 
-// Tab switching
+// Tab switching — scoped to the parent section so multiple tab groups coexist
 function switchTab(e, id) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  const section = e.target.closest('section');
+  section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   e.target.classList.add('active');
   document.getElementById('tab-' + id).classList.add('active');
 }
