@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elden Ring Dragon Faith Build | Dragonclaw Guide 2026</title>
+<meta name="description" content="The definitive Elden Ring Dragon Faith Build guide. Dragonclaw, Dragon Communion Seal, Sacrificial Axe. Stats, talismans, and boss tips. SotE updated.">
+<meta property="og:title" content="Elden Ring Dragon Faith Build | Dragonclaw Guide 2026">
+<meta property="og:description" content="Dragonclaw incantation, Dragon Communion Seal, and Sacrificial Axe. The best Faith/Strength hybrid in Elden Ring. Updated for Shadow of the Erdtree.">
+<meta property="og:url" content="https://bloodguides.pages.dev/dragon-faith-build/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+/* Page-specific variables */
+:root {
+  --bg: #16131f; --surface: #1f1c2e; --surface2: #2a263c; --border: #3e3858;
+  --accent: #c87941; --accent2: #8b4a1a; --gold: #d4a84c; --gold2: #f5d880;
+  --text: #f0ead8; --text2: #c8bfb0; --text3: #d0c8bc;
+  --blue: #5b8fd4; --green: #5db87a;
+}
+/* Dragon Faith hero — deep amber/orange dragon fire */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(180,90,20,0.42) 0%, transparent 70%),
+    radial-gradient(ellipse at 50% 100%, rgba(11,10,14,1) 40%,  transparent 100%),
+    #16131f !important;
+}
+/* Wiki links */
+.wiki-link { display: inline-block; font-size: 11px; color: var(--gold); text-decoration: none; margin-left: 4px; opacity: .75; }
+.wiki-link:hover { opacity: 1; text-decoration: underline; }
+/* Levelling progression cards */
+.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
+.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
+.prog-header.mid { background: rgba(91,143,212,.15); color: var(--blue); }
+.prog-header.end { background: rgba(200,121,65,.15); color: var(--accent); }
+.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
+.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
+</style>
+</head>
+<body>
+<div id="page-top"></div>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#" class="active">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
+          <li><a href="/dragon-faith-build/">Dragon Faith Build</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+    <button class="theme-toggle" title="Toggle light/dark mode">
+      <span class="toggle-icon">☀️</span> Light
+    </button>
+  </div>
+</header>
+
+<button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Complete Build Guide · 2026</span>
+  <h1 class="title">Dragon Faith Build</h1>
+  <p class="subtitle">Dragonclaw · Dragon Communion Seal · Sacrificial Axe · Become the dragon.</p>
+  <div class="badges">
+    <span class="badge red">Faith</span>
+    <span class="badge blue">Strength</span>
+    <span class="badge" style="background:rgba(180,90,20,0.25);border-color:var(--accent);">Dragon Communion</span>
+    <span class="badge">PvE ✓</span>
+    <span class="badge">DLC Compatible</span>
+  </div>
+</div>
+
+<!-- IN-PAGE NAV -->
+<nav class="section-nav">
+  <ul>
+    <li><button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Overview</button></li>
+    <li><button onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants</button></li>
+    <li><button onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats</button></li>
+    <li><button onclick="document.getElementById('incantations').scrollIntoView({behavior:'smooth'})">Incantations</button></li>
+    <li><button onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons</button></li>
+    <li><button onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">Armour</button></li>
+    <li><button onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans</button></li>
+    <li><button onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs</button></li>
+    <li><button onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">Summons</button></li>
+    <li><button onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">Combat</button></li>
+    <li><button onclick="document.getElementById('acquisition').scrollIntoView({behavior:'smooth'})">Acquisition</button></li>
+    <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips</button></li>
+    <li><button onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">DLC</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Overview</h2>
+  <div class="section-rule"></div>
+
+  <div class="summary-box">
+    <div class="summary-grid">
+      <div class="summary-item"><span class="summary-label">Build Identity</span><span class="summary-value">The Dragon Knight</span></div>
+      <div class="summary-item"><span class="summary-label">Starting Class</span><span class="summary-value">Confessor or Prophet</span></div>
+      <div class="summary-item"><span class="summary-label">Primary Stats</span><span class="summary-value">Faith · Arcane · Strength</span></div>
+      <div class="summary-item"><span class="summary-label">Core Spell</span><span class="summary-value">Dragonclaw + Agheel's Flame</span></div>
+      <div class="summary-item"><span class="summary-label">Core Weapon</span><span class="summary-value">Dragon Communion Seal + Sacrificial Axe</span></div>
+      <div class="summary-item"><span class="summary-label">Best For</span><span class="summary-value">PvE bosses, mid-to-endgame</span></div>
+    </div>
+  </div>
+
+  <p>The Dragon Faith build is a melee-incantation hybrid built around the Dragon Communion system — a collection of powerful spells obtained by trading Dragon Hearts at the altars of Farum Azula. Its signature move is <strong>Dragonclaw</strong>: an incantation that transforms your arm into a colossal dragon limb and tears through enemies with a two-hit claw strike, dealing enormous physical damage and posture damage with each cast. It is one of the hardest-hitting spells in the game when built around correctly.</p>
+
+  <p>The Dragon Communion Seal is the key item that makes this work. Equipping it passively boosts all Dragon Communion incantations by 15% — no active casting required. Hold it in your offhand while swinging a Sacred-infused axe in your right, and you have a fully functional hybrid that deals excellent melee damage between spell windows and casts Dragonclaw to stagger bosses and burst vulnerable phases.</p>
+
+  <p>This guide covers three variants: the <strong>Dragon Knight</strong> (Strength/Faith core — Dragonclaw + melee axe), the <strong>Dragon Pyromancer</strong> (fire-focused — Agheel's Flame and fire incantations with Blasphemous Blade), and the <strong>Early Game Prophet</strong> setup to carry you before the full build comes online.</p>
+
+  <div class="pro-con-grid">
+    <div class="pro-box">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Dragonclaw deals massive physical damage and stance damage</li>
+        <li>Dragon Communion Seal boosts all dragon spells passively</li>
+        <li>Excellent poise damage — frequent boss staggers</li>
+        <li>Sacrificial Axe restores FP on kill, enabling sustained casting</li>
+        <li>Fire variant (Agheel's Flame) melts fire-vulnerable bosses</li>
+        <li>Strong from early game — Dragon Hearts available in Limgrave</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Dragonclaw has a noticeable cast animation — punishable if mistimed</li>
+        <li>FP-hungry build — Mind investment is non-negotiable</li>
+        <li>Dragon Communion Seal needs to be found early (Fringefolk Hero's Grave)</li>
+        <li>Some bosses are fire-resistant — reduces fire variant effectiveness</li>
+        <li>Lower damage than pure caster if Arcane is not invested alongside Faith</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <span></span>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants →</button>
+  </div>
+</section>
+
+<!-- VARIANTS -->
+<section id="variants">
+  <h2>Build Variants</h2>
+  <div class="section-rule"></div>
+
+  <p>Three approaches to the Dragon Communion archetype. All share the same Foundation stats — Faith, Arcane, and enough Strength to 2H a good melee weapon. The difference is which dragon spells and weapons you emphasise.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'knight')">Dragon Knight</button>
+    <button class="tab-btn" onclick="switchTab(event,'pyro')">Dragon Pyromancer</button>
+    <button class="tab-btn" onclick="switchTab(event,'early')">Early Game Prophet</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-knight">
+    <h3>Dragon Knight — Core Build</h3>
+    <p>The definitive version. Dragonclaw in your spell slot, Dragon Communion Seal offhand, Sacrificial Axe two-handed as your melee weapon. Cast Dragonclaw to stagger bosses, follow up with 2H axe strikes in the recovery window, and let the Sacrificial Axe's FP-on-kill passive keep your spell bar topped up during clearing. High poise from medium armour lets you tank through the Dragonclaw animation in most situations.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Item</th><th>Notes</th></tr>
+      <tr><td>Primary Spell</td><td class="highlight">Dragonclaw</td><td>Two-hit claw strike — enormous poise/stance damage</td></tr>
+      <tr><td>Offhand</td><td class="highlight"><span class="itip" data-type="Sacred Seal" data-name="Dragon Communion Seal +10" data-desc="Passively boosts the power of all Dragon Communion incantations by 15% simply by being equipped in either hand. Scales primarily with Arcane, secondarily Faith. Best seal for this build." data-stats="Scales: S Arcane / D Faith at +10 · Found in Fringefolk Hero's Grave">Dragon Communion Seal +10</span></td><td>+15% to all dragon spells passively</td></tr>
+      <tr><td>Main Hand</td><td class="highlight"><span class="itip" data-type="Weapon · Axe" data-name="Sacrificial Axe +24 (Sacred)" data-desc="Restores 4 FP whenever you kill an enemy. Sacred infusion adds Faith scaling. Two-handing this gives you effective Strength 1.5x your actual stat — pairs well with moderate Strength investment." data-stats="STR 14 / DEX 12 · Sacred infusion recommended · FP on kill passive">Sacrificial Axe +24 (Sacred)</span></td><td>Restores 4 FP per kill — keeps spells flowing</td></tr>
+      <tr><td>Key Buff</td><td>Golden Vow</td><td>+15% attack, +10% defense — cast before every boss</td></tr>
+      <tr><td>Flask Mix</td><td>Cerulean Hidden Tear + Strength-Knot Crystal Tear</td><td>One free cast + +10% physical attack</td></tr>
+    </table>
+    <p><strong>Stat priority:</strong> Faith 50 → Vigor 50 → Arcane 25 → Mind 28 → Strength 20 → Endurance 22</p>
+  </div>
+
+  <div class="tab-panel" id="tab-pyro">
+    <h3>Dragon Pyromancer — Fire Focus</h3>
+    <p>Leans hard into the fire side of Dragon Communion. Agheel's Flame is your primary damage spell — a long-range fire breath that deals enormous fire damage to groups and bosses alike. Pair it with the Blasphemous Blade as your melee weapon: a greatsword that scales with both Strength and Faith, heals you on any kill, and is one of the best weapons in the game for this stat distribution. The Roar Medallion talisman boosts Agheel's Flame by an additional 10%.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Item</th><th>Notes</th></tr>
+      <tr><td>Primary Spell</td><td class="highlight"><span class="itip" data-type="Dragon Communion Incantation" data-name="Agheel's Flame" data-desc="Transforms the caster into Flying Dragon Agheel to breathe fire in a wide arc. Deals heavy fire damage in a large area. Boosted by both the Dragon Communion Seal passive and the Roar Medallion talisman." data-stats="Faith 23 / Arc 15 · 2 Dragon Hearts · Defeat Flying Dragon Agheel first">Agheel's Flame</span></td><td>Wide fire breath — boosted by Roar Medallion</td></tr>
+      <tr><td>Offhand</td><td class="highlight">Dragon Communion Seal +10</td><td>+15% to all dragon spells</td></tr>
+      <tr><td>Main Hand</td><td class="highlight"><span class="itip" data-type="Weapon · Greatsword" data-name="Blasphemous Blade +10" data-desc="Taker's Flames Ash of War deals fire damage in a cone and heals you for a portion of damage dealt. Passive: heals HP on any kill. Scales with Strength and Faith — ideal for this build. One of the best weapons in the game." data-stats="STR 22 / DEX 15 / FTH 21 · Cannot be infused · AoW: Taker's Flames">Blasphemous Blade +10</span></td><td>Heals on kill · Str/Faith scaling · Taker's Flames AoW</td></tr>
+      <tr><td>Key Talisman</td><td class="highlight"><span class="itip" data-type="Talisman" data-name="Roar Medallion" data-desc="Boosts the power of roar and breath attacks by 10%. Dragon breath incantations — including Agheel's Flame, Borealis's Mist, and Dragonfire — are classified as breath attacks and benefit from this talisman." data-stats="+10% breath/roar attack power · Found in Limgrave — minor dungeon">Roar Medallion</span></td><td>+10% to all breath incantations including Agheel's</td></tr>
+      <tr><td>Supporting Spell</td><td>Flame, Grant Me Strength</td><td>+20% physical and fire — stacks with everything</td></tr>
+    </table>
+    <p><strong>Stat priority:</strong> Faith 50 → Vigor 50 → Arcane 25 → Strength 22 → Mind 28 → Endurance 20</p>
+  </div>
+
+  <div class="tab-panel" id="tab-early">
+    <h3>Early Game Prophet — Before the Full Build</h3>
+    <p>Before you have the Dragon Communion Seal or Dragonclaw, the Prophet starting class gives you Faith 16 and an opening Catch Flame incantation that deals fire damage. Pair it with a Sacred-infused weapon (any axe or straight sword works) and trade your first Dragon Heart at the Church of Dragon Communion in Limgrave for Dragonfire — the basic dragon breath. This carries you comfortably through Limgrave and Liurnia while you work toward the full build.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Item</th><th>Notes</th></tr>
+      <tr><td>Primary Spell</td><td class="highlight"><span class="itip" data-type="Dragon Communion Incantation" data-name="Dragonfire" data-desc="The starter Dragon Communion breath attack. Breathes fire in a cone. Weaker than Agheel's Flame but available immediately from the Church of Dragon Communion in Limgrave for 1 Dragon Heart." data-stats="Faith 15 / Arc 12 · 1 Dragon Heart · Church of Dragon Communion, Limgrave">Dragonfire</span></td><td>Default dragon breath — 1 Heart at the Limgrave altar</td></tr>
+      <tr><td>Seal</td><td>Finger Seal or Prophet's starting seal</td><td>Upgrade this — Dragon Communion Seal replaces it later</td></tr>
+      <tr><td>Main Hand</td><td>Any axe or club, Sacred infusion</td><td>Sacred adds Faith scaling — consistent damage early</td></tr>
+      <tr><td>Supporting Spell</td><td>Catch Flame</td><td>Prophet starting spell — fast, cheap fire damage</td></tr>
+      <tr><td>Key Upgrade</td><td>Dragon Communion Seal (Fringefolk Hero's Grave)</td><td>Priority unlock — two Stonesword Keys at the start</td></tr>
+    </table>
+    <p><strong>Stat priority:</strong> Faith 25 → Vigor 30 → Arcane 15 (Dragonfire req) → Mind 20 → then push toward full build</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">← Overview</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats →</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <h2>Stats &amp; Levelling</h2>
+  <div class="section-rule"></div>
+
+  <p>Confessor is the recommended starting class — it begins with Faith 14, decent Vigor, and a reasonable spread that minimises wasted early levels. Prophet is a strong alternative with higher starting Faith (16) at the cost of less physical resilience. Both work well; Confessor is more flexible for the hybrid melee-caster playstyle.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Key Breakpoints</div>
+    <p><strong>Faith 15:</strong> unlocks Dragonfire and Dragonclaw (minimum requirements — Arcane needed too). <strong>Arcane 13:</strong> Dragonclaw minimum — hit this early. <strong>Faith 23 / Arcane 15:</strong> Agheel's Flame unlocked. <strong>Strength 14 (2H = 21):</strong> Sacrificial Axe wielded. <strong>Strength 22 (2H = 33):</strong> Blasphemous Blade wielded. <strong>Faith 50:</strong> incantation scaling soft cap — target for endgame.</p>
+  </div>
+
+  <h3>Levelling Roadmap</h3>
+  <div class="progression-grid">
+    <div class="prog-stage">
+      <div class="prog-header early">🌱 Early Game — Levels 1–40</div>
+      <p><strong>Priority order:</strong> Vigor 30 → Faith 25 → Arcane 15 → Mind 20</p>
+      <p>Vigor 30 first — you die fast at low levels. Faith 25 and Arcane 15 together unlock Dragonclaw and Agheel's Flame, which is where your damage comes from. Mind 20 gives you enough FP to cast multiple times per fight. Use Dragonfire from the Limgrave altar as your primary damage source until Dragonclaw is available.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header mid">⚔️ Mid Game — Levels 40–80</div>
+      <p><strong>Priority order:</strong> Faith 40 → Vigor 40 → Arcane 20 → Strength 20 → Mind 25</p>
+      <p>Faith 40 is the first meaningful incantation scaling threshold — Dragonclaw will noticeably hit harder. Arcane 20 improves Dragon Communion Seal scaling. Strength 20 lets you comfortably 2H the Sacrificial Axe or Gargoyle's Black Axe without investing more Strength levels. Push Vigor to 40 before engaging late-Liurnia and Altus bosses.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header end">🔥 End Game — Levels 80–150</div>
+      <p><strong>Priority order:</strong> Faith 50 → Vigor 50 → Arcane 25 → Mind 28 → Endurance 22</p>
+      <p>Faith 50 and Arcane 25 together on the Dragon Communion Seal reaches peak incantation scaling for this build. Vigor 50 is the floor before endgame bosses — chip damage accumulates. Mind 28 provides enough FP for three or four Dragonclaw casts per boss phase without a flask. Endurance 22 covers medium roll with the Crucible armour set.</p>
+    </div>
+  </div>
+
+  <h3>Dragon Knight — Stat Reference (Confessor Start)</h3>
+  <table class="data-table">
+    <tr><th>Stat</th><th>Lv 50</th><th>Lv 100</th><th>Lv 150</th><th>Why</th></tr>
+    <tr><td>Vigor</td><td>30</td><td>40</td><td class="highlight">50</td><td>Non-negotiable. Dragonclaw leaves you exposed mid-animation — you need HP to afford mistakes.</td></tr>
+    <tr><td>Mind</td><td>20</td><td>25</td><td class="highlight">28</td><td>FP for Dragonclaw (42 FP), buffs, and backup spells. Low Mind kills your cast rate.</td></tr>
+    <tr><td>Endurance</td><td>15</td><td>20</td><td>22</td><td>Medium roll target with Crucible Knight or similar armour. Don't invest heavily here.</td></tr>
+    <tr><td>Strength</td><td>14</td><td>20</td><td>20</td><td>Two-handing gives 1.5x effective Str. STR 20 two-handed = effective 30 — enough for most weapons.</td></tr>
+    <tr><td>Dexterity</td><td>12</td><td>12</td><td>12</td><td>Minimum for Sacrificial Axe. Do not invest further.</td></tr>
+    <tr><td>Intelligence</td><td>9</td><td>9</td><td>9</td><td>Dump stat entirely.</td></tr>
+    <tr><td>Faith</td><td>25</td><td class="highlight">40</td><td class="highlight">50</td><td>Primary scaling stat for all incantations. 50 is the endgame soft cap — don't stop short.</td></tr>
+    <tr><td>Arcane</td><td>15</td><td>20</td><td class="highlight">25</td><td>Scales the Dragon Communion Seal directly. Every point up to 25 meaningfully boosts dragon spell output.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Why Both Faith AND Arcane?</div>
+    <p>The Dragon Communion Seal is unique — it scales with <strong>both</strong> Faith and Arcane simultaneously. At +10, it reaches S-tier Arcane scaling and D-tier Faith scaling. Dragon Communion incantations like Dragonclaw use this combined scaling. Investing in Arcane alongside Faith is not splitting your build — it is how you maximise dragon spell damage. You do not need a separate weapon seal; Dragon Communion Seal handles everything.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">← Variants</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('incantations').scrollIntoView({behavior:'smooth'})">Incantations →</button>
+  </div>
+</section>
+
+<!-- INCANTATIONS -->
+<section id="incantations">
+  <h2>Incantations</h2>
+  <div class="section-rule"></div>
+
+  <p>Dragon Communion incantations form the core of this build's offensive output. They require Dragon Hearts — obtained by defeating named dragons in the world — and are purchased at either the Church of Dragon Communion in Limgrave or the Cathedral of Dragon Communion in Caelid. The Cathedral has the full selection; the Church has a limited but immediately accessible subset.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Dragon Communion Seal Passive — Always Equip It</div>
+    <p>The Dragon Communion Seal boosts all Dragon Communion incantations by 15% while equipped in either hand — even if you are not actively casting with it. Hold it in your offhand and 2H your melee weapon, and all your dragon spells hit harder. This passive is always active. Never swap it out of your loadout.</p>
+  </div>
+
+  <h3>Core Spells — Dragon Knight Build</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Signature Spell — Get This First</div>
+      <div class="item-name"><span class="itip" data-type="Dragon Communion Incantation" data-name="Dragonclaw" data-desc="Transforms your arm into a colossal dragon claw and delivers a two-hit tearing strike. First hit: enormous poise damage and physical damage. Follow-up hit knocks enemies down. One of the highest poise-damage spells in the game — stagger windows are frequent." data-stats="Faith 17 / Arc 13 · FP Cost: 42 · 1 Dragon Heart · Church or Cathedral of Dragon Communion">Dragonclaw</span></div>
+      <p>Your primary damage spell. Transforms your arm into a dragon claw for a two-hit tearing strike — the first hit deals enormous poise and physical damage, and the follow-up knocks enemies down. It is one of the hardest-hitting incantations in the game relative to its spell slot cost, and it stacks well with your melee follow-ups. Available for 1 Dragon Heart from either Dragon Communion altar without any prerequisite boss kill.</p>
+      <div class="item-stat">Faith 17 / Arc 13 · FP Cost: 42 · 1 spell slot · Two-hit sequence</div>
+      <div class="item-stat">📍 Church of Dragon Communion, Limgrave (east of Agheel Lake) · No boss prerequisite <a href="https://eldenring.wiki.fextralife.com/Dragonclaw" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag red">Fire Breath — Essential for Pyromancer</div>
+      <div class="item-name"><span class="itip" data-type="Dragon Communion Incantation" data-name="Agheel's Flame" data-desc="Named version of Dragonfire. Breathes fire in a wide arc for significantly more damage than the base Dragonfire spell. Boosted by the Roar Medallion talisman (+10%) and Dragon Communion Seal passive (+15%). Requires defeating Flying Dragon Agheel." data-stats="Faith 23 / Arc 15 · FP Cost: 36 · 2 Dragon Hearts · Defeat Flying Dragon Agheel first">Agheel's Flame</span></div>
+      <p>The upgraded version of Dragonfire — a wide-arc fire breath named after the boss required to unlock it. Deals significantly more fire damage than the basic breath spell and benefits from both the Dragon Communion Seal passive and the Roar Medallion talisman. The go-to spell for the Dragon Pyromancer variant and an excellent supplementary option for the Dragon Knight. Flying Dragon Agheel is found in Limgrave early in the game.</p>
+      <div class="item-stat">Faith 23 / Arc 15 · FP Cost: 36 · 2 Dragon Hearts · Wide fire arc</div>
+      <div class="item-stat">📍 Cathedral of Dragon Communion, Caelid · Requires defeating Flying Dragon Agheel, Agheel Lake, Limgrave <a href="https://eldenring.wiki.fextralife.com/Agheel's+Flame" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Starter Option — Easy Access</div>
+      <div class="item-name"><span class="itip" data-type="Dragon Communion Incantation" data-name="Dragonfire" data-desc="The base Dragon Communion breath attack. Breathes fire in a cone. Weaker than Agheel's Flame but immediately available for 1 Dragon Heart without any boss prerequisite. Useful early before Agheel is defeated." data-stats="Faith 15 / Arc 12 · FP Cost: 32 · 1 Dragon Heart · No boss prerequisite">Dragonfire</span></div>
+      <p>The starter dragon breath — available immediately at the Church of Dragon Communion for 1 Heart with no prerequisite boss kill. Lower damage than Agheel's Flame but useful early while you are working toward the named dragons. Replace with Agheel's Flame as soon as you defeat Agheel in Limgrave.</p>
+      <div class="item-stat">Faith 15 / Arc 12 · FP Cost: 32 · 1 Dragon Heart · Replace with Agheel's Flame when available</div>
+      <div class="item-stat">📍 Church of Dragon Communion, Limgrave — no boss kill required <a href="https://eldenring.wiki.fextralife.com/Dragonfire" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag blue">Utility — Debuff Option</div>
+      <div class="item-name"><span class="itip" data-type="Dragon Communion Incantation" data-name="Rotten Breath" data-desc="Breathes a cloud of scarlet rot buildup. Against bosses vulnerable to rot, a single cast can inflict the status for ongoing percentage-based HP damage — similar in effect to bleed procs but sustained over time." data-stats="Faith 15 / Arc 12 · FP Cost: 36 · 1 Dragon Heart · Defeat Decaying Ekzykes">Rotten Breath</span></div>
+      <p>Applies scarlet rot buildup from a breath attack. Against bosses susceptible to rot — including several major story bosses — a single cast or two inflicts the status, dealing ongoing HP damage as a percentage of their max health. Pair with Dragonclaw on vulnerable bosses for a devastating opening sequence. Requires defeating Decaying Ekzykes in Caelid to unlock.</p>
+      <div class="item-stat">Faith 15 / Arc 12 · FP Cost: 36 · 1 Dragon Heart · Applies scarlet rot</div>
+      <div class="item-stat">📍 Cathedral of Dragon Communion, Caelid · Requires defeating Decaying Ekzykes, Caelid <a href="https://eldenring.wiki.fextralife.com/Rotten+Breath" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+  </div>
+
+  <h3>Support Incantations</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Must-Have Buff</div>
+      <div class="item-name"><span class="itip" data-type="Incantation" data-name="Golden Vow" data-desc="Increases attack power by 15% and damage negation by 10% for 80 seconds. The long duration makes it practical for use before every boss fight. Works on all damage types — physical, fire, holy." data-stats="Faith 25 · FP Cost: 47 · Duration: 80 sec · +15% attack, +10% defense">Golden Vow</span></div>
+      <p>The best all-round buff in the game for this build. Raises attack by 15% and damage negation by 10% for 80 seconds — long enough to last through most boss fights without needing to recast. Cast this before every fog gate alongside Flame, Grant Me Strength. Stacks with all other buffs. Requires Faith 25.</p>
+      <div class="item-stat">Faith 25 · FP Cost: 47 · Duration: 80 sec</div>
+      <div class="item-stat">📍 Dropped by Erdtree Avatar at Mt. Gelmir, or purchase from Knight Bernahl at Volcano Manor <a href="https://eldenring.wiki.fextralife.com/Golden+Vow" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag red">Pre-Fight Buff</div>
+      <div class="item-name"><span class="itip" data-type="Incantation" data-name="Flame, Grant Me Strength" data-desc="Boosts physical and fire attack power by 20% for 30 seconds. Both halves apply simultaneously. Critically — it boosts fire dragon breath incantations as well as melee damage. Short duration requires quick engagement after casting." data-stats="Faith 15 · FP Cost: 0 · Duration: 30 sec · +20% physical and fire attack">Flame, Grant Me Strength</span></div>
+      <p>Raises physical and fire attack by 20% for 30 seconds. Both bonuses apply at once — it boosts Agheel's Flame damage and your Sacrificial Axe melee simultaneously. The 30-second window is short enough that you need to enter the fight quickly after casting. Use this immediately before Golden Vow at each fog gate so the buffs overlap at the start of the fight.</p>
+      <div class="item-stat">Faith 15 · FP Cost: 0 (self-cast, costs HP) · Duration: 30 sec</div>
+      <div class="item-stat">📍 Chest inside Fort Gael, Caelid — guarded by two Fire Monks <a href="https://eldenring.wiki.fextralife.com/Flame,+Grant+Me+Strength" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">← Stats</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons →</button>
+  </div>
+</section>
+
+<!-- WEAPONS -->
+<section id="weapons">
+  <h2>Weapons</h2>
+  <div class="section-rule"></div>
+
+  <p>This build carries both a casting seal and a melee weapon at all times. The Dragon Communion Seal stays in your offhand permanently — you cast incantations from it and its passive runs at all times. Your main hand weapon handles melee. The best options for melee scale with Faith or can be infused Sacred to add Faith scaling.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'weapons-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-weapons-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>Before you have the Dragon Communion Seal, use the Finger Seal or the Prophet's starting seal. For melee, any weapon you can infuse Sacred (via the Whetstone Knife found early in a dungeon) will add Faith scaling immediately.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Priority Pickup — Get This at the Start</div>
+        <div class="item-name"><span class="itip" data-type="Sacred Seal" data-name="Dragon Communion Seal" data-desc="Found in Fringefolk Hero's Grave, accessed via two Stonesword Keys at the very start of the game near the tutorial Site of Grace. Passively boosts Dragon Communion incantations by 15% at all times. Best seal for this build." data-stats="Scales: Arcane (primary) / Faith (secondary) · Found in Fringefolk Hero's Grave · Requires 2 Stonesword Keys">Dragon Communion Seal</span></div>
+        <p>Found in Fringefolk Hero's Grave at the very start of the game — accessible with two Stonesword Keys near the Stranded Graveyard Site of Grace. This is your single highest-priority pickup in the entire playthrough. Once equipped, all your Dragon Communion incantations deal 15% more damage permanently. Upgrade it to +10 with Somber Smithing Stones as soon as possible.</p>
+        <div class="item-stat">Scales: S Arcane / D Faith at +10 · Passive: +15% Dragon Communion incantation power</div>
+        <div class="item-stat">📍 Fringefolk Hero's Grave chest — 2 Stonesword Keys required at Stranded Graveyard, game start <a href="https://eldenring.wiki.fextralife.com/Dragon+Communion+Seal" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Early Melee — Sacred Infusion</div>
+        <div class="item-name">Any Axe or Straight Sword — Sacred Infusion</div>
+        <p>The Whetstone Knife is found early in a chest in Limgrave (Gatefront Ruins). Once you have it, any standard weapon can be infused Sacred at a Site of Grace — this converts the scaling to Faith and adds Holy damage. A basic Handaxe or Longsword with Sacred infusion deals consistent damage scaling off your primary Faith investment throughout the early game.</p>
+        <div class="item-stat">Sacred infusion converts scaling to Faith · Any standard weapon · Whetstone Knife required</div>
+        <div class="item-stat">📍 Whetstone Knife: chest in Gatefront Ruins, Limgrave · Any standard weapon works</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-weapons-mid">
+    <h3>Mid Game — Caelid through Leyndell</h3>
+    <p>Two notable upgrades become available. The Sacrificial Axe is the best melee weapon for this build once your spell count per fight starts to matter — its FP-on-kill passive sustainably tops up your spell bar during clearing. The Gargoyle's Black Axe is a solid option if you prefer innate Faith/Strength scaling without infusion.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best-in-Slot — Upgrade Immediately</div>
+        <div class="item-name"><span class="itip" data-type="Weapon · Axe" data-name="Sacrificial Axe" data-desc="Restores 4 FP whenever you kill any enemy. Sacred infusion adds Faith scaling. Two-handing this weapon only requires STR 14 effective. The FP-on-kill passive makes it the best melee weapon for sustained incantation use." data-stats="STR 14 / DEX 12 · Sacred infusion recommended · Passive: 4 FP per kill">Sacrificial Axe (Sacred)</span></div>
+        <p>The best melee weapon for this build. Restores 4 FP on every enemy kill — which during regular exploration keeps your spell pool full without flask use. Sacred infusion adds Faith scaling, making it consistently competitive throughout the game. Two-handing requires effective Strength 21 (real Strength 14). Upgrade to +24 with standard Smithing Stones.</p>
+        <div class="item-stat">STR 14 / DEX 12 · Sacred infusion · Passive: 4 FP restored per kill</div>
+        <div class="item-stat">📍 Chest in Caelid, Rotview Balcony area — relatively accessible mid-game <a href="https://eldenring.wiki.fextralife.com/Sacrificial+Axe" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">A-Tier Alternative — No Infusion Needed</div>
+        <div class="item-name"><span class="itip" data-type="Weapon · Greataxe" data-name="Gargoyle's Black Axe" data-desc="Natively scales with Strength and Faith. Deals standard and holy damage without requiring infusion. Dropped by the Black Blade Kindred boss enemies. Heavier than the Sacrificial Axe but has higher base damage." data-stats="STR 24 / DEX 14 / FTH 22 · Cannot be infused · Black Blade AoW">Gargoyle's Black Axe</span></div>
+        <p>Natively scales with Strength and Faith — no infusion required. Deals physical and holy damage with a respectable damage output. The Black Blade Ash of War fires a blade arc and applies a debuff. Heavier than the Sacrificial Axe and requires more Strength, but does not need the Whetblade infusion step. Dropped by Black Blade Kindred bosses found at major waypoints.</p>
+        <div class="item-stat">STR 24 / DEX 14 / FTH 22 · Cannot be infused · AoW: Black Blade</div>
+        <div class="item-stat">📍 Dropped by Black Blade Kindred at Bestial Sanctum, Caelid — or variant at Forbidden Lands <a href="https://eldenring.wiki.fextralife.com/Gargoyle's+Black+Axe" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-weapons-end">
+    <h3>End Game — Mountaintops and Beyond</h3>
+    <p>The Sacrificial Axe carries into endgame without issue. If you want a premium upgrade that works even better for the Dragon Pyromancer variant, the Blasphemous Blade is the best Faith/Strength weapon in the game — it heals on every kill and its Taker's Flames Ash of War deals fire damage in a cone.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">S-Tier · Dragon Pyromancer Pick</div>
+        <div class="item-name"><span class="itip" data-type="Weapon · Greatsword" data-name="Blasphemous Blade +10" data-desc="Passive: heals HP on any kill. Taker's Flames AoW deals fire damage in a wide cone and heals for a portion of damage dealt. Scales with Strength (D) and Faith (D). One of the strongest weapons in the game for a Faith/Strength build." data-stats="STR 22 / DEX 15 / FTH 21 · Cannot be infused · AoW: Taker's Flames · Passive: heal on kill">Blasphemous Blade +10</span></div>
+        <p>The premium endgame weapon for Faith/Strength builds. Heals HP on every kill passively, and its Ash of War — Taker's Flames — deals fire damage in a cone while restoring HP based on damage dealt. Scales with both Strength and Faith. Ideal for the Dragon Pyromancer variant where fire damage synergy matters. Obtained by trading Rykard's Remembrance with Finger Reader Enia at the Roundtable Hold.</p>
+        <div class="item-stat">STR 22 / DEX 15 / FTH 21 · Scales: D Str / D Fth · Passive: HP on kill · AoW: Taker's Flames</div>
+        <div class="item-stat">📍 Trade Remembrance of the Blasphemous with Finger Reader Enia, Roundtable Hold (after Rykard) <a href="https://eldenring.wiki.fextralife.com/Blasphemous+Blade" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">A-Tier · Dragon Knight Pick</div>
+        <div class="item-name">Sacrificial Axe +24 (Sacred) — Endgame Continued</div>
+        <p>The Sacrificial Axe does not fall off at endgame. A fully upgraded Sacred Sacrificial Axe remains competitive in damage while maintaining the 4 FP-per-kill passive that makes sustained Dragonclaw use feel effortless. The FP recovery becomes even more valuable in the DLC where fights are longer and enemies have more HP. No reason to replace it unless you specifically want the Blasphemous Blade's fire synergy.</p>
+        <div class="item-stat">STR 14 / DEX 12 · Sacred +24 · Passive: 4 FP per kill · Carry forward from mid-game</div>
+        <div class="item-stat">📍 Carried forward — no new acquisition needed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('incantations').scrollIntoView({behavior:'smooth'})">← Incantations</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">Armour →</button>
+  </div>
+</section>
+
+<!-- ARMOUR -->
+<section id="armour">
+  <h2>Armour</h2>
+  <div class="section-rule"></div>
+
+  <p>Armour for this build needs to balance poise and equip load. Dragonclaw's animation takes about 1.5 seconds — during that window you are stationary and vulnerable. Higher poise means you can tank through smaller hits without the animation breaking. Aim for 51+ poise to absorb medium enemy hits mid-cast. Medium equip load (below 70%) is the target throughout.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'armour-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'armour-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'armour-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-armour-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <p>Confessor or Prophet starting sets are functional. Neither is particularly heavy — add any Strength-requirement armour pieces you find that keep you in medium roll. Prioritise Vigor over armour investment at this stage.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag">Starting Set — Fine for Now</div>
+        <div class="item-name">Confessor Set / Prophet Set</div>
+        <p>Your starting armour depending on class choice. Both are medium-weight with reasonable defences. Neither has exceptional poise but poise is less critical in the early game where boss hits are smaller. Focus on levelling stats rather than chasing armour upgrades early — gear makes far less difference than level and spell damage at this stage.</p>
+        <div class="item-stat">Poise: 20–26 · Weight: 18–22 · Functional throughout early areas</div>
+        <div class="item-stat">📍 Starting equipment for Confessor / Prophet class</div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Better Option — If Available</div>
+        <div class="item-name">Godrick Knight Set</div>
+        <p>More physical defence and poise than starting gear at a reasonable weight. Found in Stormveil Castle. If you have cleared Stormveil and have spare carry capacity, this is a straightforward early upgrade that gives you noticeably better physical negation for the mid-game ahead.</p>
+        <div class="item-stat">Poise: 33 · Physical: ~31 · Weight: 27.3</div>
+        <div class="item-stat">📍 Dropped by Godrick Knights in Stormveil Castle <a href="https://eldenring.wiki.fextralife.com/Godrick+Knight+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-armour-mid">
+    <h3>Mid Game — Altus Plateau</h3>
+    <p>The Crucible Knight set becomes available and is the ideal mid-to-endgame armour for this build. Good poise, solid physical defence, and manageable weight. It also looks appropriate for a dragon knight aesthetic.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best-in-Slot — Hunt This Now</div>
+        <div class="item-name"><span class="itip" data-type="Armour Set" data-name="Crucible Knight Set" data-desc="High poise for its weight — 51 poise with the full set lets you cast Dragonclaw through smaller enemy hits. Solid physical defence. Available mid-game from Crucible Knight enemies in Altus Plateau and the Leyndell area." data-stats="Poise: 51 · Physical: ~34 · Weight: 26.7 · Drop from Crucible Knight enemies">Crucible Knight Set</span></div>
+        <p>The ideal armour for this build. 51 poise from the full set lets you tank through most regular enemy strikes mid-Dragonclaw animation without the cast breaking. Solid physical defence. Obtained by farming Crucible Knight enemies in Altus Plateau. It carries through to endgame without needing replacement — the weight-to-poise ratio is excellent. Mix individual pieces with lighter options if you are over the equip load cap.</p>
+        <div class="item-stat">Poise: 51 full set · Physical: ~34 · Weight: 26.7</div>
+        <div class="item-stat">📍 Dropped by Crucible Knight enemies, Altus Plateau and Tree Sentinel / Stormhill Evergaol variants <a href="https://eldenring.wiki.fextralife.com/Crucible+Knight+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">Good Alternative — Available Earlier</div>
+        <div class="item-name">Knight Set</div>
+        <p>The standard Knight Set is available from Enia at the Roundtable Hold and provides decent mid-game poise and physical defence at moderate weight. Not as efficient as the Crucible Knight Set but accessible earlier and a solid stop-gap while farming for the Crucible armour.</p>
+        <div class="item-stat">Poise: 40 · Physical: ~30 · Weight: 25.5</div>
+        <div class="item-stat">📍 Purchased from Enia (Finger Reader) at the Roundtable Hold <a href="https://eldenring.wiki.fextralife.com/Knight+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-armour-end">
+    <h3>End Game — Mountaintops and Beyond</h3>
+    <p>Crucible Knight Set remains optimal into endgame. The only reason to swap is if you want heavier poise for specific DLC bosses or prefer the Radahn Set for pure physical negation at the cost of mobility.</p>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">S-Tier — Keep This</div>
+        <div class="item-name">Crucible Knight Set (continued)</div>
+        <p>No replacement needed at endgame. 51 poise is the threshold that lets you tank through most non-colossal enemy hits mid-cast. If you find yourself at 69–70% equip load, swap out one piece for a lighter chest piece while keeping the helm and greaves for the poise contribution. The Green Turtle Talisman swap can also free up capacity if needed.</p>
+        <div class="item-stat">Target: below 70% equip load · Maintain 51+ poise wherever possible</div>
+        <div class="item-stat">📍 Carried forward from mid-game</div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">High-Poise Alternative</div>
+        <div class="item-name">Radahn's Set</div>
+        <p>Heaviest poise of any set available, at the cost of very high equip load. If you have Endurance 30+ and are running the Dragon Pyromancer variant where melee survivability is paramount, Radahn's Set lets you tank through most boss hits mid-Taker's Flames animation. Impractical for lighter builds but an excellent choice if you have the carry capacity.</p>
+        <div class="item-stat">Poise: 83 · Physical: ~42 · Weight: 43 · Requires high Endurance</div>
+        <div class="item-stat">📍 Purchased from Enia at Roundtable Hold after defeating Starscourge Radahn <a href="https://eldenring.wiki.fextralife.com/Radahn+Soldier+Set" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Equip Load Target — Medium Roll Required</div>
+    <p><strong>Stay below 70% equip load.</strong> Dragonclaw's animation is long enough that positioning matters — you need the dodge roll speed of medium equip load to reposition after casting. Check your total weight after equipping your seal, main weapon, and armour. If you are over 70%, swap to a lighter armour piece before adding any talisman that increases load. Two-Headed Turtle Talisman can replace a slot if stamina recovery becomes an issue.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">← Weapons</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans →</button>
+  </div>
+</section>
+
+<!-- TALISMANS -->
+<section id="talismans">
+  <h2>Talismans</h2>
+  <div class="section-rule"></div>
+
+  <p>Four talisman slots at endgame. Two are locked in — the Faithful's Canvas Talisman and Flock's Canvas Talisman stack to give you +12% incantation damage unconditionally. The remaining two flex between breath-attack boosts, skill damage, and utility.</p>
+
+  <h3>Core Four — Dragon Knight Build</h3>
+  <div class="talisman-grid">
+    <div class="talisman-card">
+      <div class="t-num">SLOT 1 — ESSENTIAL</div>
+      <div class="t-name"><span class="itip" data-type="Talisman" data-name="Faithful's Canvas Talisman" data-desc="Increases the power of all incantations by 4%. Stacks additively with Flock's Canvas Talisman. Combined, the two canvas talismans provide a flat +12% to all incantation output — including Dragonclaw and all dragon breath spells." data-stats="+4% incantation damage · Stacks with Flock's Canvas Talisman · Purchased from Erdtree seal merchant">Faithful's Canvas Talisman</span></div>
+      <p>Increases the power of all incantations by 4%. Always equipped. The bonus applies unconditionally to every incantation you cast — Dragonclaw, Agheel's Flame, Golden Vow, everything. Stacks with Flock's Canvas Talisman for a combined +12% total incantation power boost. Never remove this.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Sold by Gowry in Caelid after completing his initial quest step <a href="https://eldenring.wiki.fextralife.com/Faithful's+Canvas+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">SLOT 2 — ESSENTIAL</div>
+      <div class="t-name"><span class="itip" data-type="Talisman" data-name="Flock's Canvas Talisman" data-desc="Increases the power of all incantations by 8%. Stacks with Faithful's Canvas Talisman. The combined +12% bonus is unconditional and applies to every incantation — the most reliable damage increase available for any faith build." data-stats="+8% incantation damage · Stacks with Faithful's Canvas · Found in late-game area">Flock's Canvas Talisman</span></div>
+      <p>Increases the power of all incantations by 8%. Stacks with Faithful's Canvas Talisman for a total +12% bonus to every incantation you cast. This combined bonus is the most efficient unconditional damage increase available for a faith build. Flock's Canvas is found later in the game — use Faithful's in both slots until you have it.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Isolated Divine Tower — Merchant available after accessing late-game areas <a href="https://eldenring.wiki.fextralife.com/Flock's+Canvas+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">SLOT 3 — DRAGON KNIGHT</div>
+      <div class="t-name"><span class="itip" data-type="Talisman" data-name="Roar Medallion" data-desc="Boosts the power of roar and breath attacks by 10%. Dragon breath incantations — Agheel's Flame, Dragonfire, Borealis's Mist, and similar — are classified as breath attacks and benefit directly. Does not boost Dragonclaw (claw strike, not a breath)." data-stats="+10% roar and breath attack power · Breath incantations benefit · Claw incantations do not">Roar Medallion</span></div>
+      <p>Boosts breath attacks by 10%. Dragon breath incantations — Agheel's Flame, Dragonfire, Borealis's Mist, Rotten Breath — are classified as breath attacks and get the full bonus. Dragonclaw is not a breath attack so it does not benefit. For the Dragon Pyromancer variant running Agheel's Flame heavily, this is a core slot. For the Dragon Knight focusing on Dragonclaw, swap this for the Ritual Sword Talisman instead.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Found in Limgrave — Coastal Cave area or nearby minor dungeon <a href="https://eldenring.wiki.fextralife.com/Roar+Medallion" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">SLOT 4 — FLEXIBLE</div>
+      <div class="t-name"><span class="itip" data-type="Talisman" data-name="Ritual Sword Talisman" data-desc="Raises attack power by 10% when HP is at maximum. As a melee-incantation hybrid, you will frequently start boss fights at full HP — this provides a free 10% damage bonus on your opening Dragonclaw cast and during any windows where you take no damage." data-stats="+10% attack when at full HP · Conditional · Rewards clean play">Ritual Sword Talisman</span></div>
+      <p>Raises attack by 10% when HP is full. In the opening phase of a boss fight you are consistently at full health — this makes your first Dragonclaw cast meaningfully stronger. It also rewards clean play: periods where you take no hits keep the bonus active. For the Dragon Knight variant, this is better than the Roar Medallion since Dragonclaw is your primary damage spell. Swap in Roar Medallion on bosses where breath attacks are your primary damage source.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Chest guarded by a Crucible Knight in Leyndell, Royal Capital — Altus Plateau approach <a href="https://eldenring.wiki.fextralife.com/Ritual+Sword+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+  </div>
+
+  <h3>Situational Swaps</h3>
+  <div class="talisman-grid">
+    <div class="talisman-card">
+      <div class="t-num">FP MANAGEMENT</div>
+      <div class="t-name">Cerulean Amber Medallion</div>
+      <p>Boosts maximum FP by 11% (or more at higher versions). Swap in for long fights where Dragonclaw FP costs drain your bar faster than the Sacrificial Axe can refill it. The +2 version is the most effective. Pair with a higher Cerulean Flask split if consistently running dry.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Various locations — base version in Raya Lucaria Academy <a href="https://eldenring.wiki.fextralife.com/Cerulean+Amber+Medallion" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">EQUIP LOAD</div>
+      <div class="t-name">Erdtree's Favor +2</div>
+      <p>Boosts HP, Stamina, and Equip Load simultaneously. Swap in if the Crucible Set pushes you over 70% equip load with your weapons equipped. Pure efficiency — no conditional requirements. The +2 version provides the largest bonus and is found in the late game.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Subterranean Shunning Grounds — near Forsaken Depths site of grace <a href="https://eldenring.wiki.fextralife.com/Erdtree's+Favor+%2B2" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">STAMINA</div>
+      <div class="t-name">Two-Headed Turtle Talisman</div>
+      <p>Raises stamina recovery speed significantly. Useful in fights where Dragonclaw casts and follow-up melee attacks drain your stamina bar before you can disengage safely. Swap in against multi-phase bosses with relentless aggression.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Isolated cell in Volcano Manor — accessed via illusory wall <a href="https://eldenring.wiki.fextralife.com/Two-Headed+Turtle+Talisman" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+    <div class="talisman-card">
+      <div class="t-num">FIRE DAMAGE</div>
+      <div class="t-name">Fire Scorpion Charm</div>
+      <p>Raises fire attack by 12% at the cost of 10% increased damage taken. A high-risk, high-reward swap for the Dragon Pyromancer variant when using Agheel's Flame. Only viable when you are comfortable with the boss pattern and confident you will not be taking many hits. Dramatically increases breath damage when it applies.</p>
+      <p style="font-size:13px;margin-top:8px;color:var(--text3)">📍 Fort Laiedd, Mt. Gelmir — on a corpse near a lava pool <a href="https://eldenring.wiki.fextralife.com/Fire+Scorpion+Charm" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></p>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">← Armour</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs →</button>
+  </div>
+</section>
+
+<!-- BUFFS -->
+<section id="buffs">
+  <h2>Buffs, Consumables &amp; Flask</h2>
+  <div class="section-rule"></div>
+
+  <h3>Pre-Fight Buff Rotation</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Cast First — Longest Duration</div>
+      <div class="item-name">Golden Vow</div>
+      <p>Cast first, before the fog gate if possible. 80 seconds of +15% attack and +10% defence means it lasts well into a standard boss fight without recasting. Cast it outside the fog gate to preserve the duration.</p>
+      <div class="item-stat">Duration: 80 sec · Faith 25 · FP 47</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag red">Cast Second — Short Window</div>
+      <div class="item-name">Flame, Grant Me Strength</div>
+      <p>Cast immediately after Golden Vow and enter the fight within 30 seconds. The +20% physical and fire bonus amplifies both your first Dragonclaw cast and any fire breath you use in the opening burst. It runs out mid-fight so your strategy should be to maximise the opening phase with it active.</p>
+      <div class="item-stat">Duration: 30 sec · Faith 15 · Costs HP not FP</div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag blue">Flask — Use on Entry</div>
+      <div class="item-name">Flask of Wondrous Physick</div>
+      <p>Cerulean Hidden Tear removes FP costs for 15 seconds — drink it on entry and immediately cast Dragonclaw to get a free opening cast. Pair with Strength-Knot Crystal Tear for a +10% physical attack bonus simultaneously, or Greenspill Crystal Tear for sustained stamina during prolonged fights.</p>
+      <div class="item-stat">Cerulean Hidden Tear + Strength-Knot Crystal Tear is the standard combination</div>
+    </div>
+  </div>
+
+  <h3>Key Consumables</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th>Effect</th><th>Duration</th><th>Notes</th></tr>
+    <tr><td class="highlight">Exalted Flesh</td><td>Physical attack +20%</td><td>60 sec</td><td>Cannot stack with Flame, Grant Me Strength. Use for bosses where fire damage is resisted.</td></tr>
+    <tr><td class="highlight">Spellproof Dried Liver</td><td>Magic/Holy defence +35%</td><td>60 sec</td><td>Useful for late-game bosses with heavy magic AoE.</td></tr>
+    <tr><td class="highlight">Fireproof Dried Liver</td><td>Fire defence +35%</td><td>60 sec</td><td>Carry these — later game has heavy fire damage bosses and areas.</td></tr>
+    <tr><td class="highlight">Thawfrost Boluses</td><td>Removes frostbite</td><td>Instant</td><td>DLC has frequent frostbite — carry a stack.</td></tr>
+  </table>
+
+  <h3>Flask Distribution</h3>
+  <p>At maximum flasks: run an <strong>8 Crimson / 6 Cerulean split</strong>. This build is more FP-hungry than a pure melee build — Dragonclaw costs 42 FP per cast and Golden Vow costs 47. Without sufficient Cerulean flasks you will run dry mid-fight. The Sacrificial Axe's FP-on-kill passive helps during clearing, but not during boss fights. Shift to 9 Crimson / 5 Cerulean if you are dying more than running out of FP.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">← Talismans</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">Summons →</button>
+  </div>
+</section>
+
+<!-- SUMMONS -->
+<section id="summons">
+  <h2>Spirit Summons</h2>
+  <div class="section-rule"></div>
+
+  <p>Summons for this build have one job: draw and hold aggro while you complete the Dragonclaw animation safely. A distracted boss is a boss that cannot interrupt your cast. Choose summons that are durable and aggressive rather than ones that deal high damage on their own.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'summons-early')">🌱 Early Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'summons-mid')">⚔️ Mid Game</button>
+    <button class="tab-btn" onclick="switchTab(event,'summons-end')">🔥 End Game</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-summons-early">
+    <h3>Early Game — Limgrave through Liurnia</h3>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best Early Pick</div>
+        <div class="item-name">Lone Wolf Ashes</div>
+        <p>Three wolves that hit simultaneously and force the boss to react to multiple targets. The chaos of three wolves draws aggro reliably and gives you a consistent 1–2 second window to cast Dragonclaw after summoning. Free FP cost compared to larger summons. Given by Melina at the first Site of Grace in Limgrave.</p>
+        <div class="item-stat">FP Cost: 55 · Three targets · Immediate aggro draw</div>
+        <div class="item-stat">📍 Given by Melina at the first Site of Grace in Limgrave <a href="https://eldenring.wiki.fextralife.com/Lone+Wolf+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag">Durable Option</div>
+        <div class="item-name">Spirit Jellyfish Ashes</div>
+        <p>High HP and applies poison passively. Does not draw aggro as aggressively as the wolves but survives longer — useful for bosses that one-shot lighter summons. The poison chip damage contributes to the fight while keeping the boss partially distracted.</p>
+        <div class="item-stat">FP Cost: 36 · High survivability · Applies poison</div>
+        <div class="item-stat">📍 Given by Roderika at Stormhill Shack <a href="https://eldenring.wiki.fextralife.com/Spirit+Jellyfish+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-summons-mid">
+    <h3>Mid Game — Altus Plateau through Leyndell</h3>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Major Upgrade — Get This</div>
+        <div class="item-name">Lhutel the Headless</div>
+        <p>An extremely durable spirit knight who teleports around the arena, applying a death curse debuff and drawing consistent aggro. Her teleport moveset means bosses spend significant time chasing her — exactly the distraction window Dragonclaw needs. Far more survivable than the wolves against bosses with large cleave attacks. One of the best mid-to-endgame summons for any caster build.</p>
+        <div class="item-stat">FP Cost: 104 · Durable · Applies curse debuff · Teleports to avoid hits</div>
+        <div class="item-stat">📍 Cemetery Shade boss, Tombsward Catacombs, Weeping Peninsula <a href="https://eldenring.wiki.fextralife.com/Lhutel+the+Headless" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag blue">High Aggro Option</div>
+        <div class="item-name">Mimic Tear</div>
+        <p>Copies your full equipment at the moment of summoning. If you summon it while holding the Dragon Communion Seal and Sacrificial Axe, it will cast your incantations and attack with your melee weapon — another Dragonclaw caster fighting alongside you. Costs HP instead of FP. One of the most powerful summons in the game when your build is complete. Found in Nokron after defeating Radahn.</p>
+        <div class="item-stat">HP Cost: ~800 · Copies full loadout · No FP cost</div>
+        <div class="item-stat">📍 Chest behind imp fog gate in Night's Sacred Ground, Nokron, Eternal City (requires defeating Radahn) <a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-summons-end">
+    <h3>End Game — Mountaintops and Beyond</h3>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best Overall — Top Pick</div>
+        <div class="item-name">Black Knife Tiche</div>
+        <p>The best endgame summon for this build. Tiche is extremely mobile and almost never dies — she survives full fights against even DLC bosses where most other summons are killed in seconds. Her attacks deal percentage-based HP damage that scales into all endgame content. Her mobility also means she draws aggro reliably without being one-shot, giving you clean Dragonclaw windows throughout long boss fights.</p>
+        <div class="item-stat">FP Cost: 132 · Extremely mobile · HP-scaling damage · Rarely dies</div>
+        <div class="item-stat">📍 Defeat Alecto, Black Knife Ringleader at Ringleader's Evergaol, Liurnia <a href="https://eldenring.wiki.fextralife.com/Black+Knife+Tiche" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+      <div class="item-card">
+        <div class="item-tag green">Sustained Pressure</div>
+        <div class="item-name">Lhutel the Headless (continued)</div>
+        <p>Lhutel remains a strong endgame option even after Tiche is available. Her teleport moveset is uniquely effective at maintaining aggro against bosses that repeatedly target you — she reappears behind them and forces a reaction. Against bosses where Tiche's 132 FP cost is difficult to sustain, Lhutel at 104 FP is a reliable alternative.</p>
+        <div class="item-stat">FP Cost: 104 · Carries forward from mid-game · Teleport aggro draw</div>
+        <div class="item-stat">📍 Carried forward — no new acquisition needed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">← Buffs</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">Combat →</button>
+  </div>
+</section>
+
+<!-- COMBAT -->
+<section id="combat">
+  <h2>Combat Guide</h2>
+  <div class="section-rule"></div>
+
+  <h3>The Core Loop</h3>
+  <p>Every boss fight follows the same structure: establish aggro with your summon, buff up, open with Dragonclaw in the first safe window, follow up with 2H axe strikes during the boss's stagger or recovery, then disengage and repeat. The key to this build is <strong>reading the boss's attack animation</strong> before committing to Dragonclaw — the cast takes 1.5 seconds and you are stationary throughout. Bait one attack string, wait for the recovery, then cast.</p>
+
+  <div class="callout">
+    <div class="callout-title">Dragonclaw Timing — Commit After the Recovery, Not During</div>
+    <p>The most common mistake is casting Dragonclaw too early — activating it while the boss is still mid-attack and getting clipped during the animation. Wait until you see the boss's attack fully land (on your summon or miss you entirely), then immediately cast into the recovery window. The follow-up heavy attack after Dragonclaw lands can stagger many bosses — watch for the stance-break animation.</p>
+  </div>
+
+  <h3>Pre-Fight Setup — Do This Every Time</h3>
+  <p>Before every fog gate: cast <strong>Golden Vow</strong> outside the gate, then <strong>Flame, Grant Me Strength</strong> (you have 30 seconds before it expires), then enter, summon your spirit ash and drink <strong>Flask of Wondrous Physick</strong> (Cerulean Hidden Tear for a free opening cast). Cast Dragonclaw in the first safe window — your buffs, the free FP cast, and the Ritual Sword Talisman bonus combine to make this your single hardest-hitting moment of the fight.</p>
+
+  <h3>Combat Priority List</h3>
+  <ul class="step-list">
+    <li><span class="step-num">1</span>Cast Golden Vow outside the fog gate. Then cast Flame, Grant Me Strength and enter immediately.</li>
+    <li><span class="step-num">2</span>Summon your spirit ash. Give it 1–2 seconds to draw the boss's attention before moving in.</li>
+    <li><span class="step-num">3</span>Drink Flask of Wondrous Physick immediately — Cerulean Hidden Tear gives 15 seconds of free casting.</li>
+    <li><span class="step-num">4</span>Cast Dragonclaw in the first recovery window you see. The boss will likely turn toward you mid-animation — position yourself beside your summon so the boss is split between two targets.</li>
+    <li><span class="step-num">5</span>Follow up with 2–3 heavy R2 attacks from your axe if the boss is staggered. Heavy attacks deal more stance damage and extend the stagger window.</li>
+    <li><span class="step-num">6</span>Disengage when the boss recovers. Wait for the next safe window. If using Agheel's Flame, deploy it during multi-hit boss combos where they are occupied for several seconds.</li>
+    <li><span class="step-num">7</span>Manage FP actively — watch your bar. Use Cerulean flasks before you run completely dry, not after.</li>
+  </ul>
+
+  <div class="callout red">
+    <div class="callout-title">Fire-Resistant Bosses — Switch to Dragonclaw and Melee</div>
+    <p>Some bosses resist fire (the Fire Giant is notably resistant to fire in certain phases). Against these, Dragonclaw remains fully effective because it deals physical damage — not fire. Swap Agheel's Flame out for Rotten Breath against bosses susceptible to scarlet rot, or simply rely on Dragonclaw and axe melee for those encounters. The build does not collapse when one element is countered.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">← Summons</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('acquisition').scrollIntoView({behavior:'smooth'})">Acquisition →</button>
+  </div>
+</section>
+
+<!-- ACQUISITION ROUTE -->
+<section id="acquisition">
+  <h2>Acquisition Route</h2>
+  <div class="section-rule"></div>
+
+  <p>The Dragon Communion system is accessible immediately in Limgrave, making this one of the few builds that can function with its core mechanic from very early in the game. The Dragon Communion Seal is behind two Stonesword Keys at the start — getting those keys and that seal is your first priority.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Route Overview</div>
+    <p>Start (Dragon Communion Seal, Fringefolk Hero's Grave) → Limgrave (Dragonfire, Dragon Heart from Agheel, Dragonclaw) → Caelid (Cathedral of Dragon Communion, Agheel's Flame, full incantation selection) → Altus Plateau (Crucible Knight armour, Golden Vow, Sacrificial Axe) → Leyndell (Flock's Canvas Talisman access) → Mountaintops (endgame upgrades)</p>
+  </div>
+
+  <h3>Step-by-Step</h3>
+  <ul class="step-list">
+    <li><span class="step-num">1</span><strong>Game Start — Stranded Graveyard:</strong> Use your two Stonesword Keys (or find them nearby) to access Fringefolk Hero's Grave. The Dragon Communion Seal is in a chest inside. This is the single most important item for the build. Upgrade it with every Somber Smithing Stone you find.</li>
+    <li><span class="step-num">2</span><strong>Limgrave — Church of Dragon Communion:</strong> Found east of Agheel Lake, accessible early. Trade 1 Dragon Heart for Dragonfire to start. To get your first Dragon Heart, defeat Flying Dragon Agheel at Agheel Lake — he flies in when you approach the ruins. Defeat him and return to the altar to purchase Dragonclaw (1 Heart, Faith 17 / Arcane 13 required).</li>
+    <li><span class="step-num">3</span><strong>Caelid — Cathedral of Dragon Communion:</strong> The full Dragon Communion spell list is here. Defeat Decaying Ekzykes in Caelid for Rotten Breath, and use Agheel's Heart (from the Agheel fight) to unlock Agheel's Flame. The Cathedral has every dragon spell available — prioritise Agheel's Flame and Dragonclaw if you have not already purchased them.</li>
+    <li><span class="step-num">4</span><strong>Limgrave/Caelid — Sacrificial Axe:</strong> Found in the Caelid region, Rotview Balcony area. Infuse it Sacred using the Sacred Whetblade from a smithing dungeon. Upgrade with standard Smithing Stones — target +15 before major boss fights, +24 for endgame.</li>
+    <li><span class="step-num">5</span><strong>Altus Plateau:</strong> Farm Crucible Knight enemies for the Crucible Knight armour set. Pick up Faithful's Canvas Talisman from Gowry's shop in Caelid if you have not already. Golden Vow is available from Knight Bernahl at Volcano Manor or dropped from Erdtree Avatars.</li>
+    <li><span class="step-num">6</span><strong>Endgame — Leyndell and Beyond:</strong> Flock's Canvas Talisman from the Isolated Divine Tower merchant. Upgrade Dragon Communion Seal to +10 with Somber Ancient Dragon Smithing Stone from Crumbling Farum Azula. The build is complete.</li>
+  </ul>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('combat').scrollIntoView({behavior:'smooth'})">← Combat</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips →</button>
+  </div>
+</section>
+
+<!-- BOSS TIPS -->
+<section id="bosses">
+  <h2>Boss-Specific Tips</h2>
+  <div class="section-rule"></div>
+
+  <h3>Flying Dragon Agheel — Your First Dragon</h3>
+  <p>Agheel is your first Dragon Heart source and one of the most accessible large bosses in the game. He has predictable patterns — a ground slam, a claw swipe, and a fire breath. The fire breath follows a clear wind-up; dodge to the side. Cast Dragonclaw in the recovery window after any claw or slam. He staggers frequently. After defeating him, you unlock Agheel's Flame at the altar — a significant damage upgrade.</p>
+
+  <h3>Rennala, Full Moon Queen — Easy Win</h3>
+  <p>Phase 1: break the golden students, then attack Rennala when she drops. Dragonclaw hits extremely hard in this phase. Phase 2: she floats and summons clones — bait her until she begins the clone summon animation, then cast Dragonclaw into her landing. She has no fire or physical resistance, making both the Dragon Knight and Dragon Pyromancer variants equally effective here.</p>
+
+  <h3>Fire Giant — Physical Damage Recommended</h3>
+  <p>The Fire Giant resists fire in certain phases — Agheel's Flame loses effectiveness here. Dragonclaw remains fully effective throughout since it deals physical damage. Aim at his ankles in Phase 1. In Phase 2 after his transformation, his weak spot is the eye on his chest — position yourself close and cast Dragonclaw during his long rolling animations. Rotten Breath is excellent here if you have it — he is susceptible to scarlet rot.</p>
+
+  <h3>Maliketh, the Black Blade — Patience Required</h3>
+  <p>Maliketh moves fast and punishes greed harshly. Your Dragonclaw animation is long enough to get punished if mistimed. Wait for him to finish a leap or slam, then cast once into the recovery. Never double-cast. Black Knife Tiche is ideal here — her mobility matches Maliketh's pace and she draws aggro effectively across both phases.</p>
+
+  <h3>Malenia, Blade of Miquella — Use Dragonclaw Carefully</h3>
+  <p>Malenia's Waterfowl Dance is the fight's most dangerous move — dodge away from the first flurry, then roll into the second. The recovery after she lands is your Dragonclaw window. She heals on every hit she lands but Dragonclaw's burst damage far outpaces her healing when timed correctly. Lhutel the Headless is a strong summon here — her teleport moveset forces Malenia to track her erratically.</p>
+
+  <h3>Boss Dragon Communion Reference Table</h3>
+  <table class="data-table">
+    <tr><th>Boss</th><th>Dragonclaw</th><th>Agheel's Flame</th><th>Notes</th></tr>
+    <tr><td>Flying Dragon Agheel</td><td class="highlight">Excellent</td><td>N/A — drops the unlock</td><td>Staggers easily. Claw recovery windows are generous</td></tr>
+    <tr><td>Margit the Fell Omen</td><td class="highlight">Strong</td><td>Good</td><td>Long punishable combos — cast after the extended string</td></tr>
+    <tr><td>Godrick the Grafted</td><td class="highlight">Strong</td><td>Good</td><td>Phase 2 arm swing is a clean Dragonclaw window</td></tr>
+    <tr><td>Rennala, Full Moon Queen</td><td class="highlight">Excellent</td><td>Good</td><td>No resistances. Easy two-phase pattern</td></tr>
+    <tr><td>Radahn, Starscourge</td><td class="highlight">Strong</td><td>Good</td><td>Summon all NPC phantoms. Large hit box makes Dragonclaw easy</td></tr>
+    <tr><td>Fire Giant</td><td class="highlight">Excellent</td><td class="warn">Resisted (Phase 1)</td><td>Giant is rot-susceptible — Rotten Breath is highly effective</td></tr>
+    <tr><td>Maliketh, the Black Blade</td><td>Good — careful timing</td><td>Good</td><td>Fast boss — one cast per window only</td></tr>
+    <tr><td>Malenia, Blade of Miquella</td><td>Good</td><td>Good</td><td>Post-Waterfowl Dance is your cleanest window</td></tr>
+    <tr><td>Elden Beast</td><td class="highlight">Strong</td><td>Good</td><td>Wide body makes Dragonclaw reliable. Chase aggressively</td></tr>
+    <tr><td>Decaying Ekzykes</td><td class="highlight">Excellent</td><td>N/A — drops unlock</td><td>Defeat for Rotten Breath — he is susceptible to everything</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('acquisition').scrollIntoView({behavior:'smooth'})">← Acquisition</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">DLC →</button>
+  </div>
+</section>
+
+<!-- DLC -->
+<section id="dlc">
+  <h2>Shadow of the Erdtree</h2>
+  <div class="section-rule"></div>
+
+  <p>The Dragon Communion build receives significant new content in Shadow of the Erdtree. Bayle the Dread — the DLC's most powerful dragon boss — drops a Dragon Heart that unlocks <strong>Bayle's Flame Lightning</strong>, one of the highest-damage Dragon Communion incantations in the game. Defeating Bayle and adding this to your repertoire makes the endgame build significantly stronger.</p>
+
+  <div class="callout red">
+    <div class="callout-title">Scadutree Fragments — Collect These First</div>
+    <p>Scadutree Fragments are the DLC's power scaling system. They directly increase your attack output and damage negation up to 20 stacks. Without collecting them from each new area, even a fully optimised Dragon Faith build will take disproportionate damage from DLC bosses. Prioritise exploring each zone for Fragments before engaging the major boss. Dragonclaw and Agheel's Flame scale directly with the Fragment bonus.</p>
+  </div>
+
+  <h3>New DLC Incantations for This Build</h3>
+  <p>Bayle the Dread in the DLC drops a Dragon Heart that unlocks <strong>Bayle's Flame Lightning</strong> — a breath attack that deals combined fire and lightning damage in a long-range arc. It is boosted by both the Dragon Communion Seal passive and the Roar Medallion, making it the strongest breath incantation available post-DLC. Prioritise defeating Bayle for this unlock.</p>
+
+  <p>The DLC also introduces the <strong>Fire Knight's Seal</strong>, which boosts a subset of fire incantations. If you are running the Dragon Pyromancer variant and want to explore the fire knight incantation line alongside dragon spells, this seal is worth investigating — though the Dragon Communion Seal remains superior for pure dragon incantation builds.</p>
+
+  <h3>DLC Boss Notes</h3>
+  <p>Messmer the Impaler is the DLC's hardest boss for this build. He aggressively punishes casting windows with rapid snake-fire combos. Cast only after his overhead multi-hit string — wait for the full combo to finish, then cast Dragonclaw once and immediately disengage. Do not double-cast. Black Knife Tiche is the best summon for this fight — her mobility and percentage-HP damage are uniquely suited to Messmer's high health pool.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">← Boss Tips</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips →</button>
+  </div>
+</section>
+
+<!-- QUICK TIPS -->
+<section id="tips">
+  <h2>Quick Tips &amp; Reference</h2>
+  <div class="section-rule"></div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-title">Get the Dragon Communion Seal First</div>
+      <p>Fringefolk Hero's Grave with two Stonesword Keys at the game's start. This is your highest-priority pickup. Without it, your dragon incantations deal 15% less damage for the entire run.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Dragonclaw Timing — After the Recovery</div>
+      <p>Never cast Dragonclaw while a boss is mid-attack. Wait for the attack to fully land or miss, then cast in the recovery window. One well-timed cast deals more damage than two interrupted ones.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Sacrificial Axe Restores FP</div>
+      <p>Kill regular enemies with your axe between boss rooms to top up FP before fog gates. The 4 FP per kill adds up fast when clearing areas — you often reach the boss with a full blue bar without needing a flask.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Both Canvas Talismans — Always</div>
+      <p>Faithful's Canvas (+4%) and Flock's Canvas (+8%) stack for a permanent +12% bonus to all incantations. These two talisman slots are locked in for every fight. Do not swap them out for situational bonuses.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Dragonclaw Follows Up With Heavy R2</div>
+      <p>After Dragonclaw lands, immediately follow with a 2H heavy attack (R2) from your axe. The stagger window from Dragonclaw is long enough for one heavy attack, which adds significant stance damage and can extend the stagger into a full stance break.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Rotten Breath — Underrated Utility</div>
+      <p>Many bosses are susceptible to scarlet rot. If a boss resists fire and your Dragonclaw windows are short, apply Rotten Breath once to start the rot ticking and let it deal percentage-based HP damage passively. This is often more effective than repeated unsafe Agheel's Flame attempts.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Flask Split — 8 Crimson / 6 Cerulean</div>
+      <p>This build burns FP fast. Six Cerulean flasks covers multiple boss phases. Adjust based on your Mind investment — higher Mind means you can shift flasks back toward Crimson as FP-per-flask value decreases.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Poise 51 — The Dragonclaw Threshold</div>
+      <p>The Crucible Knight Set gives you 51 poise. This is enough to tank through most regular enemy hits mid-animation without interruption. If your poise is lower, you will have your Dragonclaw cast broken by light attacks — prioritise hitting this threshold.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Scadutree Fragments Before DLC Bosses</div>
+      <p>Collect every Fragment you find before engaging DLC major bosses. Dragonclaw scales with the Fragment damage bonus — more stacks means noticeably harder hits. Do not rush to bosses without them.</p>
+    </div>
+  </div>
+
+  <h3>Item Location Quick Reference</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th>Location</th></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Dragon+Communion+Seal" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Dragon Communion Seal</a></td><td>Fringefolk Hero's Grave chest — 2 Stonesword Keys, game start</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Dragonclaw" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Dragonclaw</a></td><td>Church or Cathedral of Dragon Communion — 1 Dragon Heart, no boss prerequisite</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Agheel's+Flame" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Agheel's Flame</a></td><td>Cathedral of Dragon Communion, Caelid — defeat Flying Dragon Agheel first</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Rotten+Breath" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Rotten Breath</a></td><td>Cathedral of Dragon Communion, Caelid — defeat Decaying Ekzykes first</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Sacrificial+Axe" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Sacrificial Axe</a></td><td>Caelid — Rotview Balcony area, chest in the region</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Blasphemous+Blade" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Blasphemous Blade</a></td><td>Trade Remembrance of the Blasphemous with Enia at Roundtable Hold (after Rykard)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Golden+Vow" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Golden Vow</a></td><td>Knight Bernahl at Volcano Manor · or Erdtree Avatar drops</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Flame,+Grant+Me+Strength" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Flame, Grant Me Strength</a></td><td>Chest inside Fort Gael, Caelid</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Faithful's+Canvas+Talisman" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Faithful's Canvas Talisman</a></td><td>Sold by Gowry, Caelid</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Flock's+Canvas+Talisman" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Flock's Canvas Talisman</a></td><td>Isolated Divine Tower merchant, late game</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Lhutel+the+Headless" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Lhutel the Headless</a></td><td>Cemetery Shade boss — Tombsward Catacombs, Weeping Peninsula</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Black+Knife+Tiche" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Black Knife Tiche</a></td><td>Defeat Alecto, Black Knife Ringleader — Ringleader's Evergaol, Liurnia</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('dlc').scrollIntoView({behavior:'smooth'})">← DLC</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <span></span>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Blood Guides &nbsp;·&nbsp; bloodguides.pages.dev</p>
+</footer>
+
+<script>
+// FAB visibility
+window.addEventListener('scroll', () => {
+  document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
+});
+
+// Tab switching — scoped to the parent section so multiple tab groups coexist
+function switchTab(e, id) {
+  const section = e.target.closest('section');
+  section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+<script src="/site.js"></script>
+</body>
+</html>
