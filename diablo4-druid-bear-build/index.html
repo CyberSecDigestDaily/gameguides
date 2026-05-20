@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diablo 4 Druid Bear Build | Pulverize Werebear Levelling Guide</title>
+<meta name="description" content="Diablo 4 Druid Werebear levelling build guide. Best skill tree, Spirit Boons, Aspects, gear, and rotation for Pulverize Bear. Updated Season 12 patch 2.6.">
+<meta property="og:title" content="Diablo 4 Druid Bear Build | Pulverize Werebear Levelling Guide">
+<meta property="og:description" content="Become an unstoppable earth-shattering Werebear. Full Pulverize Druid build — skills, Spirit Boons, Aspects, boss tips. The definitive D4 Druid levelling guide.">
+<meta property="og:url" content="https://bloodguides.pages.dev/diablo4-druid-bear-build/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+/* Page-specific variables — Druid earth/forest theme */
+:root {
+  --bg: #111510; --surface: #191e14; --surface2: #222a1a; --border: #36411f;
+  --accent: #7ab349; --accent2: #3e6020; --gold: #c8883a; --gold2: #e8b440;
+  --text: #ede8d5; --text2: #bfb898; --text3: #d4cbb8;
+  --blue: #5b9fd4; --green: #5db87a;
+}
+/* Druid hero — deep forest earth */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(80,140,20,0.42) 0%, transparent 70%),
+    radial-gradient(ellipse at 30% 100%, rgba(122,179,73,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(9,11,7,1) 40%,   transparent 100%),
+    #111510 !important;
+}
+/* D4 Druid badge colours */
+.badge.green  { color: var(--accent); border-color: var(--accent); background: rgba(122,179,73,0.12); }
+.badge.amber  { color: var(--gold);   border-color: var(--gold);   background: rgba(200,136,58,0.12); }
+.badge.blue   { color: var(--blue);   border-color: var(--blue);   background: rgba(91,159,212,0.10); }
+
+/* Skill progression cards */
+.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
+.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
+.prog-header.mid   { background: rgba(200,136,58,.15);  color: var(--gold); }
+.prog-header.end   { background: rgba(122,179,73,.15);  color: var(--accent); }
+.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
+.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
+
+/* Spirit Boons grid */
+.boon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 16px 0; }
+.boon-card { background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--accent); border-radius: 0 0 4px 4px; padding: 16px 18px; }
+.boon-card .boon-animal { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.boon-card .boon-name { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); margin-bottom: 6px; }
+.boon-card .boon-tag { display: inline-block; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--green); color: var(--green); border-radius: 2px; margin-bottom: 8px; }
+.boon-card .boon-tag.bond { border-color: var(--gold); color: var(--gold); }
+.boon-card .boon-tag.alt  { border-color: var(--blue); color: var(--blue); }
+.boon-card p { font-size: 15px; margin-bottom: 6px; }
+
+/* Skill row key colour */
+.skill-row-key { color: var(--gold); font-weight: 600; }
+
+/* Aspect priority bar */
+.aspect-priority { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.aspect-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.aspect-dot.gold { background: var(--gold); }
+.aspect-dot.blue { background: var(--blue); }
+.aspect-dot.grey { background: var(--border); }
+</style>
+</head>
+<body>
+<div id="page-top"></div>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
+          <li><a href="/dragon-faith-build/">Dragon Faith Build</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="active">Diablo 4 ▾</a>
+        <ul>
+          <li><a href="/diablo4-necromancer-minion-build/">Necromancer Minion Build</a></li>
+          <li><a href="/diablo4-druid-bear-build/">Druid Bear Build</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+    <button class="theme-toggle" title="Toggle light/dark mode">
+      <span class="toggle-icon">☀️</span> Light
+    </button>
+  </div>
+</header>
+
+<button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Complete Build Guide · Season 12 · Patch 2.6</span>
+  <h1 class="title">Druid Bear Build</h1>
+  <p class="subtitle">Pulverize Werebear · Shockwave · Overpower · Become an unkillable force of nature.</p>
+  <div class="badges">
+    <span class="badge green">Nature</span>
+    <span class="badge amber">Earth</span>
+    <span class="badge green">Levelling</span>
+    <span class="badge">PvE ✓</span>
+    <span class="badge">HC Viable</span>
+    <span class="badge">WT1 → WT4</span>
+  </div>
+</div>
+
+<!-- IN-PAGE NAV -->
+<nav class="section-nav">
+  <ul>
+    <li><button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Overview</button></li>
+    <li><button onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants</button></li>
+    <li><button onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skill Tree</button></li>
+    <li><button onclick="document.getElementById('boons').scrollIntoView({behavior:'smooth'})">Spirit Boons</button></li>
+    <li><button onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats &amp; Gear</button></li>
+    <li><button onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">Aspects</button></li>
+    <li><button onclick="document.getElementById('gems').scrollIntoView({behavior:'smooth'})">Gems &amp; Runes</button></li>
+    <li><button onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">Paragon</button></li>
+    <li><button onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation</button></li>
+    <li><button onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">World Tiers</button></li>
+    <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Overview</h2>
+  <div class="section-rule"></div>
+
+  <div class="summary-box">
+    <div class="summary-grid">
+      <div class="summary-item"><span class="summary-label">Build Identity</span><span class="summary-value">The Earth Shaker</span></div>
+      <div class="summary-item"><span class="summary-label">Class</span><span class="summary-value">Druid</span></div>
+      <div class="summary-item"><span class="summary-label">Primary Mechanic</span><span class="summary-value">Werebear Form · Overpower · Shockwave</span></div>
+      <div class="summary-item"><span class="summary-label">Core Skills</span><span class="summary-value">Pulverize · Poison Creeper · Trample · Blood Howl</span></div>
+      <div class="summary-item"><span class="summary-label">Key Passive</span><span class="summary-value">Ursine Strength</span></div>
+      <div class="summary-item"><span class="summary-label">Best For</span><span class="summary-value">Campaign, levelling, WT1–WT4, Hardcore</span></div>
+    </div>
+  </div>
+
+  <p>The Pulverize Werebear Druid is one of Diablo 4's most satisfying and durable levelling archetypes. You transform into a Werebear and smash the ground with Pulverize — a wide-area slam that, once empowered by the Shockwave Aspect, also sends a shockwave rolling forward to catch enemies at range. The Aspect of the Ursine Horror then reclassifies Pulverize as an Earth Skill, unlocking a cascade of passive damage multipliers tied to Earth and Nature magic. The result is a build that hits hard in a wide cone, has the health and Fortify generation to shrug off most incoming damage, and regularly lands Overpower hits that stun everything in front of it.</p>
+
+  <p>The engine behind the big damage spikes is the <strong>Overpower</strong> mechanic. Enhanced Pulverize causes your slam to Overpower every 12 seconds while you're Healthy (above 80% HP) — and Raging Pulverize makes Overpowered targets Stunned for 3 seconds. With <strong>Ursine Strength</strong> as your Key Passive, every moment spent in Werebear form also grants +30% Maximum Life and +20% damage. The Obsidian Slam Spirit Boon stacks on top, automatically triggering Overpower from kills — so once the full setup is running, your Pulverize is Overpowering constantly without any manual tracking.</p>
+
+  <p>This guide covers three variants: the <strong>Pulverize Shockwave</strong> (best overall — recommended for all players), the <strong>Grizzly Rage</strong> (ultimate-focused for Elite and Elite-dense content), and the <strong>Earthen Bulwark Tank</strong> (defensive variant for Hardcore characters who want maximum survivability before assembling full Legendary gear).</p>
+
+  <div class="pro-con-grid">
+    <div class="pro-box">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Shockwave Pulverize clears entire screens — fantastic AoE</li>
+        <li>Multiple Fortify layers keep you Healthy for constant Overpower</li>
+        <li>Ursine Strength passively gives +30% Max Life and +20% damage</li>
+        <li>Overpower + Raging Pulverize stuns everything hit — safe clearing</li>
+        <li>Poison Creeper Immobilises packs and resets on Critical Strikes</li>
+        <li>Pack Leader Spirit Boon keeps Companions almost permanently available</li>
+        <li>Layered defences (Fortify, Blood Howl heal, Trample Unstoppable) make this excellent for Hardcore</li>
+        <li>Two-handed maces give double Aspect budget — huge gear advantage</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Shockwave Aspect is a random drop — no dungeon source</li>
+        <li>Spirit can run low early without Gift of the Stag Spirit Boon</li>
+        <li>Obsidian Slam Boon only triggers once Ursine Horror Aspect is equipped</li>
+        <li>Single-target damage is weaker than AoE without correct Companion timing</li>
+        <li>Less mobile than Werewolf or Storm builds</li>
+        <li>Overpower requires staying Healthy — healing management matters on Hardcore</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <span></span>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants →</button>
+  </div>
+</section>
+
+<!-- VARIANTS -->
+<section id="variants">
+  <h2>Build Variants</h2>
+  <div class="section-rule"></div>
+
+  <p>Three approaches to the Werebear Druid. All three share the same Key Passive (Ursine Strength) and Spirit Boons. The difference is in which secondary skills and Aspects you prioritise — and how aggressively you trade survivability for damage output.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'shockwave')">Pulverize Shockwave</button>
+    <button class="tab-btn" onclick="switchTab(event,'rage')">Grizzly Rage</button>
+    <button class="tab-btn" onclick="switchTab(event,'tank')">Earthen Bulwark (HC)</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-shockwave">
+    <h3>Pulverize Shockwave — Standard (Recommended)</h3>
+    <p>The strongest and most consistent version. Pulverize is your Spirit spender and primary damage skill. Once you have the Shockwave Aspect, every slam also launches a shockwave that travels forward — enemies near the edge of the initial blast can be hit by both effects simultaneously. Poison Creeper provides lethal Poison damage in packs and Immobilises enemies for Crashstone Aspect to multiply your Earth Critical Strike Damage. Wolves handle single-target elite aggro. Blood Howl and Trample keep Spirit topped up between Pulverize casts.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Purpose</th></tr>
+      <tr><td>Basic</td><td class="highlight">Wind Shear (Fierce)</td><td>Spirit generation; Fierce upgrade applies Poison via Wind Shear for Envenom synergy</td></tr>
+      <tr><td>Core</td><td class="highlight">Pulverize (Raging)</td><td>Primary damage — Overpower every 12s while Healthy; Raging adds Stun and +Overpower damage</td></tr>
+      <tr><td>Defensive</td><td class="highlight">Blood Howl (Innate)</td><td>Heal on demand; Innate upgrade generates Spirit — use on cooldown</td></tr>
+      <tr><td>Wrath</td><td class="highlight">Trample (Savage)</td><td>Gap closer, knockback, Unstoppable source; Savage upgrade generates Spirit</td></tr>
+      <tr><td>Companion</td><td class="highlight">Wolves (1 rank)</td><td>Single-target damage and aggro on Elites and Bosses; reset via Pack Leader boon</td></tr>
+      <tr><td>Companion</td><td class="highlight">Poison Creeper (Brutal)</td><td>Pack Immobilise + Poison DoT; Brutal gives +Crit vs Immobilised enemies; resets via Pack Leader</td></tr>
+    </table>
+    <p><strong>Key Passive:</strong> Ursine Strength — +30% Max Life, +20% damage, +100% Overpower damage while in Werebear form and for 5 seconds after leaving it. With Pulverize keeping you in Werebear form constantly, this buff is always active.</p>
+  </div>
+
+  <div class="tab-panel" id="tab-rage">
+    <h3>Grizzly Rage — Ultimate Burst</h3>
+    <p>Swaps Wolves for the Grizzly Rage ultimate. During Grizzly Rage you transform into a massive Dire Werebear — all damage is increased, you become Unstoppable, and your attacks apply Vulnerable. Prime Grizzly Rage extends the duration each time you kill an enemy, meaning in elite-dense content it barely expires. Look for the Aspect of the Rampaging Werebeast to further extend duration on Crit, and Aspect of the Rabid Bear to make Trample during Grizzly Rage apply Rabies. Excellent for Helltides, Legion events, and any content with dense enemy packs.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Notes</th></tr>
+      <tr><td>Basic</td><td class="highlight">Wind Shear (Fierce)</td><td>Spirit gen + Poison application</td></tr>
+      <tr><td>Core</td><td class="highlight">Pulverize (Raging)</td><td>Primary damage; Overpower stuns</td></tr>
+      <tr><td>Defensive</td><td class="highlight">Blood Howl (Innate)</td><td>Heal + Spirit; maintain Healthy status for Ursine Strength</td></tr>
+      <tr><td>Wrath</td><td class="highlight">Trample (Savage)</td><td>Spirit gen, knockback, Unstoppable; combos with Rabid Bear aspect in Grizzly Rage</td></tr>
+      <tr><td>Companion</td><td class="highlight">Poison Creeper (Brutal)</td><td>Immobilise + Poison; Crit synergy</td></tr>
+      <tr><td>Ultimate</td><td class="highlight">Grizzly Rage (Prime)</td><td>Dire Werebear form — all damage up, Unstoppable, applies Vulnerable; Prime extends on kills</td></tr>
+    </table>
+    <p><strong>Aspect priority shift:</strong> Add <strong>Aspect of the Rampaging Werebeast</strong> (extends Grizzly Rage on Crit) to Amulet or Helm. Replace Pack Leader cooldown resets with Calm Before the Storm Spirit Boon if you find Grizzly Rage expiring too quickly between elite packs.</p>
+  </div>
+
+  <div class="tab-panel" id="tab-tank">
+    <h3>Earthen Bulwark — Hardcore / Maximum Survivability</h3>
+    <p>Replaces Wolves and Trample with Earthen Bulwark and Debilitating Roar. Earthen Bulwark generates a massive barrier, makes you Unstoppable, and creates Fortify. Debilitating Roar reduces all nearby enemy damage by 70% and generates further Fortify. With the Aspect of Retaliation, all that Fortify directly increases your Pulverize damage — so the defensive investment pays offensive dividends. The downside is less Spirit generation (no Savage Trample), but Innate Blood Howl and Gift of the Stag cover the gap adequately during levelling. Recommended for any Hardcore character until they have Legendary Aspects assembled.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Notes</th></tr>
+      <tr><td>Basic</td><td class="highlight">Wind Shear (Fierce)</td><td>Spirit gen + Poison</td></tr>
+      <tr><td>Core</td><td class="highlight">Pulverize (Raging)</td><td>Primary damage, Overpower stun</td></tr>
+      <tr><td>Defensive</td><td class="highlight">Blood Howl (Innate)</td><td>Essential — heal + Spirit gen</td></tr>
+      <tr><td>Defensive</td><td class="highlight">Earthen Bulwark (Preserving)</td><td>Barrier + Unstoppable + Fortify; Preserving upgrade extends barrier duration</td></tr>
+      <tr><td>Wrath</td><td class="highlight">Debilitating Roar (Preserving)</td><td>−70% enemy damage aura; Preserving generates Fortify; use every cooldown</td></tr>
+      <tr><td>Companion</td><td class="highlight">Poison Creeper (Brutal)</td><td>Immobilise + Poison; essential for crowd control and Crashstone synergy</td></tr>
+    </table>
+    <p><strong>HC Priority shift:</strong> Take Defiance 3 points earlier than the standard guide suggests (around Level 20–25). The damage reduction against Elites and Bosses is always-on once invested and requires zero management. Stagger Earthen Bulwark and Debilitating Roar every 5 seconds with Quickshift 3/3 to maintain the 8% damage buff from shapeshifting transitions.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">← Overview</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skills →</button>
+  </div>
+</section>
+
+<!-- SKILL TREE -->
+<section id="skills">
+  <h2>Skill Tree</h2>
+  <div class="section-rule"></div>
+
+  <p>The Druid skill tree gates deeper tiers behind cumulative point investment — 2 points to unlock Core skills, 6 for Defensive/Companion skills, 11 for Wrath skills, and 16 for the Ultimate tier. You earn 59 Skill Points from levelling and up to 12 more from Renown or Season Journey rewards, for a total of 71. The priority order below keeps your damage and survivability functional at every stage while building toward the full Ursine Strength package.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Skill Point Gate Reference</div>
+    <p><strong>2 pts spent</strong> → Core tier unlocks · <strong>6 pts</strong> → Defensive, Companion tiers · <strong>11 pts</strong> → Wrath tier · <strong>16 pts</strong> → Ultimate tier · <strong>23 pts</strong> → Key Passive. Werebear form activates automatically whenever you cast a Werebear skill like Pulverize or Trample — no separate unlock needed.</p>
+  </div>
+
+  <h3>Priority Skill Allocation (all 71 points)</h3>
+
+  <table class="data-table">
+    <tr><th>Priority</th><th>Skill / Upgrade</th><th>Points</th><th>Why</th></tr>
+    <tr><td>1</td><td class="skill-row-key">Wind Shear 1 → Enhanced → Fierce</td><td>3</td><td>Your Basic Skill and primary Spirit generator. Fierce upgrade applies Poison on hit via the Wind Shear / Neurotoxin interaction — every enemy you tag becomes Poisoned and Slowed, enabling Envenom's Crit damage bonus from the very start.</td></tr>
+    <tr><td>2</td><td class="skill-row-key">Pulverize 1 → Enhanced → Raging</td><td>3</td><td>Core damage. Enhanced makes Pulverize Overpower every 12s while Healthy — your single biggest damage spike. Raging adds +75% Overpower damage and Stuns hit enemies for 3 seconds, giving you free time to reposition or focus another target.</td></tr>
+    <tr><td>3</td><td class="skill-row-key">Pulverize ranks 2–5</td><td>4</td><td>More ranks = higher base damage and larger slam area. Get all five ranks before spending elsewhere.</td></tr>
+    <tr><td>4</td><td class="skill-row-key">Blood Howl 1 → Enhanced → Innate</td><td>3</td><td>A heal on demand and, via Innate Blood Howl, a Spirit generator. Use it whenever you dip below Healthy (80% HP) to maintain Ursine Strength's Overpower bonus. Also keeps Heightened Senses and Quickshift buffs refreshed through the shapeshifting trigger.</td></tr>
+    <tr><td>5</td><td class="skill-row-key">Poison Creeper 1 → Enhanced → Brutal → ranks 2–5</td><td>6</td><td>Your main crowd control and secondary damage tool. The Active Skill Immobilises enemies in a wide area — drop it on every pack. Brutal upgrade gives +Crit Chance against Immobilised enemies, which feeds Pack Leader boon resets and Crashstone Aspect multipliers. Max to 5 for maximum Poison uptime.</td></tr>
+    <tr><td>6</td><td class="skill-row-key">Wolves 1</td><td>1</td><td>One rank is all you need. Wolves attack the target you click — excellent for redirecting Elite aggro and adding single-target pressure on Bosses. Pack Leader boon resets their cooldown constantly on Crit, so one rank functions like a permanent ability.</td></tr>
+    <tr><td>7</td><td class="skill-row-key">Trample 1 → Enhanced → Savage</td><td>3</td><td>Your mobility and emergency Unstoppable. Savage upgrade generates Spirit on cast, filling a major gap in the build's resource loop. Knock Back counts as a Crowd Control event, which feeds Crushing Earth's Earth damage multiplier.</td></tr>
+    <tr><td>8</td><td class="skill-row-key">Neurotoxin 1 · Envenom 1–3</td><td>4</td><td>Neurotoxin makes Poisoned enemies Slowed. Envenom then gives +Crit Strike Damage against Poisoned enemies. Since Wind Shear Poisons everything you tag, this combination applies to nearly every enemy you fight.</td></tr>
+    <tr><td>9</td><td class="skill-row-key">Call of the Wild 1–3</td><td>3</td><td>+15% damage for all Companion skills per rank when active. With Wolves and Poison Creeper on near-permanent uptime via Pack Leader resets, this is always active — a sizeable team damage multiplier.</td></tr>
+    <tr><td>10</td><td class="skill-row-key">Quickshift 1–3</td><td>3</td><td>Each time you shapeshift (human → bear, bear → human) you gain +8% damage for 5 seconds. Blood Howl and Trample both trigger human-form momentarily, meaning you're constantly cycling this bonus without thinking about it.</td></tr>
+    <tr><td>11</td><td class="skill-row-key">Ursine Strength (Key Passive)</td><td>1</td><td>Your build's engine. +30% Maximum Life, +20% damage, and +100% Overpower damage — all active whenever you're in Werebear form. With Pulverize as your primary skill, uptime is near-constant. Prioritise this the moment the Key Passive tier unlocks at 23 points spent.</td></tr>
+    <tr><td>12</td><td class="skill-row-key">Natural Fortitude 1–3</td><td>3</td><td>Generates Fortify when you use a Nature Magic skill. Nearly every skill in this build qualifies. More Fortify = more damage via Aspect of Retaliation and more effective health for Overpower calculations.</td></tr>
+    <tr><td>13</td><td class="skill-row-key">Heightened Senses 1–3</td><td>3</td><td>Damage Reduction for 6 seconds after shapeshifting. Stagger Blood Howl and Trample use to maintain near-constant uptime on this defensive layer.</td></tr>
+    <tr><td>14</td><td class="skill-row-key">Predatory Instinct 1–3</td><td>3</td><td>+3% Crit Chance against Close enemies per rank. In Werebear melee range this is always active — feeds Pack Leader boon procs and Crashstone Aspect damage.</td></tr>
+    <tr><td>15</td><td class="skill-row-key">Iron Fur 1–3</td><td>3</td><td>+3% Armour while shapeshifted per rank. Permanently active in Werebear form. Direct physical mitigation — particularly valuable at lower item levels.</td></tr>
+    <tr><td>16</td><td class="skill-row-key">Crushing Earth 1–3</td><td>3</td><td>Earth Skills deal +5% damage per rank against Slowed, Stunned, Immobilised, or Knocked Back enemies. With Ursine Horror aspect, Pulverize is an Earth Skill. Nearly every enemy near you is CCed via Raging Pulverize stun, Poison Creeper Immobilise, or Trample knockback — this multiplier is almost always active.</td></tr>
+    <tr><td>17</td><td class="skill-row-key">Stone Guard 1–3</td><td>3</td><td>Damage Reduction while you have Fortify. Stacks with Natural Fortitude to keep Fortify high and Damage Reduction constant — meaningful in Torment-tier content.</td></tr>
+    <tr><td>18</td><td class="skill-row-key">Safeguard 1–3</td><td>3</td><td>Lucky Hit: your Earth Skills have a chance to generate Fortify. More Fortify stacking — synergises with Stone Guard and Aspect of Retaliation.</td></tr>
+    <tr><td>19</td><td class="skill-row-key">Feral Aptitude 1–3</td><td>3</td><td>Companion damage increased by up to +9% total. With Call of the Wild and Pack Leader resets, Companions output meaningful damage — this multiplier compounds everything else.</td></tr>
+    <tr><td>20</td><td class="skill-row-key">Mending 1–3 · Defiance 1–3 · Circle of Life 1–3 · Ancestral Fortitude 1–3</td><td>12</td><td>Fill remaining points. Mending increases healing received; Defiance reduces damage from Elites and Bosses — critical for campaign boss fights; Circle of Life provides healing when spending Spirit; Ancestral Fortitude reduces elemental resistance requirements.</td></tr>
+  </table>
+
+  <div class="progression-grid">
+    <div class="prog-stage">
+      <div class="prog-header early">Levels 1–15 · Core Setup</div>
+      <p>Wind Shear → Pulverize 1–5 (all ranks + Raging upgrade) → Blood Howl (Innate). You're in Werebear form from your first Pulverize cast. Focus on staying Healthy for Overpower procs.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header mid">Levels 15–35 · Companions &amp; Mobility</div>
+      <p>Poison Creeper (Brutal, max ranks) → Wolves → Trample (Savage) → Neurotoxin + Envenom 1–3 → Call of the Wild 1–3. Companion damage comes online; Spirit stabilises with Trample's Savage upgrade. Complete the Spirit Boon quest at Level 15.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header end">Levels 35–60 · Passive Investment</div>
+      <p>Quickshift 1–3 → Ursine Strength (Key Passive) → Natural Fortitude → Heightened Senses → Predatory Instinct → Iron Fur → Crushing Earth → Stone Guard → remaining passives. The build fully clicks once Ursine Strength is active.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">The Overpower Loop Explained</div>
+    <p>Overpower is triggered by Enhanced Pulverize every 12 seconds while Healthy (HP ≥ 80% of Max). The Obsidian Slam Spirit Boon triggers Overpower additionally after every 6th Basic attack once Ursine Horror Aspect makes Pulverize an Earth Skill. Ursine Strength then multiplies Overpower damage by +100%. Raging Pulverize adds +75% on top. Against bosses this means your Pulverize Overpowers every few seconds — each one Stunning the target and dealing 2–3× normal damage. Always stay Healthy. Blood Howl is your insurance policy.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">← Variants</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('boons').scrollIntoView({behavior:'smooth'})">Spirit Boons →</button>
+  </div>
+</section>
+
+<!-- SPIRIT BOONS -->
+<section id="boons">
+  <h2>Spirit Boons</h2>
+  <div class="section-rule"></div>
+
+  <p>Spirit Boons are the Druid's unique class mechanic — passive bonuses granted by the four Animal Spirits. You unlock them by completing a questline at Level 15 that begins with <strong>Druid: Spirits of the Lost Grove</strong>. The quest requires clearing the <strong>Túr Dúlra Stronghold</strong> in Scosglen, after which you can offer Spirit to each animal to unlock their boons. Once all four animals have at least one offering, you can <strong>Bond</strong> with one — taking two boons from that animal instead of one. Bond with the Eagle to pick up both Scythe Talons and Avian Wrath, doubling your Critical Strike returns.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Spirit Boon Unlock Priority</div>
+    <p>First offering: <strong>Gift of the Stag</strong> (Deer) — the Spirit generation alone solves the early-game resource problem. Second: <strong>Pack Leader</strong> (Wolf) — Companion resets are massive. Then work toward all five selections below. Bond with Eagle last, once all four animals are unlocked.</p>
+  </div>
+
+  <div class="boon-grid">
+
+    <div class="boon-card">
+      <div class="boon-animal">Deer Spirit</div>
+      <div class="boon-name">Gift of the Stag ✓</div>
+      <div class="boon-tag">Priority 1</div>
+      <p><strong>Effect:</strong> Gain +30 Maximum Spirit. You gain 10 Spirit every second.</p>
+      <p>The single most important early-game boon. The Werebear's biggest early weakness is Spirit starvation — Pulverize costs 35 Spirit per cast and without a reliable source of regeneration you'll spend more time casting Wind Shear than smashing enemies. Gift of the Stag eliminates this bottleneck and lets you Pulverize freely.</p>
+    </div>
+
+    <div class="boon-card">
+      <div class="boon-animal">Wolf Spirit</div>
+      <div class="boon-name">Pack Leader ✓</div>
+      <div class="boon-tag">Priority 2</div>
+      <p><strong>Effect:</strong> Lucky Hit: Critical Strikes have up to a 30% chance to reset the Cooldowns of your Companion Skills.</p>
+      <p>Transforms Poison Creeper and Wolves from cooldown-gated abilities into near-permanent active tools. With Predatory Instinct and Scythe Talons stacking Crit Chance, Pack Leader triggers frequently — Poison Creeper's Immobilise and lethal Poison DoT are effectively always available in elite packs.</p>
+    </div>
+
+    <div class="boon-card">
+      <div class="boon-animal">Snake Spirit</div>
+      <div class="boon-name">Obsidian Slam ✓</div>
+      <div class="boon-tag">Priority 3</div>
+      <p><strong>Effect:</strong> Every 6th Basic Skill attack causes your next Earth Skill to Overpower.</p>
+      <p>Requires the Aspect of the Ursine Horror to function (it makes Pulverize an Earth Skill). Once that Aspect is equipped — obtainable from Belfry Zakara dungeon in Hawezar at any level — Obsidian Slam fires after every six Wind Shear casts, dramatically increasing Overpower frequency against bosses. With Enhanced Pulverize already Overpowering on a 12-second timer, stacking Obsidian Slam means Pulverize Overpowers nearly every few casts.</p>
+    </div>
+
+    <div class="boon-card">
+      <div class="boon-animal">Eagle Spirit</div>
+      <div class="boon-name">Scythe Talons ✓</div>
+      <div class="boon-tag">Priority 4</div>
+      <p><strong>Effect:</strong> Gain +15% increased Critical Strike Chance and +15% increased Lucky Hit Chance.</p>
+      <p>Flat Critical Strike Chance directly feeds Pack Leader boon resets, Envenom Crit damage bonus, and Crashstone Aspect Earth Crit multiplier. Lucky Hit Chance increases the frequency of Energize Spirit procs and Safeguard Fortify generation. An always-on multiplier for the entire build.</p>
+    </div>
+
+    <div class="boon-card">
+      <div class="boon-animal">Eagle Spirit · Bond</div>
+      <div class="boon-name">Avian Wrath ✓</div>
+      <div class="boon-tag bond">Bond Eagle</div>
+      <p><strong>Effect:</strong> Gain +30% Critical Strike Damage.</p>
+      <p>Your Bond boon — bond with Eagle to take both Scythe Talons and Avian Wrath simultaneously. +30% Crit Damage applies to every Critical Pulverize, every Poison Creeper Critical Poison tick, and every Companion attack. Combined with Scythe Talons' +15% Crit Chance and Envenom's Crit damage bonus on Poisoned targets, Critical hits become brutally powerful.</p>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Alternative 5th Boon</div>
+    <p>If you're running the Grizzly Rage variant, consider bonding with Wolf instead and taking <strong>Energize</strong> (Wolf) as your 5th boon — Lucky Hit: Dealing damage has a 15% chance to restore 100 Spirit. This provides a safety net against Spirit starvation during Grizzly Rage windows when you're casting constantly. For the standard Pulverize Shockwave build, Eagle Bond + Avian Wrath remains the stronger choice.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">← Skill Tree</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats →</button>
+  </div>
+</section>
+
+<!-- STATS & GEAR -->
+<section id="stats">
+  <h2>Stats &amp; Gear</h2>
+  <div class="section-rule"></div>
+
+  <p>The Werebear Druid's primary stat is <strong>Willpower</strong>, which increases Overpower damage — the single most important damage type in the build. Prioritise Willpower on every slot. Secondary priorities are Maximum Life (directly increases Overpower damage and Ursine Strength value), Critical Strike Chance (Pack Leader feeds and Crashstone Aspect), and Spirit generation to fuel constant Pulverize casting.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Weapon Choice: 2-Handed Mace</div>
+    <p>Always use a 2-Handed Mace if available. Two-handed weapons carry double the Aspect power budget — your Shockwave Aspect or other key offensive Aspect rolls at twice the strength on a 2H weapon compared to a 1H. The native Overpower Damage bonus on Maces also directly multiplies your most important damage source. Do not equip 1H weapons unless your 2H option is severely underlevelled.</p>
+  </div>
+
+  <h3>Recommended Gear Affixes by Slot</h3>
+
+  <table class="data-table">
+    <tr><th>Slot</th><th>Gem</th><th>Priority Stats</th></tr>
+    <tr><td>2H Mace</td><td>Ruby</td><td><strong>Willpower</strong> · Max Life · Spirit Cost Reduction · Overpower Damage</td></tr>
+    <tr><td>Helm</td><td>Sapphire</td><td><strong>Ranks in Poison Creeper</strong> · Ranks to Companion Skills · Willpower · Max Life · Spirit Per Second</td></tr>
+    <tr><td>Chest</td><td>Sapphire</td><td><strong>Max Life</strong> · Spirit Per Second · Willpower · Armour</td></tr>
+    <tr><td>Gloves</td><td>—</td><td><strong>Ranks in Pulverize</strong> · <strong>Critical Strike Chance</strong> · <strong>Attack Speed</strong> · Willpower · Critical Strike Damage</td></tr>
+    <tr><td>Pants</td><td>Sapphire</td><td><strong>Max Life</strong> · <strong>Armour</strong> · Willpower · Dodge Chance</td></tr>
+    <tr><td>Boots</td><td>—</td><td><strong>Movement Speed</strong> · Spirit Per Second · Willpower · Dodge Chance</td></tr>
+    <tr><td>Amulet</td><td>Diamond</td><td><strong>Movement Speed</strong> · <strong>Ranks in Envenom</strong> · Critical Strike Chance · Willpower · Resource Cost Reduction</td></tr>
+    <tr><td>Ring 1</td><td>Diamond</td><td><strong>Critical Strike Chance</strong> · Attack Speed · Maximum Life · Resource Generation</td></tr>
+    <tr><td>Ring 2</td><td>Diamond</td><td><strong>Critical Strike Chance</strong> · Chance on Hit to make enemies Vulnerable · Maximum Life · Attack Speed</td></tr>
+  </table>
+
+  <h3>Tempering Affixes</h3>
+  <p>Tempering lets the Blacksmith apply additional affixes to items. Manuals are divided by type — only certain manuals can apply to each slot. Prioritise these:</p>
+
+  <table class="data-table">
+    <tr><th>Manual</th><th>Slot</th><th>Effect to Chase</th></tr>
+    <tr><td>Werebear Augments</td><td>Weapon</td><td><strong>Chance for Pulverize to Hit Twice</strong> — your single most powerful Tempering affix. Double hit means double Shockwave, double Overpower chance, double Crit chance.</td></tr>
+    <tr><td>Earth Finesse</td><td>Offensive slots</td><td>Earth Critical Strike Chance · Earth Lucky Hit Chance · Earth Damage · Earth Overpower Damage</td></tr>
+    <tr><td>Shapeshifting Finesse</td><td>Offensive slots</td><td>Werebear Overpower Damage — direct multiplier for your primary damage type</td></tr>
+    <tr><td>Werebear Innovation</td><td>Utility slots</td><td>Pulverize Size — increases the radius of both the slam and the Shockwave</td></tr>
+    <tr><td>Worldly Endurance</td><td>Defensive slots</td><td>Total Armour% — catch-all mitigation increase for lower item-level gear phases</td></tr>
+    <tr><td>Natural Motion</td><td>Boots</td><td>Movement Speed — address Werebear's mobility weakness</td></tr>
+    <tr><td>Worldly Stability</td><td>Ring/Amulet</td><td>Resource Generation — keeps Spirit topped up without relying on Wind Shear casts</td></tr>
+  </table>
+
+  <h3>Notable Unique Items</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th>Slot</th><th>Why It's Good</th></tr>
+    <tr><td class="highlight">Insatiable Fury</td><td>Chest</td><td>Extra ranks to all Werebear Skills plus strong native affixes. Ranks in Pulverize, Blood Howl, and Trample from a single item — BiS chest for this build when it drops.</td></tr>
+    <tr><td class="highlight">Hunter's Zenith</td><td>Ring</td><td>Critical Overpowers periodically — Overpowers that also Crit deal enormous additional damage. Pairs beautifully with Ursine Strength's Overpower multiplier and Raging Pulverize's stun.</td></tr>
+    <tr><td class="highlight">Rotting Lightbringer</td><td>Mace</td><td>Transforms the build into a "Puddle Bear" — poisonous puddles splash from Pulverize hits. Excellent if you prefer Poison-oriented play and have Aspect of the Changeling's Debt equipped.</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('boons').scrollIntoView({behavior:'smooth'})">← Spirit Boons</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">Aspects →</button>
+  </div>
+</section>
+
+<!-- ASPECTS -->
+<section id="aspects">
+  <h2>Aspects</h2>
+  <div class="section-rule"></div>
+
+  <p>Legendary Aspects are extracted from Legendary items and imprinted onto gear at the Occultist. Most Aspects can be unlocked at a guaranteed base rank by clearing specific dungeons — always run the relevant dungeon before relying on random drops. Aspects on 2-Handed weapons roll at double power.</p>
+
+  <h3>Priority Order</h3>
+
+  <div class="aspect-priority"><div class="aspect-dot gold"></div><strong>Shockwave Aspect</strong> — Pulverize creates a shockwave that travels forward, dealing 80–120% of its damage in the path. <em>Slot: 2H Weapon or Amulet. Source: Random drop only — check vendors and trade.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">The build's defining power. Enemies near the shockwave's origin can be hit by both the slam and the wave — effectively doubling damage in a cone. Without this Aspect the build is functional but significantly weaker. If you reach Level 30 without one dropping, imprint any strong offensive Aspect temporarily and keep farming.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot gold"></div><strong>Aspect of the Ursine Horror</strong> — Pulverize is now an Earth Skill. After it Overpowers, Earth Skill Cooldowns are reduced by 0.5–1.25 seconds. <em>Slot: Pants or Boots. Source: Belfry Zakara dungeon, Hawezar.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">The build's most critical early Aspect — run the dungeon and unlock it as soon as you reach Hawezar in the campaign. Makes Pulverize benefit from Earth damage multipliers (Crushing Earth, Defiance, Crashstone) and enables Obsidian Slam Spirit Boon. The CDR on Overpower procs reduces Earthen Bulwark and Debilitating Roar cooldowns if you run those skills.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot"></div><strong>Aspect of Retaliation</strong> — Core Skills deal up to 35–75% increased damage based on your Fortify amount. <em>Slot: Gloves or Ring. Source: Seaside Descent dungeon, Dry Steppes.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">Pulverize is a Core Skill. Your build has multiple Fortify generators (Natural Fortitude, Safeguard, Earthen Bulwark if used). With high Fortify, this is a near-constant 35–75% damage multiplier on every Pulverize cast — extremely efficient.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot"></div><strong>Aspect of the Changeling's Debt</strong> — Deal 25–65% increased damage to Poisoned enemies as a Werebear. <em>Slot: Ring or Amulet. Source: Conclave dungeon, Kejistan.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">Fierce Wind Shear and Poison Creeper keep enemies Poisoned consistently. In Werebear form (which you always are), this is a constant +25–65% Pulverize damage multiplier against the entire pack — unlocks freely from a dungeon, making it an early-game priority.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot"></div><strong>Crashstone Aspect</strong> — Earth Skills deal 35–75% more Critical Strike Damage to Crowd Controlled enemies. <em>Slot: Helm or Chest. Source: Stockades dungeon, Scosglen.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">Requires Ursine Horror to function (Pulverize must be an Earth Skill). With Raging Pulverize's Stun, Poison Creeper's Immobilise, and Trample's Knockback, nearly every enemy you face is CCed before or during your slam. Pairs directly with Scythe Talons Crit Chance and Avian Wrath Crit Damage.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot blue"></div><strong>Aspect of the Umbral</strong> — Restore 1–8 Spirit when you Crowd Control an enemy. <em>Slot: Ring. Source: Champion's Demise dungeon, Dry Steppes.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">With Poison Creeper Immobilising entire packs and Trample Knocking Back enemies, this fires constantly. Each Spirit restore reduces reliance on Wind Shear casts for resource management, letting you spam Pulverize more freely.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot blue"></div><strong>Aspect of Disobedience</strong> — Gain 0.4–0.8% increased Armour per damage event, stacking up to 25–46%. <em>Slot: Chest or Pants. Source: Halls of the Damned, Kehjistan.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">Stacks rapidly during active combat and at max provides nearly 50% extra Armour. Excellent defensive Aspect that requires no active management — just deal damage.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot blue"></div><strong>Aspect of Might</strong> — Basic Skills grant 20% Damage Reduction for 2–10 seconds. <em>Slot: Boots. Source: Dark Ravine dungeon, Dry Steppes.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">Wind Shear is your Basic Skill. Use it between Pulverize casts to maintain near-constant 20% Damage Reduction. Valuable on Hardcore and in Torment difficulty content.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot grey"></div><strong>Ghostwalker Aspect</strong> — While Unstoppable and for 4 seconds after, gain 10–30% Movement Speed and move freely through enemies. <em>Slot: Boots. Source: Broken Bulwark, Scosglen.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">Trample and Earthen Bulwark both grant Unstoppable. Addresses the Werebear's primary weakness — low movement speed — without sacrificing a passive slot. Swap out Aspect of Might once mobility becomes a pain point.</p>
+
+  <div class="aspect-priority"><div class="aspect-dot grey"></div><strong>Ballistic Aspect</strong> — While you have Fortify, your Earth Skills gain +2 Ranks. <em>Slot: Amulet. Source: Whispering Pines, Scosglen.</em></div>
+  <p style="margin:0 0 12px 18px; font-size:15px;">Requires Ursine Horror to be active. With high Fortify, Pulverize (Earth Skill) gains 2 effective ranks, increasing base damage. Strong filler Aspect until other slots are fully populated with the above priorities.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">← Stats</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('gems').scrollIntoView({behavior:'smooth'})">Gems &amp; Runes →</button>
+  </div>
+</section>
+
+<!-- GEMS & RUNEWORDS -->
+<section id="gems">
+  <h2>Gems &amp; Runewords</h2>
+  <div class="section-rule"></div>
+
+  <p>Gems socket into gear at the Jeweller. Runewords pair two Runes — a Ritual Rune (trigger) and an Invocation Rune (effect) — placed in two sockets on the same item. Runewords replace Gem sockets. Use Runewords in your 2H Weapon and one Armour slot; fill remaining sockets with the Gems below.</p>
+
+  <h3>Gem Priority</h3>
+  <table class="data-table">
+    <tr><th>Slot Type</th><th>Gem</th><th>Reason</th></tr>
+    <tr><td>Weapon</td><td class="highlight">Ruby</td><td>+Overpower Damage — your primary damage type. Rubies in weapons are the highest-return socket for this build.</td></tr>
+    <tr><td>Armour</td><td class="highlight">Sapphire</td><td>+Willpower — your primary stat. Willpower increases Overpower damage. Every Armour slot benefits from Willpower scaling.</td></tr>
+    <tr><td>Jewellery</td><td class="highlight">Diamond</td><td>+All Resistances — keeps you resistances-capped through World Tier transitions without sacrificing damage affixes on rings and amulet.</td></tr>
+  </table>
+
+  <h3>Recommended Runewords</h3>
+  <table class="data-table">
+    <tr><th>Pairing</th><th>Trigger + Effect</th><th>Why</th></tr>
+    <tr><td class="highlight">Poc + Lum</td><td>Spend 5% Max Resource → Restore 2.5 Primary Resource (1s CD)</td><td>Spirit refund loop. Each Pulverize cast triggers Poc, which then restores Spirit via Lum. Reduces net Spirit cost per cast — smooths the resource curve substantially in the 1–40 level range before Gift of the Stag and Innate Blood Howl come fully online.</td></tr>
+    <tr><td class="highlight">Noc + Gar</td><td>Inflict Crowd Control → Gain 2.5% Crit Strike Chance for 5s (stacks to +25%)</td><td>Poison Creeper Immobilises, Trample Knocks Back, Raging Pulverize Stuns — all trigger Noc. Stack Gar charges rapidly to +25% Crit Chance, which supercharges Pack Leader boon resets and Crashstone Aspect multipliers. Best in weapon slot for double power budget.</td></tr>
+  </table>
+
+  <h3>Mercenaries</h3>
+  <p>Mercenaries unlock partway through the campaign and provide either a companion fighter or a periodic Reinforcement ability.</p>
+  <table class="data-table">
+    <tr><th>Role</th><th>Mercenary</th><th>Setup</th></tr>
+    <tr><td>Main</td><td class="highlight">Varyana (Berserker)</td><td>Core Skill: Cleave · Core Passive: Hysteria · Iconic Skill: Bloodthirst · Iconic Passive: Bloodlust. Hysteria and Bloodlust both stack Attack Speed — Varyana's contribution to attack tempo compounds your own Pulverize frequency.</td></tr>
+    <tr><td>Reinforcement</td><td class="highlight">Raheir (Shieldbearer)</td><td>Reinforcement: Crater · Opportunity: Triggered by Pulverize cast. Raheir fires Crater whenever you Pulverize, adding knockback and physical damage to your slam combo. Alternatively, swap to Subo for map reveal in dungeon content.</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">← Aspects</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">Paragon →</button>
+  </div>
+</section>
+
+<!-- PARAGON -->
+<section id="paragon">
+  <h2>Paragon</h2>
+  <div class="section-rule"></div>
+
+  <p>Paragon begins at Level 60. You stop earning Skill Points and instead allocate Paragon Points into nodes on the Paragon Board. You start on the base board and unlock additional boards by reaching their gate nodes. Rare Glyphs placed in Glyph sockets scale in radius at Level 15 and Level 46 — level your Glyphs by completing The Pit. The guidance below covers early Paragon priorities to bridge the levelling build into endgame.</p>
+
+  <div class="callout">
+    <div class="callout-title">Paragon is Post-60 Content</div>
+    <p>Don't worry about Paragon during levelling — focus on Skill Points and Aspects. Once you hit 60, switch to the Pulverize Druid Endgame build (linked on Icy Veins) for a fully optimised Paragon board path. What follows is a starter orientation for the transition period.</p>
+  </div>
+
+  <h3>Early Paragon Priority</h3>
+  <table class="data-table">
+    <tr><th>Board / Node</th><th>Priority</th><th>Why</th></tr>
+    <tr><td class="highlight">Ancestral Guidance Board</td><td>First</td><td>Contains Spirit Generation nodes — immediately addresses resource pressure in early Torment content. Path toward the Spirit Per Second cluster before doing anything else.</td></tr>
+    <tr><td class="highlight">Earthen Devastation Board</td><td>Second</td><td>Earth Damage multiplier nodes compound directly with Ursine Horror + Crushing Earth + Crashstone. Significant damage increase for Pulverize.</td></tr>
+    <tr><td class="highlight">Territorial Glyph</td><td>Early Glyph</td><td>Increases damage dealt to Close enemies — always active in melee Werebear range. Socket into Ancestral Guidance or Earthen Devastation Glyph socket.</td></tr>
+    <tr><td class="highlight">Fang and Claw Glyph</td><td>Second Glyph</td><td>Increases Werebear and Werewolf skill damage. Direct Pulverize multiplier. Level both glyphs via The Pit as quickly as possible — Glyph radius expansion at Level 15 dramatically increases the number of nodes they affect.</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('gems').scrollIntoView({behavior:'smooth'})">← Gems</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation →</button>
+  </div>
+</section>
+
+<!-- ROTATION -->
+<section id="rotation">
+  <h2>Rotation &amp; Playstyle</h2>
+  <div class="section-rule"></div>
+
+  <p>The Werebear's playstyle is melee and pack-focused. Your goal on every group of enemies is to be in Werebear form, Healthy, with Companions active and enemies CCed before your Pulverize lands. The rotation below applies once the full build is assembled — early levels will skip steps you haven't unlocked yet.</p>
+
+  <h3>Standard Pack Rotation</h3>
+  <table class="data-table">
+    <tr><th>Step</th><th>Action</th><th>Purpose</th></tr>
+    <tr><td>1</td><td class="highlight">Poison Creeper (active cast)</td><td>Immobilises the pack in place and begins Poison DoT. Immobilise enables Brutal Poison Creeper's Crit bonus, Crashstone's Crit Damage bonus, and Crushing Earth's damage multiplier simultaneously. Drop this before anything else.</td></tr>
+    <tr><td>2</td><td class="highlight">Wolves (on an Elite)</td><td>Direct Wolves to the highest-threat enemy — an Elite, a caster, or a boss add. They deal meaningful damage and provide an aggro sink so you can Pulverize the pack freely. Pack Leader resets this ability regularly.</td></tr>
+    <tr><td>3</td><td class="highlight">Pulverize (spam)</td><td>Your primary damage. Watch the Enhanced Pulverize Overpower timer — when the Overpower glow appears, your next Pulverize will Overpower and Stun. Position to hit as many enemies as possible with both the slam and the Shockwave. In packs, enemies at the edge of the shockwave can be hit by both effects.</td></tr>
+    <tr><td>4</td><td class="highlight">Blood Howl (when below Healthy)</td><td>Use the moment your HP drops below ~80% to maintain Ursine Strength and Enhanced Pulverize's Overpower window. Innate Blood Howl also returns Spirit — use it proactively, not reactively.</td></tr>
+    <tr><td>5</td><td class="highlight">Trample (gap closer or emergency)</td><td>Use to close distance on fleeing enemies, knock back dangerous melee threats, or break out of Crowd Control via Unstoppable. Savage Trample returns Spirit on cast. Use it when closing distance rather than walking — it does damage, creates Fortify (with the right passives), and generates Spirit simultaneously.</td></tr>
+    <tr><td>6</td><td class="highlight">Wind Shear (Spirit filler)</td><td>Cast when Spirit is low and Pulverize is on cooldown (i.e., Spirit ≤ 50). Fierce upgrade applies Poison, feeding Envenom's Crit damage bonus. Every six Wind Shear casts also charges Obsidian Slam — track the counter.</td></tr>
+  </table>
+
+  <h3>Elite and Boss Rotation</h3>
+  <table class="data-table">
+    <tr><th>Step</th><th>Action</th></tr>
+    <tr><td>Pre-engage</td><td>Refresh Poison Creeper immediately before the fight. If running Grizzly Rage, activate it before engaging. Apply Wolves to the boss target.</td></tr>
+    <tr><td>Opening</td><td>Trample in for Unstoppable entry, preventing any opening CC. Immediately follow with Pulverize.</td></tr>
+    <tr><td>Sustain loop</td><td>Pulverize → Wind Shear (if Spirit low) → Blood Howl (if HP dips) → Pulverize. Keep eyes on the Overpower glow and ensure your Pulverize lands when it fires.</td></tr>
+    <tr><td>Cooldowns</td><td>Refresh Poison Creeper and Wolves every time Pack Leader resets them — do not let them sit unused. Re-cast Blood Howl on cooldown even at full HP to maintain Quickshift shapeshifting buff uptime.</td></tr>
+    <tr><td>Dangerous phases</td><td>Use Trample to escape telegraphed AoE. Use Blood Howl immediately after any large hit to get back above Healthy threshold before the Overpower timer resets.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Maintaining Werebear Form</div>
+    <p>Werebear form persists as long as you cast Werebear skills. Pulverize, Trample, and Blood Howl all maintain or enter Werebear form. Wind Shear is a human-form Basic Skill — casting it briefly drops you out of Bear, which is fine and actually desirable (it refreshes Quickshift and Heightened Senses buffs). The important thing is that you return to Werebear form immediately with the next Pulverize or Trample cast.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">← Paragon</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">World Tiers →</button>
+  </div>
+</section>
+
+<!-- WORLD TIERS -->
+<section id="worldtiers">
+  <h2>World Tiers</h2>
+  <div class="section-rule"></div>
+
+  <p>World Tiers govern difficulty and loot quality. Higher tiers drop better gear and give more experience, but enemies hit harder and have more health — pushing into a tier too early extends kill times and slows levelling. The guidance below reflects the Standard (Pulverize Shockwave) variant.</p>
+
+  <table class="data-table">
+    <tr><th>Tier</th><th>Recommended By</th><th>Notes</th></tr>
+    <tr><td class="highlight">Normal (WT1)</td><td>Level 1+</td><td>Start here. The build comes online quickly and Normal provides fast early experience. Move up to Hard once Pulverize is fully upgraded and you have Blood Howl active.</td></tr>
+    <tr><td class="highlight">Hard (WT2)</td><td>Level 15–20</td><td>Default difficulty for experienced players. Once you have Pulverize 5/5 with Raging upgrade, Blood Howl (Innate), and Poison Creeper (Brutal), the build is strong enough to run Hard efficiently. More Legendary item drops begin here.</td></tr>
+    <tr><td class="highlight">Expert (WT3)</td><td>Level 30–40</td><td>Move here once you have Ursine Strength (Key Passive) active, Aspect of the Ursine Horror equipped, and at least two Legendary Aspects imprinted. Pack density increases significantly — exactly what Shockwave Pulverize thrives on. Aspect of Disobedience begins stacking rapidly.</td></tr>
+    <tr><td class="highlight">Penitent (WT4)</td><td>Level 50+ · Post-Capstone</td><td>Unlocked by completing the Capstone Dungeon. Attempt around Level 50 with a full set of Legendary Aspects and Ursine Horror active. Obliteration and Torment variants follow at Level 60+ and are handled in the Endgame build guide.</td></tr>
+  </table>
+
+  <div class="callout blue">
+    <div class="callout-title">Shockwave Aspect and Difficulty</div>
+    <p>If you find a Shockwave Aspect early — from a vendor or lucky drop — immediately push one difficulty tier higher than you normally would. The Shockwave's double-hit potential roughly doubles AoE damage output, making the build dramatically overperform its level relative to monster health pools. This is the single biggest mid-levelling power spike in the build.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">← Rotation</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips →</button>
+  </div>
+</section>
+
+<!-- BOSS TIPS -->
+<section id="bosses">
+  <h2>Boss Tips</h2>
+  <div class="section-rule"></div>
+
+  <p>The Werebear is a durable and competent boss fighter. Your Overpower hits Stun bosses for 3 seconds — enormous free damage windows. The key challenge is staying Healthy for Overpower procs while managing Spirit for constant Pulverize pressure.</p>
+
+  <h3>The Butcher</h3>
+  <p>The Butcher spawns randomly in dungeons and hits extremely hard at low levels. He is not immune to Stun. Use Trample immediately on spawn for the Unstoppable to break his initial charge, then Pulverize while he's stunned. Blood Howl every time he hits you — stay Healthy at all costs. If his Flesh Hook grab lands, Blood Howl immediately on recovery and re-establish spacing with Trample. Wolves provide aggro interference. Poison Creeper Immobilises him briefly — cast it on cooldown. He can be killed at any level with this build if you don't panic and keep Overpower procs landing.</p>
+
+  <h3>Campaign Bosses (Standard)</h3>
+  <p>Before every boss room: cast Poison Creeper to Immobilise any adds, activate Wolves on the boss, and enter the fight via Trample (Unstoppable prevents any opening CC). Keep Blood Howl on cooldown throughout the fight — use it even at full HP to maintain Quickshift buffs. Watch for telegraphed AoE patterns: Trample out of the danger zone and immediately re-engage with Pulverize. Most campaign bosses die in 2–4 Overpower cycles at appropriate level and difficulty.</p>
+
+  <h3>The Consummate Hazard (Grizzly Rage variant)</h3>
+  <p>If you're running Grizzly Rage, activate it immediately as you enter the arena — before the boss activates, if possible. Grizzly Rage's Vulnerable application means every hit from Wolves, Poison Creeper DoT, and Pulverize deals increased damage from the opening second. Use Trample during Grizzly Rage if you have Aspect of the Rabid Bear, as it applies Rabies for additional Poison DoT. Grizzly Rage deals with stationary boss phases extremely well.</p>
+
+  <h3>World Bosses</h3>
+  <p>Werebear contributes meaningful AoE and single-target damage to World Boss encounters. Use Debilitating Roar (if equipped) to reduce damage across nearby players — it functions as a raid-wide support tool. Stay near the boss at all times to maintain Hellbent Commander-equivalent buffs from Quickshift and Ursine Strength. Avoid AoE ground effects by watching attack animations and using Trample to reposition. Recast Poison Creeper and Wolves every reset.</p>
+
+  <h3>Uber Bosses (Level 55+)</h3>
+  <p>At Uber-tier content the Overpower management becomes critical. Maintain Healthy status rigidly — if you drop below 80% HP, Blood Howl immediately and do not Pulverize again until Healthy is restored (you'll waste the Overpower window). Save Trample for the most dangerous phases. Consider equipping Aspect of Might (20% Damage Reduction after Wind Shear) and running a few Wind Shear casts between Pulverize spam to keep this buff active permanently. Hunter's Zenith ring adds periodic guaranteed Crit Overpowers for maximum boss phase burst.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">← World Tiers</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips →</button>
+  </div>
+</section>
+
+<!-- QUICK TIPS -->
+<section id="tips">
+  <h2>Quick Tips</h2>
+  <div class="section-rule"></div>
+
+  <p>Key reminders and mechanical notes for Pulverize Werebear play.</p>
+
+  <table class="data-table">
+    <tr><th>#</th><th>Tip</th></tr>
+    <tr><td>1</td><td><strong>Complete Túr Dúlra at Level 15, not later.</strong> The Spirit Boon questline is locked behind this Stronghold. Gift of the Stag massively improves Spirit uptime — clearing this dungeon the moment you reach Scosglen is the single biggest quality-of-life upgrade available.</td></tr>
+    <tr><td>2</td><td><strong>Run Belfry Zakara the moment you reach Hawezar.</strong> Aspect of the Ursine Horror is unlocked here at guaranteed base rank and enables Obsidian Slam Spirit Boon, Crushing Earth, Defiance, and Crashstone multipliers simultaneously. This is worth going out of your way for.</td></tr>
+    <tr><td>3</td><td><strong>Shockwave Aspect doubles as a ranged skill.</strong> The shockwave travels forward in a line. Position yourself so the initial blast hits a cluster of enemies and the shockwave rolls through remaining stragglers. Enemies at the blast edge can be hit twice — use terrain to funnel enemies into this overlap zone.</td></tr>
+    <tr><td>4</td><td><strong>Never waste an Overpower proc.</strong> When the Pulverize Overpower glow appears, make sure the next cast hits as many enemies as possible. Repositioning to maximise targets in the slam area before triggering it is worth the fraction of a second.</td></tr>
+    <tr><td>5</td><td><strong>Blood Howl is a Spirit generator, not just a heal.</strong> Innate Blood Howl generates Spirit on use — treat it as a resource skill that happens to also heal, not a panic button. Using it on cooldown keeps Quickshift buffs active and Spirit topped up.</td></tr>
+    <tr><td>6</td><td><strong>Wind Shear's Poison is core damage.</strong> Fierce Wind Shear applies Poison to every tagged enemy. This feeds Envenom (+Crit Damage on Poisoned targets), Aspect of the Changeling's Debt (+Werebear damage on Poisoned targets), and Neurotoxin (Slow). Tag priority targets with Wind Shear before Pulverizing.</td></tr>
+    <tr><td>7</td><td><strong>2H Mace over 1H always.</strong> Two-handed weapons double the power of your imprinted Aspect. A Shockwave Aspect on a 2H Mace rolls at 160–240% damage instead of 80–120%. This difference is enormous — upgrade your 2H mace as a priority whenever a higher-level version drops.</td></tr>
+    <tr><td>8</td><td><strong>Craft Elixir of Advantage at the Alchemist.</strong> The highest tier available gives Attack Speed, Lucky Hit Chance, and experience bonus — all three matter for this build. Refresh it every 30 minutes. Forage materials while exploring rather than backtracking specifically for them.</td></tr>
+    <tr><td>9</td><td><strong>Stagger Trample and Blood Howl for Quickshift uptime.</strong> Don't use both on the same second. Spread them 5+ seconds apart to maintain near-permanent +8% damage from shapeshifting transitions. This becomes automatic once you internalise the rhythm.</td></tr>
+    <tr><td>10</td><td><strong>Obsidian Slam requires exactly 6 Basic Skill hits.</strong> Count them or watch the visual indicator on the skill bar. On Boss fights use your Wind Shear counts deliberately — use five Wind Shear casts in the opener to have Obsidian Slam primed, then land Pulverize for a guaranteed Overpower on the sixth cast.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Elixirs Worth Crafting</div>
+    <p><strong>Elixir of Advantage</strong> (best available tier): Attack Speed + Lucky Hit + XP. Use it every session. <strong>Elixir of Fortitude</strong>: Max Life bonus — directly increases Overpower damage and Ursine Strength value. <strong>Weak Assault Elixir</strong> (early levels): cheap, gives damage and XP while materials are scarce.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">← Boss Tips</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <span></span>
+  </div>
+</section>
+
+</div><!-- /.content -->
+
+<script>
+/* ── Tab switcher ─────────────────────────────────────────────────────── */
+function switchTab(e, id) {
+  const wrap = e.target.closest('.tabs').nextElementSibling;
+  let panel = wrap;
+  while (panel && !panel.classList.contains('tab-panel')) panel = panel.nextElementSibling;
+  let cur = panel;
+  while (cur && cur.classList.contains('tab-panel')) {
+    cur.classList.remove('active');
+    cur = cur.nextElementSibling;
+  }
+  document.getElementById('tab-' + id).classList.add('active');
+  e.target.closest('.tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+}
+
+/* ── Smooth-scroll section nav active state ───────────────────────────── */
+const sections = document.querySelectorAll('.content section');
+const navBtns  = document.querySelectorAll('.section-nav button');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navBtns.forEach(b => b.classList.remove('active'));
+      const match = [...navBtns].find(b =>
+        b.getAttribute('onclick') && b.getAttribute('onclick').includes(entry.target.id)
+      );
+      if (match) match.classList.add('active');
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+/* ── FAB visibility ───────────────────────────────────────────────────── */
+const fab = document.getElementById('fab-top');
+window.addEventListener('scroll', () => {
+  fab.style.opacity = window.scrollY > 400 ? '1' : '0';
+  fab.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+}, { passive: true });
+
+/* ── Light / dark theme toggle ───────────────────────────────────────── */
+const toggle = document.querySelector('.theme-toggle');
+const icon   = toggle.querySelector('.toggle-icon');
+let light = false;
+toggle.addEventListener('click', () => {
+  light = !light;
+  document.body.classList.toggle('light-mode', light);
+  icon.textContent = light ? '🌙' : '☀️';
+  toggle.childNodes[toggle.childNodes.length - 1].textContent = light ? ' Dark' : ' Light';
+});
+</script>
+</body>
+</html>
