@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diablo 4 Necromancer Minion Build | Summoner Levelling Guide</title>
+<meta name="description" content="Diablo 4 Necromancer Summoner levelling build guide. Best skill tree, Book of the Dead choices, aspects, and rotation for minion army domination. Updated 2025.">
+<meta property="og:title" content="Diablo 4 Necromancer Minion Build | Summoner Levelling Guide">
+<meta property="og:description" content="Command an undead army through every World Tier. Blight Summoner skill tree, Book of the Dead, aspects, and boss tips. The definitive D4 Necromancer levelling guide.">
+<meta property="og:url" content="https://bloodguides.pages.dev/diablo4-necromancer-minion-build/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+/* Page-specific variables — Necromancer purple/bone theme */
+:root {
+  --bg: #16131f; --surface: #1f1c2e; --surface2: #2a263c; --border: #3e3858;
+  --accent: #9b6dda; --accent2: #5b2d8e; --gold: #d4a84c; --gold2: #f5d880;
+  --text: #f0ead8; --text2: #c8bfb0; --text3: #d0c8bc;
+  --blue: #5b8fd4; --green: #5db87a;
+}
+/* Necromancer hero — deep bone-purple */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(100,40,180,0.40) 0%, transparent 70%),
+    radial-gradient(ellipse at 30% 100%, rgba(155,109,218,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(11,10,14,1) 40%,  transparent 100%),
+    #16131f !important;
+}
+/* D4-specific badge colours */
+.badge.purple { color: var(--accent); border-color: var(--accent); background: rgba(155,109,218,0.10); }
+/* Skill tree progression cards */
+.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
+.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
+.prog-header.mid   { background: rgba(91,143,212,.15); color: var(--blue); }
+.prog-header.end   { background: rgba(155,109,218,.15); color: var(--accent); }
+.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
+.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
+/* Book of the Dead grid */
+.botd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 16px 0; }
+.botd-card { background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--accent); border-radius: 0 0 4px 4px; padding: 16px 18px; }
+.botd-card .botd-type { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.botd-card .botd-name { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); margin-bottom: 6px; }
+.botd-card .botd-tag { display: inline-block; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--green); color: var(--green); border-radius: 2px; margin-bottom: 8px; }
+.botd-card .botd-tag.alt { border-color: var(--blue); color: var(--blue); }
+.botd-card .botd-tag.warn { border-color: var(--accent); color: var(--accent); }
+.botd-card p { font-size: 15px; margin-bottom: 6px; }
+/* Skill allocation table */
+.skill-row-key { color: var(--gold); font-weight: 600; }
+/* Aspect priority bar */
+.aspect-priority { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.aspect-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.aspect-dot.gold { background: var(--gold); }
+.aspect-dot.blue { background: var(--blue); }
+</style>
+</head>
+<body>
+<div id="page-top"></div>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
+          <li><a href="/dragon-faith-build/">Dragon Faith Build</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="active">Diablo 4 ▾</a>
+        <ul>
+          <li><a href="/diablo4-necromancer-minion-build/">Necromancer Minion Build</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+    <button class="theme-toggle" title="Toggle light/dark mode">
+      <span class="toggle-icon">☀️</span> Light
+    </button>
+  </div>
+</header>
+
+<button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Complete Build Guide · 2025</span>
+  <h1 class="title">Necromancer Minion Build</h1>
+  <p class="subtitle">Blight Summoner · Shadowblight · Book of the Dead · Command an undead army that never stops.</p>
+  <div class="badges">
+    <span class="badge purple">Shadow</span>
+    <span class="badge blue">Summoning</span>
+    <span class="badge green">Levelling</span>
+    <span class="badge">PvE ✓</span>
+    <span class="badge">HC Viable</span>
+    <span class="badge">WT1 → WT4</span>
+  </div>
+</div>
+
+<!-- IN-PAGE NAV -->
+<nav class="section-nav">
+  <ul>
+    <li><button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Overview</button></li>
+    <li><button onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants</button></li>
+    <li><button onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skill Tree</button></li>
+    <li><button onclick="document.getElementById('botd').scrollIntoView({behavior:'smooth'})">Book of the Dead</button></li>
+    <li><button onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats &amp; Levelling</button></li>
+    <li><button onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">Aspects</button></li>
+    <li><button onclick="document.getElementById('gear').scrollIntoView({behavior:'smooth'})">Gear &amp; Gems</button></li>
+    <li><button onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">Paragon</button></li>
+    <li><button onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation</button></li>
+    <li><button onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">World Tiers</button></li>
+    <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Overview</h2>
+  <div class="section-rule"></div>
+
+  <div class="summary-box">
+    <div class="summary-grid">
+      <div class="summary-item"><span class="summary-label">Build Identity</span><span class="summary-value">The Bone Commander</span></div>
+      <div class="summary-item"><span class="summary-label">Class</span><span class="summary-value">Necromancer</span></div>
+      <div class="summary-item"><span class="summary-label">Primary Mechanic</span><span class="summary-value">Shadowblight · Minion Army · Decrepify</span></div>
+      <div class="summary-item"><span class="summary-label">Core Skills</span><span class="summary-value">Blight · Decrepify · Raise Skeleton · Golem</span></div>
+      <div class="summary-item"><span class="summary-label">Key Passive</span><span class="summary-value">Shadowblight</span></div>
+      <div class="summary-item"><span class="summary-label">Best For</span><span class="summary-value">Campaign, levelling, WT1–WT4, Hardcore</span></div>
+    </div>
+  </div>
+
+  <p>The Necromancer Minion build is one of Diablo 4's most consistently powerful levelling archetypes. You command a permanent army — up to eight skeletal warriors, four skeletal mages, and a golem — while your role is to curse enemies, cast Blight puddles, and let your undead do the killing. The damage ceiling rises steeply once the Shadowblight key passive is active, and the build's inherent tankiness (the minions absorb most incoming damage) makes it an excellent choice for Hardcore.</p>
+
+  <p>The core loop is straightforward: curse with Decrepify, drop a Blight puddle, let minions proc <strong>Shadowblight stacks</strong> (ten instances of Darkness damage → massive bonus shadow hit), generate corpses, use Army of the Dead on cooldown. Every layer of the build reinforces every other — cursed enemies take more damage via <strong>Amplify Damage</strong>, minions attack faster near you via <strong>Inspiring Leader</strong>, and Blight puddles the Golem creates via the Plunging Darkness aspect mean you barely have to cast at all in routine packs.</p>
+
+  <p>This guide covers three variants: the standard <strong>Blight Summoner</strong> (best overall damage and Shadowblight synergy), the <strong>Army Commander</strong> (maximum minion uptime and Corpse Explosion burst), and the <strong>Blood Summoner</strong> (self-healing focus, ideal for Hardcore).</p>
+
+  <div class="pro-con-grid">
+    <div class="pro-box">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Extremely low APM — minions do the work</li>
+        <li>Minions absorb incoming damage — very durable</li>
+        <li>Shadowblight spikes massive damage every 10 shadow hits</li>
+        <li>Decrepify reduces boss damage dealt to you</li>
+        <li>Scales smoothly through every World Tier</li>
+        <li>Excellent Hardcore viability</li>
+        <li>Army of the Dead nukes most campaign bosses</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Minions die to AoE ground effects — reposition needed</li>
+        <li>Corpse generation required for several skills</li>
+        <li>Hellbent Commander requires staying near minions</li>
+        <li>Slightly passive — some players find it low-engagement</li>
+        <li>Army of the Dead has a long cooldown between uses</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <span></span>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants →</button>
+  </div>
+</section>
+
+<!-- VARIANTS -->
+<section id="variants">
+  <h2>Build Variants</h2>
+  <div class="section-rule"></div>
+
+  <p>Three approaches to the Minion Necromancer. The stat spread and Book of the Dead choices are nearly identical across all three — the difference is in which secondary skills you prioritise and how you engage with the corpse loop.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'blight')">Blight Summoner</button>
+    <button class="tab-btn" onclick="switchTab(event,'army')">Army Commander</button>
+    <button class="tab-btn" onclick="switchTab(event,'blood')">Blood Summoner (HC)</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-blight">
+    <h3>Blight Summoner — Standard (Recommended)</h3>
+    <p>The strongest overall version. Blight acts as your primary damage skill and Shadowblight primer. Every cast leaves a shadow puddle that minions fight inside, each hit incrementing the Shadowblight stack. At ten stacks the next shadow damage instance explodes for bonus damage — against bosses this happens multiple times per fight. Decrepify ensures enemies take more damage from both you and your minions simultaneously.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Purpose</th></tr>
+      <tr><td>Basic</td><td class="highlight">Bone Splinters (Initiated)</td><td>Generates Essence; Initiated gives bonus on first 4 casts per corpse pickup</td></tr>
+      <tr><td>Core</td><td class="highlight">Blight (Paranormal)</td><td>Shadow puddle — primes Shadowblight and deals sustained shadow damage</td></tr>
+      <tr><td>Macabre</td><td class="highlight">Corpse Explosion (Blighted)</td><td>Turns every corpse into an additional Blight pool for double Shadowblight stacking</td></tr>
+      <tr><td>Curse</td><td class="highlight">Decrepify (Abhorrent)</td><td>Slows enemies, reduces their damage; Abhorrent heals you when cursed enemies die</td></tr>
+      <tr><td>Summoning</td><td class="highlight">Golem</td><td>Active summon — Bone Golem recommended for durability. Triggers Plunging Darkness aspect.</td></tr>
+      <tr><td>Ultimate</td><td class="highlight">Army of the Dead (Supreme)</td><td>Boss nuke. Supreme version makes all minions invulnerable during the wave.</td></tr>
+    </table>
+    <p><strong>Key Passive:</strong> Shadowblight — ten instances of Darkness damage deal a bonus shadow hit. With Blight + Blighted Corpse Explosion + Shadow Mages, stacks build in seconds.</p>
+  </div>
+
+  <div class="tab-panel" id="tab-army">
+    <h3>Army Commander — Maximum Minion Count</h3>
+    <p>Leans further into the Corpse Explosion loop. Swap Blight for Bone Spear if you want more personal damage, or keep Blight and add Corpse Tendrils to group enemies tightly for Corpse Explosion detonation. The Embalmer aspect creates automatic Corpse Explosions when you consume corpses, meaning Grim Harvest feeds a constant chain of detonations without any active casting. Excellent in dense content like Helltides and Legion events.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Notes</th></tr>
+      <tr><td>Basic</td><td class="highlight">Bone Splinters (Initiated)</td><td>Essence generation</td></tr>
+      <tr><td>Core</td><td class="highlight">Blight (Paranormal)</td><td>Shadow damage, Shadowblight priming</td></tr>
+      <tr><td>Macabre</td><td class="highlight">Corpse Tendrils (Dreadful)</td><td>Pulls enemies into a cluster, creates Vulnerable — ideal before Corpse Explosion</td></tr>
+      <tr><td>Macabre 2</td><td class="highlight">Corpse Explosion (Blighted)</td><td>Detonates grouped enemies + generates Blight pools</td></tr>
+      <tr><td>Curse</td><td class="highlight">Decrepify (Abhorrent)</td><td>Slow + healing on cursed enemy death</td></tr>
+      <tr><td>Ultimate</td><td class="highlight">Army of the Dead (Supreme)</td><td>Summon wave + minion invulnerability</td></tr>
+    </table>
+    <p><strong>Key Passive:</strong> Shadowblight. <strong>Core Aspect:</strong> Aspect of the Embalmer — consuming a corpse auto-spawns a Corpse Explosion nearby, chaining throughout packs without casting.</p>
+  </div>
+
+  <div class="tab-panel" id="tab-blood">
+    <h3>Blood Summoner — Hardcore Friendly</h3>
+    <p>Prioritises personal survivability without sacrificing minion damage. Abhorrent Decrepify already heals you when cursed enemies die — this variant stacks on Blood Mist for an emergency invulnerability tool and Death's Embrace at maximum rank for near-permanent damage reduction in melee range. Minions still deal the bulk of damage. This is the recommended variant for Hardcore characters until World Tier 3 aspect options are fully assembled.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Notes</th></tr>
+      <tr><td>Basic</td><td class="highlight">Bone Splinters (Initiated)</td><td>Essence gen</td></tr>
+      <tr><td>Core</td><td class="highlight">Blight (Paranormal)</td><td>Shadowblight priming</td></tr>
+      <tr><td>Macabre</td><td class="highlight">Blood Mist</td><td>Emergency invulnerability — use when overwhelmed or when the Butcher appears</td></tr>
+      <tr><td>Curse</td><td class="highlight">Decrepify (Abhorrent)</td><td>Essential — healing on cursed kills makes Abhorrent mandatory for HC</td></tr>
+      <tr><td>Summoning</td><td class="highlight">Golem</td><td>Blood Golem variant — drains nearby enemies to heal you</td></tr>
+      <tr><td>Ultimate</td><td class="highlight">Army of the Dead (Supreme)</td><td>Same as standard — boss nuke</td></tr>
+    </table>
+    <p><strong>HC Priority shift:</strong> Invest 3 points in Death's Embrace earlier (levels 20–25) rather than waiting for endgame. The 15% damage reduction while near enemies is always active and requires zero management.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">← Overview</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skills →</button>
+  </div>
+</section>
+
+<!-- SKILL TREE -->
+<section id="skills">
+  <h2>Skill Tree</h2>
+  <div class="section-rule"></div>
+
+  <p>The Necromancer skill tree gates deeper tiers behind cumulative point investment — you need 2 points spent to unlock Core skills, 6 for Macabre/Curses, 11 for Summoning skills, and 16 for the Ultimate tier. The priority order below sequences unlocks to keep your army functional as early as possible while building toward Shadowblight.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Skill Point Gate Reference</div>
+    <p><strong>2 pts spent</strong> → Core tier unlocks · <strong>6 pts</strong> → Macabre &amp; Curse tier · <strong>11 pts</strong> → Summoning tier · <strong>16 pts</strong> → Ultimate tier · <strong>23 pts</strong> → Key Passive. Raise Skeleton and Golem are unlocked via the Summoning tier passives — your army appears automatically once those nodes are reached in the tree.</p>
+  </div>
+
+  <h3>Priority Skill Allocation (first 40 points)</h3>
+
+  <table class="data-table">
+    <tr><th>Priority</th><th>Skill / Upgrade</th><th>Points</th><th>Why</th></tr>
+    <tr><td>1</td><td class="skill-row-key">Bone Splinters 1 → Enhanced → Initiated</td><td>3</td><td>Reliable Essence generation. Initiated bonus fires on first 4 casts after each corpse pickup — pairs with Grim Harvest loop.</td></tr>
+    <tr><td>2</td><td class="skill-row-key">Blight 1 → Enhanced → Paranormal → ranks 4–5</td><td>5</td><td>Core damage and Shadowblight primer. Paranormal slows enemies inside the pool — more time inside = more Shadowblight stacks.</td></tr>
+    <tr><td>3</td><td class="skill-row-key">Grim Harvest 1–3</td><td>3</td><td>Consuming corpses grants Essence. Funds constant Blight casting without running dry.</td></tr>
+    <tr><td>4</td><td class="skill-row-key">Decrepify 1 → Enhanced → Abhorrent</td><td>3</td><td>Slows enemies, reduces their damage output, heals you on cursed kills. Apply before every fight.</td></tr>
+    <tr><td>5</td><td class="skill-row-key">Fueled by Death 1–3</td><td>3</td><td>+15% damage for 3s after consuming a corpse. With Grim Harvest feeding corpse consumption, this buff is near-permanent in packs.</td></tr>
+    <tr><td>6</td><td class="skill-row-key">Amplify Damage 1–3</td><td>3</td><td>Cursed enemies take increased damage. All your minion damage benefits from this — it's a flat team-wide multiplier.</td></tr>
+    <tr><td>7</td><td class="skill-row-key">Hewed Flesh 1–3</td><td>3</td><td>Lucky Hit chance to create a corpse at a target's location. Keeps the corpse supply flowing for Grim Harvest and Corpse Explosion without needing enemies to die first.</td></tr>
+    <tr><td>8</td><td class="skill-row-key">Army of the Dead 1 → Prime → Supreme</td><td>3</td><td>Your main boss cooldown. Prime version summons the wave and makes existing minions temporarily invulnerable — huge for preventing army wipes on boss AoEs.</td></tr>
+    <tr><td>9</td><td class="skill-row-key">Inspiring Leader 1–3</td><td>3</td><td>+15% attack speed to nearby minions after you cast a skill. Since you cast constantly, this bonus is always active — a significant DPS multiplier for the whole army.</td></tr>
+    <tr><td>10</td><td class="skill-row-key">Hellbent Commander 1–3</td><td>3</td><td>Nearby minions deal +30% damage while you are close to them. Stay near your army. Massive damage increase.</td></tr>
+    <tr><td>11</td><td class="skill-row-key">Shadowblight (Key Passive)</td><td>1</td><td>Your build's engine. Every 10 instances of Darkness damage dealt by you or your minions triggers an extra shadow hit. With Shadow Mages and Blight active, this fires constantly.</td></tr>
+    <tr><td>12</td><td class="skill-row-key">Corpse Explosion 1 → Enhanced → Blighted</td><td>3</td><td>Blighted version creates a Blight pool at the explosion site — additional Shadowblight stacking at no extra Essence cost.</td></tr>
+    <tr><td>13</td><td class="skill-row-key">Golem (Iron or Bone)</td><td>1</td><td>Adds a massive tank/damage minion. Required to trigger the Aspect of Plunging Darkness.</td></tr>
+    <tr><td>14</td><td class="skill-row-key">Death's Embrace 1–3</td><td>3</td><td>Close enemies take more damage; you take less. Always active if you stand near your minion line.</td></tr>
+  </table>
+
+  <p><strong>Remaining points (levels 40–50+):</strong> Invest in Bone Splinters ranks 2–5 for more Essence, add Corpse Tendrils if you find grouping enemies useful, and fill Terror 1–3 for Feared/Slowed enemies after Decrepify expires.</p>
+
+  <div class="callout">
+    <div class="callout-title">The Shadowblight Trigger Explained</div>
+    <p>Shadowblight counts every instance of Darkness damage — Blight ticks, Shadow Mage attacks, Blighted Corpse Explosion pools, and the Golem's Blight puddle (via Plunging Darkness aspect) all count independently. In a full pack with four Shadow Mages attacking, Shadowblight triggers every 2–3 seconds. The bonus hit deals approximately 30% of your shadow skill damage as an additional burst — it is not capped and benefits from Amplify Damage.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">← Variants</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('botd').scrollIntoView({behavior:'smooth'})">Book of the Dead →</button>
+  </div>
+</section>
+
+<!-- BOOK OF THE DEAD -->
+<section id="botd">
+  <h2>Book of the Dead</h2>
+  <div class="section-rule"></div>
+
+  <p>The Book of the Dead is unique to the Necromancer — it lets you choose the type and behaviour of each minion category, or sacrifice them for a passive bonus. For this build, <strong>do not sacrifice any minion type</strong>. The combined damage output of a full army vastly exceeds any sacrifice bonus at every stage of levelling.</p>
+
+  <div class="botd-grid">
+
+    <div class="botd-card">
+      <div class="botd-type">Skeletal Warriors</div>
+      <div class="botd-name">Skirmishers ✓ (Recommended)</div>
+      <span class="botd-tag">Best for Levelling</span>
+      <p>Skirmishers attack 10% faster than Warriors and deal bonus damage against Healthy enemies. Since most encounters begin with full-HP targets, the bonus fires immediately. More attacks per second also means more Shadowblight stack accumulation per minute.</p>
+      <p><strong>Alternative — Warriors:</strong> Higher single-hit damage, better for one-on-one boss fights. Swap here if you find Skirmishers dying on WT3+ elite packs. The DPS difference is marginal.</p>
+      <p><strong>Do not pick Defenders</strong> — their damage output is too low for the stat investment required.</p>
+    </div>
+
+    <div class="botd-card">
+      <div class="botd-type">Skeletal Mages</div>
+      <div class="botd-name">Shadow Mages ✓ (Recommended)</div>
+      <span class="botd-tag">Best for Levelling</span>
+      <p>Shadow Mages deal AoE shadow damage with each attack — every hit counts toward Shadowblight stacks. Four Shadow Mages in a pack can push the Shadowblight counter to ten in under two seconds, triggering the bonus hit before enemies even react. Their AoE naturally tags every enemy in a cluster.</p>
+      <p><strong>Alternative — Cold Mages:</strong> If you are dying frequently, Cold Mages freeze and Chill enemies, buying time. The trade-off is losing shadow damage contributions to Shadowblight. Switch back once survivability improves.</p>
+    </div>
+
+    <div class="botd-card">
+      <div class="botd-type">Golem</div>
+      <div class="botd-name">Bone Golem ✓ (Recommended)</div>
+      <span class="botd-tag">Best for Levelling</span>
+      <p>The Bone Golem is the most durable option and generates Bone Splinters projectiles when it takes damage, adding to your own Essence generation passively. Its active ability — a ground slam — is the trigger for the <strong>Aspect of Plunging Darkness</strong>, which creates a Blight puddle at the slam location. This converts every Golem slam into an extra Shadowblight primer.</p>
+      <p><strong>Alternative — Blood Golem (HC):</strong> Drains life from nearby enemies and channels it to you and nearby allies. For Hardcore characters, the sustain is valuable. Loses the Plunging Darkness synergy.</p>
+    </div>
+
+  </div>
+
+  <div class="callout green">
+    <div class="callout-title">Sacrifice — When Not To</div>
+    <p>Sacrificing a minion type gives a passive stat bonus — e.g. sacrificing all Skeletal Warriors gives +20% Critical Strike Chance. At no point during levelling (1–50) does a sacrifice bonus outperform keeping the minion alive. The combined DPS of eight skeletons, four mages, and a golem is far greater. Reserve sacrifice builds for fully geared endgame specialisations.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">← Skill Tree</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats →</button>
+  </div>
+</section>
+
+<!-- STATS & LEVELLING -->
+<section id="stats">
+  <h2>Stats &amp; Levelling</h2>
+  <div class="section-rule"></div>
+
+  <p>Diablo 4's Necromancer scales through Intelligence (skill damage) and Willpower (resource generation and Overpower damage). Unlike a pure caster build, the Minion Summoner benefits greatly from gear stats that directly boost the army — minion damage percentages, minion attack speed, and skill ranks are often more impactful than raw primary stat increases, especially post-level 35.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Stat Priority Summary</div>
+    <p><strong>Gear affixes (in priority order):</strong> + Ranks to Raise Skeleton → + Ranks to Golem → Minion Damage % → Minion Attack Speed % → Maximum Life → Intelligence → Cooldown Reduction (for Army of the Dead) → Lucky Hit Chance. Resistance caps at 70% — get there before pushing World Tier 3.</p>
+  </div>
+
+  <h3>Levelling Roadmap</h3>
+  <div class="progression-grid">
+    <div class="prog-stage">
+      <div class="prog-header early">🌱 Early — Levels 1–25</div>
+      <p><strong>Focus:</strong> Bone Splinters → Blight → Decrepify → Grim Harvest → Fueled by Death</p>
+      <p>Your army forms automatically as you unlock Raise Skeleton and Golem through skill tree points. Prioritise Blight upgrades and Grim Harvest to establish the Essence loop. Decrepify should be active on every elite and boss encounter from level 12 onward. Shadowblight is still out of reach — rely on minion auto-attacks and Blight puddles for damage.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header mid">⚔️ Mid — Levels 26–45</div>
+      <p><strong>Focus:</strong> Shadowblight → Inspiring Leader → Hellbent Commander → Army of the Dead</p>
+      <p>This is the build's power spike. Once Shadowblight is active, damage jumps noticeably — you will see enemies that previously required a full fight dying in one Army of the Dead + Blight combo. Stack Inspiring Leader and Hellbent Commander immediately. Stay within melee range of your minions for maximum damage. Push into World Tier 2 around level 30 if the campaign allows.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header end">💀 Late — Levels 45–50+</div>
+      <p><strong>Focus:</strong> Aspect acquisition → resistance capping → Paragon board setup</p>
+      <p>Run the Codex dungeons listed in the Aspects section before hitting level 50. The Plunging Darkness and Damned aspects transform the build. At 50, complete the Capstone Dungeon to unlock World Tier 3 — do this at the earliest point your gear allows. Paragon boards (post-50) provide major power gains. See the Paragon section.</p>
+    </div>
+  </div>
+
+  <h3>Gear Stat Priority by Slot</h3>
+  <table class="data-table">
+    <tr><th>Slot</th><th>Priority Affixes</th><th>Why</th></tr>
+    <tr><td>Helmet</td><td class="highlight">+ Ranks to Raise Skeleton · + Ranks to Army of the Dead · Maximum Life</td><td>Skill ranks on Raise Skeleton increase skeleton count and damage. Army of the Dead rank reduces cooldown effective cost.</td></tr>
+    <tr><td>Chest</td><td class="highlight">Maximum Life · Damage Reduction · All Resistances</td><td>Pure survivability. You are near the front with minions — you will take hits.</td></tr>
+    <tr><td>Gloves</td><td class="highlight">Minion Attack Speed % · + Ranks to Golem · Lucky Hit Chance</td><td>Minion attack speed on gloves is a multiplicative damage increase for the whole army. Stack it.</td></tr>
+    <tr><td>Trousers</td><td class="highlight">Maximum Life · Damage Reduction · Resistances</td><td>Secondary survivability slot. Use a Diamond gem here for all-resistance bonus.</td></tr>
+    <tr><td>Boots</td><td class="highlight">Movement Speed · Resistances · Maximum Life</td><td>Movement speed helps you stay near your minion line (Hellbent Commander). No offensive stats needed here.</td></tr>
+    <tr><td>Weapon (2H)</td><td class="highlight">Minion Damage % · Intelligence · Core Skill Damage</td><td>Two-handed scythes are the standard Necromancer weapon — they roll the highest Minion Damage% affixes.</td></tr>
+    <tr><td>Offhand</td><td class="highlight">+ Ranks to Raise Skeleton · Minion Damage · Cooldown Reduction</td><td>Focus offhands are Necromancer specific — they can roll + Raise Skeleton ranks, which scale the entire skeleton army.</td></tr>
+    <tr><td>Amulet</td><td class="highlight">Cooldown Reduction · + Skill Ranks (all) · Resistances</td><td>Cooldown Reduction shortens Army of the Dead. Skill rank bonuses on amulets apply to any skill — a +3 rolls impacts everything.</td></tr>
+    <tr><td>Rings</td><td class="highlight">Critical Strike Chance · Lucky Hit Chance · Maximum Life</td><td>Critical strikes boost Hewed Flesh corpse generation. Lucky Hit feeds the Embalmer Aspect chain.</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('botd').scrollIntoView({behavior:'smooth'})">← Book of the Dead</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">Aspects →</button>
+  </div>
+</section>
+
+<!-- ASPECTS -->
+<section id="aspects">
+  <h2>Aspects</h2>
+  <div class="section-rule"></div>
+
+  <p>Aspects are Legendary powers imprinted on gear. Codex of Power aspects (earned by completing specific dungeons) can be re-imprinted unlimited times at the Occultist — run the dungeons listed below before level 50 so you always have these available. Drop aspects (found on Legendary items) can only be used once.</p>
+
+  <div class="callout">
+    <div class="callout-title">How Aspects Work</div>
+    <p>Complete the dungeon once to permanently unlock the Aspect in your Codex of Power. Visit the Occultist to imprint it onto a matching gear slot. You can reimprint the same Aspect onto higher-level gear as you upgrade — the dungeon only needs to be completed once per account.</p>
+  </div>
+
+  <h3>Priority Codex Aspects</h3>
+  <div class="item-grid">
+
+    <div class="item-card">
+      <div class="item-tag">Core — Get This First</div>
+      <div class="item-name">Aspect of Plunging Darkness</div>
+      <p>The Golem's slam ability leaves behind a pool of Blight for several seconds. Every Golem slam is now also a Blight cast and a Shadowblight primer. This single aspect dramatically increases passive Shadowblight stack accumulation without any extra effort on your part.</p>
+      <div class="item-stat">📍 Dungeon: Rimescar Cavern — Fractured Peaks (north of Kyovashad)</div>
+      <div class="item-stat">Imprint onto: Offhand Focus</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag">Core — Get This Second</div>
+      <div class="item-name">Aspect of the Damned</div>
+      <p>You deal increased Shadow damage to enemies that are both Cursed and affected by a Darkness skill (Blight, Decompose, or Corpse Tendrils). Decrepify covers the Curse condition, Blight covers the Darkness condition — every enemy you fight ticks both boxes. This is a near-permanent damage multiplier.</p>
+      <div class="item-stat">📍 Dungeon: Inferno — Kehjistan (south region)</div>
+      <div class="item-stat">Imprint onto: Amulet or Weapon</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag blue">High Priority</div>
+      <div class="item-name">Flesh-Rending Aspect</div>
+      <p>After Raise Skeleton's skeletons consume a corpse, you gain a burst of Essence and each skeleton gains a damage bonus for a short duration. Keeps the Essence loop going while simultaneously buffing the entire skeleton army every time corpses are consumed — which with Hewed Flesh and Grim Harvest is very frequent.</p>
+      <div class="item-stat">📍 Dungeon: Nostrava — Fractured Peaks</div>
+      <div class="item-stat">Imprint onto: Gloves or Offhand</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag blue">High Priority</div>
+      <div class="item-name">Aspect of the Embalmer</div>
+      <p>Consuming a corpse has a chance to spawn a Corpse Explosion nearby. Combined with Grim Harvest (which consumes corpses for Essence), this creates a self-triggering chain: pick up corpse → Grim Harvest fires → Embalmer spawns Corpse Explosion → Blighted Corpse Explosion creates Blight pool → more Shadowblight stacks. Nearly automated in dense packs.</p>
+      <div class="item-stat">📍 Dungeon: Flooded Depths — Scosglen (coastal region)</div>
+      <div class="item-stat">Imprint onto: Ring</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag green">Levelling Upgrade</div>
+      <div class="item-name">Blood-Drinker's Aspect</div>
+      <p>The Golem's active ability creates a blood nova that drains life from nearby enemies, healing you and nearby minions. Converts the Golem into a support unit that keeps the army topped up during extended elite fights. Particularly valuable for Hardcore variants using the Blood Golem.</p>
+      <div class="item-stat">📍 Dungeon: Hallowed Glacier — Desolate Highlands</div>
+      <div class="item-stat">Imprint onto: Helmet</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag green">Levelling Upgrade</div>
+      <div class="item-name">Aspect of Grasping Veins</div>
+      <p>Corpse Tendrils (if running Army Commander variant) grants Critical Strike Chance against Rooted or Slowed enemies. Since Corpse Tendrils roots everything it hits, this is a free Critical Strike Chance bonus on every use. Synergises with Hewed Flesh for additional corpse generation from critical hits.</p>
+      <div class="item-stat">📍 Dungeon: Corrupted Grotto — Kehjistan</div>
+      <div class="item-stat">Imprint onto: Ring (Army Commander only)</div>
+    </div>
+
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">← Stats</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('gear').scrollIntoView({behavior:'smooth'})">Gear &amp; Gems →</button>
+  </div>
+</section>
+
+<!-- GEAR & GEMS -->
+<section id="gear">
+  <h2>Gear &amp; Gems</h2>
+  <div class="section-rule"></div>
+
+  <p>While levelling, gear quality changes frequently enough that you should not over-invest in upgrading any single piece. Focus on getting the right affixes — Minion Damage %, skill ranks, and Maximum Life — and upgrade when you find a better base. Gems are cost-effective power that applies to every piece of gear from the moment you socket them.</p>
+
+  <h3>Gem Priorities</h3>
+  <table class="data-table">
+    <tr><th>Socket Location</th><th>Gem</th><th>Benefit</th></tr>
+    <tr><td>Weapons</td><td class="highlight">Ruby</td><td>Bonus Overpower damage. Overpower hits scale with Bonus Life (Max Life - Base Life), and your minions trigger Overpower through your Lucky Hit procs. A solid damage gain throughout levelling.</td></tr>
+    <tr><td>Armour</td><td class="highlight">Ruby</td><td>Increases Maximum Life directly. Straightforward survivability — the most important gem in armour slots until you hit the resistance cap.</td></tr>
+    <tr><td>Jewellery (Rings/Amulet)</td><td class="highlight">Diamond</td><td>Grants All Resistances. Getting all resistances to 70% before World Tier 3 prevents one-shots from elemental damage. Diamond in all three jewellery slots is the fastest path there.</td></tr>
+  </table>
+
+  <h3>Weapon Choice</h3>
+  <p>Use a <strong>two-handed scythe</strong> as your primary weapon — this is the Necromancer's signature weapon type and rolls the widest range of Necromancer-specific affixes, including Minion Damage %, Intelligence, and Shadow Skill Damage. A well-rolled two-handed scythe beats a two-weapon setup for this build.</p>
+
+  <div class="callout red">
+    <div class="callout-title">Reroll Priority at the Occultist</div>
+    <p>When upgrading gear at the Occultist, prioritise rerolling affixes in this order: replace any Strength/Dexterity rolls first (they do nothing for Necromancer) → then replace generic damage % with Minion Damage % → then fill in Maximum Life if the slot is missing it. Do not waste gold upgrading gear before level 40 unless an item has near-perfect affixes.</p>
+  </div>
+
+  <h3>Elixirs (Keep These Stocked)</h3>
+  <table class="data-table">
+    <tr><th>Elixir</th><th>Effect</th><th>Source</th></tr>
+    <tr><td class="highlight">Elixir of Fortitude</td><td>Increases Maximum Life for 30 minutes</td><td>Alchemist — requires Biteberry</td></tr>
+    <tr><td class="highlight">Elixir of Advantage</td><td>Increases Attack Speed for 30 minutes</td><td>Alchemist — benefits minion attack speed indirectly via procs</td></tr>
+    <tr><td class="highlight">Crushing Elixir</td><td>Increases Overpower damage</td><td>Alchemist — pairs with Ruby weapon gems</td></tr>
+    <tr><td>Acrobatics Elixir</td><td>Increases Dodge Chance</td><td>Useful for Hardcore in Tier 3+</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">← Aspects</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">Paragon →</button>
+  </div>
+</section>
+
+<!-- PARAGON -->
+<section id="paragon">
+  <h2>Paragon Boards</h2>
+  <div class="section-rule"></div>
+
+  <p>Paragon Boards unlock at level 50. Each board is a grid of nodes — Normal (minor stats), Magic (larger bonuses), Rare (powerful affixes), and Legendary (unique build-defining effects). Glyphs socketed into Glyph Sockets scale based on how many surrounding nodes of the correct type are filled.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Paragon Priority for Summoner</div>
+    <p>Your primary targets are nodes that boost <strong>Minion Damage</strong>, <strong>Shadow Damage</strong>, and <strong>Summoning Skill damage</strong>. Path towards Legendary nodes on each board first — they carry the most power per Paragon point — then fill in surrounding Magic and Rare nodes to empower your Glyph.</p>
+  </div>
+
+  <h3>Recommended Board Progression</h3>
+  <table class="data-table">
+    <tr><th>Order</th><th>Board</th><th>Priority</th></tr>
+    <tr><td>1st</td><td class="highlight">Starting Board</td><td>Path toward the Rare and Magic nodes near your Glyph socket. Socket the <strong>Deadraiser Glyph</strong> — boosts minion Damage and Critical Strike Chance based on surrounding Summoning nodes. This board sets up the entire Paragon foundation.</td></tr>
+    <tr><td>2nd</td><td class="highlight">Bone Graft Board</td><td>Excellent for skeleton damage scaling. Legendary node grants bonus skeleton damage based on number of active skeletons — with eight warriors and four mages, this fires at maximum value. Path directly to the Legendary node.</td></tr>
+    <tr><td>3rd</td><td class="highlight">Flesh-Eater Board</td><td>Boosts Corpse skills and grants bonus effects when consuming corpses. Strong synergy with Grim Harvest + Fueled by Death already in your passive tree. The Glyph socket here accepts the <strong>Territorial Glyph</strong> for close-range damage (always active near your minions).</td></tr>
+    <tr><td>4th</td><td class="highlight">Scent of Death Board</td><td>Shadow and Curse skill damage nodes. Reinforces Blight damage and Decrepify amplification. Path toward the Rare nodes that boost Darkness skill damage.</td></tr>
+  </table>
+
+  <p><strong>Glyphs to prioritise:</strong> Deadraiser (minion damage) → Territorial (close-range damage) → Dominate (damage to slowed/cursed enemies). Upgrade Glyphs in Nightmare Dungeons as soon as World Tier 3 is accessible — each upgrade significantly increases their radius and scaling.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('gear').scrollIntoView({behavior:'smooth'})">← Gear</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation →</button>
+  </div>
+</section>
+
+<!-- ROTATION -->
+<section id="rotation">
+  <h2>Combat Rotation</h2>
+  <div class="section-rule"></div>
+
+  <p>The Minion Summoner has one of the lowest active-skill rotations in the game. Most damage is passive. Your job is to cast the right things at the right time, then stay close to your army and let Hellbent Commander do the rest.</p>
+
+  <h3>Standard Pack Rotation</h3>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><strong>Decrepify</strong> — cast this on the nearest enemy group before engaging. Slows the pack, activates Amplify Damage for all subsequent minion attacks, and triggers Abhorrent healing when the enemies die.</li>
+    <li><span class="step-num">2</span><strong>Blight</strong> — place one or two puddles where the enemies are or will be. Paranormal Blight further slows targets inside the pool, extending the time they take Darkness damage and accumulate Shadowblight stacks.</li>
+    <li><span class="step-num">3</span><strong>Golem Slam</strong> — activate the Golem's ability if it is off cooldown. This triggers the Aspect of Plunging Darkness, creating an additional Blight pool. One button press gives you a free extra Blight.</li>
+    <li><span class="step-num">4</span><strong>Stay close to your minions</strong> — position yourself inside the army. Hellbent Commander (+30% minion damage) and Death's Embrace (damage reduction) both require close proximity. Do not kite away from the fight.</li>
+    <li><span class="step-num">5</span><strong>Bone Splinters</strong> — cast when Essence is below 50 or when waiting for cooldowns. Generates Essence, triggers Inspiring Leader (attack speed buff to minions), and with Initiated, fires bonus on the first four casts after each corpse pickup.</li>
+    <li><span class="step-num">6</span><strong>Corpse Explosion</strong> — when corpses appear from killed enemies or Hewed Flesh procs, detonate them. Blighted Corpse Explosion creates additional Blight pools. Grim Harvest fires on each corpse consumed, and Fueled by Death boosts your damage for 3 seconds after each consumption.</li>
+  </ol>
+
+  <h3>Elite / Boss Rotation</h3>
+  <ol class="step-list">
+    <li><span class="step-num">1</span><strong>Decrepify</strong> — mandatory before the fight begins. Reduces boss damage output and activates Amplify Damage.</li>
+    <li><span class="step-num">2</span><strong>Army of the Dead</strong> — use immediately. The Supreme version makes your existing minions temporarily invulnerable, preventing AoE wipes. The summoned skeleton wave adds burst damage and body-blocks the boss.</li>
+    <li><span class="step-num">3</span><strong>Blight + Golem Slam</strong> — stack Blight puddles on the boss's position. Two Blight casts plus a Golem Slam creates three overlapping Darkness zones. Shadowblight will fire constantly.</li>
+    <li><span class="step-num">4</span><strong>Maintain Decrepify</strong> — reapply when the duration expires. A boss without Decrepify hits significantly harder and your healing from Abhorrent stops.</li>
+    <li><span class="step-num">5</span><strong>Bone Splinters between casts</strong> — fill downtime with Bone Splinters to keep Essence full and Inspiring Leader active.</li>
+    <li><span class="step-num">6</span><strong>Blood Mist (HC only)</strong> — if below 30% health, use Blood Mist immediately. The brief invulnerability window lets Abhorrent healing and Decrepify restore HP before re-engaging.</li>
+  </ol>
+
+  <div class="callout">
+    <div class="callout-title">The Hellbent Rule</div>
+    <p>Hellbent Commander is the most important passive in this build — but only while you are physically close to your minions. Most players instinctively back away from dangerous enemies. Resist this. Position behind your Golem (which tanks the brunt of hits), not behind yourself. You lose up to 30% minion damage every second you spend out of range.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">← Paragon</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">World Tiers →</button>
+  </div>
+</section>
+
+<!-- WORLD TIERS -->
+<section id="worldtiers">
+  <h2>World Tier Progression</h2>
+  <div class="section-rule"></div>
+
+  <p>Diablo 4's World Tier system gates content difficulty and loot quality. The Minion Summoner handles each transition well, but timing matters — pushing too early results in one-shots; pushing too late leaves XP and loot on the table.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'wt1')">WT1 → WT2</button>
+    <button class="tab-btn" onclick="switchTab(event,'wt2')">WT2 → WT3</button>
+    <button class="tab-btn" onclick="switchTab(event,'wt3')">WT3 → WT4</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-wt1">
+    <h3>World Tier 1 → World Tier 2 (Adventurer → Veteran)</h3>
+    <p>Switch to World Tier 2 as soon as you feel comfortable — around level 15–20 for most players. WT2 increases XP gain by 20% and drops better loot. The Minion Summoner is strong enough to make this transition earlier than most other builds because your army absorbs a significant portion of incoming damage. If your minions are dying frequently, stay in WT1 until your gear improves.</p>
+    <p><strong>Checkpoint:</strong> Can your Golem survive an elite pack without dying? Can you clear a dungeon without your skeleton army being wiped? If yes, switch immediately.</p>
+  </div>
+
+  <div class="tab-panel" id="tab-wt2">
+    <h3>World Tier 2 → World Tier 3 (Veteran → Nightmare)</h3>
+    <p>Complete the <strong>Capstone Dungeon: Cathedral of Light</strong> (Kyovashad, Fractured Peaks) at level 50 or close to it. This dungeon has a recommended level of 50 and gates World Tier 3. The boss, the Curator, hits hard — ensure Decrepify is active at all times and use Army of the Dead immediately on the final phase. Your minions should handle most of the damage if properly buffed.</p>
+    <p><strong>Before attempting:</strong> Get the Plunging Darkness and Damned aspects imprinted. Cap your resistances with Diamond gems in jewellery. Ensure your Army of the Dead cooldown is under 90 seconds via Cooldown Reduction gear.</p>
+    <p><strong>WT3 unlocks:</strong> Nightmare Dungeons, Helltide events, Whispers of the Dead, and Sacred/Ancestral item drops. Your Paragon board also becomes available at level 50.</p>
+  </div>
+
+  <div class="tab-panel" id="tab-wt3">
+    <h3>World Tier 3 → World Tier 4 (Nightmare → Torment)</h3>
+    <p>This requires completing the <strong>Capstone Dungeon: Fallen Temple</strong> (Dry Steppes). Recommended at level 70+. By this point, your Paragon boards should have at least 20–30 nodes filled, including the Deadraiser Glyph upgraded through Nightmare Dungeons. Your aspects should be imprinted on Sacred or Ancestral gear with item power 600+.</p>
+    <p>The Minion Summoner in WT4 benefits enormously from Ancestral items with triple Minion Damage rolls. Farm Helltide and Nightmare Dungeons (Tier 20+) to accumulate Sacred gear before attempting the Capstone. Once in WT4, Uber Uniques and the highest power Legendary drops become available.</p>
+    <p><strong>HC note:</strong> Do not push to WT4 until you have confirmed Army of the Dead cooldown under 60 seconds via gear and Paragon nodes. One long boss fight without that ultimate ready can end a run.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">← Rotation</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips →</button>
+  </div>
+</section>
+
+<!-- BOSS TIPS -->
+<section id="bosses">
+  <h2>Boss Tips</h2>
+  <div class="section-rule"></div>
+
+  <p>The Minion Summoner is one of the best boss-killing archetypes in the game during levelling — your army stays on the boss while you manage curses and cooldowns. The biggest threat is AoE ground effects that wipe the skeleton army. Watch for these and reposition the Golem to force minion clustering away from hazard zones.</p>
+
+  <div class="item-grid">
+
+    <div class="item-card">
+      <div class="item-tag red">Campaign — Frequent Encounter</div>
+      <div class="item-name">The Butcher</div>
+      <p>Diablo 4's random dungeon ambush boss. Appears without warning. Your response: immediately cast Decrepify, activate Army of the Dead, and drop two Blight puddles. The Golem will tank him. If your gear is weak and he begins killing skeletons faster than they respawn, use Blood Mist (HC) or simply kite in circles while the army respawns. He has a hard time cornering you if you keep moving. He despawns after a timer — surviving is a win.</p>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag red">Campaign — Act Boss</div>
+      <div class="item-name">Vhenard (Act 1 Final)</div>
+      <p>Two-phase fight with spreading shadow puddles in phase two. Position your Golem at the edge of the arena away from puddle spawn points. Your Shadow Mages naturally deal shadow damage — Shadowblight will proc frequently here. Army of the Dead is the phase transition tool: use it immediately when she enters phase two to burst through the HP threshold before her AoE escalates.</p>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag red">Campaign — Act Boss</div>
+      <div class="item-name">Elias (Act 3 Final)</div>
+      <p>A multi-phase fight with a significant add spawn in phase two. This is where the Minion Summoner shines — your army immediately switches targets to incoming adds while Hellbent Commander maintains the damage buff on Elias simultaneously. Use Decrepify on Elias, not the adds. Amplify Damage on the boss matters more than slowing the adds.</p>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag">Campaign — Final Boss</div>
+      <div class="item-name">Lilith</div>
+      <p>Two-phase fight requiring mechanics. Phase one: platform is narrow — keep the Golem positioned centrally so the skeleton army clusters around it rather than falling off edges. Phase two introduces wing sweeps that can wipe the army; use Army of the Dead immediately to restore invulnerability and restack minions. Decrepify should be refreshed every 8 seconds. Stay aggressive — this fight is not designed to be kited.</p>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag blue">World Boss</div>
+      <div class="item-name">Ashava the Pestilent</div>
+      <p>Avoid the poison swirls — they kill skeletons quickly. Position your army at Ashava's rear legs where most AoEs don't reach. Your role: maintain Decrepify on Ashava constantly, drop Blight on her position, and reserve Army of the Dead for the enrage phase. You contribute meaningfully even in a group because Amplify Damage applies to all player damage against the cursed target.</p>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag blue">Capstone Dungeon</div>
+      <div class="item-name">The Curator (WT2 → WT3 Gate)</div>
+      <p>Apply Decrepify at the start of every phase. Use Army of the Dead immediately on phase three when the Curator begins channelling. Your skeleton army handles the majority of damage — your priority is keeping Decrepify active and yourself alive. Use the Golem as a blocker to prevent the Curator from reaching you during the phase transition AoE.</p>
+    </div>
+
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">← World Tiers</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips →</button>
+  </div>
+</section>
+
+<!-- QUICK TIPS -->
+<section id="tips">
+  <h2>Quick Tips &amp; Reference</h2>
+  <div class="section-rule"></div>
+
+  <p>A condensed reference for the Necromancer Minion build — everything you need to know without reading the full guide.</p>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-title">Never Sacrifice Your Minions</div>
+      <p>The sacrifice bonuses are designed to support minion-free Necromancer builds. For the Summoner, keeping all three minion types (Warriors, Mages, Golem) active is always the correct choice during levelling. The combined army DPS exceeds any passive bonus at every stage.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Decrepify Is Not Optional</div>
+      <p>Apply Decrepify before every single elite pack and boss. It is not just a damage buff — Abhorrent Decrepify heals you when cursed enemies die, making it a critical survivability tool. Never engage a dangerous encounter without it active.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Stay Inside Your Army</div>
+      <p>Hellbent Commander grants +30% minion damage only when you are physically close to your minions. The instinct to back away from dangerous enemies costs you a third of your army's damage. Position behind the Golem and fight close.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Shadowblight Counts Minion Hits</div>
+      <p>Every shadow damage hit from your Shadow Mages, Blight puddles, Golem slams (via Plunging Darkness), and Blighted Corpse Explosions counts toward the Shadowblight stack of ten. You do not need to manage this — just ensure all sources are active.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Run Codex Dungeons Early</div>
+      <p>Complete Rimescar Cavern (Plunging Darkness) and Inferno (Aspect of the Damned) before level 40. These two aspects alone transform the build's damage output. The dungeons take 5–10 minutes each and unlock permanent Codex entries you can reimprint on better gear later.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Diamond Gems in Jewellery</div>
+      <p>All Resistances cap at 70%. Until you hit that cap across all damage types, Diamond gems in all jewellery slots are the highest-priority quality-of-life investment. One-shots from elemental damage drop off sharply once resistances are capped.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Army of the Dead — Save It for Bosses</div>
+      <p>Do not use Army of the Dead on regular packs. It is a long cooldown (around 90 seconds base) designed for elite or boss encounters. The invulnerability window from Prime AotD is a wipe-prevention tool — use it when the boss begins an AoE sequence that would otherwise destroy your army.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Minion Attack Speed on Gloves</div>
+      <p>Minion Attack Speed % is one of the most powerful affixes for this build — more attacks means more Shadowblight stacks per second and more Inspiring Leader procs. Gloves are the primary slot that rolls Minion Attack Speed. Prioritise this over raw Intelligence on that slot.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Raise Skeleton Ranks on Helmet &amp; Offhand</div>
+      <p>Every rank of Raise Skeleton increases the number of skeletons summoned and boosts their damage. These ranks stack between your Helmet and Offhand Focus. A +6 total roll across both pieces meaningfully increases your army's size and output. Always check these slots when upgrading.</p>
+    </div>
+  </div>
+
+  <h3>Dungeon &amp; Aspect Quick Reference</h3>
+  <table class="data-table">
+    <tr><th>Aspect</th><th>Dungeon</th><th>Region</th><th>Priority</th></tr>
+    <tr><td class="highlight">Aspect of Plunging Darkness</td><td>Rimescar Cavern</td><td>Fractured Peaks</td><td class="highlight">★★★ Essential</td></tr>
+    <tr><td class="highlight">Aspect of the Damned</td><td>Inferno</td><td>Kehjistan</td><td class="highlight">★★★ Essential</td></tr>
+    <tr><td class="highlight">Flesh-Rending Aspect</td><td>Nostrava</td><td>Fractured Peaks</td><td>★★☆ High</td></tr>
+    <tr><td class="highlight">Aspect of the Embalmer</td><td>Flooded Depths</td><td>Scosglen</td><td>★★☆ High</td></tr>
+    <tr><td>Blood-Drinker's Aspect</td><td>Hallowed Glacier</td><td>Desolate Highlands</td><td>★☆☆ Useful</td></tr>
+    <tr><td>Aspect of Grasping Veins</td><td>Corrupted Grotto</td><td>Kehjistan</td><td>★☆☆ Army Commander variant</td></tr>
+  </table>
+
+  <h3>Skill Point Allocation Summary</h3>
+  <table class="data-table">
+    <tr><th>Skill</th><th>Ranks</th><th>Upgrades</th></tr>
+    <tr><td class="highlight">Bone Splinters</td><td>5</td><td>Enhanced → Initiated</td></tr>
+    <tr><td class="highlight">Blight</td><td>5</td><td>Enhanced → Paranormal</td></tr>
+    <tr><td class="highlight">Grim Harvest</td><td>3</td><td>—</td></tr>
+    <tr><td class="highlight">Fueled by Death</td><td>3</td><td>—</td></tr>
+    <tr><td class="highlight">Hewed Flesh</td><td>3</td><td>—</td></tr>
+    <tr><td class="highlight">Decrepify</td><td>1</td><td>Enhanced → Abhorrent</td></tr>
+    <tr><td class="highlight">Amplify Damage</td><td>3</td><td>—</td></tr>
+    <tr><td class="highlight">Army of the Dead</td><td>1</td><td>Prime → Supreme</td></tr>
+    <tr><td class="highlight">Inspiring Leader</td><td>3</td><td>—</td></tr>
+    <tr><td class="highlight">Hellbent Commander</td><td>3</td><td>—</td></tr>
+    <tr><td class="highlight">Shadowblight</td><td>1</td><td>Key Passive</td></tr>
+    <tr><td class="highlight">Corpse Explosion</td><td>1</td><td>Enhanced → Blighted</td></tr>
+    <tr><td class="highlight">Golem</td><td>1</td><td>—</td></tr>
+    <tr><td class="highlight">Death's Embrace</td><td>3</td><td>—</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">← Boss Tips</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <span></span>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Blood Guides &nbsp;·&nbsp; bloodguides.pages.dev</p>
+</footer>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
+});
+
+function switchTab(e, id) {
+  const section = e.target.closest('section');
+  section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+<script src="/site.js"></script>
+</body>
+</html>
