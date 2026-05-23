@@ -59,6 +59,36 @@
 .aspect-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 .aspect-dot.gold { background: var(--gold); }
 .aspect-dot.blue { background: var(--blue); }
+/* ── Skill Tree Widget ───────────────────────────────────────────────── */
+.stw{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;margin:20px 0}
+.stw-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.stw-title{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.stw-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stw-controls button{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:4px;cursor:pointer;font-size:13px}
+.stw-controls button:hover{border-color:var(--accent);color:var(--accent)}
+#nec-slider{width:200px;accent-color:var(--accent)}
+.stw-pt-label{font-family:'Cinzel',serif;font-size:12px;color:var(--gold2);min-width:80px}
+.stw-nodes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.stw-group{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px;flex:1 1 180px}
+.stw-group-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.stw-node{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:4px;border:1px solid var(--border);font-size:11px;margin:2px;opacity:.3;transition:opacity .15s,border-color .15s,box-shadow .15s;cursor:default;white-space:nowrap}
+.stw-node.active{opacity:1}
+.stw-node.current{box-shadow:0 0 0 2px var(--gold2)}
+.stw-node-rank{font-size:9px;opacity:.75;font-style:italic}
+.chip-basic{border-color:#5a4a1a;color:#c8a84c}.chip-basic.active{background:rgba(200,168,76,.12);border-color:#c8a84c}
+.chip-core{border-color:#1a3a6a;color:#5b8fd4}.chip-core.active{background:rgba(91,143,212,.15);border-color:#5b8fd4}
+.chip-macabre{border-color:#6a3a8a;color:#9b6dda}.chip-macabre.active{background:rgba(155,109,218,.15);border-color:#9b6dda}
+.chip-curse{border-color:#2a6a3a;color:#5db87a}.chip-curse.active{background:rgba(93,184,122,.15);border-color:#5db87a}
+.chip-summon{border-color:#7a5a00;color:var(--gold2)}.chip-summon.active{background:rgba(232,180,64,.15);border-color:var(--gold2)}
+.chip-ult{border-color:#7a1a1a;color:#d46a5b}.chip-ult.active{background:rgba(212,106,91,.15);border-color:#d46a5b}
+.chip-pass{border-color:var(--border);color:var(--text2)}.chip-pass.active{background:rgba(255,255,255,.06);border-color:var(--text3)}
+.stw-callout{background:var(--surface2);border-left:3px solid var(--accent);padding:10px 14px;font-size:13px;margin-bottom:16px;border-radius:0 4px 4px 0;min-height:44px;line-height:1.6}
+.stw-table-wrap{max-height:280px;overflow-y:auto;border:1px solid var(--border);border-radius:4px}
+.stw-table{width:100%;border-collapse:collapse;font-size:12px}
+.stw-table th{background:var(--surface2);position:sticky;top:0;padding:6px 10px;text-align:left;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.05em;border-bottom:1px solid var(--border)}
+.stw-table td{padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+.stw-table tr.stw-active-row td{background:rgba(155,109,218,.15)}
+.stw-table tr.stw-done-row{opacity:.5}
 </style>
 </head>
 <body>
@@ -272,7 +302,65 @@
     <p><strong>2 pts spent</strong> → Core tier unlocks · <strong>6 pts</strong> → Macabre &amp; Curse tier · <strong>11 pts</strong> → Summoning tier · <strong>16 pts</strong> → Ultimate tier · <strong>23 pts</strong> → Key Passive. Raise Skeleton and Golem are unlocked via the Summoning tier passives — your army appears automatically once those nodes are reached in the tree.</p>
   </div>
 
-  <h3>Priority Skill Allocation (first 40 points)</h3>
+  <h3>Interactive Skill Allocator — 50 Points</h3>
+  <div class="stw" id="nec-stw">
+    <div class="stw-header">
+      <span class="stw-title">1–50 Point Allocation · Blight Summoner</span>
+      <div class="stw-controls">
+        <button onclick="necSetPt(necCur-1)">◀</button>
+        <input type="range" id="nec-slider" min="0" max="50" value="0" oninput="necSetPt(+this.value)">
+        <button onclick="necSetPt(necCur+1)">▶</button>
+        <span class="stw-pt-label" id="nec-pt-label">0 / 50</span>
+      </div>
+    </div>
+    <div class="stw-nodes">
+      <div class="stw-group">
+        <div class="stw-group-label">Basic</div>
+        <div class="stw-node chip-basic" id="nec-n-bonesplit">Bone Splinters<span class="stw-node-rank" id="nec-r-bonesplit"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Core</div>
+        <div class="stw-node chip-core" id="nec-n-blight">Blight<span class="stw-node-rank" id="nec-r-blight"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Macabre</div>
+        <div class="stw-node chip-macabre" id="nec-n-corpsexp">Corpse Explosion<span class="stw-node-rank" id="nec-r-corpsexp"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Curse</div>
+        <div class="stw-node chip-curse" id="nec-n-decrepify">Decrepify<span class="stw-node-rank" id="nec-r-decrepify"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Summoning</div>
+        <div class="stw-node chip-summon" id="nec-n-armydead">Army of the Dead<span class="stw-node-rank" id="nec-r-armydead"></span></div>
+        <div class="stw-node chip-summon" id="nec-n-golem">Golem<span class="stw-node-rank" id="nec-r-golem"></span></div>
+      </div>
+      <div class="stw-group" style="flex:2 1 320px">
+        <div class="stw-group-label">Passives</div>
+        <div class="stw-node chip-pass" id="nec-n-grimharvest">Grim Harvest<span class="stw-node-rank" id="nec-r-grimharvest"></span></div>
+        <div class="stw-node chip-pass" id="nec-n-fueleddeath">Fueled by Death<span class="stw-node-rank" id="nec-r-fueleddeath"></span></div>
+        <div class="stw-node chip-pass" id="nec-n-amplify">Amplify Damage<span class="stw-node-rank" id="nec-r-amplify"></span></div>
+        <div class="stw-node chip-pass" id="nec-n-hewedflesh">Hewed Flesh<span class="stw-node-rank" id="nec-r-hewedflesh"></span></div>
+        <div class="stw-node chip-pass" id="nec-n-inspiring">Inspiring Leader<span class="stw-node-rank" id="nec-r-inspiring"></span></div>
+        <div class="stw-node chip-pass" id="nec-n-hellbent">Hellbent Commander<span class="stw-node-rank" id="nec-r-hellbent"></span></div>
+        <div class="stw-node chip-pass" id="nec-n-deathemb">Death's Embrace<span class="stw-node-rank" id="nec-r-deathemb"></span></div>
+        <div class="stw-node chip-pass" id="nec-n-terror">Terror<span class="stw-node-rank" id="nec-r-terror"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Key Passive</div>
+        <div class="stw-node chip-ult" id="nec-n-shadowblight">Shadowblight<span class="stw-node-rank" id="nec-r-shadowblight"></span></div>
+      </div>
+    </div>
+    <div class="stw-callout" id="nec-callout">Use the slider or buttons to step through all 50 skill points in priority order.</div>
+    <div class="stw-table-wrap">
+      <table class="stw-table">
+        <thead><tr><th>#</th><th>Skill</th><th>Mod / Rank</th><th>Why</th></tr></thead>
+        <tbody id="nec-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>Priority Reference</h3>
 
   <table class="data-table">
     <tr><th>Priority</th><th>Skill / Upgrade</th><th>Points</th><th>Why</th></tr>
@@ -773,6 +861,63 @@
 window.addEventListener('scroll', () => {
   document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
 });
+/* ── Necromancer Skill Tree Widget ───────────────────────────────────── */
+const necSP=[
+  {pt:1, skill:'Bone Splinters',    mod:'Base Skill',    node:'bonesplit',   why:'Essence generator. Initiated bonus fires on first 4 casts after each corpse pickup.'},
+  {pt:2, skill:'Bone Splinters',    mod:'Enhanced',      node:'bonesplit',   why:'Unlock upgrade path.'},
+  {pt:3, skill:'Bone Splinters',    mod:'Initiated',     node:'bonesplit',   why:'First 4 casts after corpse pickup generate bonus Essence — pairs with Grim Harvest loop.'},
+  {pt:4, skill:'Blight',            mod:'Base Skill',    node:'blight',      why:'Shadow puddle — primes Shadowblight and deals sustained shadow damage in AoE.'},
+  {pt:5, skill:'Blight',            mod:'Enhanced',      node:'blight',      why:'Unlock upgrade path.'},
+  {pt:6, skill:'Blight',            mod:'Paranormal',    node:'blight',      why:'Slows enemies inside the pool — more time in Darkness = faster Shadowblight stacking.'},
+  {pt:7, skill:'Blight',            mod:'Rank 2',        node:'blight',      why:'Longer pool duration and higher damage.'},
+  {pt:8, skill:'Blight',            mod:'Rank 3',        node:'blight',      why:'Rank 3 of 5.'},
+  {pt:9, skill:'Grim Harvest',      mod:'Rank 1',        node:'grimharvest', why:'Consuming corpses grants Essence — funds constant Blight casting.'},
+  {pt:10,skill:'Grim Harvest',      mod:'Rank 2',        node:'grimharvest', why:'More Essence per corpse consumed.'},
+  {pt:11,skill:'Grim Harvest',      mod:'Rank 3 ✓',      node:'grimharvest', why:'Max rank. Pairs with Fueled by Death for near-permanent +damage buff in packs.'},
+  {pt:12,skill:'Decrepify',         mod:'Base Skill',    node:'decrepify',   why:'Slows enemies, reduces their damage output. Mandatory before every fight.'},
+  {pt:13,skill:'Decrepify',         mod:'Enhanced',      node:'decrepify',   why:'Unlock upgrade path.'},
+  {pt:14,skill:'Decrepify',         mod:'Abhorrent',     node:'decrepify',   why:'Heals you when cursed enemies die — critical survivability, especially for Hardcore.'},
+  {pt:15,skill:'Fueled by Death',   mod:'Rank 1',        node:'fueleddeath', why:'+15% damage for 3s after consuming a corpse — near-permanent in busy packs.'},
+  {pt:16,skill:'Fueled by Death',   mod:'Rank 2',        node:'fueleddeath', why:'More damage per corpse consumption.'},
+  {pt:17,skill:'Fueled by Death',   mod:'Rank 3 ✓',      node:'fueleddeath', why:'Max rank. Effectively a constant damage buff during pack clearing.'},
+  {pt:18,skill:'Amplify Damage',    mod:'Rank 1',        node:'amplify',     why:'Cursed enemies take more damage — flat team-wide multiplier for all minion hits.'},
+  {pt:19,skill:'Amplify Damage',    mod:'Rank 2',        node:'amplify',     why:'Higher damage bonus on cursed targets.'},
+  {pt:20,skill:'Amplify Damage',    mod:'Rank 3 ✓',      node:'amplify',     why:'Max rank. Decrepify now substantially amplifies every minion attack.'},
+  {pt:21,skill:'Hewed Flesh',       mod:'Rank 1',        node:'hewedflesh',  why:'Lucky Hit: chance to create a corpse at target\'s location. Keeps corpse supply flowing.'},
+  {pt:22,skill:'Hewed Flesh',       mod:'Rank 2',        node:'hewedflesh',  why:'Higher corpse creation chance.'},
+  {pt:23,skill:'Hewed Flesh',       mod:'Rank 3 ✓',      node:'hewedflesh',  why:'Max rank. Near-constant corpse generation in dense content.'},
+  {pt:24,skill:'Army of the Dead',  mod:'Base Skill',    node:'armydead',    why:'Boss nuke — summons skeleton wave for burst damage. Save for elites and bosses.'},
+  {pt:25,skill:'Army of the Dead',  mod:'Prime',         node:'armydead',    why:'Existing minions become invulnerable during the wave — prevents AoE army wipes.'},
+  {pt:26,skill:'Army of the Dead',  mod:'Supreme',       node:'armydead',    why:'Supreme enhances the wave output. Full combo: Supreme wave + Prime invulnerability.'},
+  {pt:27,skill:'Inspiring Leader',  mod:'Rank 1',        node:'inspiring',   why:'+15% minion attack speed whenever you cast a skill — always active.'},
+  {pt:28,skill:'Inspiring Leader',  mod:'Rank 2',        node:'inspiring',   why:'+30% minion attack speed total. More Shadowblight stacks per second.'},
+  {pt:29,skill:'Inspiring Leader',  mod:'Rank 3 ✓',      node:'inspiring',   why:'Max rank — +45% minion attack speed. Significant army DPS increase.'},
+  {pt:30,skill:'Hellbent Commander',mod:'Rank 1',        node:'hellbent',    why:'+30% nearby minion damage while you stay close. Do NOT back away from the fight.'},
+  {pt:31,skill:'Hellbent Commander',mod:'Rank 2',        node:'hellbent',    why:'Higher minion damage bonus — demands proximity to the army at all times.'},
+  {pt:32,skill:'Hellbent Commander',mod:'Rank 3 ✓',      node:'hellbent',    why:'Max rank — up to +90% minion damage. The most impactful passive in the build.'},
+  {pt:33,skill:'Shadowblight',      mod:'Key Passive ★', node:'shadowblight',why:'Build engine: every 10 Darkness hits → bonus shadow burst. Shadow Mages stack this in seconds.'},
+  {pt:34,skill:'Corpse Explosion',  mod:'Base Skill',    node:'corpsexp',    why:'Detonates corpses for burst damage.'},
+  {pt:35,skill:'Corpse Explosion',  mod:'Enhanced',      node:'corpsexp',    why:'Unlock upgrade path.'},
+  {pt:36,skill:'Corpse Explosion',  mod:'Blighted',      node:'corpsexp',    why:'Creates Blight pool on detonation — each explosion is an additional Shadowblight primer.'},
+  {pt:37,skill:'Golem',             mod:'Base Skill',    node:'golem',       why:'Bone Golem — triggers Aspect of Plunging Darkness (Blight pool on slam). Mandatory.'},
+  {pt:38,skill:'Death\'s Embrace',  mod:'Rank 1',        node:'deathemb',    why:'Close enemies take more damage; you take less — always active near your minion line.'},
+  {pt:39,skill:'Death\'s Embrace',  mod:'Rank 2',        node:'deathemb',    why:'More damage and DR in melee range.'},
+  {pt:40,skill:'Death\'s Embrace',  mod:'Rank 3 ✓',      node:'deathemb',    why:'Max rank — meaningful DR up close. Great for Hardcore.'},
+  {pt:41,skill:'Bone Splinters',    mod:'Rank 2',        node:'bonesplit',   why:'Extra Essence per cast and more projectile hits.'},
+  {pt:42,skill:'Bone Splinters',    mod:'Rank 3',        node:'bonesplit',   why:'Rank 3 of 5.'},
+  {pt:43,skill:'Bone Splinters',    mod:'Rank 4',        node:'bonesplit',   why:'Rank 4 of 5.'},
+  {pt:44,skill:'Bone Splinters',    mod:'Rank 5 ✓',      node:'bonesplit',   why:'Max rank — peak Essence generation from Basic Skill.'},
+  {pt:45,skill:'Terror',            mod:'Rank 1',        node:'terror',      why:'Feared/Slowed enemies take more damage — extends Decrepify value.'},
+  {pt:46,skill:'Terror',            mod:'Rank 2',        node:'terror',      why:'Higher bonus on Feared/Slowed targets.'},
+  {pt:47,skill:'Terror',            mod:'Rank 3 ✓',      node:'terror',      why:'Max rank. Decrepify Slows — applies immediately on curse.'},
+  {pt:48,skill:'Blight',            mod:'Rank 4',        node:'blight',      why:'Higher pool damage and duration.'},
+  {pt:49,skill:'Blight',            mod:'Rank 5 ✓',      node:'blight',      why:'Max rank — full Shadowblight stacking potential per pool.'},
+  {pt:50,skill:'Decrepify',         mod:'Rank 2',        node:'decrepify',   why:'Higher slow % and damage reduction on all cursed targets.'},
+];
+const necMods={bonesplit:{start:1},blight:{start:4},grimharvest:{start:9},decrepify:{start:12},fueleddeath:{start:15},amplify:{start:18},hewedflesh:{start:21},armydead:{start:24},inspiring:{start:27},hellbent:{start:30},shadowblight:{start:33},corpsexp:{start:34},golem:{start:37},deathemb:{start:38},terror:{start:45}};
+let necCur=0;
+(function(){const tb=document.getElementById('nec-tbody');necSP.forEach(r=>{const tr=document.createElement('tr');tr.id='nec-row-'+r.pt;tr.innerHTML=`<td>${r.pt}</td><td>${r.skill}</td><td>${r.mod}</td><td style="font-size:11px;color:var(--text2)">${r.why}</td>`;tb.appendChild(tr);});})();
+function necSetPt(pt){pt=Math.max(0,Math.min(50,+pt||0));necCur=pt;document.getElementById('nec-slider').value=pt;document.getElementById('nec-pt-label').textContent=pt+' / 50';Object.keys(necMods).forEach(k=>{const el=document.getElementById('nec-n-'+k),rel=document.getElementById('nec-r-'+k);if(!el)return;if(pt>=necMods[k].start){el.classList.add('active');let last=null;for(let i=pt-1;i>=0;i--){if(necSP[i].node===k){last=necSP[i];break;}}if(rel&&last)rel.textContent=' · '+last.mod;const cur=necSP[pt-1];el.classList.toggle('current',!!(cur&&cur.node===k));}else{el.classList.remove('active','current');if(rel)rel.textContent='';}});const c=document.getElementById('nec-callout');if(pt===0){c.textContent='Use the slider or buttons to step through all 50 skill points in order.';}else{const sp=necSP[pt-1];c.innerHTML=`<strong>Point ${pt} — ${sp.skill} (${sp.mod})</strong><br>${sp.why}`;}document.querySelectorAll('#nec-tbody tr').forEach(tr=>{const n=+tr.id.replace('nec-row-','');tr.className=n===pt?'stw-active-row':n<pt?'stw-done-row':'';});if(pt>0){const a=document.getElementById('nec-row-'+pt);if(a)a.scrollIntoView({block:'nearest',behavior:'smooth'});}}
 
 function switchTab(e, id) {
   const section = e.target.closest('section');

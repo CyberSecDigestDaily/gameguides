@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blessed Hammer Paladin Leveling Build – Diablo 4 Season 13 | S-Tier</title>
+<meta name="description" content="The best Blessed Hammer Paladin leveling build for Diablo 4 Season 13. Full 1-70 skill point allocation, legendary aspects, stat priorities, gems, runes, and rotation guide.">
+<style>
+  :root {
+    --bg-primary: #0d0f14;
+    --bg-secondary: #13161e;
+    --bg-card: #181c27;
+    --bg-card-hover: #1e2235;
+    --border: #2a2f42;
+    --border-glow: #4a5280;
+    --text-primary: #e8eaf0;
+    --text-secondary: #9aa0b8;
+    --text-muted: #5a6280;
+    --gold: #f2dd21;
+    --gold-dim: #a89900;
+    --holy: #ffe566;
+    --holy-glow: rgba(255, 229, 102, 0.15);
+    --paladin: #f2dd21;
+    --paladin-dim: rgba(242, 221, 33, 0.08);
+    --green: #4caf50;
+    --red: #f44336;
+    --blue: #5ba3f5;
+    --orange: #ff9800;
+    --purple: #bb86fc;
+    --s-tier: #ff6b35;
+    --skill-basic: #5ba3f5;
+    --skill-core: #ff9800;
+    --skill-valor: #4caf50;
+    --skill-justice: #9c27b0;
+    --skill-aura: #00bcd4;
+    --skill-ultimate: #f2dd21;
+    --radius: 8px;
+    --shadow: 0 4px 20px rgba(0,0,0,0.5);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  .guide-header {
+    background: linear-gradient(180deg, rgba(13,15,20,0) 0%, var(--bg-primary) 100%),
+                url('https://static.icy-veins.com/wp/wp-content/uploads/2025/12/paladin-intro.webp') center/cover no-repeat;
+    min-height: 320px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 32px 0;
+    border-bottom: 2px solid var(--border);
+    position: relative;
+  }
+  .guide-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(13,15,20,0.97) 50%, rgba(13,15,20,0.4) 100%);
+  }
+  .header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+  .build-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 12px;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.05);
+    color: var(--text-secondary);
+  }
+  .tag.paladin { border-color: var(--paladin); color: var(--paladin); background: var(--paladin-dim); }
+  .tag.stier { border-color: var(--s-tier); color: var(--s-tier); background: rgba(255,107,53,0.1); }
+  .guide-title {
+    font-size: clamp(22px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .guide-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+  .skill-bar-preview {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  }
+  .skill-icon-sm {
+    width: 44px; height: 44px;
+    border-radius: 6px;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .skill-icon-sm:hover { border-color: var(--paladin); }
+  .skill-icon-sm .skill-emoji { font-size: 22px; }
+  .skill-icon-sm .skill-name-tooltip {
+    position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    font-size: 11px; white-space: nowrap;
+    padding: 2px 6px; border-radius: 3px;
+    pointer-events: none;
+    transition: bottom 0.15s;
+    z-index: 10;
+  }
+  .skill-icon-sm:hover .skill-name-tooltip { bottom: calc(100% + 4px); }
+  .updated-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(242,221,33,0.08);
+    border: 1px solid rgba(242,221,33,0.3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: var(--paladin);
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  /* ── LAYOUT ── */
+  .main-layout {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 32px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+  .content-area { min-width: 0; }
+
+  /* ── QUICK NAV ── */
+  .quick-nav {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 24px 0;
+    padding: 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .quick-nav a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 0;
+    transition: color 0.15s;
+  }
+  .quick-nav a:hover { color: var(--paladin); }
+  .quick-nav a::before { content: '▸ '; color: var(--text-muted); }
+
+  /* ── SECTIONS ── */
+  .section { margin: 36px 0; }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    border-left: 3px solid var(--paladin);
+    padding-left: 12px;
+    margin-bottom: 16px;
+  }
+  .section-subtitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 20px 0 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .intro-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .intro-text strong { color: var(--text-primary); }
+  .intro-text .highlight { color: var(--paladin); font-weight: 600; }
+
+  /* ── SKILL TREE WIDGET ── */
+  .skill-tree-container {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .tree-header {
+    padding: 14px 18px;
+    background: linear-gradient(135deg, rgba(242,221,33,0.08) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+  .tree-header h3 { font-size: 14px; font-weight: 700; color: var(--paladin); text-transform: uppercase; letter-spacing: 0.06em; }
+  .level-controls {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .level-display {
+    font-size: 22px; font-weight: 800;
+    color: var(--paladin);
+    min-width: 80px; text-align: center;
+    line-height: 1;
+  }
+  .level-display span { font-size: 12px; color: var(--text-muted); display: block; font-weight: 400; }
+  .btn-level {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s;
+  }
+  .btn-level:hover { border-color: var(--paladin); color: var(--paladin); }
+  .btn-level:active { transform: scale(0.95); }
+  .level-slider {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--bg-card);
+    outline: none;
+    cursor: pointer;
+  }
+  .level-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--paladin);
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(242,221,33,0.5);
+  }
+  .slider-track {
+    padding: 12px 18px 6px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  .slider-labels {
+    display: flex; justify-content: space-between;
+    padding: 0 18px 10px;
+    font-size: 11px; color: var(--text-muted);
+  }
+
+  /* ── SKILL NODES ── */
+  .skill-tree-canvas {
+    padding: 18px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .skill-row {
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .skill-node {
+    flex-shrink: 0;
+    width: 52px;
+  }
+  .skill-node-icon {
+    width: 52px; height: 52px;
+    border-radius: 8px;
+    border: 2px solid var(--border);
+    background: var(--bg-card);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    position: relative;
+    transition: all 0.2s;
+    cursor: default;
+  }
+  .skill-node-icon.active {
+    border-color: var(--paladin);
+    box-shadow: 0 0 12px rgba(242,221,33,0.3), inset 0 0 20px rgba(242,221,33,0.05);
+  }
+  .skill-node-icon.basic.active { border-color: var(--skill-basic); box-shadow: 0 0 12px rgba(91,163,245,0.3); }
+  .skill-node-icon.core.active { border-color: var(--skill-core); box-shadow: 0 0 12px rgba(255,152,0,0.3); }
+  .skill-node-icon.valor.active { border-color: var(--skill-valor); box-shadow: 0 0 12px rgba(76,175,80,0.3); }
+  .skill-node-icon.justice.active { border-color: var(--skill-justice); box-shadow: 0 0 12px rgba(156,39,176,0.3); }
+  .skill-node-icon.aura.active { border-color: var(--skill-aura); box-shadow: 0 0 12px rgba(0,188,212,0.3); }
+  .skill-node-icon.ultimate.active { border-color: var(--skill-ultimate); box-shadow: 0 0 16px rgba(242,221,33,0.5); }
+  .skill-rank-badge {
+    position: absolute;
+    bottom: -4px; right: -4px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 10px; font-weight: 700;
+    padding: 1px 5px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .skill-node-icon.active .skill-rank-badge {
+    background: var(--paladin);
+    color: #000;
+    border-color: var(--paladin);
+  }
+  .skill-node-icon.basic.active .skill-rank-badge { background: var(--skill-basic); border-color: var(--skill-basic); }
+  .skill-node-icon.core.active .skill-rank-badge { background: var(--skill-core); border-color: var(--skill-core); }
+  .skill-node-icon.valor.active .skill-rank-badge { background: var(--skill-valor); border-color: var(--skill-valor); }
+  .skill-node-icon.justice.active .skill-rank-badge { background: var(--skill-justice); border-color: var(--skill-justice); }
+  .skill-node-icon.aura.active .skill-rank-badge { background: var(--skill-aura); border-color: var(--skill-aura); }
+  .skill-node-icon.ultimate.active .skill-rank-badge { background: var(--skill-ultimate); border-color: var(--skill-ultimate); }
+
+  .skill-node-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 4px;
+    line-height: 1.2;
+  }
+
+  .skill-mods {
+    flex: 1;
+    display: flex; flex-direction: column; gap: 5px;
+    padding-top: 4px;
+  }
+  .skill-mod {
+    display: flex; align-items: center; gap: 8px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    background: var(--bg-card);
+    font-size: 12px;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .skill-mod.active {
+    border-color: var(--border-glow);
+    color: var(--text-primary);
+    background: rgba(255,255,255,0.04);
+  }
+  .skill-mod .mod-point {
+    font-size: 10px; font-weight: 700;
+    min-width: 22px; height: 18px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .skill-mod.active .mod-point {
+    background: rgba(242,221,33,0.15);
+    border-color: var(--paladin);
+    color: var(--paladin);
+  }
+  .skill-mod .mod-type {
+    font-size: 10px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .skill-mod.active .mod-type { background: rgba(242,221,33,0.1); color: var(--paladin); }
+
+  .current-point-indicator {
+    background: rgba(242,221,33,0.12);
+    border: 1px solid var(--paladin) !important;
+    color: var(--paladin) !important;
+    font-weight: 600;
+  }
+  .current-point-indicator .mod-point { background: var(--paladin) !important; color: #000 !important; }
+
+  .rank-dots {
+    display: flex; gap: 3px;
+  }
+  .rank-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+  .rank-dot.filled { background: var(--paladin); border-color: var(--paladin); }
+
+  /* ── CURRENT POINT CALLOUT ── */
+  .point-callout {
+    margin: 0 18px 14px;
+    padding: 10px 14px;
+    background: rgba(242,221,33,0.08);
+    border: 1px solid rgba(242,221,33,0.3);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--paladin);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .point-callout .point-num {
+    font-size: 18px; font-weight: 800;
+  }
+
+  /* ── SKILL BAR ── */
+  .skill-bar-widget {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .skill-bar-header {
+    padding: 10px 16px;
+    background: linear-gradient(135deg, rgba(242,221,33,0.1) 0%, transparent 60%);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700;
+    color: var(--paladin);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .star-icon { font-size: 14px; }
+  .skill-bar-icons {
+    display: flex; gap: 0;
+  }
+  .skill-bar-slot {
+    flex: 1;
+    padding: 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    border-right: 1px solid var(--border);
+    cursor: default;
+    transition: background 0.15s;
+  }
+  .skill-bar-slot:last-child { border-right: none; }
+  .skill-bar-slot:hover { background: rgba(255,255,255,0.03); }
+  .slot-icon { font-size: 28px; }
+  .slot-name { font-size: 10px; color: var(--text-secondary); text-align: center; line-height: 1.2; }
+  .slot-key {
+    font-size: 10px; font-weight: 700;
+    color: var(--text-muted);
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    padding: 1px 5px; border-radius: 3px;
+  }
+
+  /* ── TABLES ── */
+  .guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 12px 0;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .guide-table th {
+    background: rgba(255,255,255,0.04);
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  .guide-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: top;
+    color: var(--text-secondary);
+  }
+  .guide-table tr:last-child td { border-bottom: none; }
+  .guide-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .guide-table td:first-child { color: var(--text-primary); font-weight: 500; }
+  .guide-table .point-num-cell {
+    color: var(--paladin);
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    width: 50px;
+  }
+
+  /* ── POINT ALLOCATION TABLE ── */
+  .alloc-table { display: block; max-height: 400px; overflow-y: auto; }
+  .alloc-table::-webkit-scrollbar { width: 6px; }
+  .alloc-table::-webkit-scrollbar-track { background: var(--bg-primary); }
+  .alloc-table::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  .alloc-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 7px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.15s;
+    font-size: 13px;
+  }
+  .alloc-row:hover { background: rgba(255,255,255,0.02); }
+  .alloc-row.highlight { background: rgba(242,221,33,0.06); border-left: 2px solid var(--paladin); }
+  .alloc-point { color: var(--paladin); font-weight: 700; min-width: 30px; font-size: 12px; }
+  .alloc-skill { color: var(--text-primary); font-weight: 600; }
+  .alloc-mod { color: var(--text-secondary); font-size: 12px; }
+  .alloc-skill-chip {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+  .chip-basic { background: rgba(91,163,245,0.15); color: var(--skill-basic); }
+  .chip-core { background: rgba(255,152,0,0.15); color: var(--skill-core); }
+  .chip-valor { background: rgba(76,175,80,0.15); color: var(--skill-valor); }
+  .chip-justice { background: rgba(156,39,176,0.15); color: var(--skill-justice); }
+  .chip-aura { background: rgba(0,188,212,0.15); color: var(--skill-aura); }
+  .chip-ultimate { background: rgba(242,221,33,0.15); color: var(--skill-ultimate); }
+
+  /* ── ASPECT CARDS ── */
+  .aspect-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .aspect-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .aspect-card:hover { border-color: var(--border-glow); transform: translateY(-1px); }
+  .aspect-slot { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 4px; }
+  .aspect-name { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+  .aspect-type-badge {
+    display: inline-block;
+    font-size: 10px; padding: 1px 6px; border-radius: 3px;
+    margin-bottom: 6px; font-weight: 600;
+  }
+  .type-offensive { background: rgba(244,67,54,0.15); color: #f44336; }
+  .type-defensive { background: rgba(33,150,243,0.15); color: #2196f3; }
+  .type-mobility { background: rgba(76,175,80,0.15); color: #4caf50; }
+  .aspect-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+  .aspect-value { color: var(--gold); font-weight: 600; }
+
+  /* ── STAT PRIORITY ── */
+  .stat-list { list-style: none; }
+  .stat-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 13px;
+  }
+  .stat-rank {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted);
+    flex-shrink: 0;
+  }
+  .stat-rank.s1 { background: rgba(242,221,33,0.15); border-color: var(--paladin); color: var(--paladin); }
+  .stat-rank.s2 { background: rgba(255,152,0,0.1); border-color: var(--orange); color: var(--orange); }
+  .stat-name { color: var(--text-primary); font-weight: 500; }
+  .stat-note { margin-left: auto; font-size: 11px; color: var(--text-muted); }
+
+  /* ── GEM / RUNE CARDS ── */
+  .gem-row { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .gem-item {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .gem-icon { font-size: 20px; flex-shrink: 0; }
+  .gem-slot { font-size: 11px; color: var(--text-muted); min-width: 70px; font-weight: 600; }
+  .gem-name { color: var(--text-primary); font-weight: 600; }
+  .gem-effect { color: var(--text-secondary); font-size: 12px; margin-left: auto; text-align: right; }
+
+  /* ── OATH / CLASS MECHANIC ── */
+  .oath-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    border-left: 3px solid var(--paladin);
+  }
+  .oath-name { font-size: 18px; font-weight: 800; color: var(--paladin); margin-bottom: 8px; }
+  .oath-desc { color: var(--text-secondary); font-size: 14px; line-height: 1.7; }
+  .oath-stat {
+    display: flex; gap: 8px; align-items: flex-start;
+    margin-top: 10px; font-size: 13px;
+  }
+  .oath-stat-icon { color: var(--paladin); flex-shrink: 0; margin-top: 2px; }
+
+  /* ── ROTATION ── */
+  .rotation-steps { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+  .rotation-step {
+    display: flex; gap: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .rotation-step:hover { border-color: var(--border-glow); }
+  .rotation-step-icon { font-size: 28px; flex-shrink: 0; }
+  .rotation-step-name { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 3px; }
+  .rotation-step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+  /* ── TALISMAN ── */
+  .set-bonus {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 8px 0;
+    border-left: 3px solid var(--purple);
+  }
+  .set-bonus-label { font-size: 11px; color: var(--purple); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .set-bonus-text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .set-bonus-text strong { color: var(--text-primary); }
+
+  /* ── MERC ── */
+  .merc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .merc-header {
+    padding: 12px 16px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+    font-size: 13px; font-weight: 700;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .merc-header .merc-badge {
+    font-size: 10px; padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(91,163,245,0.15);
+    color: var(--blue);
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .merc-body { padding: 14px 16px; }
+  .merc-skill {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .merc-skill:last-child { border-bottom: none; }
+  .merc-skill-label { color: var(--text-muted); font-size: 11px; min-width: 130px; }
+  .merc-skill-name { color: var(--text-primary); font-weight: 500; }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin: 14px 0;
+    font-size: 13px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .callout.tip { background: rgba(76,175,80,0.08); border: 1px solid rgba(76,175,80,0.3); color: var(--text-secondary); }
+  .callout.tip .callout-icon { color: var(--green); }
+  .callout.warning { background: rgba(255,152,0,0.08); border: 1px solid rgba(255,152,0,0.3); color: var(--text-secondary); }
+  .callout.warning .callout-icon { color: var(--orange); }
+  .callout.info { background: rgba(91,163,245,0.08); border: 1px solid rgba(91,163,245,0.3); color: var(--text-secondary); }
+  .callout.info .callout-icon { color: var(--blue); }
+  .callout-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { position: sticky; top: 20px; }
+  .sidebar-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  .sidebar-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-nav a {
+    display: flex; align-items: center; gap: 6px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: color 0.15s;
+  }
+  .sidebar-nav a:hover { color: var(--paladin); }
+  .sidebar-nav a::before { content: '▸'; color: var(--text-muted); font-size: 10px; }
+  .sidebar-nav a:last-child { border-bottom: none; }
+  .build-summary-row {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .build-summary-row:last-child { border-bottom: none; }
+  .bs-label { color: var(--text-muted); }
+  .bs-value { color: var(--text-primary); font-weight: 600; }
+  .bs-value.tier { color: var(--s-tier); }
+
+  /* ── DIVIDER ── */
+  hr.fancy {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 32px 0;
+  }
+
+  /* ── FINAL SKILL BAR SUMMARY ── */
+  .final-skillbar {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-top: 12px;
+  }
+  .final-slot {
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    min-width: 72px;
+  }
+  .final-slot-icon {
+    width: 60px; height: 60px;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--paladin);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 0 12px rgba(242,221,33,0.25);
+  }
+  .final-slot-name { font-size: 11px; color: var(--text-secondary); text-align: center; line-height: 1.2; }
+
+  /* ── UPDATES ── */
+  .updates-list { list-style: none; }
+  .updates-list li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; gap: 8px;
+  }
+  .updates-list li:last-child { border-bottom: none; }
+  .updates-list .update-date { color: var(--paladin); font-weight: 600; min-width: 110px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<div class="guide-header">
+  <div class="header-content">
+    <div class="build-tags">
+      <span class="tag paladin">Paladin</span>
+      <span class="tag">Leveling</span>
+      <span class="tag">Disciple</span>
+      <span class="tag">Season 13</span>
+      <span class="tag stier">⭐ S-Tier</span>
+    </div>
+    <h1 class="guide-title">Blessed Hammer – Paladin Leveling Build<br><small style="font-size:0.55em;color:#9aa0b8;">Diablo 4 · Season 13 (Lord of Hatred)</small></h1>
+    <p class="guide-subtitle">Full 1-70 skill point allocation with interactive skill tree, gear priorities, legendary aspects, gems, runes, and rotation guide.</p>
+    <div class="skill-bar-preview">
+      <div class="skill-icon-sm"><span class="skill-emoji">⚔️</span><span class="skill-name-tooltip">Advance</span></div>
+      <div class="skill-icon-sm"><span class="skill-emoji">🔨</span><span class="skill-name-tooltip">Blessed Hammer</span></div>
+      <div class="skill-icon-sm"><span class="skill-emoji">🌟</span><span class="skill-name-tooltip">Falling Star</span></div>
+      <div class="skill-icon-sm"><span class="skill-emoji">🛡️</span><span class="skill-name-tooltip">Defiance Aura</span></div>
+      <div class="skill-icon-sm"><span class="skill-emoji">⚡</span><span class="skill-name-tooltip">Rally</span></div>
+      <div class="skill-icon-sm"><span class="skill-emoji">⚖️</span><span class="skill-name-tooltip">Condemn</span></div>
+    </div>
+    <div class="updated-badge">✦ Updated for Season 13 · May 2026</div>
+  </div>
+</div>
+
+<!-- ══════════ MAIN LAYOUT ══════════ -->
+<div class="main-layout">
+  <div class="content-area">
+
+    <!-- QUICK NAV -->
+    <div class="quick-nav">
+      <a href="#skill-tree">Interactive Skill Tree</a>
+      <a href="#skill-allocation">Skill Point Table</a>
+      <a href="#aspects">Legendary Aspects</a>
+      <a href="#stats">Stat Priorities</a>
+      <a href="#gems">Gems &amp; Runes</a>
+      <a href="#oath">Oaths &amp; Class Mechanic</a>
+      <a href="#talisman">Talisman &amp; Charms</a>
+      <a href="#mercenaries">Mercenaries</a>
+      <a href="#rotation">Rotation &amp; Playstyle</a>
+      <a href="#resolve">Resolve Explained</a>
+    </div>
+
+    <!-- INTRO -->
+    <div class="section">
+      <h2 class="section-title">Build Introduction</h2>
+      <p class="intro-text">The Blessed Hammer Paladin is one of the strongest S-Tier leveling builds in Diablo 4 Season 13. You throw spiralling hammers that orbit your character and deal massive Holy damage while maintaining near-permanent <strong>Arbiter Form</strong> through a rotation of Disciple cooldown skills. The result is a build that feels godlike from the very first levels and only gets stronger as you invest skill points.</p>
+      <p class="intro-text">This build uses the <span class="highlight">Disciple Oath</span>, which transforms you into an angelic Arbiter form for 4.5 seconds each time you activate a Disciple cooldown skill — granting 50% increased damage while active. With multiple Disciple skills on your bar, you can chain these activations to maintain Arbiter Form 100% of the time in combat.</p>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Season 13 Note:</strong> The Skill Tree has been redesigned in the Lord of Hatred expansion. Passive nodes are removed — skills are now unlocked by character level rather than the number of points invested in prior tiers. Upgrade modifiers are purchased directly on each skill.</div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- INTERACTIVE SKILL TREE -->
+    <div class="section" id="skill-tree">
+      <h2 class="section-title">Interactive Skill Tree</h2>
+      <p class="intro-text">Use the slider or buttons to step through each skill point and see exactly which node to take. Green/orange/blue highlights show the active skill and its current modifiers.</p>
+
+      <div class="skill-tree-container">
+        <div class="tree-header">
+          <h3>🔨 Blessed Hammer Paladin – Leveling Path</h3>
+          <div class="level-controls">
+            <button class="btn-level" id="btn-prev" onclick="setPoint(currentPoint - 1)">‹</button>
+            <div class="level-display">
+              <span>POINT</span>
+              <span id="point-label">1</span>
+              <span>of 70</span>
+            </div>
+            <button class="btn-level" id="btn-next" onclick="setPoint(currentPoint + 1)">›</button>
+          </div>
+        </div>
+        <div class="slider-track">
+          <input type="range" class="level-slider" id="pointSlider" min="1" max="70" value="1" oninput="setPoint(parseInt(this.value))">
+        </div>
+        <div class="slider-labels">
+          <span>Point 1</span>
+          <span>Point 10</span>
+          <span>Point 20</span>
+          <span>Point 35</span>
+          <span>Point 50</span>
+          <span>Point 70</span>
+        </div>
+
+        <div class="point-callout" id="point-callout">
+          <span class="point-num" id="callout-num">1</span>
+          <span id="callout-text">Take: Advance — Your basic skill, generates Faith and triggers Arbiter form in later upgrades.</span>
+        </div>
+
+        <div class="skill-tree-canvas">
+
+          <!-- ADVANCE (Basic) -->
+          <div class="skill-row">
+            <div class="skill-node">
+              <div class="skill-node-icon basic" id="icon-advance">⚔️
+                <div class="skill-rank-badge" id="rank-advance">0</div>
+              </div>
+              <div class="skill-node-label">Advance<br><small style="color:#5ba3f5">Basic</small></div>
+            </div>
+            <div class="skill-mods">
+              <div class="skill-mod" id="mod-advance-base" data-point="1">
+                <div class="mod-point">1</div>
+                <div>Advance</div>
+                <div class="mod-type">Base</div>
+              </div>
+              <div class="skill-mod" id="mod-advance-csc" data-point="4">
+                <div class="mod-point">4</div>
+                <div>Critical Strike Chance</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-advance-fortify" data-point="8">
+                <div class="mod-point">8</div>
+                <div>Fortify</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-advance-vanguard" data-point="13">
+                <div class="mod-point">13</div>
+                <div>Vanguard's Rush</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-advance-flash" data-point="29">
+                <div class="mod-point">29</div>
+                <div>⟳ Swap to: Flash on the Blade</div>
+                <div class="mod-type" style="background:rgba(242,221,33,0.15);color:var(--paladin)">SWAP</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLESSED HAMMER (Core) -->
+          <div class="skill-row">
+            <div class="skill-node">
+              <div class="skill-node-icon core" id="icon-hammer">🔨
+                <div class="skill-rank-badge" id="rank-hammer">0</div>
+              </div>
+              <div class="skill-node-label">Blessed<br>Hammer<br><small style="color:#ff9800">Core</small></div>
+            </div>
+            <div class="skill-mods">
+              <div class="skill-mod" id="mod-hammer-base" data-point="2">
+                <div class="mod-point">2</div>
+                <div>Blessed Hammer</div>
+                <div class="mod-type">Base</div>
+              </div>
+              <div class="skill-mod" id="mod-hammer-dmg" data-point="5">
+                <div class="mod-point">5</div>
+                <div>Damage Bonus</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-hammer-cast" data-point="9">
+                <div class="mod-point">9</div>
+                <div>Cast Speed</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-hammer-halo" data-point="14">
+                <div class="mod-point">14</div>
+                <div>Disciple's Halo</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-hammer-ranks" data-point="29" data-point-end="42">
+                <div class="mod-point">29–42</div>
+                <div>+1 Rank (×14 total ranks invested)</div>
+                <div class="mod-type">Ranks</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DEFIANCE AURA (Aura) -->
+          <div class="skill-row">
+            <div class="skill-node">
+              <div class="skill-node-icon aura" id="icon-defiance">🛡️
+                <div class="skill-rank-badge" id="rank-defiance">0</div>
+              </div>
+              <div class="skill-node-label">Defiance<br>Aura<br><small style="color:#00bcd4">Aura</small></div>
+            </div>
+            <div class="skill-mods">
+              <div class="skill-mod" id="mod-defiance-base" data-point="3">
+                <div class="mod-point">3</div>
+                <div>Defiance Aura</div>
+                <div class="mod-type">Base</div>
+              </div>
+              <div class="skill-mod" id="mod-defiance-unstop" data-point="6">
+                <div class="mod-point">6</div>
+                <div>Unstoppable (on Active)</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-defiance-heal" data-point="10">
+                <div class="mod-point">10</div>
+                <div>Bonus Healing</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-defiance-rite" data-point="15">
+                <div class="mod-point">15</div>
+                <div>Rite of Prayer</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-defiance-ranks" data-point="43" data-point-end="56">
+                <div class="mod-point">43–56</div>
+                <div>+1 Rank (×14 ranks invested)</div>
+                <div class="mod-type">Ranks</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RALLY (Valor) -->
+          <div class="skill-row">
+            <div class="skill-node">
+              <div class="skill-node-icon valor" id="icon-rally">⚡
+                <div class="skill-rank-badge" id="rank-rally">0</div>
+              </div>
+              <div class="skill-node-label">Rally<br><small style="color:#4caf50">Valor</small></div>
+            </div>
+            <div class="skill-mods">
+              <div class="skill-mod" id="mod-rally-base" data-point="7">
+                <div class="mod-point">7</div>
+                <div>Rally</div>
+                <div class="mod-type">Base</div>
+              </div>
+              <div class="skill-mod" id="mod-rally-dur" data-point="11">
+                <div class="mod-point">11</div>
+                <div>Duration Bonus</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-rally-cost" data-point="16">
+                <div class="mod-point">16</div>
+                <div>Cost Reduction</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-rally-words" data-point="19">
+                <div class="mod-point">19</div>
+                <div>Words of Rejuvenation</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-rally-sacrifice" data-point="35">
+                <div class="mod-point">35</div>
+                <div>⟳ Swap to: Words of Sacrifice</div>
+                <div class="mod-type" style="background:rgba(242,221,33,0.15);color:var(--paladin)">SWAP</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FALLING STAR (Valor/Disciple) -->
+          <div class="skill-row">
+            <div class="skill-node">
+              <div class="skill-node-icon valor" id="icon-falling">🌟
+                <div class="skill-rank-badge" id="rank-falling">0</div>
+              </div>
+              <div class="skill-node-label">Falling<br>Star<br><small style="color:#4caf50">Valor/Disciple</small></div>
+            </div>
+            <div class="skill-mods">
+              <div class="skill-mod" id="mod-falling-base" data-point="12">
+                <div class="mod-point">12</div>
+                <div>Falling Star</div>
+                <div class="mod-type">Base</div>
+              </div>
+              <div class="skill-mod" id="mod-falling-charge" data-point="17">
+                <div class="mod-point">17</div>
+                <div>Additional Charge</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-falling-cdr" data-point="20">
+                <div class="mod-point">20</div>
+                <div>Cooldown Reduction</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-falling-starfall" data-point="22">
+                <div class="mod-point">22</div>
+                <div>Starfall</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-falling-ranks" data-point="57" data-point-end="70">
+                <div class="mod-point">57–70</div>
+                <div>+1 Rank (×14 ranks invested)</div>
+                <div class="mod-type">Ranks</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONDEMN (Justice/Disciple) -->
+          <div class="skill-row">
+            <div class="skill-node">
+              <div class="skill-node-icon justice" id="icon-condemn">⚖️
+                <div class="skill-rank-badge" id="rank-condemn">0</div>
+              </div>
+              <div class="skill-node-label">Condemn<br><small style="color:#9c27b0">Justice/Disciple</small></div>
+            </div>
+            <div class="skill-mods">
+              <div class="skill-mod" id="mod-condemn-base" data-point="18">
+                <div class="mod-point">18</div>
+                <div>Condemn</div>
+                <div class="mod-type">Base</div>
+              </div>
+              <div class="skill-mod" id="mod-condemn-cdr" data-point="21">
+                <div class="mod-point">21</div>
+                <div>Cooldown Reduction</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-condemn-ms" data-point="23">
+                <div class="mod-point">23</div>
+                <div>Movement Speed</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-condemn-gather" data-point="24">
+                <div class="mod-point">24</div>
+                <div>Gather the Guilty</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-condemn-ranks" data-point="29" data-point-end="42">
+                <div class="mod-point">See table</div>
+                <div>Additional ranks invested late</div>
+                <div class="mod-type">Ranks</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ARBITER OF JUSTICE (Ultimate) -->
+          <div class="skill-row">
+            <div class="skill-node">
+              <div class="skill-node-icon ultimate" id="icon-arbiter">👼
+                <div class="skill-rank-badge" id="rank-arbiter">0</div>
+              </div>
+              <div class="skill-node-label">Arbiter<br>of Justice<br><small style="color:var(--paladin)">Ultimate</small></div>
+            </div>
+            <div class="skill-mods">
+              <div class="skill-mod" id="mod-arbiter-base" data-point="25">
+                <div class="mod-point">25</div>
+                <div>Arbiter of Justice</div>
+                <div class="mod-type">Base</div>
+              </div>
+              <div class="skill-mod" id="mod-arbiter-wing" data-point="26">
+                <div class="mod-point">26</div>
+                <div>Wing Strike Recast</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-arbiter-ms" data-point="27">
+                <div class="mod-point">27</div>
+                <div>Movement Speed</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+              <div class="skill-mod" id="mod-arbiter-wings" data-point="28">
+                <div class="mod-point">28</div>
+                <div>Seraph's Wings</div>
+                <div class="mod-type">Upgrade</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /skill-tree-canvas -->
+      </div><!-- /skill-tree-container -->
+    </div>
+
+    <hr class="fancy">
+
+    <!-- SKILL ALLOCATION TABLE -->
+    <div class="section" id="skill-allocation">
+      <h2 class="section-title">Skill Point Allocation (1–70)</h2>
+      <p class="intro-text">The full point-by-point breakdown. If you are short on skill points, complete Season Journey ranks to earn additional points.</p>
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div>Points 71–83 extend into post-level-70 Season Rank points and are listed at the bottom. You will have 70 skill points from levelling plus additional points from Season Ranks.</div>
+      </div>
+      <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:12px;">
+        <div style="display:flex;padding:8px 14px;background:rgba(255,255,255,0.03);border-bottom:1px solid var(--border);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);">
+          <span style="min-width:50px;">Point</span>
+          <span style="flex:1">Skill</span>
+          <span style="min-width:140px">Node / Modifier</span>
+        </div>
+        <div class="alloc-table" id="alloc-table-body">
+          <!-- JS generated -->
+        </div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- RECOMMENDED SKILL BAR -->
+    <div class="section">
+      <h2 class="section-title">Recommended Skill Bar</h2>
+      <div class="skill-bar-widget">
+        <div class="skill-bar-header">
+          <span class="star-icon">⭐</span> Recommended Final Skill Bar
+        </div>
+        <div class="skill-bar-icons">
+          <div class="skill-bar-slot">
+            <div class="slot-icon">⚔️</div>
+            <div class="slot-name">Advance</div>
+            <div class="slot-key">1</div>
+          </div>
+          <div class="skill-bar-slot">
+            <div class="slot-icon">🔨</div>
+            <div class="slot-name">Blessed Hammer</div>
+            <div class="slot-key">2</div>
+          </div>
+          <div class="skill-bar-slot">
+            <div class="slot-icon">🌟</div>
+            <div class="slot-name">Falling Star</div>
+            <div class="slot-key">3</div>
+          </div>
+          <div class="skill-bar-slot">
+            <div class="slot-icon">🛡️</div>
+            <div class="slot-name">Defiance Aura</div>
+            <div class="slot-key">4</div>
+          </div>
+          <div class="skill-bar-slot">
+            <div class="slot-icon">⚡</div>
+            <div class="slot-name">Rally</div>
+            <div class="slot-key">5</div>
+          </div>
+          <div class="skill-bar-slot">
+            <div class="slot-icon">⚖️</div>
+            <div class="slot-name">Condemn</div>
+            <div class="slot-key">6</div>
+          </div>
+        </div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Alternative Ultimate:</strong> At point 25 you unlock <strong>Arbiter of Justice</strong>. You can swap Condemn for Arbiter of Justice on your bar if you prefer longer sustained Arbiter form on bosses. If using Arbiter of Justice as your 6th skill, invest the Condemn points (71–83) into Arbiter of Justice ranks instead.</div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- CLASS MECHANIC -->
+    <div class="section" id="oath">
+      <h2 class="section-title">Paladin Class Mechanic – Oaths</h2>
+      <p class="intro-text">Paladins choose one of four Oaths at the start of their journey. Each Oath fundamentally changes your gameplay and resource access. For the Blessed Hammer build, take the <span class="highlight">Disciple Oath</span>.</p>
+      <div class="oath-card">
+        <div class="oath-name">⚜ Disciple Oath</div>
+        <p class="oath-desc">Whenever you cast a Disciple skill with a cooldown, you enter <strong>Arbiter Form</strong> for 4.5 seconds. In Arbiter Form, your Wing Strikes gain Disciple Skill benefits and your Disciple Skills deal <strong>50% increased damage</strong>. Since your skill bar is loaded with Disciple cooldown skills, you should maintain this form nearly 100% of combat time.</p>
+        <div class="oath-stat"><span class="oath-stat-icon">✦</span><span>Arbiter Form duration: <strong>4.5 seconds</strong> per Disciple cooldown cast</span></div>
+        <div class="oath-stat"><span class="oath-stat-icon">✦</span><span>Disciple Skill damage bonus in Arbiter Form: <strong>+50%</strong></span></div>
+        <div class="oath-stat"><span class="oath-stat-icon">✦</span><span>Wing Strikes gain Disciple Skill benefits</span></div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- ASPECTS -->
+    <div class="section" id="aspects">
+      <h2 class="section-title">Legendary Aspects</h2>
+      <p class="intro-text">Imprint these aspects onto the appropriate gear slots via the Occultist. During leveling, slot priority matters less — use what you find. Aim for these ideal placements by mid-game.</p>
+      <div class="aspect-grid">
+        <div class="aspect-card">
+          <div class="aspect-slot">Helm</div>
+          <div class="aspect-name">Aspect of Glynn's Anvil</div>
+          <span class="aspect-type-badge type-defensive">Defensive</span>
+          <div class="aspect-desc">Maximum Resolve increased by 2 and gain <span class="aspect-value">[3–4%]</span> Damage Reduction per Resolve stack.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Chest</div>
+          <div class="aspect-name">Aspect of Angelic Masterwork</div>
+          <span class="aspect-type-badge type-defensive">Defensive</span>
+          <div class="aspect-desc">All Resistance increased by <span class="aspect-value">[100–140%]</span> while in Arbiter Form.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Gloves</div>
+          <div class="aspect-name">Aspect of Holy Punishment</div>
+          <span class="aspect-type-badge type-offensive">Offensive</span>
+          <div class="aspect-desc">Holy and Fire damage increased by <span class="aspect-value">[40–60%]×</span>.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Pants</div>
+          <div class="aspect-name">Aspect of Interdiction</div>
+          <span class="aspect-type-badge type-defensive">Defensive</span>
+          <div class="aspect-desc">Gain <span class="aspect-value">[2–3%]</span> Block Chance per Resolve stack.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Boots</div>
+          <div class="aspect-name">Ghostwalker Aspect</div>
+          <span class="aspect-type-badge type-mobility">Mobility</span>
+          <div class="aspect-desc">While Unstoppable and for 4 seconds after: <span class="aspect-value">[10–20%]×</span> Movement Speed and Unhindered.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Amulet</div>
+          <div class="aspect-name">Aspect of Ascension</div>
+          <span class="aspect-type-badge type-offensive">Offensive</span>
+          <div class="aspect-desc">Casting a skill that grants Arbiter Form increases damage by <span class="aspect-value">[5–7%]×</span>, stacking up to 10×. Lost on leaving form.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Ring 1</div>
+          <div class="aspect-name">Aspect of Celestial Strife</div>
+          <span class="aspect-type-badge type-offensive">Offensive</span>
+          <div class="aspect-desc">In Arbiter Form, kills grant <span class="aspect-value">[1.0–1.5%]×</span> Vulnerable damage up to <span class="aspect-value">[50–75%]×</span>.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Ring 2</div>
+          <div class="aspect-name">Aspect of Utmost Glory</div>
+          <span class="aspect-type-badge type-offensive">Offensive</span>
+          <div class="aspect-desc">While Healthy: <span class="aspect-value">[20–35%]×</span> damage. Doubled against Weakened enemies.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Weapon</div>
+          <div class="aspect-name">Aspect of Lagera's Sovereignty</div>
+          <span class="aspect-type-badge type-offensive">Offensive</span>
+          <div class="aspect-desc">Disciple Skills deal <span class="aspect-value">[40–60%]×</span> increased damage.</div>
+        </div>
+        <div class="aspect-card">
+          <div class="aspect-slot">Shield (1H builds)</div>
+          <div class="aspect-name">Aspect of Tyrael's Jurisdiction</div>
+          <span class="aspect-type-badge type-offensive">Offensive</span>
+          <div class="aspect-desc">Arbiter's Wing Strikes seek nearby enemies and deal <span class="aspect-value">[160–240%]×</span> increased damage.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- STAT PRIORITIES -->
+    <div class="section" id="stats">
+      <h2 class="section-title">Stat Priority &amp; Tempering Affixes</h2>
+      <p class="intro-text">Tempering is only possible once you've found the relevant Tempering Manuals while leveling. Focus on the affixes below in priority order for each slot.</p>
+
+      <table class="guide-table">
+        <thead>
+          <tr>
+            <th>Slot</th>
+            <th>Priority Affixes</th>
+            <th>Best Tempering Affix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Helm</td><td>Cooldown Reduction · Strength · Max Life · All Resistance · Armor</td><td>+[2–3] Max Resolve Stacks</td></tr>
+          <tr><td>Chest</td><td>Strength · Max Life · Armor · All Resistance</td><td>+[2–3] Max Resolve Stacks</td></tr>
+          <tr><td>Gloves</td><td>Attack Speed · Cooldown Reduction · Critical Strike Chance · +Ranks to Core</td><td>Guardian Finesse / Disciple or Arbiter Damage</td></tr>
+          <tr><td>Pants</td><td>Strength · Max Life · Armor · All Resistance</td><td>+[2–3] Max Resolve Stacks</td></tr>
+          <tr><td>Boots</td><td>Movement Speed · Strength · Max Life · All Resistance · Armor</td><td>Movement Speed</td></tr>
+          <tr><td>Amulet</td><td>Strength · Cooldown Reduction · Attack Speed · Movement Speed</td><td>Guardian Finesse / Disciple or Arbiter Damage</td></tr>
+          <tr><td>Ring 1</td><td>Cooldown Reduction · Attack Speed · Critical Strike Chance · Critical Strike Damage</td><td>Guardian Finesse / Disciple or Arbiter Damage</td></tr>
+          <tr><td>Ring 2</td><td>Cooldown Reduction · Attack Speed · Critical Strike Chance · Holy Damage Multiplier</td><td>Guardian Finesse / Disciple or Arbiter Damage</td></tr>
+          <tr><td>Weapon</td><td>Strength · Max Life · Critical Strike Damage · Damage%</td><td>Guardian Finesse / Disciple or Arbiter Damage</td></tr>
+          <tr><td>Shield (1H)</td><td>Damage Reduction · Max Life · All Resistance</td><td>Arbiter Duration or Armor in Arbiter Form</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- GEMS & RUNES -->
+    <div class="section" id="gems">
+      <h2 class="section-title">Gems &amp; Runewords</h2>
+
+      <h3 class="section-subtitle">Gems</h3>
+      <div class="gem-row">
+        <div class="gem-item">
+          <div class="gem-icon">🔴</div>
+          <div class="gem-slot">Weapons</div>
+          <div class="gem-name">Ruby</div>
+          <div class="gem-effect">+Holy Damage dealt</div>
+        </div>
+        <div class="gem-item">
+          <div class="gem-icon">🔴</div>
+          <div class="gem-slot">Armour</div>
+          <div class="gem-name">Ruby</div>
+          <div class="gem-effect">+Strength</div>
+        </div>
+        <div class="gem-item">
+          <div class="gem-icon">💎</div>
+          <div class="gem-slot">Jewellery</div>
+          <div class="gem-name">Diamond</div>
+          <div class="gem-effect">+Resistance to All Elements</div>
+        </div>
+      </div>
+
+      <h3 class="section-subtitle">Runes</h3>
+      <p class="intro-text">Place one Ritual Rune and one Invocation Rune into a two-socket item (helm, chest, pants, or 2H weapon) to create a Runeword. Ritual Runes generate Offering; Invocation Runes trigger when the threshold is met.</p>
+      <table class="guide-table">
+        <thead>
+          <tr><th>Rune</th><th>Type</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Moni</td><td>Ritual</td><td>Gain 100 Offering: Cast 2 Mobility or Macabre Skills</td></tr>
+          <tr><td>Gar</td><td>Invocation</td><td>Requires 25 Offering (Overflow): Gain 2% Critical Strike Chance for 5 seconds, up to 10%</td></tr>
+          <tr><td>Cir</td><td>Ritual</td><td>Gain 300 Offering: Cast 5 Skills then become exhausted for 3 seconds</td></tr>
+          <tr><td>Thul</td><td>Invocation</td><td>Invoke Frost Nova to inflict Freeze and Vulnerable</td></tr>
+        </tbody>
+      </table>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div>Combine <strong>Moni + Gar</strong> in your helm or pants for consistent Critical Strike Chance uptime. <strong>Cir + Thul</strong> in a second piece gives you frequent Freeze and Vulnerable application to boost damage.</div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- TALISMAN -->
+    <div class="section" id="talisman">
+      <h2 class="section-title">Talisman &amp; Charms</h2>
+      <p class="intro-text">The Talisman system is a new feature from the Lord of Hatred expansion. A Legendary Seal holds up to 5 Charms (6 with the +1 Charm Slot affix). The 5-piece <strong>Light's Epiphany</strong> charm set is mandatory for this build.</p>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div>Target a <strong>Legendary Seal with +1 Charm Slots</strong> to access all 6 charm slots. During early leveling, use whatever Seal you find. Look for bonus affixes that enhance Light's Epiphany: damage reduction, Faith generation, movement speed, or resistances.</div>
+      </div>
+
+      <h3 class="section-subtitle">Light's Epiphany – 5-Piece Charm Set</h3>
+      <div class="set-bonus">
+        <div class="set-bonus-label">2-Piece Bonus</div>
+        <div class="set-bonus-text">Disciple Skills reduce the Cooldown of <strong>Arbiter of Justice</strong> by 0.1 seconds when they deal damage, or 0.5 seconds if they have a Cooldown.</div>
+      </div>
+      <div class="set-bonus">
+        <div class="set-bonus-label">3-Piece Bonus</div>
+        <div class="set-bonus-text">While in Arbiter Form, gain <strong>30% increased Maximum Life</strong> and <strong>10%× increased Movement Speed</strong>.</div>
+      </div>
+      <div class="set-bonus">
+        <div class="set-bonus-label">5-Piece Bonus</div>
+        <div class="set-bonus-text">When you cast <strong>Arbiter of Justice</strong>, unleash all Ultimates — triggering Heaven's Fury and Fortress — and replace Arbiter of Justice with <strong>Zenith</strong> for 10 seconds. Gain <strong>500%× increased damage</strong> with Disciple Skills for the duration. All Ultimates are also Disciple Skills.</div>
+      </div>
+
+      <h3 class="section-subtitle">6th Charm Slot – Unique Charm</h3>
+      <p class="intro-text">Fill the 6th slot with a <strong>Unique Charm carrying Griswold's Opus power</strong>. This grants you the sword's powerful bonus without equipping the weapon itself, freeing your weapon slot for a better Aspect and affixes.</p>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- MERCENARIES -->
+    <div class="section" id="mercenaries">
+      <h2 class="section-title">Mercenaries</h2>
+      <p class="intro-text">Mercenaries are unlocked during the Vessel of Hatred campaign. Hire your primary companion and designate a second as a Reinforcement who jumps in when you use specific skills.</p>
+
+      <div class="merc-card">
+        <div class="merc-header">🛡️ Primary: Raheir, the Shieldbearer <span class="merc-badge">Main Companion</span></div>
+        <div class="merc-body">
+          <div class="merc-skill"><div class="merc-skill-label">Core Skill</div><div class="merc-skill-name">Ground Slam</div></div>
+          <div class="merc-skill"><div class="merc-skill-label">Core Skill Passive</div><div class="merc-skill-name">Raheir's Aegis</div></div>
+          <div class="merc-skill"><div class="merc-skill-label">Iconic Skill</div><div class="merc-skill-name">Bastion</div></div>
+          <div class="merc-skill"><div class="merc-skill-label">Iconic Skill Passive</div><div class="merc-skill-name">Inspiration</div></div>
+        </div>
+      </div>
+
+      <div class="merc-card">
+        <div class="merc-header">🪓 Reinforcement: Varyana, the Berserker Crone <span class="merc-badge">Reinforcement</span></div>
+        <div class="merc-body">
+          <div class="merc-skill"><div class="merc-skill-label">Opportunity Skill</div><div class="merc-skill-name">Skill Cast</div></div>
+          <div class="merc-skill"><div class="merc-skill-label">Reinforcement Skill</div><div class="merc-skill-name">Bloodthirst</div></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- ROTATION -->
+    <div class="section" id="rotation">
+      <h2 class="section-title">Rotation &amp; Playstyle</h2>
+      <p class="intro-text">The playstyle is dynamic and fluid. Your primary goal is to maintain Arbiter Form 100% of combat time by chaining Disciple cooldown casts, while Blessed Hammer spirals out and destroys everything nearby.</p>
+
+      <div class="rotation-steps">
+        <div class="rotation-step">
+          <div class="rotation-step-icon">🌟</div>
+          <div>
+            <div class="rotation-step-name">1. Falling Star — Enter the Fight</div>
+            <div class="rotation-step-desc">Open every encounter by diving in with Falling Star. This deals heavy AoE Holy damage and immediately triggers Arbiter Form. Use additional charges to dash between enemy groups and keep the form refreshed.</div>
+          </div>
+        </div>
+        <div class="rotation-step">
+          <div class="rotation-step-icon">🔨</div>
+          <div>
+            <div class="rotation-step-name">2. Blessed Hammer — Core DPS Spam</div>
+            <div class="rotation-step-desc">While in Arbiter Form, spam Blessed Hammer constantly. The hammers spiral outward and follow you, making them excellent against dense packs. Cast this in every available global cooldown window.</div>
+          </div>
+        </div>
+        <div class="rotation-step">
+          <div class="rotation-step-icon">⚖️</div>
+          <div>
+            <div class="rotation-step-name">3. Condemn — Extend Arbiter + Control</div>
+            <div class="rotation-step-desc">Use Condemn immediately after Falling Star to re-trigger Arbiter Form before it expires. Condemn also pulls enemies together and stuns them, then applies Vulnerable — all stacking your damage further.</div>
+          </div>
+        </div>
+        <div class="rotation-step">
+          <div class="rotation-step-icon">⚡</div>
+          <div>
+            <div class="rotation-step-name">4. Rally — Faith &amp; Speed</div>
+            <div class="rotation-step-desc">Use Rally freely for the Faith generation and movement speed boost. It also helps you reposition rapidly between packs. With Words of Sacrifice, Rally will cost Life instead of nothing — you have abundant healing to compensate.</div>
+          </div>
+        </div>
+        <div class="rotation-step">
+          <div class="rotation-step-icon">🛡️</div>
+          <div>
+            <div class="rotation-step-name">5. Defiance Aura — Passive + Emergency</div>
+            <div class="rotation-step-desc">Defiance Aura passively provides Armor, All Resistance, and generates Resolve stacks. Activate it proactively when expecting a burst of incoming damage — it makes you Unstoppable for 2 seconds and absorbs the spike.</div>
+          </div>
+        </div>
+        <div class="rotation-step">
+          <div class="rotation-step-icon">⚔️</div>
+          <div>
+            <div class="rotation-step-name">6. Advance — Gap Closer &amp; Arbiter Refresh</div>
+            <div class="rotation-step-desc">Advance is your fallback basic skill. Use it early to generate Faith and later as a quick Disciple cooldown to re-enter Arbiter Form when other cooldowns are on cooldown. With Flash on the Blade (point 29+), it becomes much more impactful.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- RESOLVE -->
+    <div class="section" id="resolve">
+      <h2 class="section-title">Resolve — Damage Reduction System</h2>
+      <p class="intro-text">Resolve is the Paladin's primary defence system. Each stack provides a flat 20% damage reduction regardless of hit size. Getting struck by any enemy removes one stack.</p>
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div>Default maximum Resolve stacks: <strong>8</strong>. This cap increases through Legendary Aspects (Glynn's Anvil: +2), Unique Items, and Tempering. With our Helm and Chest tempering (+2–3 each), you can push maximum Resolve to <strong>14+ stacks</strong>, giving enormous sustained damage reduction.</div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- SEASON 13 -->
+    <div class="section">
+      <h2 class="section-title">Season 13 &amp; Lord of Hatred Features</h2>
+      <p class="intro-text">Season 13 introduces no unique seasonal mechanic — instead the full Lord of Hatred expansion content is live, including:</p>
+      <ul style="list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:6px;">
+        <li style="display:flex;gap:8px;font-size:13px;color:var(--text-secondary);"><span style="color:var(--paladin)">✦</span><span><strong style="color:var(--text-primary)">War Plans</strong> — Buff dungeons with bonus Elites and extra loot</span></li>
+        <li style="display:flex;gap:8px;font-size:13px;color:var(--text-secondary);"><span style="color:var(--paladin)">✦</span><span><strong style="color:var(--text-primary)">New Skill Trees</strong> — Full redesigned skill and modifier system</span></li>
+        <li style="display:flex;gap:8px;font-size:13px;color:var(--text-secondary);"><span style="color:var(--paladin)">✦</span><span><strong style="color:var(--text-primary)">Talisman Sets</strong> — Seal + Charm system for powerful set bonuses</span></li>
+        <li style="display:flex;gap:8px;font-size:13px;color:var(--text-secondary);"><span style="color:var(--paladin)">✦</span><span><strong style="color:var(--text-primary)">The Horadric Cube</strong> — Item crafting and conversion</span></li>
+        <li style="display:flex;gap:8px;font-size:13px;color:var(--text-secondary);"><span style="color:var(--paladin)">✦</span><span><strong style="color:var(--text-primary)">Echoing Hatred</strong> — New endgame activity</span></li>
+      </ul>
+      <div class="callout warning" style="margin-top:14px;">
+        <span class="callout-icon">⚡</span>
+        <div><strong>Obol Tip:</strong> Save all Obols until you reach level 70, then spend them exclusively on your weapon slot to kickstart your preferred endgame build with a strong weapon base.</div>
+      </div>
+    </div>
+
+    <hr class="fancy">
+
+    <!-- CHANGELOG -->
+    <div class="section">
+      <h2 class="section-title">Changelog</h2>
+      <ul class="updates-list">
+        <li><span class="update-date">May 2026</span><span>Guide created for Season 13 (Lord of Hatred expansion)</span></li>
+        <li><span class="update-date">Season 13</span><span>Reflects redesigned skill tree with level-locked skills and upgrade modifiers</span></li>
+      </ul>
+    </div>
+
+  </div><!-- /content-area -->
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Build Summary</div>
+      <div class="build-summary-row"><span class="bs-label">Class</span><span class="bs-value">Paladin</span></div>
+      <div class="build-summary-row"><span class="bs-label">Oath</span><span class="bs-value">Disciple</span></div>
+      <div class="build-summary-row"><span class="bs-label">Season</span><span class="bs-value">13</span></div>
+      <div class="build-summary-row"><span class="bs-label">Tier</span><span class="bs-value tier">S-Tier</span></div>
+      <div class="build-summary-row"><span class="bs-label">Playstyle</span><span class="bs-value">Mobile / AoE</span></div>
+      <div class="build-summary-row"><span class="bs-label">Damage Type</span><span class="bs-value" style="color:var(--holy)">Holy</span></div>
+      <div class="build-summary-row"><span class="bs-label">Level Cap</span><span class="bs-value">1 → 70</span></div>
+      <div class="build-summary-row"><span class="bs-label">Difficulty</span><span class="bs-value" style="color:var(--green)">Easy</span></div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Quick Navigation</div>
+      <nav class="sidebar-nav">
+        <a href="#skill-tree">Interactive Skill Tree</a>
+        <a href="#skill-allocation">Full Point Table</a>
+        <a href="#aspects">Legendary Aspects</a>
+        <a href="#stats">Stat Priority</a>
+        <a href="#gems">Gems &amp; Runes</a>
+        <a href="#oath">Oaths</a>
+        <a href="#talisman">Talisman</a>
+        <a href="#mercenaries">Mercenaries</a>
+        <a href="#rotation">Rotation</a>
+      </nav>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Core Skills</div>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-top:4px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+          <span style="font-size:18px;">⚔️</span>
+          <div>
+            <div style="color:var(--text-primary);font-weight:600;">Advance</div>
+            <div style="color:var(--skill-basic);font-size:10px;">BASIC</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+          <span style="font-size:18px;">🔨</span>
+          <div>
+            <div style="color:var(--text-primary);font-weight:600;">Blessed Hammer</div>
+            <div style="color:var(--skill-core);font-size:10px;">CORE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+          <span style="font-size:18px;">🌟</span>
+          <div>
+            <div style="color:var(--text-primary);font-weight:600;">Falling Star</div>
+            <div style="color:var(--skill-valor);font-size:10px;">VALOR/DISCIPLE</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+          <span style="font-size:18px;">🛡️</span>
+          <div>
+            <div style="color:var(--text-primary);font-weight:600;">Defiance Aura</div>
+            <div style="color:var(--skill-aura);font-size:10px;">AURA</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+          <span style="font-size:18px;">⚡</span>
+          <div>
+            <div style="color:var(--text-primary);font-weight:600;">Rally</div>
+            <div style="color:var(--skill-valor);font-size:10px;">VALOR</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;">
+          <span style="font-size:18px;">⚖️</span>
+          <div>
+            <div style="color:var(--text-primary);font-weight:600;">Condemn</div>
+            <div style="color:var(--skill-justice);font-size:10px;">JUSTICE/DISCIPLE</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div><!-- /main-layout -->
+
+<script>
+// ═══════════════════════════════════════════
+// SKILL POINT ALLOCATION DATA
+// ═══════════════════════════════════════════
+const skillPoints = [
+  { pt: 1,  skill: 'Advance',          mod: 'Base Skill',              type: 'basic',    chip: 'chip-basic' },
+  { pt: 2,  skill: 'Blessed Hammer',   mod: 'Base Skill',              type: 'core',     chip: 'chip-core' },
+  { pt: 3,  skill: 'Defiance Aura',    mod: 'Base Skill',              type: 'aura',     chip: 'chip-aura' },
+  { pt: 4,  skill: 'Advance',          mod: 'Critical Strike Chance',  type: 'basic',    chip: 'chip-basic' },
+  { pt: 5,  skill: 'Blessed Hammer',   mod: 'Damage Bonus',            type: 'core',     chip: 'chip-core' },
+  { pt: 6,  skill: 'Defiance Aura',    mod: 'Unstoppable (on Active)', type: 'aura',     chip: 'chip-aura' },
+  { pt: 7,  skill: 'Rally',            mod: 'Base Skill',              type: 'valor',    chip: 'chip-valor' },
+  { pt: 8,  skill: 'Advance',          mod: 'Fortify',                 type: 'basic',    chip: 'chip-basic' },
+  { pt: 9,  skill: 'Blessed Hammer',   mod: 'Cast Speed',              type: 'core',     chip: 'chip-core' },
+  { pt: 10, skill: 'Defiance Aura',    mod: 'Bonus Healing',           type: 'aura',     chip: 'chip-aura' },
+  { pt: 11, skill: 'Rally',            mod: 'Duration Bonus',          type: 'valor',    chip: 'chip-valor' },
+  { pt: 12, skill: 'Falling Star',     mod: 'Base Skill',              type: 'valor',    chip: 'chip-valor' },
+  { pt: 13, skill: 'Advance',          mod: "Vanguard's Rush",         type: 'basic',    chip: 'chip-basic' },
+  { pt: 14, skill: 'Blessed Hammer',   mod: "Disciple's Halo",         type: 'core',     chip: 'chip-core' },
+  { pt: 15, skill: 'Defiance Aura',    mod: 'Rite of Prayer',          type: 'aura',     chip: 'chip-aura' },
+  { pt: 16, skill: 'Rally',            mod: 'Cost Reduction',          type: 'valor',    chip: 'chip-valor' },
+  { pt: 17, skill: 'Falling Star',     mod: 'Additional Charge',       type: 'valor',    chip: 'chip-valor' },
+  { pt: 18, skill: 'Condemn',          mod: 'Base Skill',              type: 'justice',  chip: 'chip-justice' },
+  { pt: 19, skill: 'Rally',            mod: 'Words of Rejuvenation',   type: 'valor',    chip: 'chip-valor' },
+  { pt: 20, skill: 'Falling Star',     mod: 'Cooldown Reduction',      type: 'valor',    chip: 'chip-valor' },
+  { pt: 21, skill: 'Condemn',          mod: 'Cooldown Reduction',      type: 'justice',  chip: 'chip-justice' },
+  { pt: 22, skill: 'Falling Star',     mod: 'Starfall',                type: 'valor',    chip: 'chip-valor' },
+  { pt: 23, skill: 'Condemn',          mod: 'Movement Speed',          type: 'justice',  chip: 'chip-justice' },
+  { pt: 24, skill: 'Condemn',          mod: 'Gather the Guilty',       type: 'justice',  chip: 'chip-justice' },
+  { pt: 25, skill: 'Arbiter of Justice', mod: 'Base Skill',            type: 'ultimate', chip: 'chip-ultimate' },
+  { pt: 26, skill: 'Arbiter of Justice', mod: 'Wing Strike Recast',    type: 'ultimate', chip: 'chip-ultimate' },
+  { pt: 27, skill: 'Arbiter of Justice', mod: 'Movement Speed',        type: 'ultimate', chip: 'chip-ultimate' },
+  { pt: 28, skill: 'Arbiter of Justice', mod: "Seraph's Wings",        type: 'ultimate', chip: 'chip-ultimate' },
+  { pt: 29, skill: 'Blessed Hammer',   mod: '+1 Rank | Swap Advance to: Flash on the Blade', type: 'core', chip: 'chip-core' },
+  { pt: 30, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 31, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 32, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 33, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 34, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 35, skill: 'Blessed Hammer',   mod: '+1 Rank | Swap Rally to: Words of Sacrifice', type: 'core', chip: 'chip-core' },
+  { pt: 36, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 37, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 38, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 39, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 40, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 41, skill: 'Blessed Hammer',   mod: '+1 Rank',                 type: 'core',     chip: 'chip-core' },
+  { pt: 42, skill: 'Blessed Hammer',   mod: '+1 Rank (Max Ranks)',     type: 'core',     chip: 'chip-core' },
+  { pt: 43, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 44, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 45, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 46, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 47, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 48, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 49, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 50, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 51, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 52, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 53, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 54, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 55, skill: 'Defiance Aura',    mod: '+1 Rank',                 type: 'aura',     chip: 'chip-aura' },
+  { pt: 56, skill: 'Defiance Aura',    mod: '+1 Rank (Max Ranks)',     type: 'aura',     chip: 'chip-aura' },
+  { pt: 57, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 58, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 59, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 60, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 61, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 62, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 63, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 64, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 65, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 66, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 67, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 68, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 69, skill: 'Falling Star',     mod: '+1 Rank',                 type: 'valor',    chip: 'chip-valor' },
+  { pt: 70, skill: 'Falling Star',     mod: '+1 Rank (Max Ranks)',     type: 'valor',    chip: 'chip-valor' },
+];
+
+const calloutDescriptions = {
+  1:  'Take Advance — your basic Faith-generator and first Disciple skill proc at higher upgrades.',
+  2:  'Take Blessed Hammer — the centrepiece of this build. Holy spiralling hammers orbit you.',
+  3:  'Take Defiance Aura — passive Armor + All Resistance, plus an emergency Unstoppable active.',
+  4:  'Upgrade Advance: Critical Strike Chance — improves our Faith generation burst.',
+  5:  'Upgrade Blessed Hammer: Damage Bonus — our first direct damage increase.',
+  6:  'Upgrade Defiance Aura: Unstoppable — Activating Defiance Aura now makes you Unstoppable for 2s.',
+  7:  'Take Rally — Faith recovery and movement speed. Core for weaving between packs.',
+  8:  'Upgrade Advance: Fortify — building damage reduction through Fortify stacks.',
+  9:  'Upgrade Blessed Hammer: Cast Speed — hammers fly faster and cover more ground.',
+  10: 'Upgrade Defiance Aura: Bonus Healing — passive healing to keep us Healthy for Aspect of Utmost Glory.',
+  11: 'Upgrade Rally: Duration Bonus — longer movement speed window per cast.',
+  12: 'Take Falling Star — our primary Disciple Cooldown skill. Dive + AoE + Arbiter Form trigger.',
+  13: "Upgrade Advance: Vanguard's Rush — boosts the effectiveness of our dash significantly.",
+  14: "Upgrade Blessed Hammer: Disciple's Halo — Blessed Hammer now gains Disciple skill bonuses in Arbiter Form.",
+  15: 'Upgrade Defiance Aura: Rite of Prayer — triggers a healing burst when the active is used.',
+  16: 'Upgrade Rally: Cost Reduction — Rally becomes cheaper to spam for movement.',
+  17: 'Upgrade Falling Star: Additional Charge — now have 2 charges of Falling Star for more Arbiter uptime.',
+  18: 'Take Condemn — pulls enemies in, stuns them, applies Vulnerable, and triggers Arbiter Form.',
+  19: 'Upgrade Rally: Words of Rejuvenation — extra healing and resource return on use.',
+  20: 'Upgrade Falling Star: Cooldown Reduction — charges refill faster between packs.',
+  21: 'Upgrade Condemn: Cooldown Reduction — chain Condemn back-to-back after Falling Star.',
+  22: 'Upgrade Falling Star: Starfall — a second wave of holy projectiles on landing.',
+  23: 'Upgrade Condemn: Movement Speed — briefly gain speed after using Condemn.',
+  24: "Upgrade Condemn: Gather the Guilty — stronger pull radius, grouping enemies perfectly for Blessed Hammer.",
+  25: 'Take Arbiter of Justice — our Ultimate. Deploy on bosses for a long sustained Arbiter window.',
+  26: "Upgrade Arbiter of Justice: Wing Strike Recast — a second Wing Strike activation during the ultimate.",
+  27: 'Upgrade Arbiter of Justice: Movement Speed — dash-around speed during Arbiter of Justice.',
+  28: "Upgrade Arbiter of Justice: Seraph's Wings — grants a secondary burst of Wing Strikes on expiry.",
+  29: 'Invest Blessed Hammer Rank +1. Also SWAP Advance modifier to Flash on the Blade now.',
+  35: 'Blessed Hammer +1 Rank. Also SWAP Rally modifier to Words of Sacrifice now.',
+  42: 'Final Blessed Hammer rank — Blessed Hammer is now at maximum investment.',
+  43: 'Begin investing ranks into Defiance Aura — scaling passive Armor and resistances significantly.',
+  56: 'Final Defiance Aura rank — Defiance Aura is now at maximum investment.',
+  57: 'Begin investing ranks into Falling Star — scales the dive damage and charge speed.',
+  70: 'Final Falling Star rank — Falling Star is now at maximum investment. Level 70 complete!',
+};
+
+// ── BUILD ALLOCATION TABLE ──
+const tbody = document.getElementById('alloc-table-body');
+skillPoints.forEach(sp => {
+  const row = document.createElement('div');
+  row.className = 'alloc-row';
+  row.id = `alloc-row-${sp.pt}`;
+  const isSwap = sp.mod.includes('Swap') || sp.mod.includes('swap');
+  row.innerHTML = `
+    <span class="alloc-point">${sp.pt}</span>
+    <span class="alloc-skill-chip ${sp.chip}">${sp.skill}</span>
+    <span class="alloc-mod" style="flex:1;margin-left:8px;">${sp.mod}</span>
+  `;
+  tbody.appendChild(row);
+});
+
+// ── INTERACTIVE SKILL TREE LOGIC ──
+let currentPoint = 1;
+
+const modMappings = {
+  'mod-advance-base':    { start: 1,  end: 99 },
+  'mod-advance-csc':     { start: 4,  end: 99 },
+  'mod-advance-fortify': { start: 8,  end: 99 },
+  'mod-advance-vanguard':{ start: 13, end: 99 },
+  'mod-advance-flash':   { start: 29, end: 99 },
+  'mod-hammer-base':     { start: 2,  end: 99 },
+  'mod-hammer-dmg':      { start: 5,  end: 99 },
+  'mod-hammer-cast':     { start: 9,  end: 99 },
+  'mod-hammer-halo':     { start: 14, end: 99 },
+  'mod-hammer-ranks':    { start: 29, end: 42 },
+  'mod-defiance-base':   { start: 3,  end: 99 },
+  'mod-defiance-unstop': { start: 6,  end: 99 },
+  'mod-defiance-heal':   { start: 10, end: 99 },
+  'mod-defiance-rite':   { start: 15, end: 99 },
+  'mod-defiance-ranks':  { start: 43, end: 56 },
+  'mod-rally-base':      { start: 7,  end: 99 },
+  'mod-rally-dur':       { start: 11, end: 99 },
+  'mod-rally-cost':      { start: 16, end: 99 },
+  'mod-rally-words':     { start: 19, end: 99 },
+  'mod-rally-sacrifice': { start: 35, end: 99 },
+  'mod-falling-base':    { start: 12, end: 99 },
+  'mod-falling-charge':  { start: 17, end: 99 },
+  'mod-falling-cdr':     { start: 20, end: 99 },
+  'mod-falling-starfall':{ start: 22, end: 99 },
+  'mod-falling-ranks':   { start: 57, end: 70 },
+  'mod-condemn-base':    { start: 18, end: 99 },
+  'mod-condemn-cdr':     { start: 21, end: 99 },
+  'mod-condemn-ms':      { start: 23, end: 99 },
+  'mod-condemn-gather':  { start: 24, end: 99 },
+  'mod-condemn-ranks':   { start: 99, end: 99 },
+  'mod-arbiter-base':    { start: 25, end: 99 },
+  'mod-arbiter-wing':    { start: 26, end: 99 },
+  'mod-arbiter-ms':      { start: 27, end: 99 },
+  'mod-arbiter-wings':   { start: 28, end: 99 },
+};
+
+const skillRanks = {
+  advance: { base: 1, ranks: [] },
+  hammer:  { base: 2, ranks: Array.from({length:14}, (_,i)=>29+i) },
+  defiance:{ base: 3, ranks: Array.from({length:14}, (_,i)=>43+i) },
+  rally:   { base: 7, ranks: [] },
+  falling: { base: 12, ranks: Array.from({length:14}, (_,i)=>57+i) },
+  condemn: { base: 18, ranks: [] },
+  arbiter: { base: 25, ranks: [] },
+};
+
+function getRank(skill, pt) {
+  const def = skillRanks[skill];
+  if (!def || pt < def.base) return 0;
+  return 1 + def.ranks.filter(r => r <= pt).length;
+}
+
+function setPoint(pt) {
+  pt = Math.max(1, Math.min(70, pt));
+  currentPoint = pt;
+  document.getElementById('pointSlider').value = pt;
+  document.getElementById('point-label').textContent = pt;
+
+  // update mod highlights
+  Object.entries(modMappings).forEach(([id, cfg]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const isActive = pt >= cfg.start && pt <= cfg.end;
+    const isCurrent = pt === cfg.start;
+    el.classList.toggle('active', isActive);
+    el.classList.toggle('current-point-indicator', isCurrent);
+  });
+
+  // update skill icon active states + ranks
+  const skills = ['advance','hammer','defiance','rally','falling','condemn','arbiter'];
+  const basePoints = { advance:1, hammer:2, defiance:3, rally:7, falling:12, condemn:18, arbiter:25 };
+  skills.forEach(s => {
+    const icon = document.getElementById(`icon-${s}`);
+    const rankEl = document.getElementById(`rank-${s}`);
+    if (!icon) return;
+    const r = getRank(s, pt);
+    icon.classList.toggle('active', pt >= basePoints[s]);
+    if (rankEl) rankEl.textContent = r;
+  });
+
+  // update callout
+  const callout = document.getElementById('point-callout');
+  const calloutNum = document.getElementById('callout-num');
+  const calloutText = document.getElementById('callout-text');
+  calloutNum.textContent = pt;
+  const sp = skillPoints.find(x => x.pt === pt);
+  const desc = calloutDescriptions[pt];
+  if (sp) {
+    calloutText.innerHTML = desc
+      ? `<strong>${sp.skill}</strong>: ${desc}`
+      : `<strong>${sp.skill}</strong> — ${sp.mod}`;
+  }
+
+  // highlight alloc table row
+  document.querySelectorAll('.alloc-row').forEach(r => r.classList.remove('highlight'));
+  const rowEl = document.getElementById(`alloc-row-${pt}`);
+  if (rowEl) {
+    rowEl.classList.add('highlight');
+    rowEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+}
+
+// init
+setPoint(1);
+</script>
+</body>
+</html>

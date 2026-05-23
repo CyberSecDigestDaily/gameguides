@@ -66,6 +66,39 @@
 .aspect-dot.gold { background: var(--gold); }
 .aspect-dot.blue { background: var(--blue); }
 .aspect-dot.grey { background: var(--border); }
+/* ── Skill Tree Widget ───────────────────────────────────────────────── */
+.stw{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;margin:20px 0}
+.stw-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.stw-title{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.stw-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stw-controls button{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:4px;cursor:pointer;font-size:13px}
+.stw-controls button:hover{border-color:var(--accent);color:var(--accent)}
+#dru-slider,#nec-slider{width:200px;accent-color:var(--accent)}
+.stw-pt-label{font-family:'Cinzel',serif;font-size:12px;color:var(--gold2);min-width:80px}
+.stw-nodes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.stw-group{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px;flex:1 1 180px}
+.stw-group-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.stw-node{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:4px;border:1px solid var(--border);font-size:11px;margin:2px;opacity:.3;transition:opacity .15s,border-color .15s,box-shadow .15s;cursor:default;white-space:nowrap}
+.stw-node.active{opacity:1}
+.stw-node.current{box-shadow:0 0 0 2px var(--gold2)}
+.stw-node-rank{font-size:9px;opacity:.75;font-style:italic}
+.chip-basic{border-color:#3a5f8a;color:#5b9fd4}.chip-basic.active{background:rgba(91,159,212,.15);border-color:#5b9fd4}
+.chip-core{border-color:#7a4a1a;color:#c87a3a}.chip-core.active{background:rgba(200,122,58,.15);border-color:#c87a3a}
+.chip-def{border-color:#2a5c7a;color:#3ab8d4}.chip-def.active{background:rgba(58,184,212,.12);border-color:#3ab8d4}
+.chip-comp{border-color:#2a6a4a;color:#5db87a}.chip-comp.active{background:rgba(93,184,122,.15);border-color:#5db87a}
+.chip-wrath{border-color:#7a6a1a;color:#d4b43c}.chip-wrath.active{background:rgba(212,180,60,.12);border-color:#d4b43c}
+.chip-ult{border-color:#7a5a00;color:var(--gold2)}.chip-ult.active{background:rgba(232,180,64,.15);border-color:var(--gold2)}
+.chip-pass{border-color:var(--border);color:var(--text2)}.chip-pass.active{background:rgba(255,255,255,.06);border-color:var(--text3)}
+.chip-macabre{border-color:#6a3a8a;color:#9b6dda}.chip-macabre.active{background:rgba(155,109,218,.15);border-color:#9b6dda}
+.chip-curse{border-color:#2a6a3a;color:#5db87a}.chip-curse.active{background:rgba(93,184,122,.15);border-color:#5db87a}
+.chip-summon{border-color:#7a5a00;color:var(--gold2)}.chip-summon.active{background:rgba(232,180,64,.15);border-color:var(--gold2)}
+.stw-callout{background:var(--surface2);border-left:3px solid var(--accent);padding:10px 14px;font-size:13px;margin-bottom:16px;border-radius:0 4px 4px 0;min-height:44px;line-height:1.6}
+.stw-table-wrap{max-height:280px;overflow-y:auto;border:1px solid var(--border);border-radius:4px}
+.stw-table{width:100%;border-collapse:collapse;font-size:12px}
+.stw-table th{background:var(--surface2);position:sticky;top:0;padding:6px 10px;text-align:left;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.05em;border-bottom:1px solid var(--border)}
+.stw-table td{padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+.stw-table tr.stw-active-row td{background:rgba(122,179,73,.15)}
+.stw-table tr.stw-done-row{opacity:.5}
 </style>
 </head>
 <body>
@@ -281,7 +314,76 @@
     <p><strong>2 pts spent</strong> → Core tier unlocks · <strong>6 pts</strong> → Defensive, Companion tiers · <strong>11 pts</strong> → Wrath tier · <strong>16 pts</strong> → Ultimate tier · <strong>23 pts</strong> → Key Passive. Werebear form activates automatically whenever you cast a Werebear skill like Pulverize or Trample — no separate unlock needed.</p>
   </div>
 
-  <h3>Priority Skill Allocation (all 71 points)</h3>
+  <h3>Interactive Skill Allocator — 71 Points</h3>
+  <div class="stw" id="druid-stw">
+    <div class="stw-header">
+      <span class="stw-title">1–71 Point Allocation · Pulverize Werebear</span>
+      <div class="stw-controls">
+        <button onclick="druSetPt(druCur-1)">◀</button>
+        <input type="range" id="dru-slider" min="0" max="71" value="0" oninput="druSetPt(+this.value)">
+        <button onclick="druSetPt(druCur+1)">▶</button>
+        <span class="stw-pt-label" id="dru-pt-label">0 / 71</span>
+      </div>
+    </div>
+    <div class="stw-nodes">
+      <div class="stw-group">
+        <div class="stw-group-label">Basic</div>
+        <div class="stw-node chip-basic" id="dru-n-windshear">Wind Shear<span class="stw-node-rank" id="dru-r-windshear"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Core</div>
+        <div class="stw-node chip-core" id="dru-n-pulverize">Pulverize<span class="stw-node-rank" id="dru-r-pulverize"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Defensive</div>
+        <div class="stw-node chip-def" id="dru-n-bloodhowl">Blood Howl<span class="stw-node-rank" id="dru-r-bloodhowl"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Companion</div>
+        <div class="stw-node chip-comp" id="dru-n-creeper">Poison Creeper<span class="stw-node-rank" id="dru-r-creeper"></span></div>
+        <div class="stw-node chip-comp" id="dru-n-wolves">Wolves<span class="stw-node-rank" id="dru-r-wolves"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Wrath</div>
+        <div class="stw-node chip-wrath" id="dru-n-trample">Trample<span class="stw-node-rank" id="dru-r-trample"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Passives I</div>
+        <div class="stw-node chip-pass" id="dru-n-neuro">Neurotoxin<span class="stw-node-rank" id="dru-r-neuro"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-envenom">Envenom<span class="stw-node-rank" id="dru-r-envenom"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-cotw">Call of the Wild<span class="stw-node-rank" id="dru-r-cotw"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-quick">Quickshift<span class="stw-node-rank" id="dru-r-quick"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Key Passive</div>
+        <div class="stw-node chip-ult" id="dru-n-ursine">Ursine Strength<span class="stw-node-rank" id="dru-r-ursine"></span></div>
+      </div>
+      <div class="stw-group" style="flex:2 1 340px">
+        <div class="stw-group-label">Passives II (pts 36–71)</div>
+        <div class="stw-node chip-pass" id="dru-n-natfort">Nat. Fortitude<span class="stw-node-rank" id="dru-r-natfort"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-hsenses">Ht. Senses<span class="stw-node-rank" id="dru-r-hsenses"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-predatory">Pred. Instinct<span class="stw-node-rank" id="dru-r-predatory"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-ironfur">Iron Fur<span class="stw-node-rank" id="dru-r-ironfur"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-crushing">Crushing Earth<span class="stw-node-rank" id="dru-r-crushing"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-stoneguard">Stone Guard<span class="stw-node-rank" id="dru-r-stoneguard"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-safeguard">Safeguard<span class="stw-node-rank" id="dru-r-safeguard"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-feral">Feral Aptitude<span class="stw-node-rank" id="dru-r-feral"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-mending">Mending<span class="stw-node-rank" id="dru-r-mending"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-defiance">Defiance<span class="stw-node-rank" id="dru-r-defiance"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-colif">Circle of Life<span class="stw-node-rank" id="dru-r-colif"></span></div>
+        <div class="stw-node chip-pass" id="dru-n-ancfort">Anc. Fortitude<span class="stw-node-rank" id="dru-r-ancfort"></span></div>
+      </div>
+    </div>
+    <div class="stw-callout" id="dru-callout">Use the slider or buttons to step through all 71 skill points in priority order.</div>
+    <div class="stw-table-wrap">
+      <table class="stw-table">
+        <thead><tr><th>#</th><th>Skill</th><th>Mod / Rank</th><th>Why</th></tr></thead>
+        <tbody id="dru-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>Priority Reference</h3>
 
   <table class="data-table">
     <tr><th>Priority</th><th>Skill / Upgrade</th><th>Points</th><th>Why</th></tr>
@@ -738,6 +840,85 @@ window.addEventListener('scroll', () => {
   fab.style.opacity = window.scrollY > 400 ? '1' : '0';
   fab.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
 }, { passive: true });
+
+/* ── Druid Skill Tree Widget ─────────────────────────────────────────── */
+const druSP=[
+  {pt:1, skill:'Wind Shear',        mod:'Base Skill',   node:'windshear', why:'Spirit generator; tags enemies for Fierce Poison application.'},
+  {pt:2, skill:'Wind Shear',        mod:'Enhanced',     node:'windshear', why:'Unlock upgrade path.'},
+  {pt:3, skill:'Wind Shear',        mod:'Fierce',       node:'windshear', why:'Applies Poison on hit — feeds Envenom Crit bonus, Neurotoxin Slow, and Changeling\'s Debt.'},
+  {pt:4, skill:'Pulverize',         mod:'Base Skill',   node:'pulverize', why:'Primary damage. Werebear form activates automatically on first cast.'},
+  {pt:5, skill:'Pulverize',         mod:'Enhanced',     node:'pulverize', why:'Overpowers every 12s while Healthy — your single biggest damage spike.'},
+  {pt:6, skill:'Pulverize',         mod:'Raging',       node:'pulverize', why:'+75% Overpower damage; Stuns enemies 3s. Huge damage and safety window.'},
+  {pt:7, skill:'Pulverize',         mod:'Rank 2',       node:'pulverize', why:'Higher base damage and wider slam area.'},
+  {pt:8, skill:'Pulverize',         mod:'Rank 3',       node:'pulverize', why:'Rank 3 of 5 — max before spending elsewhere.'},
+  {pt:9, skill:'Pulverize',         mod:'Rank 4',       node:'pulverize', why:'Rank 4 of 5.'},
+  {pt:10,skill:'Pulverize',         mod:'Rank 5 ✓',     node:'pulverize', why:'Max rank. Full AoE radius and base damage.'},
+  {pt:11,skill:'Blood Howl',        mod:'Base Skill',   node:'bloodhowl', why:'Heal on demand — keeps you above the 80% Healthy threshold for Overpower.'},
+  {pt:12,skill:'Blood Howl',        mod:'Enhanced',     node:'bloodhowl', why:'Unlock upgrade path.'},
+  {pt:13,skill:'Blood Howl',        mod:'Innate',       node:'bloodhowl', why:'Generates Spirit on cast. Use proactively — it\'s a resource skill, not just a heal.'},
+  {pt:14,skill:'Poison Creeper',    mod:'Base Skill',   node:'creeper',   why:'Pack Immobilise + Poison DoT. Drop before every fight.'},
+  {pt:15,skill:'Poison Creeper',    mod:'Enhanced',     node:'creeper',   why:'Unlock upgrade path.'},
+  {pt:16,skill:'Poison Creeper',    mod:'Brutal',       node:'creeper',   why:'+Crit vs Immobilised enemies — feeds Pack Leader boon resets and Crashstone.'},
+  {pt:17,skill:'Poison Creeper',    mod:'Rank 2',       node:'creeper',   why:'Longer Poison DoT duration.'},
+  {pt:18,skill:'Poison Creeper',    mod:'Rank 3',       node:'creeper',   why:'Rank 3 of 5.'},
+  {pt:19,skill:'Poison Creeper',    mod:'Rank 4',       node:'creeper',   why:'Rank 4 of 5.'},
+  {pt:20,skill:'Poison Creeper',    mod:'Rank 5 ✓',     node:'creeper',   why:'Max rank — maximum Poison uptime and Crashstone Aspect synergy.'},
+  {pt:21,skill:'Wolves',            mod:'Rank 1',       node:'wolves',    why:'One rank is all you need. Pack Leader boon resets cooldown on Crit.'},
+  {pt:22,skill:'Trample',           mod:'Base Skill',   node:'trample',   why:'Gap closer + Unstoppable source. Knock Back enables Crushing Earth multiplier.'},
+  {pt:23,skill:'Trample',           mod:'Enhanced',     node:'trample',   why:'Unlock upgrade path.'},
+  {pt:24,skill:'Trample',           mod:'Savage',       node:'trample',   why:'Generates Spirit on cast — fills the resource gap between Pulverize casts.'},
+  {pt:25,skill:'Neurotoxin',        mod:'Rank 1',       node:'neuro',     why:'Poisoned enemies become Slowed — activates Envenom and Crushing Earth.'},
+  {pt:26,skill:'Envenom',           mod:'Rank 1',       node:'envenom',   why:'+Crit Strike Damage vs Poisoned enemies. Wind Shear poisons everything.'},
+  {pt:27,skill:'Envenom',           mod:'Rank 2',       node:'envenom',   why:'More Crit Damage on all Poisoned targets.'},
+  {pt:28,skill:'Envenom',           mod:'Rank 3 ✓',     node:'envenom',   why:'Max rank — full Crit multiplier vs Poisoned enemies. Constant in this build.'},
+  {pt:29,skill:'Call of the Wild',  mod:'Rank 1',       node:'cotw',      why:'+15% Companion damage per rank while active — always active.'},
+  {pt:30,skill:'Call of the Wild',  mod:'Rank 2',       node:'cotw',      why:'+30% total Companion damage.'},
+  {pt:31,skill:'Call of the Wild',  mod:'Rank 3 ✓',     node:'cotw',      why:'Max rank — +45% Companion damage. Wolves and Creeper hit substantially harder.'},
+  {pt:32,skill:'Quickshift',        mod:'Rank 1',       node:'quick',     why:'+8% damage 5s per shapeshift transition — Blood Howl / Trample trigger passively.'},
+  {pt:33,skill:'Quickshift',        mod:'Rank 2',       node:'quick',     why:'+16% total — easy uptime through normal skill rotation.'},
+  {pt:34,skill:'Quickshift',        mod:'Rank 3 ✓',     node:'quick',     why:'Max rank — +24% damage. Near-permanent during active combat.'},
+  {pt:35,skill:'Ursine Strength',   mod:'Key Passive ★',node:'ursine',    why:'Build engine: +30% Max Life, +20% damage, +100% Overpower — active whenever in Werebear form.'},
+  {pt:36,skill:'Natural Fortitude', mod:'Rank 1',       node:'natfort',   why:'Fortify generation on Nature Magic use — feeds Aspect of Retaliation damage.'},
+  {pt:37,skill:'Natural Fortitude', mod:'Rank 2',       node:'natfort',   why:'Higher Fortify per skill cast.'},
+  {pt:38,skill:'Natural Fortitude', mod:'Rank 3 ✓',     node:'natfort',   why:'Max rank. Keeps Fortify topped up for Stone Guard and Safeguard.'},
+  {pt:39,skill:'Heightened Senses', mod:'Rank 1',       node:'hsenses',   why:'Damage Reduction 6s after shapeshifting — stagger Blood Howl and Trample use.'},
+  {pt:40,skill:'Heightened Senses', mod:'Rank 2',       node:'hsenses',   why:'Higher DR per trigger.'},
+  {pt:41,skill:'Heightened Senses', mod:'Rank 3 ✓',     node:'hsenses',   why:'Max rank — near-permanent 15% DR when staggering shapeshifting skills.'},
+  {pt:42,skill:'Predatory Instinct',mod:'Rank 1',       node:'predatory', why:'+3% Crit vs Close enemies — always active in Werebear melee range.'},
+  {pt:43,skill:'Predatory Instinct',mod:'Rank 2',       node:'predatory', why:'+6% Crit total. Feeds Pack Leader and Crashstone Aspect.'},
+  {pt:44,skill:'Predatory Instinct',mod:'Rank 3 ✓',     node:'predatory', why:'Max rank — +9% Crit vs Close. Permanent in Werebear form.'},
+  {pt:45,skill:'Iron Fur',          mod:'Rank 1',       node:'ironfur',   why:'+3% Armour while shapeshifted — permanently active as Werebear.'},
+  {pt:46,skill:'Iron Fur',          mod:'Rank 2',       node:'ironfur',   why:'+6% Armour total.'},
+  {pt:47,skill:'Iron Fur',          mod:'Rank 3 ✓',     node:'ironfur',   why:'Max rank — +9% Armour. Zero upkeep.'},
+  {pt:48,skill:'Crushing Earth',    mod:'Rank 1',       node:'crushing',  why:'+5% Earth Skill damage vs CCed enemies. Pulverize is Earth Skill via Ursine Horror.'},
+  {pt:49,skill:'Crushing Earth',    mod:'Rank 2',       node:'crushing',  why:'+10% — most enemies are CCed via Stun/Immobilise/Knockback constantly.'},
+  {pt:50,skill:'Crushing Earth',    mod:'Rank 3 ✓',     node:'crushing',  why:'Max rank — +15% Earth damage vs CCed enemies. Near-permanent multiplier.'},
+  {pt:51,skill:'Stone Guard',       mod:'Rank 1',       node:'stoneguard',why:'Damage Reduction while you have Fortify — always active with Natural Fortitude.'},
+  {pt:52,skill:'Stone Guard',       mod:'Rank 2',       node:'stoneguard',why:'More DR from Fortify.'},
+  {pt:53,skill:'Stone Guard',       mod:'Rank 3 ✓',     node:'stoneguard',why:'Max rank. Meaningful in Torment content.'},
+  {pt:54,skill:'Safeguard',         mod:'Rank 1',       node:'safeguard', why:'Lucky Hit: Earth Skills generate Fortify. More Fortify feeding Stone Guard.'},
+  {pt:55,skill:'Safeguard',         mod:'Rank 2',       node:'safeguard', why:'Higher Fortify chance per Pulverize hit.'},
+  {pt:56,skill:'Safeguard',         mod:'Rank 3 ✓',     node:'safeguard', why:'Max rank. Keeps Fortify topped up between Natural Fortitude procs.'},
+  {pt:57,skill:'Feral Aptitude',    mod:'Rank 1',       node:'feral',     why:'+3% Companion damage — compounds with Call of the Wild stacks.'},
+  {pt:58,skill:'Feral Aptitude',    mod:'Rank 2',       node:'feral',     why:'+6% total Companion damage.'},
+  {pt:59,skill:'Feral Aptitude',    mod:'Rank 3 ✓',     node:'feral',     why:'Max rank. Wolves and Creeper now output meaningful bonus damage.'},
+  {pt:60,skill:'Mending',           mod:'Rank 1',       node:'mending',   why:'Increases healing received — Blood Howl heals more per cast.'},
+  {pt:61,skill:'Mending',           mod:'Rank 2',       node:'mending',   why:'More healing per Blood Howl.'},
+  {pt:62,skill:'Mending',           mod:'Rank 3 ✓',     node:'mending',   why:'Max rank. Easier to stay above 80% HP for Overpower uptime.'},
+  {pt:63,skill:'Defiance',          mod:'Rank 1',       node:'defiance',  why:'-5% damage from Elites/Bosses — always-on, zero management.'},
+  {pt:64,skill:'Defiance',          mod:'Rank 2',       node:'defiance',  why:'-10% Elite/Boss damage total.'},
+  {pt:65,skill:'Defiance',          mod:'Rank 3 ✓',     node:'defiance',  why:'Max rank — -15% from Elites. Critical for campaign boss fights.'},
+  {pt:66,skill:'Circle of Life',    mod:'Rank 1',       node:'colif',     why:'Heals on Spirit spend — every Pulverize cast triggers.'},
+  {pt:67,skill:'Circle of Life',    mod:'Rank 2',       node:'colif',     why:'More healing per Spirit expenditure.'},
+  {pt:68,skill:'Circle of Life',    mod:'Rank 3 ✓',     node:'colif',     why:'Max rank — continuous sustain throughout fights.'},
+  {pt:69,skill:'Ancestral Fortitude',mod:'Rank 1',      node:'ancfort',   why:'Reduces elemental resistance requirements — frees affix budget.'},
+  {pt:70,skill:'Ancestral Fortitude',mod:'Rank 2',      node:'ancfort',   why:'More resistance reduction.'},
+  {pt:71,skill:'Ancestral Fortitude',mod:'Rank 3 ✓',    node:'ancfort',   why:'Max rank. Free resistance capping — less pressure on gear rolls.'},
+];
+const druMods={windshear:{start:1},pulverize:{start:4},bloodhowl:{start:11},creeper:{start:14},wolves:{start:21},trample:{start:22},neuro:{start:25},envenom:{start:26},cotw:{start:29},quick:{start:32},ursine:{start:35},natfort:{start:36},hsenses:{start:39},predatory:{start:42},ironfur:{start:45},crushing:{start:48},stoneguard:{start:51},safeguard:{start:54},feral:{start:57},mending:{start:60},defiance:{start:63},colif:{start:66},ancfort:{start:69}};
+let druCur=0;
+(function(){const tb=document.getElementById('dru-tbody');druSP.forEach(r=>{const tr=document.createElement('tr');tr.id='dru-row-'+r.pt;tr.innerHTML=`<td>${r.pt}</td><td>${r.skill}</td><td>${r.mod}</td><td style="font-size:11px;color:var(--text2)">${r.why}</td>`;tb.appendChild(tr);});})();
+function druSetPt(pt){pt=Math.max(0,Math.min(71,+pt||0));druCur=pt;document.getElementById('dru-slider').value=pt;document.getElementById('dru-pt-label').textContent=pt+' / 71';Object.keys(druMods).forEach(k=>{const el=document.getElementById('dru-n-'+k),rel=document.getElementById('dru-r-'+k);if(!el)return;if(pt>=druMods[k].start){el.classList.add('active');let last=null;for(let i=pt-1;i>=0;i--){if(druSP[i].node===k){last=druSP[i];break;}}if(rel&&last)rel.textContent=' · '+last.mod;const cur=druSP[pt-1];el.classList.toggle('current',!!(cur&&cur.node===k));}else{el.classList.remove('active','current');if(rel)rel.textContent='';}});const c=document.getElementById('dru-callout');if(pt===0){c.textContent='Use the slider or buttons to step through all 71 skill points in order.';}else{const sp=druSP[pt-1];c.innerHTML=`<strong>Point ${pt} — ${sp.skill} (${sp.mod})</strong><br>${sp.why}`;}document.querySelectorAll('#dru-tbody tr').forEach(tr=>{const n=+tr.id.replace('dru-row-','');tr.className=n===pt?'stw-active-row':n<pt?'stw-done-row':'';});if(pt>0){const a=document.getElementById('dru-row-'+pt);if(a)a.scrollIntoView({block:'nearest',behavior:'smooth'});}}
 
 /* ── Light / dark theme toggle ───────────────────────────────────────── */
 const toggle = document.querySelector('.theme-toggle');
