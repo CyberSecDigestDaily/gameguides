@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diablo 4 Whirlwind Barbarian Build | Spin to Win Fire Guide Season 13</title>
+<meta name="description" content="Diablo 4 Whirlwind Barbarian build guide. Best skill tree, aspects, Talisman, Runewords, and rotation for fire Spin2Win. Updated Season 13 Lord of Hatred.">
+<meta property="og:title" content="Diablo 4 Whirlwind Barbarian Build | Spin to Win Fire Guide Season 13">
+<meta property="og:description" content="Become an unstoppable firestorm. Full Whirlwind Barbarian build — skills, Talisman, Runewords, aspects, mercenaries, and boss tips. Updated for Season 13.">
+<meta property="og:url" content="https://bloodguides.pages.dev/diablo4-whirlwind-barbarian-build/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+/* Page-specific variables — Barbarian fire/blood theme */
+:root {
+  --bg: #160c09; --surface: #1e1209; --surface2: #2a1a0f; --border: #4a2a18;
+  --accent: #c84c1a; --accent2: #7a2a0a; --gold: #d4813a; --gold2: #f0a840;
+  --text: #f0e4d8; --text2: #c8b098; --text3: #d8c4b0;
+  --blue: #5b9fd4; --green: #5db87a;
+}
+/* Barbarian hero — forge fire */
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(200,76,26,0.45) 0%, transparent 70%),
+    radial-gradient(ellipse at 30% 100%, rgba(180,60,10,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(9,6,4,1) 40%,   transparent 100%),
+    #160c09 !important;
+}
+/* Badge colours */
+.badge.red    { color: var(--accent);  border-color: var(--accent);  background: rgba(200,76,26,0.12); }
+.badge.amber  { color: var(--gold);    border-color: var(--gold);    background: rgba(212,129,58,0.12); }
+.badge.orange { color: var(--gold2);   border-color: var(--gold2);   background: rgba(240,168,64,0.10); }
+
+/* Skill progression cards */
+.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
+.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
+.prog-header.mid   { background: rgba(200,76,26,.15);  color: var(--accent); }
+.prog-header.end   { background: rgba(212,129,58,.15); color: var(--gold); }
+.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
+.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
+
+/* Talisman set grid */
+.talisman-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 16px 0; }
+.talisman-card { background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--accent); border-radius: 0 0 4px 4px; padding: 16px 18px; }
+.talisman-card .tal-set  { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.talisman-card .tal-name { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); margin-bottom: 6px; }
+.talisman-card .tal-tag  { display: inline-block; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--accent); color: var(--accent); border-radius: 2px; margin-bottom: 8px; }
+.talisman-card .tal-tag.gold { border-color: var(--gold); color: var(--gold); }
+.talisman-card .tal-tag.green { border-color: var(--green); color: var(--green); }
+.talisman-card p { font-size: 15px; margin-bottom: 6px; }
+
+/* Skill row key colour */
+.skill-row-key { color: var(--gold); font-weight: 600; }
+
+/* Aspect priority bar */
+.aspect-priority { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.aspect-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+.aspect-dot.gold { background: var(--gold); }
+.aspect-dot.blue { background: var(--blue); }
+.aspect-dot.grey { background: var(--border); }
+
+/* ── Skill Tree Widget ───────────────────────────────────────────────── */
+.stw{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;margin:20px 0}
+.stw-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.stw-title{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.stw-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stw-controls button{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:4px;cursor:pointer;font-size:13px}
+.stw-controls button:hover{border-color:var(--accent);color:var(--accent)}
+#bar-slider{width:200px;accent-color:var(--accent)}
+.stw-pt-label{font-family:'Cinzel',serif;font-size:12px;color:var(--gold2);min-width:80px}
+.stw-nodes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.stw-group{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px;flex:1 1 180px}
+.stw-group-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.stw-node{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:4px;border:1px solid var(--border);font-size:11px;margin:2px;opacity:.3;transition:opacity .15s,border-color .15s,box-shadow .15s;cursor:default;white-space:nowrap}
+.stw-node.active{opacity:1}
+.stw-node.current{box-shadow:0 0 0 2px var(--gold2)}
+.stw-node-rank{font-size:9px;opacity:.75;font-style:italic}
+.chip-basic{border-color:#3a5f8a;color:#5b9fd4}.chip-basic.active{background:rgba(91,159,212,.15);border-color:#5b9fd4}
+.chip-core{border-color:#7a3a1a;color:#c84c1a}.chip-core.active{background:rgba(200,76,26,.15);border-color:#c84c1a}
+.chip-def{border-color:#2a5c7a;color:#3ab8d4}.chip-def.active{background:rgba(58,184,212,.12);border-color:#3ab8d4}
+.chip-shout{border-color:#7a6a1a;color:#d4b43c}.chip-shout.active{background:rgba(212,180,60,.12);border-color:#d4b43c}
+.chip-ult{border-color:#7a2a0a;color:var(--accent)}.chip-ult.active{background:rgba(200,76,26,.15);border-color:var(--accent)}
+.chip-pass{border-color:var(--border);color:var(--text2)}.chip-pass.active{background:rgba(255,255,255,.06);border-color:var(--text3)}
+.stw-callout{background:var(--surface2);border-left:3px solid var(--accent);padding:10px 14px;font-size:13px;margin-bottom:16px;border-radius:0 4px 4px 0;min-height:44px;line-height:1.6}
+.stw-table-wrap{max-height:280px;overflow-y:auto;border:1px solid var(--border);border-radius:4px}
+.stw-table{width:100%;border-collapse:collapse;font-size:12px}
+.stw-table th{background:var(--surface2);position:sticky;top:0;padding:6px 10px;text-align:left;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.05em;border-bottom:1px solid var(--border)}
+.stw-table td{padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
+.stw-table tr.stw-active-row td{background:rgba(200,76,26,.15)}
+.stw-table tr.stw-done-row{opacity:.5}
+</style>
+</head>
+<body>
+<div id="page-top"></div>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
+          <li><a href="/dragon-faith-build/">Dragon Faith Build</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" class="active">Diablo 4 ▾</a>
+        <ul>
+          <li><a href="/diablo4-necromancer-minion-build/">Necromancer Minion Build</a></li>
+          <li><a href="/diablo4-druid-bear-build/">Druid Bear Build</a></li>
+          <li><a href="/diablo4-paladin-blessed-hammer-build/">Paladin Blessed Hammer</a></li>
+          <li><a href="/diablo4-whirlwind-barbarian-build/">Barbarian Whirlwind Build</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+    <button class="theme-toggle" title="Toggle light/dark mode">
+      <span class="toggle-icon">☀️</span> Light
+    </button>
+  </div>
+</header>
+
+<button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Complete Build Guide · Season 13 · Lord of Hatred</span>
+  <h1 class="title">Whirlwind Barbarian</h1>
+  <p class="subtitle">Spin2Win · Fire Conversion · Sescheron's Fury · Become a living firestorm.</p>
+  <div class="badges">
+    <span class="badge red">Fire</span>
+    <span class="badge amber">Berserking</span>
+    <span class="badge">S-Tier</span>
+    <span class="badge">PvE ✓</span>
+    <span class="badge">Levelling</span>
+    <span class="badge">WT1 → WT4</span>
+  </div>
+</div>
+
+<!-- IN-PAGE NAV -->
+<nav class="section-nav">
+  <ul>
+    <li><button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Overview</button></li>
+    <li><button onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants</button></li>
+    <li><button onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skill Tree</button></li>
+    <li><button onclick="document.getElementById('arsenal').scrollIntoView({behavior:'smooth'})">Arsenal</button></li>
+    <li><button onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats &amp; Gear</button></li>
+    <li><button onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">Aspects</button></li>
+    <li><button onclick="document.getElementById('gems').scrollIntoView({behavior:'smooth'})">Gems &amp; Runes</button></li>
+    <li><button onclick="document.getElementById('talisman').scrollIntoView({behavior:'smooth'})">Talisman</button></li>
+    <li><button onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">Paragon</button></li>
+    <li><button onclick="document.getElementById('mercenaries').scrollIntoView({behavior:'smooth'})">Mercenaries</button></li>
+    <li><button onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation</button></li>
+    <li><button onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">World Tiers</button></li>
+    <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Overview</h2>
+  <div class="section-rule"></div>
+
+  <div class="summary-box">
+    <div class="summary-grid">
+      <div class="summary-item"><span class="summary-label">Build Identity</span><span class="summary-value">The Living Firestorm</span></div>
+      <div class="summary-item"><span class="summary-label">Class</span><span class="summary-value">Barbarian</span></div>
+      <div class="summary-item"><span class="summary-label">Primary Mechanic</span><span class="summary-value">Whirlwind · Fire Conversion · Berserking</span></div>
+      <div class="summary-item"><span class="summary-label">Core Skills</span><span class="summary-value">Whirlwind · Wrath of the Berserker · War Cry · Rallying Cry</span></div>
+      <div class="summary-item"><span class="summary-label">Key Passive</span><span class="summary-value">Unconstrained</span></div>
+      <div class="summary-item"><span class="summary-label">Best For</span><span class="summary-value">Campaign, Helltides, Nightmare Dungeons, WT1–WT4</span></div>
+    </div>
+  </div>
+
+  <p>The Whirlwind Barbarian is one of Diablo's most iconic archetypes, and in Season 13 — with the Lord of Hatred expansion — it is back as a genuine S-Tier threat. The build's defining change in this expansion is the <strong>Bursting choice node</strong>, unlocked at Level 15, which converts all of Whirlwind's physical damage to Fire. Combined with Gohr's Devastating Grips, which now adds a massive 75–90% damage bonus to Whirlwind and pulls enemies to you every two seconds, you become a screen-filling tornado of flame incinerating everything within reach.</p>
+
+  <p>The engine behind the damage is a tightly integrated <strong>Berserking loop</strong>. Aspect of Anger Management grants Berserking whenever you have more than 50 Fury — which, thanks to Rallying Cry and Aspect of Berserk Fury regenerating 7–11 Fury per second while Berserking, is essentially permanent. Berserking grants increased attack speed and damage, extends via Unconstrained (your Key Passive), and feeds directly into the <strong>Sescheron's Fury Talisman set</strong>. At five pieces that Talisman set makes you <em>Colossal</em> above 100 Fury — your Whirlwind grows to near-screen size and hits for 600% increased damage. Ramaladni's Magnum Opus then adds a further multiplier scaled to your current Fury, making it critical to keep resources topped at all times.</p>
+
+  <p>The Runeword system amplifies this further. The Cir + Vex pair in your Two-Handed Slashing Weapon gives you a permanent +3 to all skill ranks — maintained automatically by your shout rotation. The Bac + Gar pair in your Bludgeoning Weapon stacks Critical Strike Chance passively just from moving, which this build does constantly. The result is a build with extraordinary AoE clear, excellent mobility, solid defensive layers via Fortify, and minimal complexity once running — just spin, shout, and watch the screen burn.</p>
+
+  <div class="pro-con-grid">
+    <div class="pro-box">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Enormous AoE — Whirlwind hits everything within the spin radius, Gohr's pulls strays in every 2 seconds</li>
+        <li>Permanent Berserking via Anger Management + Berserk Fury feedback loop — zero management required</li>
+        <li>Sescheron's Fury 5pc at 100+ Fury: 600% damage Colossal Whirlwind covers most of the screen</li>
+        <li>Ramaladni's Magnum Opus converts Fury into damage — the higher you keep resources, the harder you hit</li>
+        <li>Cir + Vex Runeword gives permanent +3 to all skill ranks for free while shouting</li>
+        <li>Multiple Fortify sources (Tactical Iron Skin, Thick Skin, Challenging Shout) provide strong damage reduction</li>
+        <li>Great mobility — Whirlwind itself moves you at full speed; no gap-closer needed for standard content</li>
+        <li>Raheir mercenary provides Ground Slam CC and barrier support for free</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Resource management matters — Ramaladni's drains 10 Fury per second; you must maintain over 100 Fury for full Talisman power</li>
+        <li>Cooldown dependency — Wrath of the Berserker is central to burst phases; low cooldown reduction delays power windows</li>
+        <li>Lower single-target damage without Wrath of the Berserker active — save it for Elites and Bosses</li>
+        <li>Gohr's Devastating Grips and Ramaladni's Magnum Opus are optional Uniques that massively improve the build — tedious to acquire</li>
+        <li>Heir of Perdition Mythic Unique is best-in-slot helm but extremely rare; Ugly Bastard Helm is the realistic pre-Mythic target</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <span></span>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">Variants →</button>
+  </div>
+</section>
+
+<!-- VARIANTS -->
+<section id="variants">
+  <h2>Build Variants</h2>
+  <div class="section-rule"></div>
+
+  <p>Two versions of Whirlwind Barbarian for Season 13. The levelling build uses Lunging Strike as a Fury generator and swaps Rallying Cry to the bar once resource generation is self-sustaining. The endgame build drops the generator entirely and runs a full six-skill shout rotation. Both share the same Key Passive and the same weapon setup.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'leveling')">Levelling (1–70)</button>
+    <button class="tab-btn" onclick="switchTab(event,'endgame')">Endgame (70+)</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-leveling">
+    <h3>Levelling Build — 1 to 70</h3>
+    <p>Use Lunging Strike to generate Fury and maintain Berserking via its Combat upgrade, then channel Whirlwind into packs. Upgrade to the Bursting choice node at Level 15 to convert Whirlwind to Fire. Your three shouts — Challenging Shout, Rallying Cry, and War Cry — come online progressively as you invest skill points. Once you have Anger Management and Berserk Fury aspects (both farmable in the Codex), drop Lunging Strike from the active rotation and rely on resource generation from gear and Rallying Cry instead.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Purpose</th></tr>
+      <tr><td>Basic</td><td class="highlight">Lunging Strike (Combat)</td><td>Fury generator; Combat upgrade grants Berserking on Critical Strike — your primary Berserking source before Anger Management aspect</td></tr>
+      <tr><td>Core</td><td class="highlight">Whirlwind (Violent / Bursting at Lv15)</td><td>Primary damage; Bursting choice node converts to Fire and applies Burning to enemies on spin</td></tr>
+      <tr><td>Defensive</td><td class="highlight">Iron Skin (Tactical)</td><td>Emergency barrier + Fortify generation; Tactical upgrade generates Fortify — use whenever threatened</td></tr>
+      <tr><td>Ultimate</td><td class="highlight">Wrath of the Berserker (Prime)</td><td>Core damage cooldown; Prime extends duration on kill — pop before Elite packs and Bosses</td></tr>
+      <tr><td>Shout</td><td class="highlight">Challenging Shout (Tactical)</td><td>Damage reduction + Fortify; Tactical generates Fortify — use on cooldown as a free defensive layer</td></tr>
+      <tr><td>Shout</td><td class="highlight">War Cry (Mighty)</td><td>All damage increased; Mighty upgrade makes you Berserking — drop this over any fight with Elites</td></tr>
+    </table>
+    <p><strong>Progression note:</strong> Add Rallying Cry once you have Aspect of Berserk Fury and Aspect of Anger Management imprinted — at that point Lunging Strike becomes redundant and Rallying Cry's resource generation covers the gap while also boosting movement speed and Fury generation by nearly 60%.</p>
+  </div>
+
+  <div class="tab-panel" id="tab-endgame">
+    <h3>Endgame Build — Post-70</h3>
+    <p>The full six-skill shout rotation. No generator — Rallying Cry and gear affixes provide all the Fury regeneration needed. Whirlwind channels continuously while you manage three shout timers on cooldown. Wrath of the Berserker is your burst window for Elites and Bosses; Iron Skin is your emergency safety net; Challenging Shout and Rallying Cry run on near-permanent uptime to maintain Fortify, resource generation, and Sescheron's Fury set stacks.</p>
+    <table class="data-table">
+      <tr><th>Slot</th><th>Skill</th><th>Purpose</th></tr>
+      <tr><td>Core</td><td class="highlight">Whirlwind (Violent/Bursting)</td><td>Permanent channel; fire damage burns everything; Gohr's pulls enemies in; Colossal size at 100+ Fury</td></tr>
+      <tr><td>Defensive</td><td class="highlight">Iron Skin (Tactical)</td><td>Barrier + Fortify; use when health drops or entering a dangerous Elite phase</td></tr>
+      <tr><td>Ultimate</td><td class="highlight">Wrath of the Berserker (Prime/Supreme)</td><td>Burst cooldown; triggers Ugly Bastard Helm's 45–60% Fire bonus; grants Unstoppable; use on every Elite pack</td></tr>
+      <tr><td>Shout</td><td class="highlight">Rallying Cry (Tactical)</td><td>Costs Fury but provides +60% resource generation and movement speed — the Fury cost is negligible against the gain</td></tr>
+      <tr><td>Shout</td><td class="highlight">War Cry (Mighty)</td><td>Damage multiplier + Berserking; use before each pack to front-load damage for Gohr's pull window</td></tr>
+      <tr><td>Shout</td><td class="highlight">Challenging Shout (Tactical)</td><td>Damage reduction + Fortify; Critical Strike damage bonus while Fortified via Crushing Aspect</td></tr>
+    </table>
+    <p><strong>Key Passive — Unconstrained:</strong> Berserking duration is extended and all effects while Berserking are doubled. With permanent Berserking from Anger Management, this effectively means doubled attack speed bonus and doubled damage bonuses while spinning — the single most impactful passive in the build.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">← Overview</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">Skills →</button>
+  </div>
+</section>
+
+<!-- SKILL TREE -->
+<section id="skills">
+  <h2>Skill Tree</h2>
+  <div class="section-rule"></div>
+
+  <p>The Barbarian skill tree gates tiers behind cumulative point investment: 2 points for Core, 6 for Defensive, 11 for Brawling and Weapon Mastery, 16 for the Ultimate tier, and 23 for the Key Passive. You earn 59 Skill Points from levelling plus up to 12 more from Season Journey rewards, for a total of 71 base points (83 with all Journey bonuses). The Bursting choice node for Whirlwind unlocks at Level 15 via a short questline in Ked Bardu called <em>Masters of Battle</em>.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Skill Point Gate Reference</div>
+    <p><strong>2 pts spent</strong> → Core tier · <strong>6 pts</strong> → Defensive, Brawling · <strong>11 pts</strong> → Weapon Mastery · <strong>16 pts</strong> → Ultimate tier · <strong>23 pts</strong> → Key Passive. The Bursting fire conversion for Whirlwind is a Level 15 choice node — complete Masters of Battle in Ked Bardu the moment you reach Kehjistan.</p>
+  </div>
+
+  <h3>Interactive Skill Allocator — 71 Points</h3>
+  <div class="stw" id="bar-stw">
+    <div class="stw-header">
+      <span class="stw-title">1–71 Point Allocation · Whirlwind Barbarian</span>
+      <div class="stw-controls">
+        <button onclick="barSetPt(barCur-1)">◀</button>
+        <input type="range" id="bar-slider" min="0" max="71" value="0" oninput="barSetPt(+this.value)">
+        <button onclick="barSetPt(barCur+1)">▶</button>
+        <span class="stw-pt-label" id="bar-pt-label">0 / 71</span>
+      </div>
+    </div>
+    <div class="stw-nodes">
+      <div class="stw-group">
+        <div class="stw-group-label">Basic</div>
+        <div class="stw-node chip-basic" id="bar-n-lunging">Lunging Strike<span class="stw-node-rank" id="bar-r-lunging"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Core</div>
+        <div class="stw-node chip-core" id="bar-n-ww">Whirlwind<span class="stw-node-rank" id="bar-r-ww"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Defensive</div>
+        <div class="stw-node chip-def" id="bar-n-ironskin">Iron Skin<span class="stw-node-rank" id="bar-r-ironskin"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Shouts</div>
+        <div class="stw-node chip-shout" id="bar-n-rallying">Rallying Cry<span class="stw-node-rank" id="bar-r-rallying"></span></div>
+        <div class="stw-node chip-shout" id="bar-n-warcry">War Cry<span class="stw-node-rank" id="bar-r-warcry"></span></div>
+        <div class="stw-node chip-shout" id="bar-n-challenging">Challenging Shout<span class="stw-node-rank" id="bar-r-challenging"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Ultimate</div>
+        <div class="stw-node chip-ult" id="bar-n-wotb">Wrath of Berserker<span class="stw-node-rank" id="bar-r-wotb"></span></div>
+      </div>
+      <div class="stw-group">
+        <div class="stw-group-label">Key Passive</div>
+        <div class="stw-node chip-ult" id="bar-n-unconstr">Unconstrained<span class="stw-node-rank" id="bar-r-unconstr"></span></div>
+      </div>
+      <div class="stw-group" style="flex:2 1 340px">
+        <div class="stw-group-label">Passives (pts 22–71)</div>
+        <div class="stw-node chip-pass" id="bar-n-booming">Booming Voice<span class="stw-node-rank" id="bar-r-booming"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-guttural">Guttural Yell<span class="stw-node-rank" id="bar-r-guttural"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-aggresist">Aggressive Resist<span class="stw-node-rank" id="bar-r-aggresist"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-prolific">Prolific Fury<span class="stw-node-rank" id="bar-r-prolific"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-pitfighter">Pit Fighter<span class="stw-node-rank" id="bar-r-pitfighter"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-nomercy">No Mercy<span class="stw-node-rank" id="bar-r-nomercy"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-heavyhanded">Heavy Handed<span class="stw-node-rank" id="bar-r-heavyhanded"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-counteroff">Counteroffensive<span class="stw-node-rank" id="bar-r-counteroff"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-thickskin">Thick Skin<span class="stw-node-rank" id="bar-r-thickskin"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-martvigr">Martial Vigor<span class="stw-node-rank" id="bar-r-martvigr"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-tempfury">Tempered Fury<span class="stw-node-rank" id="bar-r-tempfury"></span></div>
+        <div class="stw-node chip-pass" id="bar-n-hamstring">Hamstring<span class="stw-node-rank" id="bar-r-hamstring"></span></div>
+      </div>
+    </div>
+    <div class="stw-callout" id="bar-callout">Use the slider or buttons to step through all 71 skill points in priority order.</div>
+    <div class="stw-table-wrap">
+      <table class="stw-table">
+        <thead><tr><th>#</th><th>Skill</th><th>Mod / Rank</th><th>Why</th></tr></thead>
+        <tbody id="bar-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3>Priority Reference</h3>
+  <table class="data-table">
+    <tr><th>Priority</th><th>Skill / Upgrade</th><th>Points</th><th>Why</th></tr>
+    <tr><td>1</td><td class="skill-row-key">Lunging Strike 1 → Enhanced → Combat</td><td>3</td><td>Fury generator for the levelling phase. Combat upgrade grants Berserking on Critical Strike — your primary Berserking source before you acquire Anger Management aspect. Drop from active rotation once you have both core aspects imprinted and Rallying Cry running.</td></tr>
+    <tr><td>2</td><td class="skill-row-key">Whirlwind 1 → Enhanced → Violent + Ranks 2–5</td><td>7</td><td>Your entire build. Enhanced Whirlwind makes enemies Vulnerable while spinning. Violent adds a Fury cost reduction. At Level 15, complete Masters of Battle in Ked Bardu and select <strong>Bursting</strong> as your choice node — this converts all Whirlwind damage to Fire and causes periodic fire explosions on enemies you burn. Max to 5 ranks for maximum base damage and spin radius.</td></tr>
+    <tr><td>3</td><td class="skill-row-key">Iron Skin 1 → Enhanced → Tactical</td><td>3</td><td>Emergency defensive cooldown. Tactical Iron Skin generates Fortify when activated — critical for maintaining the Fortify threshold that powers Counteroffensive, Thick Skin, and Crushing Aspect. Use whenever your health dips; do not hold it for panic use only.</td></tr>
+    <tr><td>4</td><td class="skill-row-key">Wrath of the Berserker 1 → Prime → Supreme</td><td>3</td><td>Your Ultimate and primary burst cooldown. Prime extends Wrath duration each time you kill an enemy — in Elite-dense content this makes it near-permanent during combat. Supreme makes Wrath free to cast and grants Unstoppable for its duration. This is the trigger for Ugly Bastard Helm's massive Fire damage bonus — activate it before every Elite pack.</td></tr>
+    <tr><td>5</td><td class="skill-row-key">Challenging Shout 1 → Enhanced → Tactical</td><td>3</td><td>Flat damage reduction (40%+ against Close enemies at max) plus Fortify generation. Tactical upgrade generates Fortify on cast. Run this on cooldown — it stacks with Iron Skin's Fortify and feeds Counteroffensive's damage bonus while Fortified. Also synergises with Crushing Aspect, which provides 45–65% more damage while Fortified.</td></tr>
+    <tr><td>6</td><td class="skill-row-key">Rallying Cry 1 → Enhanced → Tactical</td><td>3</td><td>In Lord of Hatred, Rallying Cry now costs Fury rather than having a cooldown — making it a near-permanent buff when Fury generation is high. The payoff is enormous: roughly +60% resource regeneration and a significant movement speed boost, which means you can sustain Whirlwind's channel far longer per engagement. Tactical upgrade further boosts Fury generation.</td></tr>
+    <tr><td>7</td><td class="skill-row-key">War Cry 1 → Enhanced → Mighty</td><td>3</td><td>A damage multiplier on demand. Mighty War Cry grants Berserking to you and nearby allies on cast. Use it before engaging an Elite pack — the combined effect of Wrath of the Berserker and War Cry overlapping provides the highest damage burst window in the build.</td></tr>
+    <tr><td>8</td><td class="skill-row-key">Booming Voice 1–3</td><td>3</td><td>Increases the duration of all Shout skills by up to 32%. Since Rallying Cry, War Cry, and Challenging Shout are your three non-channelling skills, this directly extends their uptime — reducing the frequency of re-casts and therefore the interruptions to Whirlwind channel time.</td></tr>
+    <tr><td>9</td><td class="skill-row-key">Guttural Yell 1–3</td><td>3</td><td>Shout skills reduce the damage enemies deal to you. A passive always-on damage reduction layer that stacks with Challenging Shout and Fortify — meaningful at higher difficulty tiers where enemy damage spikes hard.</td></tr>
+    <tr><td>10</td><td class="skill-row-key">Aggressive Resistance 1–3</td><td>3</td><td>Grants Damage Reduction while Berserking. Since you are permanently Berserking via Anger Management + Berserk Fury, this is a permanent +9% damage reduction at 3/3. Combines with Guttural Yell for a solid defensive baseline without any active management.</td></tr>
+    <tr><td>11</td><td class="skill-row-key">Prolific Fury 1–3</td><td>3</td><td>Generates Fury while Berserking. Combined with Aspect of Berserk Fury (7–11 Fury per second while Berserking), this creates a self-sustaining Fury loop that keeps you above the Sescheron's Fury 100-Fury threshold for Colossal status — and keeps Ramaladni's Magnum Opus rolling at full multiplier.</td></tr>
+    <tr><td>12</td><td class="skill-row-key">Unconstrained (Key Passive ★)</td><td>1</td><td>The build's engine. Extends Berserking duration and <strong>doubles all effects</strong> while Berserking. With permanent Berserking, this means doubled attack speed bonus, doubled damage bonuses, and doubled Fury generation — a massive multiplicative uplift across every stat that benefits from Berserking.</td></tr>
+    <tr><td>13</td><td class="skill-row-key">Pit Fighter 1–3</td><td>3</td><td>Increased damage to Close enemies plus damage reduction from Close enemies. This build always fights in melee range — both effects are permanently active. Damage reduction against the enemies most likely to kill you, plus free damage multiplier.</td></tr>
+    <tr><td>14</td><td class="skill-row-key">No Mercy 1–3</td><td>3</td><td>Increased Critical Strike Chance against Immobilised, Stunned, and Slowed enemies. Whirlwind inherently Slows enemies via the Hamstring passive, and Gohr's Devastating Grips groups enemies every 2 seconds into predictable positions for consistent Crit landing.</td></tr>
+    <tr><td>15</td><td class="skill-row-key">Heavy Handed 1–3</td><td>3</td><td>Two-Handed weapons gain increased Critical Strike Damage. Your primary Whirlwind weapon is always a Two-Handed Bludgeoning weapon (assigned to Whirlwind) — this is a straight Crit multiplier on every spin.</td></tr>
+    <tr><td>16</td><td class="skill-row-key">Counteroffensive 1–3</td><td>3</td><td>Damage bonus while Fortified. With Tactical Iron Skin, Tactical Challenging Shout, and Natural Fortitude generating Fortify constantly, you are almost always in the Fortify health buffer. Counteroffensive directly multiplies Whirlwind damage from this permanent state.</td></tr>
+    <tr><td>17</td><td class="skill-row-key">Thick Skin 1–3</td><td>3</td><td>Fortify generation when you take direct damage. You will be hit — especially in Nightmare Dungeons at higher levels. This passive automatically refills Fortify after each hit, sustaining Counteroffensive and Challenging Shout bonuses without any active management.</td></tr>
+    <tr><td>18</td><td class="skill-row-key">Martial Vigor 1–3</td><td>3</td><td>Damage Reduction against Elite enemies specifically. Bosses, Champions, and Rare packs deal the overwhelming majority of damage in this build. Martial Vigor cuts that incoming damage directly — essential for pushing higher Nightmare Dungeon tiers.</td></tr>
+    <tr><td>19</td><td class="skill-row-key">Tempered Fury 1–3</td><td>3</td><td>Increases Maximum Fury. More Maximum Fury means Ramaladni's Magnum Opus scales higher (it's a per-Fury multiplier), Sescheron's Fury 5pc 600% damage window is available more reliably, and Rallying Cry's cost is proportionally smaller against a larger resource pool.</td></tr>
+    <tr><td>20</td><td class="skill-row-key">Hamstring 1–3</td><td>3</td><td>Whirlwind Slows enemies hit. Slowed enemies trigger No Mercy's Crit Chance bonus. This also provides subtle crowd control that reduces how frequently enemies escape your spin radius before Gohr's next pull.</td></tr>
+  </table>
+
+  <div class="progression-grid">
+    <div class="prog-stage">
+      <div class="prog-header early">Levels 1–20 · Core Rotation</div>
+      <p>Lunging Strike → Whirlwind 1–5 + Violent → Iron Skin (Tactical) → Wrath of the Berserker (Prime). Complete Masters of Battle at Level 15 for Bursting. Focus on keeping Fury above 50 for early Berserking.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header mid">Levels 20–40 · Shout Setup</div>
+      <p>Add all three shouts with upgrades. Acquire Anger Management and Berserk Fury aspects from Codex — once imprinted, remove Lunging Strike. Berserking becomes permanent. Wrath of the Berserker now extends on kills via Prime.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header end">Levels 40–70 · Passive Investment</div>
+      <p>Booming Voice → Guttural Yell → Aggressive Resistance → Prolific Fury → Unconstrained (Key Passive). Passive investment compounds existing Berserking bonuses. The build reaches full capability once Unconstrained is active.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">The Fury Loop</div>
+    <p>The Fury loop runs as follows: Aspect of Anger Management grants Berserking when Fury exceeds 50. Aspect of Berserk Fury generates 7–11 Fury per second while Berserking. Prolific Fury passive adds further Fury during Berserking. The result is self-sustaining — once you have both aspects, Fury remains above threshold permanently. Ramaladni's drains 10 Fury per second, which is offset by Rallying Cry's 60% resource boost and Berserk Fury generation. Run Tempered Fury 3/3 to give the loop more headroom and keep Sescheron's 5pc active at 100+.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('variants').scrollIntoView({behavior:'smooth'})">← Variants</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('arsenal').scrollIntoView({behavior:'smooth'})">Arsenal →</button>
+  </div>
+</section>
+
+<!-- ARSENAL SYSTEM -->
+<section id="arsenal">
+  <h2>Arsenal System</h2>
+  <div class="section-rule"></div>
+
+  <p>The Barbarian's unique class mechanic is the Arsenal — the ability to simultaneously equip four weapons across two Two-Handed slots and two Dual-Wield slots, and assign skills to specific weapon types. Different weapon types grant different passive bonuses, and one weapon type can be designated as your <strong>Technique</strong> to grant its bonus permanently regardless of what you're actually wielding.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Technique of Choice — Polearm</div>
+    <p>Equip the <strong>Polearm</strong> technique for bonus damage against Vulnerable enemies. Enhanced Whirlwind makes nearby enemies Vulnerable while you channel — meaning this bonus is active on virtually every spin. The Polearm technique quest unlocks at Level 15 in Ked Bardu alongside the Bursting node quest; do both on the same trip.</p>
+  </div>
+
+  <table class="data-table">
+    <tr><th>Weapon Slot</th><th>Assign</th><th>Aspect / Runeword</th><th>Why</th></tr>
+    <tr><td class="highlight">Two-Handed Bludgeoning</td><td>Whirlwind</td><td>Aspect of Channeling + Bac/Gar Runeword</td><td>Your primary Whirlwind weapon — assign the highest-damage 2H weapon here. Aspect of Channeling grants +50–70% damage to all skills while Channeling, which Whirlwind qualifies for. Bac/Gar stacks Critical Strike Chance passively just from movement.</td></tr>
+    <tr><td class="highlight">Two-Handed Slashing</td><td>Secondary (auto)</td><td>Cremator's Aspect + Cir/Vex Runeword</td><td>Cremator's Aspect multiplies Fire Skill damage by 70–100% while you have 4 or more Overpower charges — fuelled by Banished Lord's Talisman charm. Cir/Vex permanently grants +3 ranks to all skills while your shout rotation runs.</td></tr>
+    <tr><td class="highlight">Dual-Wield Weapon 1</td><td>Secondary (auto)</td><td>Vehement Brawler's Aspect</td><td>Casting an Ultimate Skill (Wrath of the Berserker) gives +35–55% damage for 8 seconds and adds 2 Ultimate Skill ranks. Use Wrath on every Elite pack to trigger this window.</td></tr>
+    <tr><td class="highlight">Dual-Wield Weapon 2</td><td>Secondary (auto)</td><td>Ramaladni's Magnum Opus (Unique)</td><td>Reworked in Lord of Hatred to apply to ALL skills regardless of which weapon is being used. Scales +0.35–0.5% per current Fury, but drains 10 Fury per second. At 150 Fury with a max roll this is a 75%+ damage multiplier — enormous. Keep Fury above 100 at all times.</td></tr>
+  </table>
+
+  <p><strong>Weapon priority:</strong> For Whirlwind's assigned Two-Handed Bludgeoning slot, always equip the highest base weapon damage available — this is what the skill scales from. The Two-Handed Slashing weapon matters less for direct damage and more for Cremator's Aspect and the Runeword slot. Dual-Wield weapons primarily exist as Aspect and Legendary power carriers.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('skills').scrollIntoView({behavior:'smooth'})">← Skill Tree</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats &amp; Gear →</button>
+  </div>
+</section>
+
+<!-- STATS & GEAR -->
+<section id="stats">
+  <h2>Stats &amp; Gear</h2>
+  <div class="section-rule"></div>
+
+  <p>Stat priorities for each gear slot, listed in order of importance. The bolded affix in each row is the primary target for Masterworking upgrades — focus upgrade rolls here first. Tempering Manuals unlock from dungeon drops and Obol gambling; the most impactful ones are listed per slot.</p>
+
+  <table class="data-table">
+    <tr><th>Slot</th><th>Priority Affixes</th><th>Best Tempering Affix</th></tr>
+    <tr><td class="highlight">Helm</td><td><strong>Cooldown Reduction</strong> · Maximum Life · Strength · Armour</td><td>Resistance to All Elements</td></tr>
+    <tr><td class="highlight">Chest</td><td>Strength · <strong>Maximum Life</strong> · Fury Generation · Armour</td><td>Resistance to All Elements</td></tr>
+    <tr><td class="highlight">Gloves</td><td><strong>Attack Speed</strong> · Strength · Critical Strike Chance · Fire Damage Multiplier</td><td>Critical Strike Damage Multiplier</td></tr>
+    <tr><td class="highlight">Pants</td><td>Strength · <strong>Maximum Life</strong> · Fury Generation · Armour</td><td>Resistance to All Elements</td></tr>
+    <tr><td class="highlight">Boots</td><td><strong>Movement Speed</strong> · Strength · Maximum Life · Fury Generation</td><td>Movement Speed</td></tr>
+    <tr><td class="highlight">Amulet</td><td><strong>Critical Strike Chance</strong> · Critical Strike Damage Multiplier · Attack Speed · Fire Damage Multiplier</td><td>Cooldown Reduction</td></tr>
+    <tr><td class="highlight">Rings</td><td><strong>Critical Strike Chance</strong> · Critical Strike Damage Multiplier · Fire Damage Multiplier · Attack Speed</td><td>Cooldown Reduction</td></tr>
+    <tr><td class="highlight">2H Bludgeoning</td><td><strong>Weapon Damage</strong> · Strength · Maximum Life · Critical Strike Damage Multiplier</td><td>Critical Strike Chance</td></tr>
+    <tr><td class="highlight">2H Slashing</td><td>Strength · Critical Strike Damage Multiplier · Maximum Life · <strong>Weapon Damage</strong></td><td>Critical Strike Chance</td></tr>
+    <tr><td class="highlight">Dual-Wield Weapons</td><td>Strength · Maximum Life · <strong>Critical Strike Damage Multiplier</strong> · Fire Damage Multiplier</td><td>Critical Strike Chance</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Fury Generation as a Defensive Stat</div>
+    <p>Fury Generation rolls on Chest, Pants, and Boots look like an offensive affix but serve a defensive function: they maintain the Fury threshold for Sescheron's Fury Colossal state, Ramaladni's Magnum Opus multiplier, and Edgemaster's Aspect maximum benefit. If your Fury is constantly dropping below 50, you're losing Berserking uptime, Talisman damage, and Ramaladni's scaling simultaneously. Prioritise Fury Generation on secondary slots (Boots, Pants) over marginal offensive rolls.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('arsenal').scrollIntoView({behavior:'smooth'})">← Arsenal</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">Aspects →</button>
+  </div>
+</section>
+
+<!-- ASPECTS -->
+<section id="aspects">
+  <h2>Aspects &amp; Uniques</h2>
+  <div class="section-rule"></div>
+
+  <p>Legendary Aspects define the build's damage architecture. Required non-Codex aspects must drop as Legendary items and be extracted or salvaged — they cannot be unlocked from dungeons. Items with double aspect slots (Two-Handed weapons, Amulets) prioritise the highest-impact aspects.</p>
+
+  <div class="callout blue">
+    <div class="callout-title">Aspect Acquisition Priority</div>
+    <div class="aspect-priority"><div class="aspect-dot"></div><span><strong>Aspect of Anger Management</strong> — Codex (Maugan's Works dungeon, Dry Steppes). Farm immediately at Level 25.</span></div>
+    <div class="aspect-priority"><div class="aspect-dot"></div><span><strong>Aspect of Berserk Fury</strong> — Codex (Sarat's Lair, Scosglen). Unlocks the Fury loop.</span></div>
+    <div class="aspect-priority"><div class="aspect-dot gold"></div><span><strong>Aspect of Channeling</strong> — drop-only. Imprint on 2H Bludgeoning weapon as soon as found.</span></div>
+    <div class="aspect-priority"><div class="aspect-dot gold"></div><span><strong>Vehement Brawler's Aspect</strong> — drop-only. Imprint on a Dual-Wield weapon.</span></div>
+    <div class="aspect-priority"><div class="aspect-dot blue"></div><span><strong>Gohr's Devastating Grips</strong> — Unique Gloves. Highest-priority Unique drop; changes the feel of the build entirely.</span></div>
+  </div>
+
+  <h3>Endgame Gear Table</h3>
+  <table class="data-table">
+    <tr><th>Slot</th><th>Aspect / Unique</th><th>Effect</th></tr>
+    <tr><td class="highlight">Helm</td><td><strong>Ugly Bastard Helm</strong> (Unique)</td><td>While Wrath of the Berserker is active, deal 45–60% increased Fire damage. Since Wrath is your burst window for every Elite pack, this provides on-demand fire multipliers that stack with Cremator's Aspect perfectly.</td></tr>
+    <tr><td class="highlight">Chest</td><td>Aspect of Disobedience</td><td>Your Damage over Time effects (Whirlwind's Burning) grant 1–1.5% Damage Reduction per stack, up to 30 stacks. Against any group of Burning enemies this caps out almost immediately — effectively a permanent 30–45% Damage Reduction layer.</td></tr>
+    <tr><td class="highlight">Gloves</td><td><strong>Gohr's Devastating Grips</strong> (Unique)</td><td>Whirlwind deals 75–90% increased damage and pulls nearby enemies to you every 2 seconds. The pull effect groups enemies perfectly for each spin — combined with Colossal size from Sescheron's Fury, this means nothing survives more than a few seconds of contact.</td></tr>
+    <tr><td class="highlight">Pants</td><td>Aspect of Anger Management</td><td>While above 50 Fury, deal 15–20% increased damage and gain Berserking, but lose 3 Primary Resource Regeneration. The Berserking state this enables is the foundation of the entire damage and sustain loop.</td></tr>
+    <tr><td class="highlight">Boots</td><td>Overheating Aspect</td><td>Slain Burning enemies have a 10% chance to grant Overpower. Your Fire damage is increased by 15–20%. Whirlwind Burning kills trigger this constantly in packs — steady Overpower charge generation for Cremator's Aspect.</td></tr>
+    <tr><td class="highlight">Amulet</td><td>Edgemaster's Aspect</td><td>Skills deal up to 40–60% increased damage based on available Fury when cast, at maximum benefit while Fury is full. Combined with Tempered Fury expanding your max Fury pool and Prolific Fury keeping it topped, this is essentially always near its cap.</td></tr>
+    <tr><td class="highlight">Ring 1</td><td>Crushing Aspect</td><td>While Fortified, deal 45–65% increased damage. With three Fortify sources active (Iron Skin, Challenging Shout, Thick Skin), you are almost always Fortified. This is one of the largest accessible damage multipliers in the build.</td></tr>
+    <tr><td class="highlight">Ring 2</td><td>Aspect of Berserk Fury</td><td>Gain 7–11 Fury per second while Berserking. The second pillar of the Fury loop alongside Anger Management. Without this, the resource drain from Ramaladni's and Rallying Cry eventually depletes Fury below threshold.</td></tr>
+    <tr><td class="highlight">2H Bludgeoning</td><td>Aspect of Channeling</td><td>While Channelling a skill, all damage is increased by 50–70%. Whirlwind is a Channelling skill — this multiplier applies for every second you spin.</td></tr>
+    <tr><td class="highlight">2H Slashing</td><td>Cremator's Aspect</td><td>While you have 4 or more Overpower charges, your Fire Skill casts deal 70–100% increased damage. Overpower charges come from Overheating Aspect and Banished Lord's Talisman charm — with both active, 4 charges accumulate quickly in pack fights.</td></tr>
+    <tr><td class="highlight">Dual-Wield 1</td><td>Vehement Brawler's Aspect</td><td>Casting an Ultimate Skill increases damage by 35–55% for 8 seconds and grants 2 additional Ultimate Skill Ranks. Pop Wrath of the Berserker immediately before engaging — the 8-second window covers the highest-value early phase of each fight.</td></tr>
+    <tr><td class="highlight">Dual-Wield 2</td><td>Ramaladni's Magnum Opus (Unique)</td><td>Skills deal 0.35–0.5% increased damage per point of current Fury, but 10 Fury drains per second. At 150 Fury with max roll this is 75%+ damage across everything. The drain is real — manage Fury actively.</td></tr>
+  </table>
+
+  <h3>Mythic Uniques</h3>
+  <p>Mythic Uniques are extraordinarily rare endgame upgrades. Neither is required for the build to function or clear all content, but both are significant upgrades if found.</p>
+  <table class="data-table">
+    <tr><th>Item</th><th>Upgrade</th></tr>
+    <tr><td class="highlight">Heir of Perdition</td><td>Replaces Ugly Bastard Helm. Grants a permanent 80% multiplicative damage increase without requiring Wrath of the Berserker to be active, plus movement speed and Critical Strike Chance bonuses and additional core skill ranks for Whirlwind. A strict upgrade — equip immediately.</td></tr>
+    <tr><td class="highlight">Ring of Starless Skies</td><td>Exceptional resource management and damage. Reduces resource costs of consecutive skill casts, keeping Fury high during intensive Whirlwind channels. Replace one of the two damage rings if found — which ring to drop depends on current stat priorities.</td></tr>
+    <tr><td class="highlight">The Grandfather</td><td>Lacks weapon damage affix (meaning your Bludgeoning 2H weapon should still handle Whirlwind) but provides 150% Critical Strike Damage multiplier plus large stat boosts. A meaningful damage upgrade if you find it; use it on your 2H Slashing slot.</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">← Stats &amp; Gear</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('gems').scrollIntoView({behavior:'smooth'})">Gems &amp; Runes →</button>
+  </div>
+</section>
+
+<!-- GEMS & RUNES -->
+<section id="gems">
+  <h2>Gems &amp; Runewords</h2>
+  <div class="section-rule"></div>
+
+  <p>Gems fill all remaining sockets after Runewords are placed. The fire theme means Grand Rubies are almost universally correct — the build scales from Fire damage and Strength, both of which Rubies provide depending on slot type.</p>
+
+  <table class="data-table">
+    <tr><th>Slot Type</th><th>Gem</th><th>Reason</th></tr>
+    <tr><td class="highlight">Weapons</td><td>Grand Ruby</td><td>Increases Fire Damage — direct multiplier for Whirlwind's converted fire damage.</td></tr>
+    <tr><td class="highlight">Armour</td><td>Grand Ruby</td><td>Increases Strength — Strength scales all Barbarian damage and feeds stat requirements.</td></tr>
+    <tr><td class="highlight">Jewellery</td><td>Grand Diamond</td><td>Increases all Resistances — important for capping elemental resistance at higher Nightmare Dungeon tiers. Swap to Skulls (Armour) if dying to physical damage specifically.</td></tr>
+  </table>
+
+  <h3>Runewords</h3>
+  <p>Runewords pair one Ritual Rune (generates Offering) with one Invocation Rune (triggers effect when Offering threshold is met) in a two-socket item. You are limited to two active Runewords across your entire character — place them in your Two-Handed weapons. These specific pairs have excellent synergy with constant movement and shout rotation.</p>
+
+  <table class="data-table">
+    <tr><th>Weapon</th><th>Pair</th><th>How It Works</th></tr>
+    <tr><td class="highlight">2H Bludgeoning</td><td><strong>Bac + Gar</strong></td><td>Bac generates 50 Offering every 5 metres travelled — trivial to trigger since Whirlwind constantly moves you. Gar triggers on 25 Offering to grant +2.5% Critical Strike Chance for 5 seconds, stacking up to +10%. Every 10 metres you travel you cap Gar's bonus. In practice this provides a permanent +10% Critical Strike Chance from normal movement alone.</td></tr>
+    <tr><td class="highlight">2H Slashing</td><td><strong>Cir + Vex</strong></td><td>Cir generates 300 Offering after casting any 5 skills. Your shout rotation (Rallying Cry + War Cry + Challenging Shout + Iron Skin + Wrath of the Berserker) gives you 5 non-Whirlwind skill casts in every engagement opener — triggering Cir immediately. Vex then uses 100 Offering to grant +1 to all skill ranks for 10 seconds, with Cir's 300 Offering overflowing it to the maximum +3 instantly. Cir has a 3-second cooldown, Vex has 5 — meaning you maintain permanent +3 to all skill ranks throughout combat without any manual tracking.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">What +3 Skill Ranks Actually Means</div>
+    <p>The Cir + Vex permanent +3 to all skills affects every skill on your bar and every passive in your tree. Whirlwind at base rank 5 effectively becomes rank 8 — meaningfully increasing its base damage. War Cry and Wrath of the Berserker gain additional ranks on top of Vehement Brawler's Aspect's +2 Ultimate ranks, further amplifying burst windows. Even passives like Booming Voice and Prolific Fury benefit indirectly through the extended shout uptime and larger Fury flows that higher active skill ranks create.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('aspects').scrollIntoView({behavior:'smooth'})">← Aspects</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('talisman').scrollIntoView({behavior:'smooth'})">Talisman →</button>
+  </div>
+</section>
+
+<!-- TALISMAN -->
+<section id="talisman">
+  <h2>Talisman &amp; Charms</h2>
+  <div class="section-rule"></div>
+
+  <p>The Talisman system introduced in Lord of Hatred replaces the former amulet slot (sort of — the Amulet is still a separate item). A Talisman is a Seal with Charm slots that accept individual Charms, each of which carries general affixes and potentially Set bonuses. This build uses the <strong>Sescheron's Fury</strong> five-piece Charm Set, which is purpose-built for Barbarians with high Fury pools.</p>
+
+  <div class="callout">
+    <div class="callout-title">Seal Priority</div>
+    <p>For your Seal, look for a <strong>Legendary Seal with +1 Charm Slots</strong> as an affix — this gives you the extra slot needed for the full five-piece Sescheron's Fury set plus the Unique Charm. Additional affixes to target: damage while Berserking, damage reduction while Berserking, all Resistances, and Maximum Life.</p>
+  </div>
+
+  <h3>Sescheron's Fury — 5-Piece Set</h3>
+  <div class="talisman-grid">
+    <div class="talisman-card">
+      <div class="tal-set">Sescheron's Fury</div>
+      <div class="tal-name">2-Piece Bonus</div>
+      <div class="tal-tag">Colossal Form</div>
+      <p>While at or above 100 Fury, you become <strong>Colossal</strong>: lose 50% Cast Speed but gain 20% Character and Skill Size and <strong>120% increased damage</strong>.</p>
+      <p>Your Whirlwind radius and Gohr's pull range both scale with skill size. At Colossal, the pull and the spin together cover enormous screen real estate.</p>
+    </div>
+    <div class="talisman-card">
+      <div class="tal-set">Sescheron's Fury</div>
+      <div class="tal-name">3-Piece Bonus</div>
+      <div class="tal-tag gold">Resource &amp; Life</div>
+      <p>You gain an additional <strong>10 Fury when hit</strong> and <strong>30% Maximum Life</strong>.</p>
+      <p>The 10 Fury on hit helps absorb Ramaladni's drain when enemies are actively hitting you — turning incoming damage into Fury. The 30% Maximum Life compounds with Ursine Strength-style life scaling for survivability.</p>
+    </div>
+    <div class="talisman-card">
+      <div class="tal-set">Sescheron's Fury</div>
+      <div class="tal-name">5-Piece Bonus</div>
+      <div class="tal-tag red">Colossal Enhanced</div>
+      <p>Maximum Fury is increased by <strong>50</strong>. Colossal further increases Skill Size by 50% (total: 70% larger) and upgrades damage to <strong>600% increased</strong>.</p>
+      <p>At 600% damage and 70% larger skill size, your Colossal Whirlwind covers most of the screen and shreds everything in it. The 50 bonus Fury directly feeds Ramaladni's — at max roll that's an extra 25% damage from the sword alone.</p>
+    </div>
+    <div class="talisman-card">
+      <div class="tal-set">Unique Charm</div>
+      <div class="tal-name">Banished Lord's Talisman</div>
+      <div class="tal-tag green">Overpower Engine</div>
+      <p>Grants easy access to Overpower charges and bonus Critical Strike Damage multipliers.</p>
+      <p>This fuels Cremator's Aspect (70–100% Fire damage at 4+ Overpower charges) and provides the Overpower economy that makes Overheating Aspect proc reliably in pack fights. If you have Fists of Fate as a Unique Charm but not Banished Lord's, you can wear the Talisman as a neck piece instead — the Amulet slot then carries an additional offensive Legendary Aspect.</p>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('gems').scrollIntoView({behavior:'smooth'})">← Gems &amp; Runes</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">Paragon →</button>
+  </div>
+</section>
+
+<!-- PARAGON -->
+<section id="paragon">
+  <h2>Paragon</h2>
+  <div class="section-rule"></div>
+
+  <p>The Paragon system unlocks at Level 70 and provides deep endgame customisation through boards, Legendary nodes, and Glyphs. For the Whirlwind Barbarian, the priority is stacking Strength (which scales all Barbarian damage), Fury generation for resource management, and fire damage multipliers. Glyphs provide the largest individual power spikes — level them in Nightmare Dungeons as your first post-70 priority.</p>
+
+  <table class="data-table">
+    <tr><th>Priority</th><th>Board / Node / Glyph</th><th>Why</th></tr>
+    <tr><td>1</td><td class="highlight">Starting Board — Strength nodes</td><td>Invest all early Paragon points into Strength clusters near the centre of the starting board. Every point of Strength scales Barbarian damage directly — the density of Strength nodes around the starting position makes this the highest-ROI Paragon investment at Level 70.</td></tr>
+    <tr><td>2</td><td class="highlight">Glyph: Ire</td><td>Ire multiplies damage dealt to Healthy enemies. With Fortify maintaining your effective health buffer and Challenging Shout reducing incoming damage, you are Healthy for the large majority of each fight. A consistent damage multiplier that improves with glyph level.</td></tr>
+    <tr><td>3</td><td class="highlight">Warbringer Board</td><td>Provides Fury-related Legendary nodes that synergise with the Sescheron's Fury Colossal state and Ramaladni's Magnum Opus scaling. The Warbringer board's Legendary node rewards staying above the Fury threshold — exactly what this build already optimises for.</td></tr>
+    <tr><td>4</td><td class="highlight">Glyph: Territorial</td><td>Increases damage to Close enemies and Damage Reduction from Close enemies. Both effects are permanent for a melee Whirlwind build — the glyph radius at Level 15+ captures enough Strength nodes to make this a strong defensive and offensive multiplier simultaneously.</td></tr>
+    <tr><td>5</td><td class="highlight">Decimator Board</td><td>Fire damage and Critical Strike bonuses. Links into the build's fire conversion theme and adds multipliers to the Burning DoT chain that powers Aspect of Disobedience's stacking Damage Reduction.</td></tr>
+    <tr><td>6</td><td class="highlight">Glyph: Fervent</td><td>Increases damage while Berserking. Doubled by Unconstrained. With permanent Berserking, Fervent provides a reliable always-on multiplier that scales with glyph level.</td></tr>
+  </table>
+
+  <div class="callout blue">
+    <div class="callout-title">Glyph Levelling Priority</div>
+    <p>Level Ire first, then Territorial, then Fervent. Each glyph gains more bonus nodes in its radius as it levels, which increases how many Strength or Dexterity nodes contribute to its bonus. At glyph Level 15, the radius expands to capture significantly more nearby board nodes — this is the highest-impact power spike available in the Paragon system. Run Tier 20–30 Nightmare Dungeons immediately at Level 70 specifically to level glyphs.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('talisman').scrollIntoView({behavior:'smooth'})">← Talisman</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('mercenaries').scrollIntoView({behavior:'smooth'})">Mercenaries →</button>
+  </div>
+</section>
+
+<!-- MERCENARIES -->
+<section id="mercenaries">
+  <h2>Mercenaries</h2>
+  <div class="section-rule"></div>
+
+  <p>Mercenaries unlock through the Vessel of Hatred campaign. Each provides a short talent tree of bonuses and can be assigned either as an active companion or as a Reinforcement (triggers when you use certain skills). The Whirlwind build pairs a defensive active mercenary with an offensive reinforcement that triggers off your shout rotation.</p>
+
+  <table class="data-table">
+    <tr><th>Role</th><th>Mercenary</th><th>Setup</th><th>Why</th></tr>
+    <tr><td class="highlight">Active</td><td><strong>Raheir, the Shieldbearer</strong></td><td>Core Skill: Ground Slam · Passive: Raheir's Aegis · Iconic: Bastion · Iconic Passive: Inspiration</td><td>Raheir's Ground Slam provides crowd control, grouping enemies near Gohr's Devastating Grips pull for maximum Whirlwind overlap. Raheir's Aegis generates a barrier for nearby allies. Bastion further enhances the barrier. Inspiration gives Raheir bonus damage in your Wrath of the Berserker burst windows — the one time you want additional damage stacking highest.</td></tr>
+    <tr><td class="highlight">Reinforcement</td><td><strong>Varyana, the Berserker Crone</strong></td><td>Opportunity Skill: War Cry · Reinforcement: Bloodthirst</td><td>Varyana triggers War Cry as a Reinforcement whenever you cast Wrath of the Berserker — meaning every Wrath activation also fires a second War Cry, doubling the Berserking trigger and damage buff stack during your burst window. Bloodthirst provides life on kill, adding a minor healing layer during Whirlwind pack clears.</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('paragon').scrollIntoView({behavior:'smooth'})">← Paragon</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation →</button>
+  </div>
+</section>
+
+<!-- ROTATION -->
+<section id="rotation">
+  <h2>Rotation &amp; Playstyle</h2>
+  <div class="section-rule"></div>
+
+  <p>The Whirlwind Barbarian playstyle is deliberately low-complexity. You maintain a shout rotation while channelling Whirlwind continuously through enemy groups. The key discipline is keeping Fury above 100 for Sescheron's Fury Colossal state and managing Wrath of the Berserker for Elite and Boss encounters.</p>
+
+  <h3>Opener Sequence</h3>
+  <div class="callout">
+    <div class="callout-title">Pre-Engagement (Before Each Elite Pack or Boss)</div>
+    <p><strong>1.</strong> Cast Rallying Cry — resource gen + movement speed up. <strong>2.</strong> Cast War Cry — damage multiplier + Berserking. <strong>3.</strong> Cast Wrath of the Berserker — burst window active; Ugly Bastard Helm Fire bonus enabled; Vehement Brawler's Aspect damage bonus triggered; Varyana fires War Cry again. <strong>4.</strong> Channel Whirlwind through the pack — everything should be dying in the combined burst window. <strong>5.</strong> Challenging Shout during the fight for Fortify and damage reduction.</p>
+  </div>
+
+  <h3>Active Combat Loop</h3>
+  <table class="data-table">
+    <tr><th>Action</th><th>Frequency</th><th>Why</th></tr>
+    <tr><td class="highlight">Whirlwind</td><td>Continuous — hold and spin</td><td>Your primary damage. Channel through enemy groups rather than standing still — movement while channelling maintains Bac rune Offering generation and positions you for Gohr's pull to sweep up stragglers.</td></tr>
+    <tr><td class="highlight">Rallying Cry</td><td>On Fury drop / near-continuous</td><td>Keep this up as much as possible — the +60% resource generation sustains Ramaladni's Magnum Opus drain and keeps you above the Sescheron's 100-Fury threshold. In Lord of Hatred it costs Fury rather than having a cooldown, so cast it freely once Fury gen gear is in place.</td></tr>
+    <tr><td class="highlight">War Cry</td><td>Every major engagement</td><td>Damage multiplier for the primary fight phase. Use before each new elite group — do not hold it for bosses only.</td></tr>
+    <tr><td class="highlight">Challenging Shout</td><td>On cooldown, every fight</td><td>Damage reduction and Fortify. Use it even in trivial fights — Fortify generation is what powers Counteroffensive, Thick Skin, and Crushing Aspect damage bonuses.</td></tr>
+    <tr><td class="highlight">Wrath of the Berserker</td><td>Every Elite pack + all Bosses</td><td>Your burst cooldown. Never hold it for "the right moment" — in pack-dense content Prime extends it on kill, meaning you get most of the value just by activating it at the start of each pull.</td></tr>
+    <tr><td class="highlight">Iron Skin</td><td>When Fortify drops / when hit hard</td><td>Emergency barrier and Fortify refill. Use proactively during boss mechanics or when your effective health dips — do not wait until near death.</td></tr>
+  </table>
+
+  <h3>Runeword Uptime</h3>
+  <p>Both Runewords maintain themselves passively. Bac + Gar caps Critical Strike Chance bonus after roughly 10 metres of travel — which happens within a single Whirlwind channel across a pack. Cir + Vex maintains +3 to all skill ranks as long as you cast five skills within each 10-second window, which your shout rotation ensures automatically. You do not need to track either — just spin and shout as normal.</p>
+
+  <div class="callout">
+    <div class="callout-title">Maintaining Colossal State</div>
+    <p>Sescheron's Fury Colossal requires 100+ Fury. The main threats to dropping below threshold are: forgetting to cast Rallying Cry, attempting to Whirlwind through a sparse area with few targets (no on-hit Fury returns), and Ramaladni's sustained drain in long corridors between packs. Between fights, cast Rallying Cry once and walk briefly rather than spinning — this lets Berserk Fury passive regeneration top the pool before the next engagement. If Colossal drops, damage falls from 600% back to 120% — a significant but not catastrophic difference for campaign and Helltide content.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('mercenaries').scrollIntoView({behavior:'smooth'})">← Mercenaries</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">World Tiers →</button>
+  </div>
+</section>
+
+<!-- WORLD TIERS -->
+<section id="worldtiers">
+  <h2>World Tiers</h2>
+  <div class="section-rule"></div>
+
+  <p>World Tiers govern difficulty and loot quality. This build's damage output scales sharply with Aspects — push difficulty tiers once your key Aspects are imprinted, not before. Anger Management and Berserk Fury are the prerequisites for pushing Hard difficulty efficiently.</p>
+
+  <table class="data-table">
+    <tr><th>Tier</th><th>Recommended By</th><th>Notes</th></tr>
+    <tr><td class="highlight">Normal (WT1)</td><td>Level 1+</td><td>Start here. Focus on reaching Level 15 for Bursting choice node and completing the Arsenal Technique quest. Whirlwind is functional but not spectacular without fire conversion.</td></tr>
+    <tr><td class="highlight">Hard (WT2)</td><td>Level 20 + Anger Management aspect</td><td>Once Anger Management and Berserk Fury are imprinted and Berserking is self-sustaining, push to Hard. The permanent Berserking state makes the build durable enough to handle Hard difficulty's damage spike. More Legendary items drop here.</td></tr>
+    <tr><td class="highlight">Expert (WT3)</td><td>Level 35–45 + Gohr's or Channeling Aspect</td><td>Push to Expert once you have Aspect of Channeling imprinted on your 2H Bludgeoning weapon and either Gohr's Grips or a strong Legendary Gloves imprinted with a damage Aspect. Pack density in Expert is what this build thrives on — Gohr's pull effect becomes dramatically more impactful at this tier.</td></tr>
+    <tr><td class="highlight">Penitent (WT4)</td><td>Level 50+ · Post-Capstone</td><td>Attempt the Capstone Dungeon around Level 50 with Unconstrained as your Key Passive, all six endgame Aspects imprinted, and at least one 2H weapon carrying the correct Runeword. Obliteration and Torment difficulties follow at Level 60+ and are covered in a dedicated endgame guide.</td></tr>
+  </table>
+
+  <div class="callout blue">
+    <div class="callout-title">Gohr's and Difficulty Pushing</div>
+    <p>If you find Gohr's Devastating Grips early — from Obol gambling on the Gloves slot or a lucky Helltide chest — push one difficulty tier higher immediately. The +75–90% Whirlwind damage and enemy pull are a combined multiplicative shift in effective damage output. This is the single biggest Unique upgrade you can find during the levelling phase. Spend all Obols on Gloves once you reach Level 40.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">← Rotation</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips →</button>
+  </div>
+</section>
+
+<!-- BOSS TIPS -->
+<section id="bosses">
+  <h2>Boss Tips</h2>
+  <div class="section-rule"></div>
+
+  <p>The Whirlwind Barbarian is a competent boss fighter with strong sustained damage but lower burst potential than pure cooldown-focused builds. Key discipline: keep Fury above 100 throughout the fight for Colossal state, and save Wrath of the Berserker for vulnerable boss phases rather than using it immediately on entry.</p>
+
+  <h3>The Butcher</h3>
+  <p>The Butcher spawns randomly in dungeons and can appear while you are under-level for the area. He is not immune to Burning. Open by activating all three shouts and Wrath of the Berserker, then channel Whirlwind directly on him. The Bursting fire conversion applies Burning immediately — Aspect of Disobedience's Damage Reduction stacks build within 2–3 seconds against the Butcher's hits. His Flesh Hook grab is the primary threat: Iron Skin immediately after it lands to recover the Fortify buffer. Do not re-position dramatically — Gohr's Grips pulls him back into your spin if he moves away. The Burning DoT continues during the grab animation.</p>
+
+  <h3>Campaign Bosses</h3>
+  <p>Before entering any boss room: cast Rallying Cry (resource up) and War Cry (damage up), then enter. Activate Wrath of the Berserker immediately on sight — the Vehement Brawler's + Ugly Bastard Helm windows overlap during the opening 8 seconds for maximum frontloaded damage. Channel Whirlwind at point-blank range rather than the edges of the boss hitbox — Gohr's pull drags in any adds immediately. Read telegraphed AoE patterns and walk Whirlwind out of the danger zone rather than stopping the channel — you maintain damage during repositioning. Re-cast Rallying Cry whenever Fury starts dropping toward 50.</p>
+
+  <h3>Helltide Encounters</h3>
+  <p>This build is strongest in Helltides. Dense enemy packs, constant Burning from Whirlwind, Gohr's pulling enemies into the spin, Colossal size covering half the screen — everything clicks. Pop Wrath of the Berserker on the first large pack you encounter and maintain it through Prime kills. Challenging Shout on cooldown keeps Fortify topped through the constant multi-enemy hits. Prioritise Tortured Gift chests over clearing specific monsters — move fast between chests while spinning through everything in your path.</p>
+
+  <h3>Nightmare Dungeons (Tier 20+)</h3>
+  <p>In higher Nightmare Dungeons, incoming damage spikes hard. Maintain Challenging Shout on near-permanent uptime — Booming Voice 3/3 should extend its duration enough that you can cast it once per pack without gaps. Use Iron Skin proactively at the start of every Elite engagement rather than as a panic button. If Fortify drops to zero and enemies land crits, you will die in 2–3 hits at high tiers. Martial Vigor 3/3 is your primary Elite survival tool — it is worth investing all three ranks before pushing Tier 30+.</p>
+
+  <h3>World Bosses</h3>
+  <p>World Bosses are primarily about sustained single-target DPS with consistent skill uptime. Save Wrath of the Berserker for the boss's vulnerable phases — typically after a phase transition that interrupts the boss briefly. Coordinate shout timing with nearby players: Challenging Shout's damage reduction and War Cry's damage buff affect all allies in range. Stay at point-blank melee at all times — Whirlwind's damage falls off if you are caught at the edge of its range. Re-cast all shouts every 10–15 seconds throughout the fight.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('worldtiers').scrollIntoView({behavior:'smooth'})">← World Tiers</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips →</button>
+  </div>
+</section>
+
+<!-- QUICK TIPS -->
+<section id="tips">
+  <h2>Quick Tips</h2>
+  <div class="section-rule"></div>
+
+  <p>Key reminders and mechanical notes for Whirlwind Barbarian play in Season 13.</p>
+
+  <table class="data-table">
+    <tr><th>#</th><th>Tip</th></tr>
+    <tr><td>1</td><td><strong>Complete Masters of Battle at Level 15, not later.</strong> The Polearm Technique and the Bursting choice node for Whirlwind both unlock from the same short questline in Ked Bardu. Until Bursting is selected, Whirlwind deals physical damage and bypasses the entire fire scaling stack — Cremator's Aspect, Overheating Aspect, Ugly Bastard Helm, and all fire damage rolls on gear are wasted. Do this immediately on reaching Kehjistan.</td></tr>
+    <tr><td>2</td><td><strong>Farm Anger Management from Maugan's Works and Berserk Fury from Sarat's Lair before pushing Hard.</strong> These two Codex aspects together create the self-sustaining Berserking loop. Without them, Fury management is manual and frustrating. With them, resource management solves itself. Both dungeons are short and completable in under ten minutes.</td></tr>
+    <tr><td>3</td><td><strong>Assign Whirlwind to your Two-Handed Bludgeoning weapon — not Slashing.</strong> Whirlwind scales from the weapon it is assigned to. Your Two-Handed Bludgeoning weapon should always carry the highest base damage and the Aspect of Channeling. The Slashing weapon is for Cremator's Aspect and the Cir/Vex Runeword — its base damage matters less.</td></tr>
+    <tr><td>4</td><td><strong>Spend all Obols on Gloves once you hit Level 40.</strong> Gohr's Devastating Grips is the single highest-impact Unique for this build during levelling. It is Gloves-only. Obol gambling on the Gloves slot at an Obol vendor in town gives you the best statistical chance of finding it before other methods. At Level 70 all Obol gear rolls at 850 item power — spend remaining Obols on Rings to find Aspects.</td></tr>
+    <tr><td>5</td><td><strong>Never let Fury drop below 100 during combat.</strong> Sescheron's Fury Colossal state requires 100+ Fury. Below that threshold your Whirlwind drops from 600% damage back to 120% — a 5x reduction. Cast Rallying Cry proactively between packs, not reactively when Fury is already low. Tempered Fury 3/3 and Prolific Fury 3/3 provide the headroom to absorb Ramaladni's drain even in sparse areas.</td></tr>
+    <tr><td>6</td><td><strong>Move while channelling Whirlwind.</strong> Spinning in place is less effective than moving through a pack. Moving maintains Bac rune Offering generation for constant Crit Chance stacking, repositions you optimally for Gohr's next pull, and avoids standing in AoE ground effects. Walk Whirlwind through packs in a slow arc rather than stopping the channel to reposition.</td></tr>
+    <tr><td>7</td><td><strong>Use Challenging Shout every fight, not just hard ones.</strong> Fortify generated by Tactical Challenging Shout enables Counteroffensive (+45–65% damage while Fortified) and feeds Thick Skin's passive Fortify refills after hits. Using Challenging Shout on trivial packs means your Fortify buffer is always full before harder encounters — there is no reason to hold it.</td></tr>
+    <tr><td>8</td><td><strong>Cir + Vex is permanent — no tracking needed.</strong> The Runeword pair maintains +3 to all skill ranks automatically as long as you cast five skills in your opener (shouts + Wrath + Iron Skin). It has no visual indicator but the effect is always active in combat. Trust it and move on.</td></tr>
+    <tr><td>9</td><td><strong>Iron Skin is a resource tool, not a panic button.</strong> Tactical Iron Skin generates Fortify on activation — meaning it is most valuable used before your Fortify drops, not after you are already near death. Use it at the start of every Elite encounter alongside your shout opener, not as a last resort. This keeps Counteroffensive and Crushing Aspect damage bonuses topped at all times.</td></tr>
+    <tr><td>10</td><td><strong>Craft Elixir of Advantage at the Alchemist.</strong> Attack Speed, Lucky Hit Chance, and experience — all three matter for this build. Refresh every 30 minutes during active play. In early levelling, Weak Assault Elixirs are cheap substitutes while materials are scarce. Never run without an Elixir active.</td></tr>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Elixirs Worth Crafting</div>
+    <p><strong>Elixir of Advantage</strong> (highest available tier): Attack Speed + Lucky Hit + XP. Use every session. <strong>Elixir of Fortitude</strong>: Maximum Life bonus — directly increases survivability and Overpower damage scaling. <strong>Iron Barb Elixir</strong>: Thorns + Armour — useful while gearing up before Challenging Shout damage reduction comes fully online.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">← Boss Tips</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <span></span>
+  </div>
+</section>
+
+</div><!-- /.content -->
+
+<script>
+/* ── Tab switcher ─────────────────────────────────────────────────────── */
+function switchTab(e, id) {
+  const wrap = e.target.closest('.tabs').nextElementSibling;
+  let panel = wrap;
+  while (panel && !panel.classList.contains('tab-panel')) panel = panel.nextElementSibling;
+  let cur = panel;
+  while (cur && cur.classList.contains('tab-panel')) {
+    cur.classList.remove('active');
+    cur = cur.nextElementSibling;
+  }
+  document.getElementById('tab-' + id).classList.add('active');
+  e.target.closest('.tabs').querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+}
+
+/* ── Smooth-scroll section nav active state ───────────────────────────── */
+const sections = document.querySelectorAll('.content section');
+const navBtns  = document.querySelectorAll('.section-nav button');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navBtns.forEach(b => b.classList.remove('active'));
+      const match = [...navBtns].find(b =>
+        b.getAttribute('onclick') && b.getAttribute('onclick').includes(entry.target.id)
+      );
+      if (match) match.classList.add('active');
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => observer.observe(s));
+
+/* ── FAB visibility ───────────────────────────────────────────────────── */
+const fab = document.getElementById('fab-top');
+window.addEventListener('scroll', () => {
+  fab.style.opacity = window.scrollY > 400 ? '1' : '0';
+  fab.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+}, { passive: true });
+
+/* ── Barbarian Skill Tree Widget ──────────────────────────────────────── */
+const barSP = [
+  {pt:1,  skill:'Lunging Strike',       mod:'Base Skill',     node:'lunging',     why:'Fury generator for levelling. Activates Berserking on Critical Strike via Combat upgrade — your primary Berserking source before Anger Management aspect is found.'},
+  {pt:2,  skill:'Lunging Strike',       mod:'Enhanced',       node:'lunging',     why:'Unlock upgrade path.'},
+  {pt:3,  skill:'Lunging Strike',       mod:'Combat',         node:'lunging',     why:'Grants Berserking on Critical Strike. Core early-game resource and Berserking trigger until Anger Management is imprinted.'},
+  {pt:4,  skill:'Whirlwind',            mod:'Base Skill',     node:'ww',          why:'Primary damage skill. Begin channelling immediately — enter Werebear-equivalent Barbarian combat form from the first spin.'},
+  {pt:5,  skill:'Whirlwind',            mod:'Enhanced',       node:'ww',          why:'Enemies near you become Vulnerable while you channel Whirlwind — triggers Polearm Technique bonus permanently during spins.'},
+  {pt:6,  skill:'Whirlwind',            mod:'Violent',        node:'ww',          why:'Reduces Fury cost while channelling. At Level 15, return here to select the Bursting choice node that converts all Whirlwind damage to Fire.'},
+  {pt:7,  skill:'Whirlwind',            mod:'Rank 2',         node:'ww',          why:'Higher base damage and wider spin radius.'},
+  {pt:8,  skill:'Whirlwind',            mod:'Rank 3',         node:'ww',          why:'Rank 3 of 5 — prioritise maxing before other spends.'},
+  {pt:9,  skill:'Whirlwind',            mod:'Rank 4',         node:'ww',          why:'Rank 4 of 5.'},
+  {pt:10, skill:'Whirlwind',            mod:'Rank 5 ✓',       node:'ww',          why:'Max rank. Full damage and radius. The Bursting fire node fires periodically for additional Burning damage on grouped enemies.'},
+  {pt:11, skill:'Iron Skin',            mod:'Base Skill',     node:'ironskin',    why:'Emergency barrier and Fortify source. Critical for maintaining the Fortify buffer that powers Counteroffensive and Crushing Aspect damage bonuses.'},
+  {pt:12, skill:'Iron Skin',            mod:'Enhanced',       node:'ironskin',    why:'Unlock upgrade path.'},
+  {pt:13, skill:'Iron Skin',            mod:'Tactical',       node:'ironskin',    why:'Generates Fortify on activation. Use proactively at the start of Elite encounters — not as a panic button.'},
+  {pt:14, skill:'Wrath of Berserker',   mod:'Base Skill',     node:'wotb',        why:'Ultimate and primary burst cooldown. Activates Ugly Bastard Helm Fire bonus. Pop before every Elite pack and Boss encounter.'},
+  {pt:15, skill:'Wrath of Berserker',   mod:'Prime',          node:'wotb',        why:'Extends duration on enemy kills — near-permanent in Elite-dense content.'},
+  {pt:16, skill:'Wrath of Berserker',   mod:'Supreme',        node:'wotb',        why:'Wrath is free to cast and grants Unstoppable for its duration. Prevents CC interrupting your Whirlwind channel.'},
+  {pt:17, skill:'Challenging Shout',    mod:'Base Skill',     node:'challenging', why:'Flat damage reduction + Fortify. Run on cooldown in every fight — the Fortify generation alone is worth the cast.'},
+  {pt:18, skill:'Challenging Shout',    mod:'Enhanced',       node:'challenging', why:'Unlock upgrade path.'},
+  {pt:19, skill:'Challenging Shout',    mod:'Tactical',       node:'challenging', why:'Generates Fortify on cast. Combined with Thick Skin and Tactical Iron Skin, keeps the Fortify buffer near-permanent.'},
+  {pt:20, skill:'Rallying Cry',         mod:'Base Skill',     node:'rallying',    why:'In Lord of Hatred, Rallying Cry costs Fury rather than having a cooldown — making it near-permanent. +60% resource generation sustains Ramaladni\'s drain and Sescheron\'s 100-Fury threshold.'},
+  {pt:21, skill:'Rallying Cry',         mod:'Enhanced',       node:'rallying',    why:'Unlock upgrade path.'},
+  {pt:22, skill:'Rallying Cry',         mod:'Tactical',       node:'rallying',    why:'Further boosts Fury generation rate while active.'},
+  {pt:23, skill:'War Cry',              mod:'Base Skill',     node:'warcry',      why:'Damage multiplier on demand. Use before each Elite group alongside Wrath of the Berserker for maximum burst window overlap.'},
+  {pt:24, skill:'War Cry',              mod:'Enhanced',       node:'warcry',      why:'Unlock upgrade path.'},
+  {pt:25, skill:'War Cry',              mod:'Mighty',         node:'warcry',      why:'Grants Berserking to you and all nearby allies on cast. Secondary Berserking trigger alongside Anger Management.'},
+  {pt:26, skill:'Booming Voice',        mod:'Rank 1',         node:'booming',     why:'Increases all Shout durations — extends Rallying Cry, War Cry, and Challenging Shout uptime, reducing interruptions to Whirlwind channel.'},
+  {pt:27, skill:'Booming Voice',        mod:'Rank 2',         node:'booming',     why:'Higher shout duration extension.'},
+  {pt:28, skill:'Booming Voice',        mod:'Rank 3 ✓',       node:'booming',     why:'Max rank — +32% shout duration. Near-permanent shout uptime with standard cooldown reduction gear.'},
+  {pt:29, skill:'Guttural Yell',        mod:'Rank 1',         node:'guttural',    why:'Shouts reduce enemy damage — passive defensive layer that stacks with Challenging Shout\'s mitigation.'},
+  {pt:30, skill:'Guttural Yell',        mod:'Rank 2',         node:'guttural',    why:'Higher enemy damage reduction.'},
+  {pt:31, skill:'Guttural Yell',        mod:'Rank 3 ✓',       node:'guttural',    why:'Max rank — meaningful damage reduction in content where enemies deal significant damage.'},
+  {pt:32, skill:'Aggressive Resist',    mod:'Rank 1',         node:'aggresist',   why:'Damage Reduction while Berserking — permanent with Anger Management loop active. No management required.'},
+  {pt:33, skill:'Aggressive Resist',    mod:'Rank 2',         node:'aggresist',   why:'+6% DR while Berserking.'},
+  {pt:34, skill:'Aggressive Resist',    mod:'Rank 3 ✓',       node:'aggresist',   why:'Max rank — +9% DR. Stacks with Guttural Yell for a solid passive mitigation baseline.'},
+  {pt:35, skill:'Prolific Fury',        mod:'Rank 1',         node:'prolific',    why:'Generates Fury while Berserking. Counteracts Ramaladni\'s 10 Fury/sec drain and supports Sescheron\'s 100-Fury Colossal threshold.'},
+  {pt:36, skill:'Prolific Fury',        mod:'Rank 2',         node:'prolific',    why:'More Fury per second while Berserking.'},
+  {pt:37, skill:'Prolific Fury',        mod:'Rank 3 ✓',       node:'prolific',    why:'Max rank. Combined with Berserk Fury aspect, the Fury loop generates enough resource to sustain all costs simultaneously.'},
+  {pt:38, skill:'Unconstrained',        mod:'Key Passive ★',  node:'unconstr',    why:'Doubles all effects while Berserking. With permanent Berserking — doubled attack speed bonus, doubled damage bonuses, doubled Fury gen. The single most powerful passive point in the build.'},
+  {pt:39, skill:'Pit Fighter',          mod:'Rank 1',         node:'pitfighter',  why:'Increased damage to Close enemies and damage reduction from Close enemies — both permanent for melee Whirlwind. Double value from a single passive investment.'},
+  {pt:40, skill:'Pit Fighter',          mod:'Rank 2',         node:'pitfighter',  why:'Higher damage and DR vs Close.'},
+  {pt:41, skill:'Pit Fighter',          mod:'Rank 3 ✓',       node:'pitfighter',  why:'Max rank — a meaningful chunk of always-on damage and survivability at melee range.'},
+  {pt:42, skill:'No Mercy',             mod:'Rank 1',         node:'nomercy',     why:'Crit Chance vs Immobilised, Stunned, Slowed enemies. Hamstring passively Slows via Whirlwind — triggers constantly.'},
+  {pt:43, skill:'No Mercy',             mod:'Rank 2',         node:'nomercy',     why:'Higher Crit Chance multiplier.'},
+  {pt:44, skill:'No Mercy',             mod:'Rank 3 ✓',       node:'nomercy',     why:'Max rank — feeds Bac/Gar Runeword Crit uptime and Heavy Handed Crit Damage multiplier.'},
+  {pt:45, skill:'Heavy Handed',         mod:'Rank 1',         node:'heavyhanded', why:'Critical Strike Damage with Two-Handed weapons. Whirlwind uses your 2H Bludgeoning weapon — every Crit is amplified.'},
+  {pt:46, skill:'Heavy Handed',         mod:'Rank 2',         node:'heavyhanded', why:'Higher Crit Damage multiplier.'},
+  {pt:47, skill:'Heavy Handed',         mod:'Rank 3 ✓',       node:'heavyhanded', why:'Max rank — direct multiplier on Whirlwind\'s Crit strikes.'},
+  {pt:48, skill:'Counteroffensive',     mod:'Rank 1',         node:'counteroff',  why:'Damage bonus while Fortified. Tactical Iron Skin, Challenging Shout, and Thick Skin keep Fortify high — this is near-permanent.'},
+  {pt:49, skill:'Counteroffensive',     mod:'Rank 2',         node:'counteroff',  why:'Higher damage while Fortified.'},
+  {pt:50, skill:'Counteroffensive',     mod:'Rank 3 ✓',       node:'counteroff',  why:'Max rank — a large damage multiplier for essentially zero upkeep once Fortify sources are in place.'},
+  {pt:51, skill:'Thick Skin',           mod:'Rank 1',         node:'thickskin',   why:'Generates Fortify when you take direct damage. Automatically refills Fortify after hits — sustains Counteroffensive and Crushing Aspect passively.'},
+  {pt:52, skill:'Thick Skin',           mod:'Rank 2',         node:'thickskin',   why:'More Fortify per hit taken.'},
+  {pt:53, skill:'Thick Skin',           mod:'Rank 3 ✓',       node:'thickskin',   why:'Max rank — meaningful Fortify refill rate, especially during Nightmare Dungeon Elite encounters.'},
+  {pt:54, skill:'Martial Vigor',        mod:'Rank 1',         node:'martvigr',    why:'Damage Reduction from Elites specifically — the enemies that actually threaten you. Critical for Nightmare Dungeon progression.'},
+  {pt:55, skill:'Martial Vigor',        mod:'Rank 2',         node:'martvigr',    why:'Higher DR vs Elites.'},
+  {pt:56, skill:'Martial Vigor',        mod:'Rank 3 ✓',       node:'martvigr',    why:'Max rank — invest all three ranks before pushing Nightmare Tier 30+.'},
+  {pt:57, skill:'Tempered Fury',        mod:'Rank 1',         node:'tempfury',    why:'Increases Maximum Fury. More headroom for Sescheron\'s Colossal state, Ramaladni\'s scaling, and Edgemaster\'s Aspect. Every point of extra Max Fury is a direct multiplier on Ramaladni\'s damage.'},
+  {pt:58, skill:'Tempered Fury',        mod:'Rank 2',         node:'tempfury',    why:'Higher Maximum Fury.'},
+  {pt:59, skill:'Tempered Fury',        mod:'Rank 3 ✓',       node:'tempfury',    why:'Max rank — with Sescheron\'s 5pc bonus +50 Fury, Tempered Fury 3/3 pushes the effective max Fury pool high enough to comfortably sustain all drains simultaneously.'},
+  {pt:60, skill:'Hamstring',            mod:'Rank 1',         node:'hamstring',   why:'Whirlwind Slows hit enemies — triggers No Mercy\'s Crit Chance bonus and provides subtle crowd control keeping enemies in spin range longer.'},
+  {pt:61, skill:'Hamstring',            mod:'Rank 2',         node:'hamstring',   why:'Higher Slow potency.'},
+  {pt:62, skill:'Hamstring',            mod:'Rank 3 ✓',       node:'hamstring',   why:'Max rank — permanent Slow on everything you touch via Whirlwind.'},
+  {pt:63, skill:'Pit Fighter',          mod:'Note',           node:'pitfighter',  why:'Remaining 9 points (63–71) go into flexible choices: additional ranks of Counteroffensive for more Fortified damage, Swiftness for movement speed quality of life, or Cut to the Bone for Vulnerable damage multiplier once Polearm Technique is generating consistent Vulnerable stacks.'},
+  {pt:64, skill:'Swiftness',            mod:'Rank 1',         node:'pitfighter',  why:'Movement speed bonus — improves Helltide mobility, Bac rune Offering generation rate, and general quality of life.'},
+  {pt:65, skill:'Swiftness',            mod:'Rank 2',         node:'pitfighter',  why:'More movement speed.'},
+  {pt:66, skill:'Swiftness',            mod:'Rank 3 ✓',       node:'pitfighter',  why:'Max rank — combined with Boots movement speed roll and Rallying Cry\'s speed buff, movement is noticeably fast between pulls.'},
+  {pt:67, skill:'Cut to the Bone',      mod:'Rank 1',         node:'nomercy',     why:'Increased damage to Vulnerable enemies. Enhanced Whirlwind makes nearby enemies Vulnerable — this multiplier applies throughout every spin.'},
+  {pt:68, skill:'Cut to the Bone',      mod:'Rank 2',         node:'nomercy',     why:'Higher Vulnerable damage.'},
+  {pt:69, skill:'Cut to the Bone',      mod:'Rank 3 ✓',       node:'nomercy',     why:'Max rank — a free consistent multiplier since Vulnerable is applied automatically by Enhanced Whirlwind.'},
+  {pt:70, skill:'Wallop',               mod:'Rank 1',         node:'heavyhanded', why:'Bonus damage to Stunned or Knocked Down enemies. Wrath of the Berserker Stuns on activation; combined with Gohr\'s pulls this provides brief CC windows to land amplified Whirlwind crits.'},
+  {pt:71, skill:'Wallop',               mod:'Rank 2',         node:'heavyhanded', why:'Higher damage vs Stunned/KD enemies. Final investment before Season Journey bonus points push the remaining nodes.'}
+];
+
+let barCur = 0;
+function barSetPt(n) {
+  n = Math.max(0, Math.min(71, n));
+  barCur = n;
+  document.getElementById('bar-slider').value = n;
+  document.getElementById('bar-pt-label').textContent = n + ' / 71';
+  const nodeMap = {};
+  for (let i = 0; i < n; i++) {
+    const s = barSP[i];
+    if (!nodeMap[s.node]) nodeMap[s.node] = 0;
+    nodeMap[s.node]++;
+  }
+  const allNodes = ['lunging','ww','ironskin','rallying','warcry','challenging','wotb','unconstr','booming','guttural','aggresist','prolific','pitfighter','nomercy','heavyhanded','counteroff','thickskin','martvigr','tempfury','hamstring'];
+  allNodes.forEach(id => {
+    const el = document.getElementById('bar-n-' + id);
+    const rk = document.getElementById('bar-r-' + id);
+    if (!el) return;
+    const count = nodeMap[id] || 0;
+    el.classList.toggle('active', count > 0);
+    el.classList.toggle('current', false);
+    if (rk) rk.textContent = count > 0 ? ' ×' + count : '';
+  });
+  if (n > 0 && n <= 71) {
+    const cur = barSP[n - 1];
+    const curEl = document.getElementById('bar-n-' + cur.node);
+    if (curEl) curEl.classList.add('current');
+  }
+  const tbody = document.getElementById('bar-tbody');
+  tbody.innerHTML = '';
+  for (let i = 0; i < 71; i++) {
+    const s = barSP[i];
+    const tr = document.createElement('tr');
+    tr.className = i < n ? 'stw-done-row' : (i === n ? 'stw-active-row' : '');
+    tr.innerHTML = `<td>${i+1}</td><td>${s.skill}</td><td>${s.mod}</td><td>${s.why}</td>`;
+    tbody.appendChild(tr);
+  }
+  const callout = document.getElementById('bar-callout');
+  if (n === 0) {
+    callout.textContent = 'Use the slider or buttons to step through all 71 skill points in priority order.';
+  } else if (n <= 71) {
+    const s = barSP[n - 1];
+    callout.innerHTML = `<strong>Point ${n} — ${s.skill} (${s.mod}):</strong> ${s.why}`;
+  }
+}
+barSetPt(0);
+
+/* ── Theme toggle ─────────────────────────────────────────────────────── */
+const themeBtn = document.querySelector('.theme-toggle');
+if (themeBtn) {
+  themeBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    const icon = themeBtn.querySelector('.toggle-icon');
+    if (icon) icon.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+    themeBtn.childNodes[themeBtn.childNodes.length - 1].textContent = document.body.classList.contains('light-mode') ? ' Dark' : ' Light';
+  });
+}
+</script>
+</body>
+</html>
