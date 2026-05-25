@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blood Guides — Gaming Builds, Guides &amp; Walkthroughs</title>
-  <meta name="description" content="Comprehensive gaming guides for every genre — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
+  <meta name="description" content="Comprehensive gaming guides — builds, walkthroughs, tips, and strategies for Elden Ring, Diablo 4, Space Marine 2, Darktide, Baldur's Gate 3 and more.">
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://bloodguides.pages.dev/">
   <meta property="og:site_name"   content="Blood Guides">
   <meta property="og:title"       content="Blood Guides — Gaming Builds, Guides &amp; Walkthroughs">
-  <meta property="og:description" content="Comprehensive gaming guides for every genre — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
+  <meta property="og:description" content="Comprehensive gaming guides — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
   <meta property="og:image"       content="https://bloodguides.pages.dev/og-image.png">
   <meta name="twitter:card"       content="summary_large_image">
   <meta name="twitter:image"      content="https://bloodguides.pages.dev/og-image.png">
@@ -17,42 +17,99 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/site.css">
+  <style>
+    /* ── Page-level overrides ───────────────────────────────── */
+
+    /* Logo icon — amber square with inner cross */
+    .logo-icon {
+      width: 30px; height: 30px;
+      background: var(--accent);
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-icon svg { width: 16px; height: 16px; color: #fff; }
+
+    /* Patch notes specific layout */
+    .patch-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    /* Star colour in headings area */
+    .star { color: var(--gold); }
+
+    /* Rating badge  */
+    .card-rating .star { font-size: 0.85rem; }
+
+    /* Filter label */
+    .filter-label-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .filter-game-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* Section rule */
+    .section-rule {
+      height: 1px;
+      background: var(--border);
+      margin: 0.5rem 0 2rem;
+    }
+
+    /* Game colour badges for patch notes */
+    .game-er    { color: #E8A070; }
+    .game-d4    { color: #C060B0; }
+    .game-sm2   { color: #6090D0; }
+    .game-dt    { color: #B04040; }
+    .game-bg3   { color: #7060C0; }
+    .game-fo76  { color: #60A060; }
+    .game-fo4   { color: #80A040; }
+    .game-poe2  { color: #A07030; }
+  </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
   <div class="header-inner">
+
+    <!-- Logo -->
     <a class="logo" href="/">
-      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="32" y1="4" x2="32" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-        <line x1="16" y1="26" x2="48" y2="26" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="32" cy="56" r="5" fill="currentColor"/>
-        <ellipse cx="32" cy="6" rx="5" ry="6" fill="var(--accent)"/>
-      </svg>
+      <span class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="8" y1="1" x2="8" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4" y1="6" x2="12" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="8" cy="14" r="1.5" fill="white"/>
+        </svg>
+      </span>
       Blood Guides
     </a>
 
+    <!-- Main nav -->
     <nav class="nav" id="main-nav" aria-label="Main navigation">
-      <a class="nav-link active" href="/">Home</a>
 
       <div class="nav-dropdown">
         <button class="nav-dropdown-trigger" aria-haspopup="true">
-          Elden Ring <span class="caret">▾</span>
+          Builds <span class="caret">▾</span>
         </button>
         <div class="nav-dropdown-menu">
           <a href="/samurai-bleed-build/">Samurai Bleed Build</a>
           <a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a>
           <a href="/dragon-faith-build/">Dragon Faith Build</a>
           <a href="/rivers-of-blood-build/">Rivers of Blood Build</a>
-        </div>
-      </div>
-
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-haspopup="true">
-          Diablo 4 <span class="caret">▾</span>
-        </button>
-        <div class="nav-dropdown-menu">
           <a href="/diablo4-necromancer-minion-build/">Necromancer Minion</a>
           <a href="/diablo4-druid-bear-build/">Druid Bear</a>
           <a href="/diablo4-paladin-blessed-hammer-build/">Paladin Blessed Hammer</a>
@@ -62,350 +119,368 @@
 
       <div class="nav-dropdown">
         <button class="nav-dropdown-trigger" aria-haspopup="true">
-          More Games <span class="caret">▾</span>
+          Games <span class="caret">▾</span>
         </button>
         <div class="nav-dropdown-menu">
-          <a href="/#filter-bg3">Baldur's Gate 3</a>
-          <a href="/#filter-fallout76">Fallout 76</a>
-          <a href="/#filter-fallout4">Fallout 4</a>
-          <a href="/#filter-darktide">40K: Darktide</a>
-          <a href="/#filter-spacemarine2">40K: Space Marine 2</a>
+          <a href="/?game=elden-ring">Elden Ring</a>
+          <a href="/?game=diablo-4">Diablo 4</a>
+          <a href="/?game=bg3">Baldur's Gate 3</a>
+          <a href="/?game=spacemarine2">40K: Space Marine 2</a>
+          <a href="/?game=darktide">40K: Darktide</a>
+          <a href="/?game=fallout76">Fallout 76</a>
+          <a href="/?game=fallout4">Fallout 4</a>
         </div>
       </div>
 
-      <a class="nav-link" href="/">All Guides</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-trigger" aria-haspopup="true">
+          Walkthroughs <span class="caret">▾</span>
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="/#coming-soon">Elden Ring Boss Guides</a>
+          <a href="/#coming-soon">Diablo 4 Campaign</a>
+          <a href="/#coming-soon">BG3 Act Guides</a>
+          <a href="/#coming-soon">Space Marine 2 Operations</a>
+        </div>
+      </div>
+
+      <a class="nav-link" href="/#latest-news">News</a>
     </nav>
 
     <div class="header-actions">
+      <button class="icon-btn" title="Search" aria-label="Search" style="min-width:unset;padding:0.45rem 0.7rem;">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="8.5" cy="8.5" r="6"/>
+          <line x1="13.5" y1="13.5" x2="18" y2="18"/>
+        </svg>
+      </button>
       <button class="icon-btn theme-toggle" title="Toggle theme" aria-label="Toggle dark/light mode">
         <span class="toggle-icon">☀️</span> Light
       </button>
-      <button class="icon-btn nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-        ☰
-      </button>
+      <button class="icon-btn nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
     </div>
+
   </div>
 </header>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <main>
   <div class="container">
 
     <!-- PAGE HEADER -->
     <div class="page-header">
-      <h2>Character Builds &amp; Guides</h2>
-      <p class="page-subtitle">Tested builds for optimal performance — stat tables, item locations, boss tips, and more.</p>
+      <h2>Character Builds</h2>
+      <p class="page-subtitle">Curated builds for optimal performance across your favourite games.</p>
     </div>
 
-    <!-- PATCH NOTES & TRENDING -->
-    <div class="info-grid">
+    <!-- ── PATCH NOTES + TRENDING ─────────────────────────────── -->
+    <div class="info-grid" id="latest-news">
 
-      <!-- Latest Updates -->
+      <!-- LEFT: Latest Patch Notes (wider) -->
       <div class="info-card">
         <div class="info-card-header">
           <span class="info-card-icon">⚡</span>
           <h3 class="info-card-title">Latest Patch Notes</h3>
         </div>
 
+        <!-- Diablo 4 — Season 12 -->
+        <a class="info-item" href="https://maxroll.gg/d4/news/diablo-4-season-8-compendium-updates-build-guides" target="_blank" rel="noopener">
+          <div class="patch-header">
+            <span class="info-item-game game-d4">Diablo 4</span>
+            <span class="info-item-version">Season 12</span>
+            <span class="info-item-time">28 Apr 2026</span>
+          </div>
+          <p class="info-item-text">Lord of Hatred expansion launches. Vessel of Hatred content, Hatred Rifts, new class skills and reworks across all archetypes.</p>
+        </a>
+
+        <!-- Space Marine 2 — Patch 13 -->
         <a class="info-item" href="https://www.focus-entmt.com/en/news/warhammer-40000-space-marine-2-shadowdrops-its-purgation-update-just-in-time-for-the-warhammer-skulls-festival" target="_blank" rel="noopener">
-          <div class="info-item-meta">
-            <span class="info-item-game">Space Marine 2</span>
+          <div class="patch-header">
+            <span class="info-item-game game-sm2">Space Marine 2</span>
             <span class="info-item-version">Patch 13</span>
             <span class="info-item-time">21 May 2026</span>
           </div>
-          <p class="info-item-text">Purgation Update: new Kadaku swamp operation, Siege Mode rework, Iron Hands DLC, Hive Tyrant added.</p>
+          <p class="info-item-text">Purgation update: new Kadaku swamp operation, full Siege Mode rework, Hive Tyrant added, Iron Hands Chapter DLC.</p>
         </a>
 
-        <a class="info-item" href="https://www.icy-veins.com/d4/news/diablo-4-season-8-patch-notes-may-19th/" target="_blank" rel="noopener">
-          <div class="info-item-meta">
-            <span class="info-item-game">Diablo 4</span>
-            <span class="info-item-version">Season 8</span>
-            <span class="info-item-time">19 May 2026</span>
+        <!-- Darktide — Skitarii / 1.11.6 -->
+        <a class="info-item" href="https://www.windowscentral.com/gaming/warhammer-day-xbox-and-pc-game-announcements-were-getting-a-content-roadmap-for-darktide-dark-heresys-alpha-test-a-2nd-playable-character-for-boltgun-2-and-much-more" target="_blank" rel="noopener">
+          <div class="patch-header">
+            <span class="info-item-game game-dt">40K: Darktide</span>
+            <span class="info-item-version">1.11.6 + Skulls</span>
+            <span class="info-item-time">21 May 2026</span>
           </div>
-          <p class="info-item-text">Belial returns. 24 new Boss Powers, reworked Lair Boss system — World Boss reputation up to 2,000 per kill.</p>
+          <p class="info-item-text">Skitarii class revealed at Warhammer Skulls 2026. Patch 1.11.6: Carapace enemy rebalance, Veteran Krak Grenade nerf.</p>
         </a>
 
-        <a class="info-item" href="https://nukaknights.com/articles/fallout-76-patchnotes-21st-april-2026-patch-67.html" target="_blank" rel="noopener">
-          <div class="info-item-meta">
-            <span class="info-item-game">Fallout 76</span>
-            <span class="info-item-version">Season 25</span>
-            <span class="info-item-time">May 2026</span>
-          </div>
-          <p class="info-item-text">Infestations update: new end-game Infestations content, Deathclaw C.A.M.P. pet, Season 25 begins.</p>
-        </a>
-
+        <!-- Elden Ring Nightreign -->
         <a class="info-item" href="https://en.bandainamcoent.eu/elden-ring/news/elden-ring-nightreign-patch-notes-version-1032" target="_blank" rel="noopener">
-          <div class="info-item-meta">
-            <span class="info-item-game">Elden Ring Nightreign</span>
+          <div class="patch-header">
+            <span class="info-item-game game-er">Elden Ring Nightreign</span>
             <span class="info-item-version">1.03.2</span>
             <span class="info-item-time">Jan 2026</span>
           </div>
-          <p class="info-item-text">Executor, Raider, Guardian classes buffed. Revenant spirits now scale with Depth in Deep of Night mode.</p>
+          <p class="info-item-text">Executor, Raider, and Guardian classes buffed. Revenant summon spirits now scale with Depth in Deep of Night mode.</p>
         </a>
 
+        <!-- Fallout 76 — Season 25 -->
+        <a class="info-item" href="https://nukaknights.com/articles/fallout-76-patchnotes-21st-april-2026-patch-67.html" target="_blank" rel="noopener">
+          <div class="patch-header">
+            <span class="info-item-game game-fo76">Fallout 76</span>
+            <span class="info-item-version">Season 25</span>
+            <span class="info-item-time">Apr 2026</span>
+          </div>
+          <p class="info-item-text">Infestations update: new end-game Infestations content, Deathclaw C.A.M.P. pet, new seasonal fish added.</p>
+        </a>
+
+        <!-- BG3 Hotfix 36 -->
         <a class="info-item" href="https://bg3.wiki/wiki/Patch_Notes" target="_blank" rel="noopener">
-          <div class="info-item-meta">
-            <span class="info-item-game">Baldur's Gate 3</span>
+          <div class="patch-header">
+            <span class="info-item-game game-bg3">Baldur's Gate 3</span>
             <span class="info-item-version">Hotfix 36</span>
             <span class="info-item-time">Mar 2026</span>
           </div>
-          <p class="info-item-text">Crash fixes, frame rate issues addressed in certain scenes. Corrupted save file repairs rolled out.</p>
+          <p class="info-item-text">Crash fixes and frame rate drops resolved. Corrupted saves repaired. Cross-play (added in Patch 8) now stable across platforms.</p>
         </a>
 
-        <a class="info-item" href="https://www.playdarktide.com/news" target="_blank" rel="noopener">
-          <div class="info-item-meta">
-            <span class="info-item-game">Darktide</span>
-            <span class="info-item-version">1.11.6</span>
-            <span class="info-item-time">May 2026</span>
-          </div>
-          <p class="info-item-text">Carapace enemy rebalance — Veteran Krak Grenades nerfed, Ogryn Crusher adjustments across the board.</p>
-        </a>
-      </div>
+      </div><!-- /left -->
 
-      <!-- Trending Now -->
+      <!-- RIGHT: Trending Now (narrower) -->
       <div class="info-card">
         <div class="info-card-header">
           <span class="info-card-icon">📈</span>
           <h3 class="info-card-title">Trending Now</h3>
         </div>
 
-        <a class="info-item" href="/rivers-of-blood-build/">
-          <div class="trending-item-title">Rivers of Blood Build — Still Best Bleed Weapon?</div>
-          <div class="trending-item-meta">
-            <span class="trending-category">Elden Ring</span>
-            <span class="trending-time">· 1 day ago</span>
+        <a class="info-item" href="https://sevenswords.uk/best-weapons-for-bleed-builds-in-elden-ring/" target="_blank" rel="noopener">
+          <div class="trending-item">
+            <div class="trending-item-content">
+              <div class="trending-item-title">Best Bleed Weapons After Patch 1.16</div>
+              <div class="trending-item-meta">
+                <span class="trending-category game-er">Elden Ring</span>
+                <span class="trending-time">· 5h ago</span>
+              </div>
+            </div>
+            <span class="trending-chevron">›</span>
           </div>
         </a>
 
-        <a class="info-item" href="/diablo4-whirlwind-barbarian-build/">
-          <div class="trending-item-title">Whirlwind Barbarian — Season 8 Boss Powers Tier List</div>
-          <div class="trending-item-meta">
-            <span class="trending-category">Diablo 4</span>
-            <span class="trending-time">· 3 days ago</span>
+        <a class="info-item" href="https://maxroll.gg/d4/news/diablo-4-season-8-compendium-updates-build-guides" target="_blank" rel="noopener">
+          <div class="trending-item">
+            <div class="trending-item-content">
+              <div class="trending-item-title">Lord of Hatred — Season 12 Tier List</div>
+              <div class="trending-item-meta">
+                <span class="trending-category game-d4">Diablo 4</span>
+                <span class="trending-time">· 1d ago</span>
+              </div>
+            </div>
+            <span class="trending-chevron">›</span>
           </div>
         </a>
 
-        <a class="info-item" href="/diablo4-paladin-blessed-hammer-build/">
-          <div class="trending-item-title">Paladin Blessed Hammer — Season 8 S-Tier Confirmed</div>
-          <div class="trending-item-meta">
-            <span class="trending-category">Diablo 4</span>
-            <span class="trending-time">· 4 days ago</span>
+        <a class="info-item" href="https://www.focus-entmt.com/en/news/warhammer-40000-space-marine-2-shadowdrops-its-purgation-update-just-in-time-for-the-warhammer-skulls-festival" target="_blank" rel="noopener">
+          <div class="trending-item">
+            <div class="trending-item-content">
+              <div class="trending-item-title">Purgation Update — What's New in Patch 13</div>
+              <div class="trending-item-meta">
+                <span class="trending-category game-sm2">Space Marine 2</span>
+                <span class="trending-time">· 2d ago</span>
+              </div>
+            </div>
+            <span class="trending-chevron">›</span>
           </div>
         </a>
 
-        <a class="info-item" href="/#coming-soon">
-          <div class="trending-item-title">Techmarine Builds After Patch 12 — Coming Soon</div>
-          <div class="trending-item-meta">
-            <span class="trending-category">Space Marine 2</span>
-            <span class="trending-time">· 1 week ago</span>
+        <a class="info-item" href="https://www.windowscentral.com/gaming/warhammer-day-xbox-and-pc-game-announcements-were-getting-a-content-roadmap-for-darktide-dark-heresys-alpha-test-a-2nd-playable-character-for-boltgun-2-and-much-more" target="_blank" rel="noopener">
+          <div class="trending-item">
+            <div class="trending-item-content">
+              <div class="trending-item-title">Skitarii Class Revealed — Warhammer Skulls 2026</div>
+              <div class="trending-item-meta">
+                <span class="trending-category game-dt">40K: Darktide</span>
+                <span class="trending-time">· 4d ago</span>
+              </div>
+            </div>
+            <span class="trending-chevron">›</span>
           </div>
         </a>
 
-        <a class="info-item" href="/samurai-bleed-build/">
-          <div class="trending-item-title">Samurai Bleed — Nightreign 1.03.2 Build Viability</div>
-          <div class="trending-item-meta">
-            <span class="trending-category">Elden Ring</span>
-            <span class="trending-time">· 1 week ago</span>
+        <a class="info-item" href="https://bg3.wiki/wiki/Patch_Notes" target="_blank" rel="noopener">
+          <div class="trending-item">
+            <div class="trending-item-content">
+              <div class="trending-item-title">Patch 8 Cross-Play — Best Subclasses Ranked</div>
+              <div class="trending-item-meta">
+                <span class="trending-category game-bg3">Baldur's Gate 3</span>
+                <span class="trending-time">· 1w ago</span>
+              </div>
+            </div>
+            <span class="trending-chevron">›</span>
           </div>
         </a>
 
-        <a class="info-item" href="/#coming-soon">
-          <div class="trending-item-title">Best BG3 Subclasses After Patch 8 Cross-Play Update</div>
-          <div class="trending-item-meta">
-            <span class="trending-category">Baldur's Gate 3</span>
-            <span class="trending-time">· 2 weeks ago</span>
+        <a class="info-item" href="https://nukaknights.com/articles/expected-changes-for-the-backwoods-update-on-3rd-march-2026.html" target="_blank" rel="noopener">
+          <div class="trending-item">
+            <div class="trending-item-content">
+              <div class="trending-item-title">Season 25 Infestations — Best Builds Guide</div>
+              <div class="trending-item-meta">
+                <span class="trending-category game-fo76">Fallout 76</span>
+                <span class="trending-time">· 2w ago</span>
+              </div>
+            </div>
+            <span class="trending-chevron">›</span>
           </div>
         </a>
-      </div>
-    </div>
 
-    <!-- FILTERS -->
+      </div><!-- /right -->
+    </div><!-- /info-grid -->
+
+    <!-- ── FILTERS ─────────────────────────────────────────────── -->
     <div class="filters-section">
-      <div class="filters-title">Filter by Game</div>
-      <div class="filter-buttons">
-        <button class="filter-btn active" onclick="filterGuides('all')">All Games</button>
-        <button class="filter-btn" onclick="filterGuides('elden-ring')">Elden Ring</button>
-        <button class="filter-btn" onclick="filterGuides('diablo-4')">Diablo 4</button>
-        <button class="filter-btn" onclick="filterGuides('bg3')" id="filter-bg3">Baldur's Gate 3</button>
-        <button class="filter-btn" onclick="filterGuides('fallout76')" id="filter-fallout76">Fallout 76</button>
-        <button class="filter-btn" onclick="filterGuides('fallout4')" id="filter-fallout4">Fallout 4</button>
-        <button class="filter-btn" onclick="filterGuides('darktide')" id="filter-darktide">40K: Darktide</button>
-        <button class="filter-btn" onclick="filterGuides('spacemarine2')" id="filter-spacemarine2">40K: Space Marine 2</button>
+      <div class="filter-label-row">
+        <span class="filter-game-label">Game</span>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-game="all">All Games</button>
+          <button class="filter-btn" data-game="elden-ring">Elden Ring</button>
+          <button class="filter-btn" data-game="diablo-4">Diablo 4</button>
+          <button class="filter-btn" data-game="bg3">Baldur's Gate 3</button>
+          <button class="filter-btn" data-game="spacemarine2">Space Marine 2</button>
+          <button class="filter-btn" data-game="darktide">Darktide</button>
+          <button class="filter-btn" data-game="fallout76">Fallout 76</button>
+          <button class="filter-btn" data-game="fallout4">Fallout 4</button>
+        </div>
       </div>
     </div>
 
-    <!-- FEATURED GUIDES -->
-    <h2 class="section-heading">Featured Guides</h2>
-    <p class="section-subtitle">Fully tested, in-depth builds — stat tables, item locations, boss tips, and more.</p>
+    <!-- ── FEATURED GUIDES ─────────────────────────────────────── -->
+    <h2 class="section-heading">Featured Builds</h2>
+    <div class="section-rule"></div>
 
     <div class="guide-grid" id="guides-grid">
 
-      <!-- Samurai Bleed Build -->
+      <!-- Samurai Bleed -->
       <a class="guide-card" data-game="elden-ring" href="/samurai-bleed-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #8B1A1A 0%, #5A0A0A 45%, #1A0808 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Elden Ring</span>
-            Samurai Bleed
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #6B1010 0%, #3A0808 50%, #130404 100%);">
+          <span class="card-placeholder">⚔</span>
+          <div class="card-img-footer">
+            <span class="card-category">Samurai</span>
+            <span class="card-rating"><span class="star">★</span> 4.9</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Elden Ring · Build Guide · Updated 2026</div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Elden Ring</div>
           <h3 class="guide-card-title">Samurai Bleed Build</h3>
-          <p class="guide-card-desc">Dual katanas, Arcane investment, and Rivers of Blood. The definitive bleed guide covering all three variants.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Bleed</span>
-            <span class="tag">Dexterity</span>
-            <span class="tag">Arcane</span>
-            <span class="tag">PvE</span>
-          </div>
         </div>
       </a>
 
       <!-- Tank Build -->
       <a class="guide-card" data-game="elden-ring" href="/elden-ring-tank-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #1E3A5C 0%, #0F2040 45%, #080F1A 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Elden Ring</span>
-            Tank Build
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #142840 0%, #0A1828 50%, #040C14 100%);">
+          <span class="card-placeholder">🛡</span>
+          <div class="card-img-footer">
+            <span class="card-category">Guardian</span>
+            <span class="card-rating"><span class="star">★</span> 4.7</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Elden Ring · Build Guide</div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Elden Ring</div>
           <h3 class="guide-card-title">Tank Build (Great Shield)</h3>
-          <p class="guide-card-desc">Three variants — Classic Strength Tank, Healer Support, and Spear Tank with complete stat progression.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Strength</span>
-            <span class="tag">Endurance</span>
-            <span class="tag">Beginner Friendly</span>
-          </div>
         </div>
       </a>
 
-      <!-- Dragon Faith Build -->
+      <!-- Dragon Faith -->
       <a class="guide-card" data-game="elden-ring" href="/dragon-faith-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #7A3010 0%, #4A1808 45%, #150805 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Elden Ring</span>
-            Dragon Faith
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #602008 0%, #381005 50%, #120503 100%);">
+          <span class="card-placeholder">🐉</span>
+          <div class="card-img-footer">
+            <span class="card-category">Prophet</span>
+            <span class="card-rating"><span class="star">★</span> 4.8</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Elden Ring · Build Guide</div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Elden Ring</div>
           <h3 class="guide-card-title">Dragon Faith Build</h3>
-          <p class="guide-card-desc">Dragonclaw, Agheel's Flame, and Dragon Communion Seal. Three Dragon variants explained.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Faith</span>
-            <span class="tag">Strength</span>
-            <span class="tag">Dragon</span>
-          </div>
         </div>
       </a>
 
       <!-- Rivers of Blood -->
       <a class="guide-card" data-game="elden-ring" href="/rivers-of-blood-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #7A1010 0%, #4A0808 45%, #150505 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Elden Ring</span>
-            Rivers of Blood
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #5A0A0A 0%, #340505 50%, #100303 100%);">
+          <span class="card-placeholder">🗡</span>
+          <div class="card-img-footer">
+            <span class="card-category">Assassin</span>
+            <span class="card-rating"><span class="star">★</span> 4.9</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Elden Ring · Build Guide</div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Elden Ring</div>
           <h3 class="guide-card-title">Rivers of Blood Build</h3>
-          <p class="guide-card-desc">The iconic bleed katana — Corpse Piler, Arcane scaling, and optimal stat spread for every stage.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Bleed</span>
-            <span class="tag">Arcane</span>
-            <span class="tag">Katana</span>
-          </div>
         </div>
       </a>
 
-      <!-- Necromancer Minion Build -->
+      <!-- Necromancer -->
       <a class="guide-card" data-game="diablo-4" href="/diablo4-necromancer-minion-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #4A1870 0%, #280D45 45%, #0E0820 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Diablo 4</span>
-            Necromancer
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #381060 0%, #200838 50%, #0A0415 100%);">
+          <span class="card-placeholder">💀</span>
+          <div class="card-img-footer">
+            <span class="card-category">Necromancer</span>
+            <span class="card-rating"><span class="star">★</span> 4.6</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Diablo 4 · Build Guide · Season 8</div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Diablo 4</div>
           <h3 class="guide-card-title">Necromancer Minion Build</h3>
-          <p class="guide-card-desc">Blight Summoner with Shadowblight, full Book of the Dead army, and Decrepify.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Shadow</span>
-            <span class="tag">Summoning</span>
-            <span class="tag">WT1–WT4</span>
-          </div>
         </div>
       </a>
 
-      <!-- Druid Bear Build -->
+      <!-- Druid Bear -->
       <a class="guide-card" data-game="diablo-4" href="/diablo4-druid-bear-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #2A5020 0%, #182E10 45%, #080F06 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Diablo 4</span>
-            Druid Bear
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #1E4010 0%, #102508 50%, #050D03 100%);">
+          <span class="card-placeholder">🐻</span>
+          <div class="card-img-footer">
+            <span class="card-category">Druid</span>
+            <span class="card-rating"><span class="star">★</span> 4.5</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Diablo 4 · Build Guide · Season 8</div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Diablo 4</div>
           <h3 class="guide-card-title">Druid Bear Build</h3>
-          <p class="guide-card-desc">Pulverize Werebear with Shockwave, Ursine Strength, and Overpower mechanics.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Nature</span>
-            <span class="tag">Earth</span>
-            <span class="tag">WT1–WT4</span>
-          </div>
         </div>
       </a>
 
-      <!-- Paladin Blessed Hammer -->
+      <!-- Paladin -->
       <a class="guide-card" data-game="diablo-4" href="/diablo4-paladin-blessed-hammer-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #806010 0%, #504008 45%, #1A1404 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Diablo 4</span>
-            Paladin Hammer
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #604808 0%, #382C04 50%, #120E02 100%);">
+          <span class="card-placeholder">⚡</span>
+          <div class="card-img-footer">
+            <span class="card-category">Paladin</span>
+            <span class="card-rating"><span class="star">★</span> 4.8</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Diablo 4 · Build Guide · Season 8 · S-Tier</div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Diablo 4 · S-Tier</div>
           <h3 class="guide-card-title">Paladin Blessed Hammer</h3>
-          <p class="guide-card-desc">Disciple Oath · Arbiter Form · Chain holy damage cooldowns for permanent amplification.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Holy</span>
-            <span class="tag">Arbiter</span>
-            <span class="tag">S-Tier</span>
-          </div>
         </div>
       </a>
 
-      <!-- Whirlwind Barbarian -->
+      <!-- Barbarian -->
       <a class="guide-card" data-game="diablo-4" href="/diablo4-whirlwind-barbarian-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #8A2810 0%, #501808 45%, #180806 100%);">
-          <div class="card-img-label">
-            <span class="card-img-sub">Diablo 4</span>
-            Barbarian Spin
+        <div class="guide-card-img" style="background: linear-gradient(145deg, #602008 0%, #381005 50%, #120503 100%);">
+          <span class="card-placeholder">🌀</span>
+          <div class="card-img-footer">
+            <span class="card-category">Barbarian</span>
+            <span class="card-rating"><span class="star">★</span> 4.7</span>
           </div>
         </div>
-        <div class="guide-card-body">
-          <div class="guide-card-meta">Diablo 4 · Build Guide · Season 8 · S-Tier</div>
-          <h3 class="guide-card-title">Whirlwind Barbarian Build</h3>
-          <p class="guide-card-desc">Spin2Win with Fire conversion, Sescheron's Fury Talisman, and permanent Berserking.</p>
-          <div class="guide-card-tags">
-            <span class="tag">Fire</span>
-            <span class="tag">Berserking</span>
-            <span class="tag">S-Tier</span>
-          </div>
+        <div class="guide-card-info">
+          <div class="guide-card-game">Diablo 4 · S-Tier</div>
+          <h3 class="guide-card-title">Whirlwind Barbarian</h3>
         </div>
       </a>
 
-    </div>
+    </div><!-- /guide-grid -->
 
-    <!-- ABOUT SECTION -->
+    <!-- ── ABOUT ───────────────────────────────────────────────── -->
     <h2 class="section-heading">What Is Blood Guides?</h2>
-    <p class="section-subtitle">Why players trust Blood Guides for tested builds and strategies.</p>
+    <div class="section-rule"></div>
 
     <div class="about-grid">
       <div class="about-card">
@@ -414,11 +489,11 @@
       </div>
       <div class="about-card">
         <h3>Every Game. Every Playstyle.</h3>
-        <p>Starting with Elden Ring and Diablo 4, expanding across all genres — Soulslikes, ARPGs, shooters, co-op campaigns. If a game has a meta worth optimising, it'll be here.</p>
+        <p>Starting with Elden Ring and Diablo 4, expanding across Soulslikes, ARPGs, shooters, co-op campaigns and beyond. If a game has a meta worth optimising, it'll be here.</p>
       </div>
       <div class="about-card">
         <h3>Built for Readability</h3>
-        <p>Stat tables, item cards, variant tabs, boss notes, quick reference tables. Guides are structured so you can find exactly what you need — whether you want the full explanation or just the numbers.</p>
+        <p>Stat tables, item cards, variant tabs, boss notes, quick reference tables. Guides are structured so you find exactly what you need, whether you want the full explanation or just the numbers.</p>
       </div>
       <div class="about-card">
         <h3>Always Up to Date</h3>
@@ -426,9 +501,9 @@
       </div>
     </div>
 
-    <!-- COMING SOON -->
+    <!-- ── COMING SOON ─────────────────────────────────────────── -->
     <h2 class="section-heading" id="coming-soon">Coming Soon</h2>
-    <p class="section-subtitle">Guides in progress — check back soon.</p>
+    <div class="section-rule"></div>
 
     <div class="coming-grid">
       <div class="coming-card">
@@ -443,12 +518,12 @@
       </div>
       <div class="coming-card">
         <div class="game-label">Diablo 4</div>
-        <div class="guide-name">Sorceress Ice Shards — Season 8</div>
+        <div class="guide-name">Sorceress Ice Shards — Season 12</div>
         <span class="coming-badge">In Progress</span>
       </div>
       <div class="coming-card">
         <div class="game-label">Baldur's Gate 3</div>
-        <div class="guide-name">Best Subclasses — Patch 8 Tier List</div>
+        <div class="guide-name">Patch 8 Subclass Tier List</div>
         <span class="coming-badge">In Progress</span>
       </div>
       <div class="coming-card">
@@ -462,18 +537,13 @@
         <span class="coming-badge">In Progress</span>
       </div>
       <div class="coming-card">
-        <div class="game-label">40K: Space Marine 2</div>
-        <div class="guide-name">Operations Difficulty Guide</div>
-        <span class="coming-badge planned">Planned</span>
-      </div>
-      <div class="coming-card">
         <div class="game-label">40K: Darktide</div>
         <div class="guide-name">Veteran Build — Post 1.11.6</div>
         <span class="coming-badge">In Progress</span>
       </div>
       <div class="coming-card">
         <div class="game-label">40K: Darktide</div>
-        <div class="guide-name">Ogryn Crusher Counter Guide</div>
+        <div class="guide-name">Skitarii Class Guide</div>
         <span class="coming-badge planned">Planned</span>
       </div>
       <div class="coming-card">
@@ -484,6 +554,11 @@
       <div class="coming-card">
         <div class="game-label">Fallout 4</div>
         <div class="guide-name">Anniversary Edition Build Tier List</div>
+        <span class="coming-badge planned">Planned</span>
+      </div>
+      <div class="coming-card">
+        <div class="game-label">40K: Space Marine 2</div>
+        <div class="guide-name">Siege Mode Operations Guide</div>
         <span class="coming-badge planned">Planned</span>
       </div>
       <div class="coming-card">
@@ -502,9 +577,8 @@
     <div class="footer-section">
       <h4>Blood Guides</h4>
       <a href="/">Home</a>
-      <a href="/">All Builds</a>
-      <a href="/">All Guides</a>
       <a href="/#coming-soon">Coming Soon</a>
+      <a href="/#latest-news">Patch Notes</a>
     </div>
     <div class="footer-section">
       <h4>Elden Ring</h4>
@@ -521,7 +595,7 @@
       <a href="/diablo4-whirlwind-barbarian-build/">Barbarian</a>
     </div>
     <div class="footer-section">
-      <h4>Coming Soon</h4>
+      <h4>More Games</h4>
       <a href="/#coming-soon">Space Marine 2</a>
       <a href="/#coming-soon">Darktide</a>
       <a href="/#coming-soon">Baldur's Gate 3</a>
@@ -529,25 +603,36 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>&copy; 2026 Blood Guides · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    <p>&copy; 2026 Blood Guides &nbsp;·&nbsp; <a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
   </div>
 </footer>
 
 <script src="/site.js"></script>
 <script>
+(function () {
   // Filter guides by game
-  function filterGuides(game) {
-    const cards = document.querySelectorAll('#guides-grid .guide-card');
-    const btns  = document.querySelectorAll('.filter-btn');
+  var filterBtns = document.querySelectorAll('.filter-btn[data-game]');
+  var guideCards = document.querySelectorAll('#guides-grid .guide-card');
 
-    btns.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    cards.forEach(card => {
-      const match = game === 'all' || card.dataset.game === game;
-      card.style.display = match ? '' : 'none';
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var game = btn.dataset.game;
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      guideCards.forEach(function (card) {
+        card.style.display = (game === 'all' || card.dataset.game === game) ? '' : 'none';
+      });
     });
+  });
+
+  // Read URL param ?game= on load
+  var params = new URLSearchParams(window.location.search);
+  var gameParam = params.get('game');
+  if (gameParam) {
+    var matchBtn = document.querySelector('.filter-btn[data-game="' + gameParam + '"]');
+    if (matchBtn) matchBtn.click();
   }
+}());
 </script>
 </body>
 </html>
