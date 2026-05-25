@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elden Ring Rivers of Blood Build | Complete Bleed Guide 2026</title>
+<meta name="description" content="Complete Elden Ring Rivers of Blood build guide. Best stats, talismans, armour, and Corpse Piler rotation. The most powerful bleed build in the game.">
+<meta property="og:title" content="Elden Ring Rivers of Blood Build | Complete Bleed Guide 2026">
+<meta property="og:description" content="Complete Elden Ring Rivers of Blood build guide. Best stats, talismans, armour, and Corpse Piler rotation. The most powerful bleed build in the game.">
+<meta property="og:url" content="https://bloodguides.pages.dev/rivers-of-blood-build/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/site.css">
+<style>
+/* Rivers of Blood — deep crimson theme */
+:root {
+  --bg: #120d11; --surface: #1c1219; --surface2: #261822; --border: #4a2838;
+  --accent: #c0212b; --accent2: #8b1520; --gold: #d4a84c; --gold2: #f5d880;
+  --text: #f0ead8; --text2: #c8bfb0; --text3: #d0c8bc;
+  --blue: #5b8fd4; --green: #5db87a; --crimson: #c0212b; --crimson-dim: rgba(192,33,43,0.08);
+}
+.hero {
+  background:
+    radial-gradient(ellipse at 50% 0%,   rgba(192,33,43,0.45) 0%, transparent 65%),
+    radial-gradient(ellipse at 30% 100%, rgba(120,10,20,0.06) 0%, transparent 60%),
+    #120d11 !important;
+}
+/* Bleed buildup bar widget */
+.bleed-bar-wrap { margin: 20px 0; }
+.bleed-bar-label { font-size: 12px; color: var(--text2); margin-bottom: 6px; display: flex; justify-content: space-between; }
+.bleed-bar-track { height: 10px; background: var(--surface2); border-radius: 5px; overflow: hidden; border: 1px solid var(--border); }
+.bleed-bar-fill { height: 100%; border-radius: 5px; background: linear-gradient(90deg, #8b1520, #c0212b, #ff4444); transition: width 0.5s ease; }
+/* Stat table highlighting */
+.data-table td.stat-primary { color: var(--accent); font-weight: 700; }
+.data-table td.stat-note { color: var(--text2); font-size: 12px; }
+/* Weapon phase indicator */
+.weapon-phase { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 3px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.phase-early { background: rgba(93,184,122,0.15); color: #5db87a; }
+.phase-mid   { background: rgba(91,143,212,0.15); color: #5b8fd4; }
+.phase-late  { background: rgba(192,33,43,0.15);  color: var(--accent); }
+/* Talisman synergy badge */
+.synergy-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.synergy-tag { font-size: 11px; padding: 2px 8px; border-radius: 12px; border: 1px solid var(--border); color: var(--text2); background: var(--surface2); }
+.synergy-tag.active { border-color: var(--accent); color: var(--accent); background: rgba(192,33,43,0.08); }
+/* Progression stages */
+.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
+.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
+.prog-header.mid   { background: rgba(91,143,212,.15); color: var(--blue); }
+.prog-header.end   { background: rgba(192,33,43,.15);  color: var(--accent); }
+.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
+.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
+/* Rotation steps */
+.rotation-steps { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.rotation-step { display: flex; gap: 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; align-items: flex-start; transition: border-color 0.2s; }
+.rotation-step:hover { border-color: var(--accent); }
+.rotation-num { font-size: 22px; font-weight: 900; font-family: 'Cinzel', serif; color: var(--accent); flex-shrink: 0; min-width: 30px; line-height: 1; margin-top: 2px; }
+.rotation-action { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.rotation-why { font-size: 13px; color: var(--text2); line-height: 1.5; }
+/* Boss tips */
+.boss-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
+.boss-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.boss-header { padding: 9px 14px; border-bottom: 1px solid var(--border); font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--text); display: flex; align-items: center; justify-content: space-between; }
+.boss-difficulty { font-size: 10px; padding: 2px 6px; border-radius: 3px; font-family: sans-serif; font-weight: 600; text-transform: uppercase; }
+.diff-easy   { background: rgba(93,184,122,0.15); color: #5db87a; }
+.diff-medium { background: rgba(212,168,76,0.15);  color: var(--gold); }
+.diff-hard   { background: rgba(192,33,43,0.15);   color: var(--accent); }
+.diff-brutal { background: rgba(155,0,155,0.15);   color: #bb86fc; }
+.boss-body { padding: 10px 14px; font-size: 13px; color: var(--text2); line-height: 1.6; }
+.boss-tip-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-top: 8px; margin-bottom: 3px; font-weight: 700; }
+/* Wiki links */
+.wiki-link { display: inline-block; font-size: 11px; color: var(--gold); text-decoration: none; margin-left: 4px; opacity: .75; }
+.wiki-link:hover { opacity: 1; text-decoration: underline; }
+/* Callout variants */
+.callout.tip     { background: rgba(93,184,122,0.08);  border: 1px solid rgba(93,184,122,0.3);  }
+.callout.warning { background: rgba(255,152,0,0.08);   border: 1px solid rgba(255,152,0,0.3);   }
+.callout.info    { background: rgba(91,143,212,0.08);  border: 1px solid rgba(91,143,212,0.3);  }
+.callout.danger  { background: rgba(192,33,43,0.08);   border: 1px solid rgba(192,33,43,0.3);   }
+</style>
+</head>
+<body>
+<div id="page-top"></div>
+
+<!-- SITE NAV -->
+<header class="site-nav">
+  <div class="site-nav-inner">
+    <a class="site-nav-logo" href="/">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      </svg>
+      Blood Guides
+    </a>
+    <ul class="site-nav-links">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="#" class="active">Elden Ring ▾</a>
+        <ul>
+          <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
+          <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
+          <li><a href="/dragon-faith-build/">Dragon Faith Build</a></li>
+          <li><a href="/rivers-of-blood-build/">Rivers of Blood Build</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Diablo 4 ▾</a>
+        <ul>
+          <li><a href="/diablo4-necromancer-minion-build/">Necromancer Minion Build</a></li>
+          <li><a href="/diablo4-druid-bear-build/">Druid Bear Build</a></li>
+          <li><a href="/diablo4-paladin-blessed-hammer-build/">Paladin Blessed Hammer Build</a></li>
+        </ul>
+      </li>
+      <li><a href="/">Builds</a></li>
+      <li><a href="/">Walkthroughs</a></li>
+      <li><a href="/">Tips &amp; Mechanics</a></li>
+      <li><a href="/">All Games</a></li>
+    </ul>
+    <button class="theme-toggle" title="Toggle light/dark mode">
+      <span class="toggle-icon">☀️</span> Light
+    </button>
+  </div>
+</header>
+
+<button id="fab-top" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Complete Build Guide · 2026</span>
+  <h1 class="title">Rivers of Blood Build</h1>
+  <p class="subtitle">Corpse Piler. Bleed proc. Repeat. The most popular and most devastating build in Elden Ring — and for good reason.</p>
+  <div class="badges">
+    <span class="badge red">Dexterity / Arcane</span>
+    <span class="badge">Patch 1.10 Viable</span>
+    <span class="badge red">Bleed Build</span>
+    <span class="badge">PvE ✓</span>
+    <span class="badge">PvP ✓</span>
+    <span class="badge green">Beginner Friendly</span>
+    <span class="badge">DLC Compatible</span>
+  </div>
+</div>
+
+<!-- IN-PAGE NAV -->
+<nav class="section-nav">
+  <ul>
+    <li><button onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">Overview</button></li>
+    <li><button onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons</button></li>
+    <li><button onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats</button></li>
+    <li><button onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">Armour</button></li>
+    <li><button onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans</button></li>
+    <li><button onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs</button></li>
+    <li><button onclick="document.getElementById('flask').scrollIntoView({behavior:'smooth'})">Flask</button></li>
+    <li><button onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">Summons</button></li>
+    <li><button onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation</button></li>
+    <li><button onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips</button></li>
+    <li><button onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips</button></li>
+  </ul>
+</nav>
+
+<div class="content">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Overview</h2>
+  <div class="section-rule"></div>
+
+  <div class="summary-box">
+    <div class="summary-grid">
+      <div class="summary-item"><span class="summary-label">Build Identity</span><span class="summary-value">Corpse Piler Bleed Machine</span></div>
+      <div class="summary-item"><span class="summary-label">Starting Class</span><span class="summary-value">Samurai</span></div>
+      <div class="summary-item"><span class="summary-label">Primary Stats</span><span class="summary-value">Dexterity 45 · Arcane 50</span></div>
+      <div class="summary-item"><span class="summary-label">Core Weapon</span><span class="summary-value">Rivers of Blood (Corpse Piler AoW)</span></div>
+      <div class="summary-item"><span class="summary-label">Core Mechanic</span><span class="summary-value">Bleed proc → attack buff → repeat</span></div>
+      <div class="summary-item"><span class="summary-label">Best For</span><span class="summary-value">PvE boss kills, PvP pressure, beginners</span></div>
+      <div class="summary-item"><span class="summary-label">Target Level</span><span class="summary-value">SL 150 (PvP soft cap)</span></div>
+      <div class="summary-item"><span class="summary-label">Difficulty</span><span class="summary-value">Easy — weapon art does the work</span></div>
+    </div>
+  </div>
+
+  <p>The Rivers of Blood build is the most searched, most played, and most effective melee build in Elden Ring. It centres on one devastating weapon art — <strong>Corpse Piler</strong> — which unleashes a rapid, spinning flurry of bloodflame slashes that stack bleed buildup at an extraordinary rate. When Hemorrhage triggers, it deals a percentage of the target's maximum HP as damage. Against large bosses with enormous health pools, a single bleed proc can remove a quarter of their HP bar.</p>
+
+  <p>The build's genius is in its synergies. Arcane directly increases bleed buildup speed on weapons with innate Arcane scaling, so Rivers of Blood procs faster the more you invest. The <strong>White Mask</strong> helmet and <strong>Lord of Blood's Exultation</strong> talisman both grant attack buffs when blood loss occurs nearby — buffs that stack with each other. Every bleed proc is both a massive damage hit and a signal for your next Corpse Piler spam to hit even harder.</p>
+
+  <p>This is rated Beginner because Corpse Piler handles nearly everything. You don't need precise timing, parry windows, or complex resource management. The one real cost is that Rivers of Blood is acquired in the <strong>Mountaintops of the Giants</strong> — roughly two-thirds through the game. You will need a substitute weapon for the early and middle portions of your run.</p>
+
+  <div class="pro-con-grid">
+    <div class="pro-box">
+      <h4>Strengths</h4>
+      <ul>
+        <li>Corpse Piler is one of the strongest AoWs in the game</li>
+        <li>Bleed proc deals HP% damage — scales with enemy size</li>
+        <li>Arcane boosts bleed buildup directly</li>
+        <li>White Mask + Lord of Blood's Exultation stack for massive burst</li>
+        <li>Beginner-friendly rotation with high skill ceiling in PvP</li>
+        <li>Dual-wield (Nagakiba/Uchigatana offhand) adds relentless pressure</li>
+      </ul>
+    </div>
+    <div class="con-box">
+      <h4>Weaknesses</h4>
+      <ul>
+        <li>Rivers of Blood is a late-game weapon — available in Mountaintops</li>
+        <li>Bosses resistant to bleed and fire (Mohg optional, Cleanrot Knights) take full damage but bleed is wasted</li>
+        <li>Corpse Piler is telegraphed in PvP — experienced players will punish it</li>
+        <li>FP-dependent — running out mid-fight is punishing</li>
+        <li>Okina Mask reduces Focus (Madness buildup risk in DLC)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <span></span>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">Weapons →</button>
+  </div>
+</section>
+
+<!-- WEAPONS -->
+<section id="weapons">
+  <h2>Weapons</h2>
+  <div class="section-rule"></div>
+
+  <p>Rivers of Blood is acquired late, so you will spend roughly half the game using a different katana. This section covers the full weapon journey from Limgrave through Mountaintops, plus offhand options and upgrade priorities.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'weapons-main')">Main Hand</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-offhand')">Offhand</button>
+    <button class="tab-btn" onclick="switchTab(event,'weapons-upgrade')">Upgrade Path</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-weapons-main">
+    <h3>Main Hand Weapons</h3>
+
+    <div class="item-grid">
+      <div class="item-card">
+        <span class="weapon-phase phase-early">Early Game</span>
+        <div class="item-tag green">Starting Weapon — Samurai Class</div>
+        <div class="item-name">Uchigatana</div>
+        <p>Your starting weapon as Samurai. Apply Blood affinity at the first Whetstone Knife site you find — the one in the Gatefront Ruins in Limgrave. With Blood affinity, the Uchigatana builds Hemorrhage on its own and carries you comfortably through Limgrave, Liurnia, and well into Caelid. Upgrade it alongside Dexterity and Arcane investment.</p>
+        <div class="item-stat">📍 Starting weapon for Samurai class · Apply Blood affinity at Gatefront Ruins site</div>
+        <div class="item-stat">Scales with: DEX (primary) + ARC (with Blood affinity) · Requirements: STR 11, DEX 15</div>
+      </div>
+
+      <div class="item-card">
+        <span class="weapon-phase phase-mid">Mid Game</span>
+        <div class="item-tag blue">Optional Upgrade — High Range</div>
+        <div class="item-name">Nagakiba</div>
+        <p>The longest katana in the game, with exceptional reach that compensates for the Uchigatana's shorter range. Acquired early by killing Bloody Finger Hunter Yura at his first invasion location in Limgrave. Switch to this if you want a longer-range main hand before Rivers of Blood becomes available. <strong>Important:</strong> Yura becomes unavailable after entering Mountaintops of the Giants, so grab him before then.</p>
+        <div class="item-stat">📍 Dropped by Bloody Finger Hunter Yura (Limgrave, east of Agheel Lake North) <a href="https://eldenring.wiki.fextralife.com/Nagakiba" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+        <div class="item-stat">Scales with: DEX · Requirements: STR 18, DEX 22</div>
+      </div>
+
+      <div class="item-card">
+        <span class="weapon-phase phase-late">Late Game — Core Weapon</span>
+        <div class="item-tag red">Build-Defining — Get This ASAP</div>
+        <div class="item-name">Rivers of Blood</div>
+        <p>The centrepiece of the entire build. Rivers of Blood has innate Arcane scaling and deals physical + fire damage, with the unique weapon art <strong>Corpse Piler</strong>. Corpse Piler performs a rapid sequence of interweaving bloodflame slashes — each slash applies bleed buildup, and the speed of the attack means you trigger Hemorrhage multiple times per activation against large targets. This weapon cannot have its AoW replaced or its infusion changed. You get Corpse Piler or nothing.</p>
+        <div class="item-stat">📍 Dropped by Bloody Finger Okina — invades you at the Church of Repose, Mountaintops of the Giants</div>
+        <div class="item-stat">Requirements: STR 12, DEX 18, ARC 20 · Scales with: DEX + ARC (innate) <a href="https://eldenring.wiki.fextralife.com/Rivers+of+Blood" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+
+    <div class="callout info" style="margin-top:16px;">
+      <div class="callout-title">How to Reach Church of Repose</div>
+      <p>From the Grand Lift of Rold, take the right path into Mountaintops of the Giants. Head northeast past the frozen lake and through Freezing Lake. The Church of Repose sits on the eastern edge above the Erdtree. Bloody Finger Okina's invasion triggers automatically when you approach the church. He drops Rivers of Blood <em>and</em> the Okina Mask on death.</p>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-weapons-offhand">
+    <h3>Offhand Options</h3>
+
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Best Offhand — Boss Fights</div>
+        <div class="item-name">Uchigatana (Blood + Seppuku)</div>
+        <p>Once you have Rivers of Blood, move your Uchigatana to the offhand. Apply Blood affinity to it and equip the <strong>Seppuku</strong> Ash of War. Before major boss fights, activate Seppuku on the Uchigatana — this plunges the blade through your hand, instantly applying massive bleed buildup to the weapon and triggering a bleed proc on yourself, which activates both the White Mask and Lord of Blood's Exultation buffs before you even attack. This opener gives you a significant damage advantage for the first Corpse Piler sequence.</p>
+        <div class="item-stat">📍 Seppuku AoW: Found on a scarab near the frozen lake in Mountaintops of the Giants (west area) <a href="https://eldenring.wiki.fextralife.com/Ash+of+War:+Seppuku" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-tag blue">Offhand Option — Trash Kills</div>
+        <div class="item-name">Sacrificial Axe</div>
+        <p>A weapon that restores 4 FP every time an enemy dies near you. Against groups of enemies in dungeons or Legacy Dungeons, this passively refunds significant FP and lets you spam Corpse Piler far more frequently. Swap this in when clearing rooms and Seppuku-Uchigatana in for boss encounters.</p>
+        <div class="item-stat">📍 Dropped by the Deathbird north of Castle Morne, Weeping Peninsula (night-time only) <a href="https://eldenring.wiki.fextralife.com/Sacrificial+Axe" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-tag">Support Slot — Optional</div>
+        <div class="item-name">Dragon Communion Seal</div>
+        <p>If you include Flame, Grant Me Strength or Golden Vow in your rotation (see Buffs section), you need a Sacred Seal to cast them. The Dragon Communion Seal is the best option because it scales with Arcane — every point you put into Arcane also improves your incantation damage. Other seals use Faith scaling, which you are not investing in significantly.</p>
+        <div class="item-stat">📍 Kill the resting Banished Knight in Fringefolk Hero's Grave, Limgrave (requires two Stonesword Keys) <a href="https://eldenring.wiki.fextralife.com/Dragon+Communion+Seal" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-weapons-upgrade">
+    <h3>Upgrade Priorities</h3>
+    <p>Smithing Stones are a finite early resource — spend them wisely. Here is the priority order for upgrading weapons as you progress.</p>
+    <table class="data-table">
+      <tr><th>Phase</th><th>Upgrade</th><th>Why</th></tr>
+      <tr><td>Levels 1–50</td><td class="highlight">Uchigatana to +15 or +16</td><td>Your carry weapon until Mountaintops. Don't lag on this.</td></tr>
+      <tr><td>Levels 50–80</td><td class="highlight">Nagakiba to +16 (optional)</td><td>Only if you prefer range over the Uchigatana. Don't upgrade both.</td></tr>
+      <tr><td>After acquiring ROB</td><td class="highlight">Rivers of Blood to +10 (Somber)</td><td>Somber Smithing Stones (9 total). Rivers of Blood caps at +10, not +25.</td></tr>
+      <tr><td>After ROB</td><td class="highlight">Uchigatana to +25 (offhand)</td><td>Maximises Seppuku damage and bleed buildup on the offhand.</td></tr>
+    </table>
+    <div class="callout warning" style="margin-top:14px;">
+      <div class="callout-title">Somber vs. Standard Smithing Stones</div>
+      <p>Rivers of Blood uses <strong>Somber</strong> Smithing Stones (1–9), <em>not</em> standard ones. It upgrades to a maximum of +10. Your Uchigatana uses standard Smithing Stones and goes to +25. They share no upgrade material. Stock both. The final Somber Smithing Stone (9) is found in Farum Azula — you will have all the others well before that.</p>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('overview').scrollIntoView({behavior:'smooth'})">← Overview</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">Stats →</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <h2>Stats &amp; Levelling</h2>
+  <div class="section-rule"></div>
+
+  <p>Samurai is the correct starting class. It has the best base Dexterity distribution for this build and starts with the Uchigatana — your carry weapon for the first half of the game. No other class comes close for this build's stat efficiency.</p>
+
+  <div class="callout" style="background:rgba(192,33,43,0.07);border:1px solid rgba(192,33,43,0.3);">
+    <div class="callout-title">Key Stat Breakpoints</div>
+    <p><strong>DEX 18:</strong> Rivers of Blood requirement (you meet this easily as Samurai). <strong>ARC 20:</strong> Rivers of Blood requirement. <strong>ARC 40:</strong> First major bleed damage spike — proc damage and buildup increase significantly. <strong>ARC 50–60:</strong> Soft cap zone — diminishing returns but still meaningful. <strong>DEX 45:</strong> Soft cap for melee damage scaling. <strong>Faith 15:</strong> Unlocks Flame, Grant Me Strength (recommended). <strong>SL 150:</strong> PvP matchmaking boundary — do not exceed if you intend to duel.</p>
+  </div>
+
+  <h3>Stat Spread by Level</h3>
+  <table class="data-table">
+    <tr><th>Stat</th><th>SL 50</th><th>SL 100</th><th>SL 150</th><th>Notes</th></tr>
+    <tr><td>Vigor</td><td>25</td><td>40</td><td class="stat-primary">55</td><td class="stat-note">Don't neglect this — chip damage adds up fast</td></tr>
+    <tr><td>Mind</td><td>12</td><td>15</td><td>20</td><td class="stat-note">Corpse Piler costs FP — you need the pool</td></tr>
+    <tr><td>Endurance</td><td>15</td><td>20</td><td>25</td><td class="stat-note">Enough for medium roll with armour setup</td></tr>
+    <tr><td>Strength</td><td>12</td><td>12</td><td>12</td><td class="stat-note">Minimum only — never invest further</td></tr>
+    <tr><td>Dexterity</td><td>20</td><td>35</td><td class="stat-primary">45</td><td class="stat-note">Primary damage stat alongside Arcane</td></tr>
+    <tr><td>Intelligence</td><td>9</td><td>9</td><td>9</td><td class="stat-note">Dump stat — never touch this</td></tr>
+    <tr><td>Faith</td><td>15</td><td>15</td><td>15</td><td class="stat-note">15 unlocks Flame, Grant Me Strength</td></tr>
+    <tr><td>Arcane</td><td>20</td><td>40</td><td class="stat-primary">50</td><td class="stat-note">Primary bleed scaling stat — priority from SL 60 onward</td></tr>
+  </table>
+
+  <h3>Levelling Roadmap</h3>
+  <div class="progression-grid">
+    <div class="prog-stage">
+      <div class="prog-header early">🌱 SL 1–50 · Early Game</div>
+      <p><strong>Priority:</strong> Vigor 25 → DEX 22 → ARC 20 → Faith 15</p>
+      <p>DEX 22 lets you wield the Nagakiba if you want it. ARC 20 is the Rivers of Blood requirement — get this done. Faith 15 unlocks Flame, Grant Me Strength for the pre-boss buff. Sit on Vigor to keep yourself alive while you learn the game.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header mid">⚔️ SL 50–100 · Transition</div>
+      <p><strong>Priority:</strong> ARC 40 → Vigor 40 → DEX 35</p>
+      <p>ARC 40 is the first major power spike — bleed procs hit much harder and the proc rate increases visibly. Push Vigor to 40 before you enter Mountaintops. You will be close to acquiring Rivers of Blood during this bracket.</p>
+    </div>
+    <div class="prog-stage">
+      <div class="prog-header end">🔥 SL 100–150 · Endgame</div>
+      <p><strong>Priority:</strong> ARC 50 → DEX 45 → Vigor 55</p>
+      <p>ARC 50 is the practical soft cap — returns diminish after 60 and you need points for everything else. DEX 45 is your melee soft cap. Push Vigor to 55 for Shadow of the Erdtree content. Stop at SL 150 for PvP viability.</p>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title">Respec Option — Larval Tears</div>
+    <p>If you levelled something suboptimally early on, you can respec at Rennala in the Raya Lucaria Grand Library after defeating her. You need one Larval Tear per respec. There are around 18 Larval Tears available in a single playthrough. Don't hesitate to use one if you want to correct your stat spread before the endgame push.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('weapons').scrollIntoView({behavior:'smooth'})">← Weapons</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">Armour →</button>
+  </div>
+</section>
+
+<!-- ARMOUR -->
+<section id="armour">
+  <h2>Armour</h2>
+  <div class="section-rule"></div>
+
+  <p>Armour selection for this build has two hard constraints: you must wear the <strong>White Mask</strong>, and you must maintain at least <strong>51 Poise</strong>. Poise determines whether enemy attacks will interrupt Corpse Piler mid-sequence — below 51, fast enemies can stagger you out of the weapon art. Above 51, you push through most standard attacks.</p>
+
+  <div class="callout danger">
+    <div class="callout-title">White Mask is Non-Negotiable</div>
+    <p>The White Mask grants +10% attack power for 20 seconds whenever blood loss occurs in your vicinity — including blood loss you inflict on yourself via the Seppuku opener. This stacks multiplicatively with Lord of Blood's Exultation's +20% buff. Combined, you deal roughly 32% more damage in the window after a bleed proc. Never swap this for a cosmetic helmet.</p>
+  </div>
+
+  <h3>Recommended Armour Set — 51+ Poise</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Non-Negotiable Helmet</div>
+      <div class="item-name">White Mask</div>
+      <p>+10% attack power for 20 seconds after blood loss occurs nearby. Acquired from the War Surgeon set — the three War Surgeon NPC invaders in the Mohgwyn Dynasty Mausoleum area. At least one of them drops the White Mask. Farm the group of three invaders until it drops. Poise contribution: 5.</p>
+      <div class="item-stat">📍 War Surgeon invaders near the Palace Approach Ledge-Road, Mohgwyn Dynasty Mausoleum <a href="https://eldenring.wiki.fextralife.com/White+Mask" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Chest — Core Poise Source</div>
+      <div class="item-name">Blaidd's Armour</div>
+      <p>The man-wolf Blaidd's armour provides exceptional poise per weight — more than almost any comparable mid-weight chest piece. Acquired at the end of Blaidd's questline in Liurnia. Poise: 28. This chest piece carries the majority of your poise requirement.</p>
+      <div class="item-stat">📍 Purchased from Enia at Roundtable Hold after completing Blaidd's questline <a href="https://eldenring.wiki.fextralife.com/Blaidd%27s+Armor" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Gauntlets</div>
+      <div class="item-name">Blaidd's Gauntlets</div>
+      <p>Matches the chest piece and contributes 6 poise. Acquired alongside the armour via Enia at Roundtable Hold after Blaidd's questline. You could swap these for any gauntlets that keep you over 51 total poise if you want flexibility.</p>
+      <div class="item-stat">📍 Purchased from Enia at Roundtable Hold alongside Blaidd's Armour <a href="https://eldenring.wiki.fextralife.com/Blaidd%27s+Gauntlets" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+    <div class="item-card">
+      <div class="item-tag">Greaves</div>
+      <div class="item-name">Night's Cavalry Greaves</div>
+      <p>Pitch-black greaves with 15 poise and good physical defence. Combined with the set above, total poise is 5+28+6+15 = 54 — just over the 51 threshold. Stylistically dark and fits the blood aesthetic of the build. You need equip load management to stay in medium roll.</p>
+      <div class="item-stat">📍 Rare drop from Night's Cavalry patrol enemies across the Lands Between <a href="https://eldenring.wiki.fextralife.com/Night%27s+Cavalry+Greaves" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+  </div>
+
+  <h3>Poise Breakdown</h3>
+  <table class="data-table">
+    <tr><th>Piece</th><th>Poise</th><th>Weight</th></tr>
+    <tr><td>White Mask</td><td>5</td><td>4.9</td></tr>
+    <tr><td>Blaidd's Armour</td><td>28</td><td>15.7</td></tr>
+    <tr><td>Blaidd's Gauntlets</td><td>6</td><td>5.8</td></tr>
+    <tr><td>Night's Cavalry Greaves</td><td>15</td><td>8.0</td></tr>
+    <tr><td><strong>Total</strong></td><td class="stat-primary"><strong>54</strong></td><td><strong>34.4</strong></td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--text2);margin-top:6px;">Total equip load with Rivers of Blood + Uchigatana offhand is approximately 49–52 depending on talisman choices. With 25 Endurance (~94 equip load), you have comfortable medium roll headroom.</p>
+
+  <h3>Alternative Helmet — Okina Mask</h3>
+  <p>The Okina Mask is acquired alongside Rivers of Blood (dropped by Bloody Finger Okina). It provides +3 Dexterity at the cost of -20 Focus (Madness resistance). In base-game PvE the Focus penalty rarely matters. The +3 DEX is a free effective stat point — equivalent to levelling Dexterity once without spending a rune. <strong>However:</strong> in the Shadow of the Erdtree DLC, many areas have Madness-inflicting enemies and AOEs. Use White Mask in the DLC, Okina Mask in base game if you prefer the passive stat.</p>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('stats').scrollIntoView({behavior:'smooth'})">← Stats</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">Talismans →</button>
+  </div>
+</section>
+
+<!-- TALISMANS -->
+<section id="talismans">
+  <h2>Talismans</h2>
+  <div class="section-rule"></div>
+
+  <p>You have four talisman slots. The Rivers of Blood build makes exceptional use of all four. The core set maximises Corpse Piler damage through AoW amplification and successive hit bonuses. One slot is flexible for survivability or FP management.</p>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(event,'talis-core')">Core Four</button>
+    <button class="tab-btn" onclick="switchTab(event,'talis-alt')">Alternatives</button>
+  </div>
+
+  <div class="tab-panel active" id="tab-talis-core">
+    <h3>Core Talisman Setup</h3>
+    <div class="item-grid">
+      <div class="item-card">
+        <div class="item-tag red">Slot 1 — Non-Negotiable</div>
+        <div class="item-name">Lord of Blood's Exultation</div>
+        <p>+20% attack power for 20 seconds when blood loss occurs in the vicinity. This is your most important talisman — it makes every bleed proc a damage window that powers your next sequence. Stacks multiplicatively with the White Mask buff for a combined ~32% damage bonus. Triggers on self-inflicted Seppuku blood loss too, giving you the buff before combat begins.</p>
+        <div class="item-stat">📍 Dropped by Esgar, Priest of Blood in the Leyndell Sewers (beneath the capital, below the Avenue Balcony site) <a href="https://eldenring.wiki.fextralife.com/Lord+of+Blood%27s+Exultation" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+        <div class="synergy-row"><span class="synergy-tag active">Stacks with White Mask</span><span class="synergy-tag active">Triggers on Seppuku</span><span class="synergy-tag active">Stacks with Bloodflame Blade</span></div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-tag red">Slot 2 — Non-Negotiable</div>
+        <div class="item-name">Shard of Alexander</div>
+        <p>+15% weapon art damage. As Corpse Piler is a weapon art, this applies a direct 15% increase to every slash in the sequence. Because Corpse Piler is your primary damage source, Shard of Alexander is effectively a permanent 15% damage bonus for this build. Acquired at the end of Warrior Jar Alexander's questline in Farum Azula — it requires following his story through Stormveil, Redmane Castle, and Volcano Manor.</p>
+        <div class="item-stat">📍 Dropped by Warrior Jar Alexander in Farum Azula (end of his questline) <a href="https://eldenring.wiki.fextralife.com/Shard+of+Alexander" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-tag">Slot 3 — Successive Hit Bonus</div>
+        <div class="item-name">Rotten Winged Sword Insignia</div>
+        <p>Greatly raises attack power with successive attacks. Corpse Piler is a rapid multi-hit weapon art — the successive attack counter climbs throughout the animation, applying escalating damage bonuses across each slash. The effect stacks with Lord of Blood's Exultation. At maximum succession, this talisman adds approximately +13% attack power. The upgrade to the standard Winged Sword Insignia.</p>
+        <div class="item-stat">📍 Reward for completing Millicent's questline — given by Millicent near the Drainage Channel site, Haligtree <a href="https://eldenring.wiki.fextralife.com/Rotten+Winged+Sword+Insignia" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+
+      <div class="item-card">
+        <div class="item-tag blue">Slot 4 — Flexible Slot</div>
+        <div class="item-name">Carian Filigreed Crest</div>
+        <p>Reduces weapon art FP cost by 25%. Corpse Piler costs FP, and spamming it in long boss fights will drain your blue bar quickly. This talisman lets you use the AoW significantly more per encounter. The main alternative to consider is Millicent's Prosthesis (see Alternatives tab), which trades FP efficiency for +5 DEX and a succession bonus.</p>
+        <div class="item-stat">📍 Purchased from War Counselor Iji in Liurnia (near Kingsrealm Ruins) for 5,000 runes after progressing Ranni's quest <a href="https://eldenring.wiki.fextralife.com/Carian+Filigreed+Crest" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-panel" id="tab-talis-alt">
+    <h3>Alternative Talismans</h3>
+    <table class="data-table">
+      <tr><th>Talisman</th><th>Effect</th><th>When to Use</th></tr>
+      <tr><td class="highlight">Millicent's Prosthesis</td><td>+5 DEX, raises attack with successive hits</td><td>Replace Carian Filigreed Crest if FP isn't an issue. +5 DEX is a free level. Acquired from Millicent's questline (earlier than Rotten Winged Sword Insignia).</td></tr>
+      <tr><td class="highlight">Dragoncrest Greatshield Talisman</td><td>−20% physical damage taken</td><td>Replace Rotten Winged Sword Insignia for tankier fights. Found in Elphael, Brace of the Haligtree.</td></tr>
+      <tr><td class="highlight">Godskin Swaddling Cloth</td><td>Restore HP with successive attacks</td><td>Pairs well with Corpse Piler's multi-hit nature. Replace Carian Filigreed Crest for sustain. Found in Spiritcaller's Cave, Mountaintops of the Giants.</td></tr>
+      <tr><td class="highlight">Erdtree's Favor +2</td><td>+3.5% HP, +6.8% Stamina, +8% Equip Load</td><td>Useful if you need equip load headroom to stay in medium roll. Found in Leyndell Ashen Capital.</td></tr>
+      <tr><td class="highlight">Ritual Sword Talisman</td><td>+10% damage at full HP</td><td>If you're confident staying topped up. Found in Lux Ruins, Altus Plateau.</td></tr>
+      <tr><td class="highlight">Fire Scorpion Charm</td><td>+12% fire damage, −10% physical defence</td><td>High-risk option. Rivers of Blood deals fire damage on its Corpse Piler. Trade survivability for damage. Found in Wyndham Catacombs.</td></tr>
+    </table>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('armour').scrollIntoView({behavior:'smooth'})">← Armour</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">Buffs →</button>
+  </div>
+</section>
+
+<!-- BUFFS -->
+<section id="buffs">
+  <h2>Buffs &amp; Incantations</h2>
+  <div class="section-rule"></div>
+
+  <p>This build optionally dips into Incantations for pre-combat buffs. You only need Faith 15 and the Dragon Communion Seal to cast everything listed here — a minimal investment that yields significant returns in boss encounters.</p>
+
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Highest Priority Buff</div>
+      <div class="item-name">Flame, Grant Me Strength</div>
+      <p>+20% physical and fire attack power for 90 seconds, plus increased stamina recovery rate. Rivers of Blood's Corpse Piler deals both physical and fire damage — this buff applies to both portions. Cast this before every serious encounter. The 90-second duration covers most boss fights. Requires Faith 15.</p>
+      <div class="item-stat">📍 Corpse on the ground behind Fort Gael, Caelid — between two Fire Chariots patrolling the road <a href="https://eldenring.wiki.fextralife.com/Flame,+Grant+Me+Strength" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag blue">Secondary Pre-Fight Buff</div>
+      <div class="item-name">Golden Vow (Incantation)</div>
+      <p>+11.5% damage dealt and −7.5% damage taken for 80 seconds. Requires Faith 25 to cast — an optional commitment. Cast immediately after Flame, Grant Me Strength. If you don't want to reach Faith 25, you can get a shorter version of this buff from the Golden Vow Ash of War applied to any armament, which doesn't require Faith investment at all.</p>
+      <div class="item-stat">📍 Dropped by a mounted Godrick Knight above Deathtouched Catacombs, Limgrave <a href="https://eldenring.wiki.fextralife.com/Golden+Vow+(Incantation)" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag">Weapon Buff — Optional</div>
+      <div class="item-name">Bloodflame Blade</div>
+      <p>Wraps your weapon in bloodflame, adding fire damage and significantly increasing bleed buildup rate. Apply this to the offhand Uchigatana/Nagakiba when you aren't using the Seppuku strategy. Useful in the early-to-mid game before Seppuku is available, and provides an extra bleed-stacking layer in the late game if you have a free flask charge before fights.</p>
+      <div class="item-stat">📍 Dropped by a Teardrop Scarab northwest of the Rose Church, Liurnia of the Lakes <a href="https://eldenring.wiki.fextralife.com/Bloodflame+Blade" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag green">Quick Damage Filler</div>
+      <div class="item-name">Catch Flame</div>
+      <p>A deceptively powerful fire incantation with near-instant cast time. When a boss is staggered and you've already used your critical hit, you can squeeze in one or two Catch Flame casts for bonus fire damage before they recover. Also useful for anything weak to fire. Costs almost nothing to maintain. Requires Faith 8 — you already meet this.</p>
+      <div class="item-stat">📍 Purchased from Brother Corhyn at Roundtable Hold for 600 runes <a href="https://eldenring.wiki.fextralife.com/Catch+Flame" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title">Pre-Boss Buff Order</div>
+    <p>Stand outside the fog gate. Cast: <strong>(1)</strong> Flame, Grant Me Strength → <strong>(2)</strong> Golden Vow (if using) → <strong>(3)</strong> Activate Seppuku on your offhand Uchigatana (triggers bleed proc on yourself, activating White Mask + Lord of Blood's Exultation instantly). Enter the fog gate with all buffs active and both attack power bonuses already running. This gives you a massive first Corpse Piler sequence at full damage.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('talismans').scrollIntoView({behavior:'smooth'})">← Talismans</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('flask').scrollIntoView({behavior:'smooth'})">Flask →</button>
+  </div>
+</section>
+
+<!-- FLASK -->
+<section id="flask">
+  <h2>Flask of Wondrous Physick</h2>
+  <div class="section-rule"></div>
+
+  <p>The Flask of Wondrous Physick holds two Crystal Tears that combine into a single powerful effect. Use it once per grace rest. For this build, the pre-fight window (just before or just after the fog gate) is when you want to consume it.</p>
+
+  <h3>Flask Split: 10 Crimson / 4 Cerulean</h3>
+  <p>The majority of your flasks should be crimson — you are a melee build and will take damage. Four cerulean flasks give you enough blue bar refills to use Corpse Piler freely throughout a fight without running dry. Adjust 1–2 if you find yourself running out of FP mid-fight.</p>
+
+  <h3>Recommended Tear Combinations</h3>
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Best Combination — Boss Fights</div>
+      <div class="item-name">Flame-Shrouding Cracked Tear + Dexterity-Knot Crystal Tear</div>
+      <p>The Flame-Shrouding Cracked Tear boosts fire attack by 20% for 3 minutes — since Corpse Piler deals fire damage, this is a permanent buff for the duration of a boss fight. The Dexterity-Knot Crystal Tear adds +10 effective Dexterity for 3 minutes, further increasing your damage scaling. Combined, these two tears make this the most damage-focused flask setup available to this build.</p>
+      <div class="item-stat">Flame-Shrouding: 📍 Putrid Avatar at the Minor Erdtree in Caelid</div>
+      <div class="item-stat">DEX-Knot: 📍 Found in a bowl on a small island south of the Academy Gate Town in Liurnia</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag blue">Defensive Combination</div>
+      <div class="item-name">Flame-Shrouding Cracked Tear + Opaline Bubbletear</div>
+      <p>Swap the Dexterity-Knot for the Opaline Bubbletear, which negates 90% of the damage from the <em>next</em> hit you receive. Excellent for boss fights where a certain attack will one-shot you unless it's absorbed. The fire damage buff remains; you trade the offensive DEX bonus for a one-time emergency survival layer. Use this against late-game bosses with punishing one-hit-kill attacks until you've learned their patterns.</p>
+      <div class="item-stat">Opaline Bubbletear: 📍 Reward for defeating the Erdtree Avatar at the Weeping Peninsula Minor Erdtree</div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('buffs').scrollIntoView({behavior:'smooth'})">← Buffs</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">Summons →</button>
+  </div>
+</section>
+
+<!-- SUMMONS -->
+<section id="summons">
+  <h2>Spirit Ashes &amp; Summons</h2>
+  <div class="section-rule"></div>
+
+  <p>Spirit Ashes are one of Elden Ring's most impactful systems and are too often underused. For a bleed build, the goal with summons is <strong>aggro management</strong> — keeping the boss occupied while you land Corpse Piler sequences. You don't need a summon that deals much damage; you need one that is durable and consistently draws attention.</p>
+
+  <div class="item-grid">
+    <div class="item-card">
+      <div class="item-tag red">Best General Option</div>
+      <div class="item-name">Mimic Tear</div>
+      <p>Creates an exact copy of your character at the time of summoning, using the same weapons, armour, and talismans. Because it replicates you, it will also use Corpse Piler and apply additional bleed buildup independently. Against many bosses, the Mimic doubles your bleed proc rate. It also shares your exact stat profile so it benefits from every upgrade you've made. Cost: 660 HP (not FP). Equip lower-cost items before summoning to reduce HP drain if needed, then switch back.</p>
+      <div class="item-stat">📍 Chest behind an imp fog gate in Night's Sacred Ground, Nokron, Eternal City <a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag blue">Best Against Fast Bosses</div>
+      <div class="item-name">Black Knife Tiche</div>
+      <p>An extremely mobile, hard-to-kill spirit that is excellent at maintaining aggro on fast, aggressive bosses. Unlike most summons, Tiche actively dodges attacks and rarely gets hit by area-of-effect attacks. She deals modest but consistent damage and has a ranged slash that reduces enemy max HP by a percentage. Against bosses that obliterate the Mimic quickly, Tiche survives significantly longer and gives you more time to land your sequences.</p>
+      <div class="item-stat">📍 Dropped by Alecto, Black Knife Ringleader at Ringleader's Evergaol, Liurnia (northeastern area) <a href="https://eldenring.wiki.fextralife.com/Black+Knife+Tiche" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag">High Aggro — Boss Taunt</div>
+      <div class="item-name">Omenkiller Rollo</div>
+      <p>Extremely aggressive spirit that draws boss attention effectively and deals high damage. Has a large HP pool and ignores pain, making him an outstanding aggro anchor in extended fights. He costs 113 FP to summon — use the Cerulean Hidden Tear in your Flask of Wondrous Physick for free FP if cost is a barrier. Particularly effective against slower, harder-hitting bosses that would stagger the Mimic quickly.</p>
+      <div class="item-stat">📍 Dropped by the Fell Twins boss at the Capital Outskirts (north of Leyndell) <a href="https://eldenring.wiki.fextralife.com/Omenkiller+Rollo" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-tag green">Crowd Control Option</div>
+      <div name="item-name" class="item-name">Greatshield Soldier Ashes</div>
+      <p>Summons five greatshield soldiers who swarm the boss and stunlock smaller enemies. Exceptional against slow bosses and dungeon bosses who lack wide AOE attacks. Each soldier occupies boss aggro for a significant period. Costs only 44 FP. Against immobile or tracking-deficient bosses, these soldiers can keep the enemy staggered long enough for multiple full Corpse Piler sequences.</p>
+      <div class="item-stat">📍 Found on a corpse in a graveyard in Nokron, Eternal City <a href="https://eldenring.wiki.fextralife.com/Greatshield+Soldier+Ashes" target="_blank" rel="noopener" class="wiki-link">[wiki ↗]</a></div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('flask').scrollIntoView({behavior:'smooth'})">← Flask</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">Rotation →</button>
+  </div>
+</section>
+
+<!-- ROTATION -->
+<section id="rotation">
+  <h2>Combat Rotation</h2>
+  <div class="section-rule"></div>
+
+  <p>The Rivers of Blood build has a straightforward core loop, but the pre-combat setup matters enormously. The difference between a mediocre run and a clean boss kill is often the buff stack you enter with. Here is the full optimal rotation.</p>
+
+  <h3>Pre-Combat Setup (Outside Fog Gate)</h3>
+  <div class="rotation-steps">
+    <div class="rotation-step">
+      <div class="rotation-num">1</div>
+      <div>
+        <div class="rotation-action">Consume Flask of Wondrous Physick</div>
+        <div class="rotation-why">Activates Flame-Shrouding Cracked Tear (+20% fire damage) and Dexterity-Knot Crystal Tear (+10 DEX). Both last 3 minutes — plenty for any boss.</div>
+      </div>
+    </div>
+    <div class="rotation-step">
+      <div class="rotation-num">2</div>
+      <div>
+        <div class="rotation-action">Cast Flame, Grant Me Strength</div>
+        <div class="rotation-why">+20% physical and fire attack for 90 seconds. Requires Dragon Communion Seal in hand and Faith 15. Cast this even if you need to swap weapons after — the buff stays active regardless of what you're holding.</div>
+      </div>
+    </div>
+    <div class="rotation-step">
+      <div class="rotation-num">3</div>
+      <div>
+        <div class="rotation-action">Cast Golden Vow (if using)</div>
+        <div class="rotation-why">Additional +11.5% damage and −7.5% damage taken. Optional. Cast immediately after Flame, Grant Me Strength.</div>
+      </div>
+    </div>
+    <div class="rotation-step">
+      <div class="rotation-num">4</div>
+      <div>
+        <div class="rotation-action">Activate Seppuku on Offhand Uchigatana</div>
+        <div class="rotation-why">Plunges the blade through your hand, applying massive bleed buildup to the weapon and triggering a blood loss proc on you. This instantly activates <strong>White Mask (+10% ATK)</strong> and <strong>Lord of Blood's Exultation (+20% ATK)</strong> before you enter the fight. You enter the fog gate with all buffs running.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>In-Combat Loop</h3>
+  <div class="rotation-steps">
+    <div class="rotation-step">
+      <div class="rotation-num">5</div>
+      <div>
+        <div class="rotation-action">Summon Spirit Ash</div>
+        <div class="rotation-why">Immediately on entering. Get your summon out before the boss targets you. The aggro window the summon creates is when your first Corpse Piler sequence lands most safely.</div>
+      </div>
+    </div>
+    <div class="rotation-step">
+      <div class="rotation-num">6</div>
+      <div>
+        <div class="rotation-action">Wait for Opening → Activate Corpse Piler</div>
+        <div class="rotation-why">Don't spam it blindly. Wait for the boss to commit to an attack — the window after a telegraphed swing or combo is your activation moment. Corpse Piler's full sequence takes roughly 1.5 seconds to complete. Never start it as a boss is mid-lunge.</div>
+      </div>
+    </div>
+    <div class="rotation-step">
+      <div class="rotation-num">7</div>
+      <div>
+        <div class="rotation-action">Bleed Procs → Window of Destruction</div>
+        <div class="rotation-why">When Hemorrhage triggers, all your stacking buffs (White Mask, Lord of Blood's Exultation, Rotten Winged Sword Insignia) are active simultaneously. This is when you activate the next Corpse Piler sequence. The 20-second buff window after a bleed proc is your highest-damage period.</div>
+      </div>
+    </div>
+    <div class="rotation-step">
+      <div class="rotation-num">8</div>
+      <div>
+        <div class="rotation-action">Posture Break → Land Critical Hit</div>
+        <div class="rotation-why">Against bosses, repeated Corpse Piler spam will eventually break their stance (shown by them stumbling). When this happens, press the attack button in front of them to land a critical strike — dealing enormous damage. After the crit, immediately back away and assess before going back in.</div>
+      </div>
+    </div>
+    <div class="rotation-step">
+      <div class="rotation-num">9</div>
+      <div>
+        <div class="rotation-action">Manage FP — Use Cerulean Flask When Low</div>
+        <div class="rotation-why">Keep an eye on your blue bar. Corpse Piler drains FP faster than most players expect. The Carian Filigreed Crest mitigates this, but you will still need cerulean flasks in extended fights. Don't neglect FP management — running dry mid-sequence is a common cause of failed runs.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title">Against Bleed-Resistant Bosses</div>
+    <p>Some bosses (notably those with high blood immunity, and certain DLC bosses) resist Hemorrhage. Rivers of Blood still deals strong physical and fire damage even when bleed doesn't proc — Corpse Piler is not solely about the bleed. However, you lose the HP% proc damage, which significantly reduces your burst. Against these enemies, consider using the Rotten Winged Sword Insignia for sustained successive-hit damage and playing more conservatively rather than banking on the bleed window.</p>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('summons').scrollIntoView({behavior:'smooth'})">← Summons</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">Boss Tips →</button>
+  </div>
+</section>
+
+<!-- BOSS TIPS -->
+<section id="bosses">
+  <h2>Boss Tips</h2>
+  <div class="section-rule"></div>
+
+  <p>This build handles most bosses with ease. Below are notes on the encounters where bleed-specific knowledge changes outcomes, plus the DLC additions where standard approach needs adjusting.</p>
+
+  <div class="boss-grid">
+    <div class="boss-card">
+      <div class="boss-header">
+        Margit, the Fell Omen
+        <span class="boss-difficulty diff-easy">Easy</span>
+      </div>
+      <div class="boss-body">
+        You don't have Rivers of Blood yet. Use Blood Uchigatana with Double Slash AoW. Margit is susceptible to bleed and has no immunity. Target his large slow strikes for Corpse Piler activation windows — his second phase adds hammers but his attack cadence remains readable.
+        <div class="boss-tip-label">Key Tip</div>
+        Summon Rogier (available via summon sign near the lift) — he keeps Margit occupied while you set up bleed stacks.
+      </div>
+    </div>
+
+    <div class="boss-card">
+      <div class="boss-header">
+        Godrick the Grafted
+        <span class="boss-difficulty diff-easy">Easy</span>
+      </div>
+      <div class="boss-body">
+        Highly susceptible to bleed. Full Corpse Piler combo with Seppuku pre-fight setup. His Phase 2 dragon arm adds a breath attack — dodge away from it, then re-engage immediately. He can be staggered and critical hit multiple times in a single fight.
+        <div class="boss-tip-label">Key Tip</div>
+        Stay close during Phase 2. His breath is easier to dodge from inside his hitbox than at range.
+      </div>
+    </div>
+
+    <div class="boss-card">
+      <div class="boss-header">
+        Starscourge Radahn
+        <span class="boss-difficulty diff-medium">Medium</span>
+      </div>
+      <div class="boss-body">
+        Very susceptible to bleed. The festival format means multiple NPC summons are available — use all of them. They serve as Radahn's targets while you attack from the sides or rear. Horseback Phase 1 telegraphs his charges clearly. Phase 2 impact crater becomes an attack window.
+        <div class="boss-tip-label">Key Tip</div>
+        Bring a horse (Torrent). Close distance on horseback, dismount to use Corpse Piler, remount to dodge the charge sequences.
+      </div>
+    </div>
+
+    <div class="boss-card">
+      <div class="boss-header">
+        Mohg, Lord of Blood
+        <span class="boss-difficulty diff-medium">Medium</span>
+      </div>
+      <div class="boss-body">
+        Mohg has partial bleed immunity — he still takes Hemorrhage damage but builds up resistance faster than most bosses. His Nihil curse (Phase 2 ritual) can only be negated with Purifying Crystal Tear in your Physick flask. Obtain this from White Mask Varre's questline before this fight.
+        <div class="boss-tip-label">Key Tip</div>
+        Have the Purifying Crystal Tear ready. Without it, Nihil removes 1/3 of your HP three times. With it, the ritual is negated entirely.
+      </div>
+    </div>
+
+    <div class="boss-card">
+      <div class="boss-header">
+        Malenia, Blade of Miquella
+        <span class="boss-difficulty diff-brutal">Brutal</span>
+      </div>
+      <div class="boss-body">
+        The hardest fight in the base game. Malenia heals on every hit she lands, including blocked hits. She has hyper-armour during many attacks. She is susceptible to bleed but her heal-on-hit mechanic punishes any mistake severely. She has both bleed buildup and scarlet rot buildup on her weapon.
+        <div class="boss-tip-label">Key Tip</div>
+        Use Black Knife Tiche over Mimic Tear — Tiche avoids most of Malenia's attacks and does not give her much healing. Wait for gaps after her Waterfowl Dance combo to activate Corpse Piler. Never trade hits with her.
+      </div>
+    </div>
+
+    <div class="boss-card">
+      <div class="boss-header">
+        Fire Giant
+        <span class="boss-difficulty diff-medium">Medium</span>
+      </div>
+      <div class="boss-body">
+        Partially resistant to fire damage — Corpse Piler's fire component deals less. The physical portion of the damage is unaffected. Target his ankles in Phase 1 and his upper body (via his rolling over) in Phase 2. He is susceptible to bleed. Bring Torrent for Phase 1 repositioning.
+        <div class="boss-tip-label">Key Tip</div>
+        Swap Fire Scorpion Charm out and replace with Dragoncrest Greatshield Talisman. His stomps hit hard. Focus on staying alive.
+      </div>
+    </div>
+
+    <div class="boss-card">
+      <div class="boss-header">
+        Maliketh, the Black Blade
+        <span class="boss-difficulty diff-hard">Hard</span>
+      </div>
+      <div class="boss-body">
+        Fast, teleporting, and deals holy damage that reduces your maximum HP on hit. Not bleed immune — susceptible to Hemorrhage. Phase 2 is a scramble of leaping slashes and explosive black flame. Each hit from Black Blade reduces your max HP permanently until you rest at a grace.
+        <div class="boss-tip-label">Key Tip</div>
+        Use Holy-Shrouding Cracked Tear in your physick to reduce the max HP reduction. Rush him aggressively — Maliketh has low HP and a bleed combo will end Phase 2 quickly.
+      </div>
+    </div>
+
+    <div class="boss-card">
+      <div class="boss-header">
+        Shadow of the Erdtree — DLC
+        <span class="boss-difficulty diff-hard">Hard (Scadutree Required)</span>
+      </div>
+      <div class="boss-body">
+        All DLC bosses hit significantly harder than base game equivalents. Collect every Scadutree Fragment before attempting any DLC boss — they directly increase your damage dealt and reduce damage taken. Without them, even Rivers of Blood will feel underpowered. Mesmer, Rellana, and Bayle are all susceptible to bleed.
+        <div class="boss-tip-label">Key Tip</div>
+        Swap to White Mask (not Okina Mask) in the DLC. Many DLC areas inflict Madness buildup and the Okina Mask's reduced Focus makes this dangerous.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('rotation').scrollIntoView({behavior:'smooth'})">← Rotation</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <button class="sec-btn" onclick="document.getElementById('tips').scrollIntoView({behavior:'smooth'})">Quick Tips →</button>
+  </div>
+</section>
+
+<!-- QUICK TIPS -->
+<section id="tips">
+  <h2>Quick Tips &amp; Reference</h2>
+  <div class="section-rule"></div>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-title">Seppuku Before Every Boss</div>
+      <p>Equip your Seppuku Uchigatana. Activate Seppuku just before entering the fog gate. The self-inflicted blood loss triggers White Mask and Lord of Blood's Exultation before the fight begins, giving you the maximum damage window on your first Corpse Piler sequence.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Wait for the Opening</div>
+      <p>Corpse Piler takes about 1.5 seconds to complete. Never activate it as a boss is lunging at you. Wait for a confirmed attack to miss — then go. Patience beats spam every time. Especially important in Phase 2 of any boss fight.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Arcane First, DEX Second</div>
+      <p>From SL 50–100, prioritise Arcane over Dexterity. Arcane increases bleed buildup rate AND damage on weapons with innate Arcane scaling. The bleed buildup increase means faster procs, which means more White Mask / Exultation windows. Dex catches up in the SL 100–150 bracket.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Stay on Medium Roll</div>
+      <p>Maintain equip load below 70% at all times. Fat-rolling against bosses is almost guaranteed death. The Blaidd armour + Rivers of Blood combination sits close to medium roll with 25 Endurance — use Erdtree's Favor +2 if you need more headroom.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Upgrade ROB to +10 ASAP</div>
+      <p>Rivers of Blood uses Somber Smithing Stones (1–9). Each upgrade dramatically increases damage. A +6 ROB is significantly weaker than a +10. Somber Stones 1–7 are available from merchants and exploration before Mountaintops. Stone 9 is in Farum Azula.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">PvP: Don't Spam Corpse Piler</div>
+      <p>In PvP, experienced players will punish a predictable Corpse Piler spam. Mix in regular katana light attacks to build bleed passively, use Corpse Piler as a punish rather than an opener, and vary your timing. The element of surprise is what makes this build deadly in PvP.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Purifying Crystal Tear for Mohg</div>
+      <p>Obtain this before entering Mohg's arena. It negates his Nihil ritual entirely. Without it, Phase 2 removes 30% of your HP three times consecutively — nearly killing you. Found in the Church of Dynasty, Mohgwyn Palace, via White Mask Varre's questline.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Scadutree Fragments Are Mandatory (DLC)</div>
+      <p>Collect every Scadutree Fragment before fighting DLC bosses. Fragments increase your damage and damage negation multiplicatively. At max blessing level the difference vs. zero is enormous. Check every corner of the DLC map before attempting Messmer, Rellana, or Bayle.</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-title">Lord of Blood's Exultation — Get This Early</div>
+      <p>This talisman is in the Leyndell Sewers (below the Avenue Balcony grace). You can reach it before even fighting Morgott. It is arguably your most important talisman and there is no reason to delay getting it. Defeat Esgar, Priest of Blood in the sewers and it's yours.</p>
+    </div>
+  </div>
+
+  <h3>Item Location Quick Reference</h3>
+  <table class="data-table">
+    <tr><th>Item</th><th>Location</th></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Rivers+of+Blood" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Rivers of Blood</a></td><td>Bloody Finger Okina invasion, Church of Repose, Mountaintops of the Giants</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/White+Mask" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">White Mask</a></td><td>War Surgeon NPC invaders near Palace Approach Ledge-Road, Mohgwyn Palace</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Lord+of+Blood%27s+Exultation" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Lord of Blood's Exultation</a></td><td>Esgar, Priest of Blood in Leyndell Sewers (beneath Avenue Balcony)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Shard+of+Alexander" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Shard of Alexander</a></td><td>Warrior Jar Alexander, Farum Azula (end of questline)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Rotten+Winged+Sword+Insignia" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Rotten Winged Sword Insignia</a></td><td>Millicent's questline reward, Drainage Channel, Haligtree</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Carian+Filigreed+Crest" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Carian Filigreed Crest</a></td><td>War Counselor Iji, Liurnia (5,000 runes, after Ranni questline progress)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Ash+of+War:+Seppuku" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Seppuku Ash of War</a></td><td>Scarab near the frozen lake, Mountaintops of the Giants (west)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Dragon+Communion+Seal" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Dragon Communion Seal</a></td><td>Kill resting Banished Knight, Fringefolk Hero's Grave, Limgrave (2 Stonesword Keys)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Flame,+Grant+Me+Strength" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Flame, Grant Me Strength</a></td><td>Corpse behind Fort Gael, Caelid (between Fire Chariots)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Bloodflame+Blade" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Bloodflame Blade</a></td><td>Teardrop Scarab, northwest of Rose Church, Liurnia</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Blaidd%27s+Armor" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Blaidd's Armour Set</a></td><td>Enia, Roundtable Hold (after completing Blaidd's questline)</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Mimic+Tear+Ashes" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Mimic Tear Ashes</a></td><td>Chest behind imp fog gate, Night's Sacred Ground, Nokron</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Black+Knife+Tiche" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Black Knife Tiche</a></td><td>Alecto, Black Knife Ringleader — Ringleader's Evergaol, Liurnia</td></tr>
+    <tr><td class="highlight"><a href="https://eldenring.wiki.fextralife.com/Purifying+Crystal+Tear" target="_blank" rel="noopener" class="wiki-link" style="font-size:inherit;color:var(--text)">Purifying Crystal Tear</a></td><td>Church of Dynasty, Mohgwyn Palace (via Varre's questline)</td></tr>
+  </table>
+
+  <div class="section-footer">
+    <button class="sec-btn" onclick="document.getElementById('bosses').scrollIntoView({behavior:'smooth'})">← Boss Tips</button>
+    <button class="sec-btn center" onclick="document.getElementById('page-top').scrollIntoView({behavior:'smooth'})">↑ Top</button>
+    <span></span>
+  </div>
+</section>
+
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Blood Guides &nbsp;·&nbsp; bloodguides.pages.dev</p>
+</footer>
+
+<script>
+// FAB visibility
+window.addEventListener('scroll', () => {
+  document.getElementById('fab-top').classList.toggle('visible', window.scrollY > 400);
+});
+
+// Tab switching — scoped to the parent section so multiple tab groups coexist
+function switchTab(e, id) {
+  const section = e.target.closest('section');
+  section.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  section.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+<script src="/site.js"></script>
+</body>
+</html>
