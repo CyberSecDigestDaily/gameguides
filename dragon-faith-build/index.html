@@ -52,40 +52,52 @@
 <header class="site-nav">
   <div class="site-nav-inner">
     <a class="site-nav-logo" href="/">
-      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <line x1="32" y1="4" x2="32" y2="50" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
-        <line x1="16" y1="26" x2="48" y2="26" stroke="#d4a84c" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="32" cy="56" r="5" fill="#d4a84c"/>
-        <ellipse cx="32" cy="6" rx="5" ry="6" fill="#8b1a1a"/>
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line x1="32" y1="4" x2="32" y2="50" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        <line x1="16" y1="26" x2="48" y2="26" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="56" r="5" fill="currentColor"/>
+        <ellipse cx="32" cy="6" rx="5" ry="6" fill="var(--accent)"/>
       </svg>
       Blood Guides
     </a>
-    <ul class="site-nav-links">
+    <ul class="site-nav-links" id="guide-nav">
       <li><a href="/">Home</a></li>
       <li>
-        <a href="#" class="active">Elden Ring ▾</a>
+        <a href="#">Elden Ring ▾</a>
         <ul>
           <li><a href="/samurai-bleed-build/">Samurai Bleed Build</a></li>
           <li><a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a></li>
           <li><a href="/dragon-faith-build/">Dragon Faith Build</a></li>
+          <li><a href="/rivers-of-blood-build/">Rivers of Blood Build</a></li>
         </ul>
       </li>
       <li>
         <a href="#">Diablo 4 ▾</a>
         <ul>
-          <li><a href="/diablo4-necromancer-minion-build/">Necromancer Minion Build</a></li>
-          <li><a href="/diablo4-druid-bear-build/">Druid Bear Build</a></li>
-          <li><a href="/diablo4-paladin-blessed-hammer-build/">Paladin Blessed Hammer Build</a></li>
+          <li><a href="/diablo4-necromancer-minion-build/">Necromancer Minion</a></li>
+          <li><a href="/diablo4-druid-bear-build/">Druid Bear</a></li>
+          <li><a href="/diablo4-paladin-blessed-hammer-build/">Paladin Blessed Hammer</a></li>
+          <li><a href="/diablo4-whirlwind-barbarian-build/">Whirlwind Barbarian</a></li>
         </ul>
       </li>
-      <li><a href="/">Builds</a></li>
-      <li><a href="/">Walkthroughs</a></li>
-      <li><a href="/">Tips &amp; Mechanics</a></li>
-      <li><a href="/">All Games</a></li>
+      <li>
+        <a href="#">More ▾</a>
+        <ul>
+          <li><a href="/#filter-bg3">Baldur's Gate 3</a></li>
+          <li><a href="/#filter-fallout76">Fallout 76</a></li>
+          <li><a href="/#filter-fallout4">Fallout 4</a></li>
+          <li><a href="/#filter-darktide">40K: Darktide</a></li>
+          <li><a href="/#filter-spacemarine2">40K: Space Marine 2</a></li>
+        </ul>
+      </li>
+      <li><a href="/">All Guides</a></li>
     </ul>
-    <button class="theme-toggle" title="Toggle light/dark mode">
-      <span class="toggle-icon">☀️</span> Light
-    </button>
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" title="Toggle theme" aria-label="Toggle theme">
+        <span class="toggle-icon">☀️</span> Light
+      </button>
+      <button class="icon-btn nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="guide-nav">☰</button>
+    </div>
   </div>
 </header>
 

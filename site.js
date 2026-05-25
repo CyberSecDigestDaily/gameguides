@@ -1,6 +1,6 @@
 /*
   Blood Guides — Shared Site JS
-  Handles: light/dark theme toggle, nav active state
+  Handles: light/dark theme toggle, mobile nav toggle
 */
 
 (function () {
@@ -8,37 +8,76 @@
 
   const STORAGE_KEY = 'bg-theme';
 
+  /* ── Theme ── */
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    const btn = document.querySelector('.theme-toggle');
-    if (!btn) return;
-    if (theme === 'light') {
-      btn.innerHTML = '<span class="toggle-icon">🌙</span> Dark';
-      btn.title = 'Switch to dark mode';
-    } else {
-      btn.innerHTML = '<span class="toggle-icon">☀️</span> Light';
-      btn.title = 'Switch to light mode';
-    }
+    document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+      if (theme === 'light') {
+        btn.innerHTML = '<span class="toggle-icon">🌙</span> Dark';
+        btn.title = 'Switch to dark mode';
+      } else {
+        btn.innerHTML = '<span class="toggle-icon">☀️</span> Light';
+        btn.title = 'Switch to light mode';
+      }
+    });
   }
 
   function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme') || 'dark';
-    const next = current === 'dark' ? 'light' : 'dark';
+    var current = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = current === 'dark' ? 'light' : 'dark';
     localStorage.setItem(STORAGE_KEY, next);
     applyTheme(next);
   }
 
-  /* Apply theme immediately (before DOMContentLoaded) to prevent flash */
-  const saved = localStorage.getItem(STORAGE_KEY) || 'dark';
+  /* Apply before DOMContentLoaded to prevent flash */
+  var saved = localStorage.getItem(STORAGE_KEY) || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
 
   document.addEventListener('DOMContentLoaded', function () {
     applyTheme(saved);
-    const toggleBtn = document.querySelector('.theme-toggle');
-    if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+
+    document.querySelectorAll('.theme-toggle').forEach(function (btn) {
+      btn.addEventListener('click', toggleTheme);
+    });
+
+    /* ── Mobile nav toggle ── */
+    document.querySelectorAll('.nav-mobile-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var controlsId = toggle.getAttribute('aria-controls');
+        var nav = document.getElementById(controlsId) ||
+                  document.querySelector('.nav') ||
+                  document.querySelector('.site-nav-links');
+        if (!nav) return;
+
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.textContent = isOpen ? '✕' : '☰';
+      });
+    });
+
+    /* Close mobile nav on outside click */
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('header') && !e.target.closest('.site-nav')) {
+        document.querySelectorAll('.nav, .site-nav-links').forEach(function (nav) {
+          nav.classList.remove('open');
+        });
+        document.querySelectorAll('.nav-mobile-toggle').forEach(function (t) {
+          t.setAttribute('aria-expanded', 'false');
+          t.textContent = '☰';
+        });
+      }
+    });
+
+    /* Mark active nav link based on current path */
+    var path = window.location.pathname;
+    document.querySelectorAll('.nav-link, .site-nav-links > li > a').forEach(function (a) {
+      if (a.getAttribute('href') === path || (path === '/' && a.getAttribute('href') === '/')) {
+        a.classList.add('active');
+      }
+    });
   });
 
-})();
+}());
 
 /* ── ITEM TOOLTIPS ───────────────────────────────────────────────────────────
    Usage: <span class="itip" data-type="Weapon" data-name="Rivers of Blood"
