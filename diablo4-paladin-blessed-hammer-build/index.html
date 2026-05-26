@@ -14,30 +14,25 @@
 <meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/site.css">
 <style>
-/* ── Paladin holy/gold theme ─────────────────────────────────────────── */
 :root {
-  --bg: #10111a; --surface: #151824; --surface2: #1c2033; --border: #333854;
-  --accent: #f2dd21; --accent2: #a89900; --gold: #f2dd21; --gold2: #ffe566;
-  --text: #f0ead8; --text2: #c8bfb0; --text3: #d0c8bc;
-  --blue: #5ba3f5; --green: #4caf50;
-  /* widget aliases */
-  --bg-primary: #10111a; --bg-secondary: #151824; --bg-card: #1c2033;
-  --border-glow: #4a5280;
-  --text-primary: #f0ead8; --text-secondary: #c8bfb0; --text-muted: #5a6280;
-  --paladin: #f2dd21; --paladin-dim: rgba(242,221,33,0.08);
+  /* Paladin widget aliases — mapped to Wada design tokens */
+  --bg-primary: var(--surface); --bg-secondary: var(--surface); --bg-card: var(--surface2);
+  --border-glow: var(--line-soft);
+  --text-primary: var(--ink); --text-secondary: var(--ink-3); --text-muted: var(--ink-4);
+  --paladin: var(--kihada); --paladin-dim: rgba(217,162,47,0.08);
   --holy: #ffe566; --s-tier: #ff6b35; --orange: #ff9800; --purple: #bb86fc;
   --skill-basic: #5ba3f5; --skill-core: #ff9800; --skill-valor: #4caf50;
-  --skill-justice: #9c27b0; --skill-aura: #00bcd4; --skill-ultimate: #f2dd21;
-  --radius: 8px; --shadow: 0 4px 20px rgba(0,0,0,0.5);
+  --skill-justice: #9c27b0; --skill-aura: #00bcd4; --skill-ultimate: var(--kihada);
+  --radius: 8px; --shadow: 0 4px 20px rgba(0,0,0,0.12);
 }
+/* D4 Paladin — kihada gold */
 .hero {
   background:
-    radial-gradient(ellipse at 50% 0%,   rgba(242,221,33,0.35) 0%, transparent 65%),
-    radial-gradient(ellipse at 30% 100%, rgba(255,229,102,0.05) 0%, transparent 60%),
-    #10111a !important;
+    radial-gradient(ellipse at 50% 0%, rgba(217,162,47,0.18) 0%, transparent 70%),
+    var(--surface);
 }
 .badge.gold { color: var(--accent); border-color: var(--accent); background: rgba(242,221,33,0.10); }
 
@@ -136,7 +131,7 @@
 
 /* ── Oath card ───────────────────────────────────────────────────────── */
 .oath-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:20px; border-left:3px solid var(--paladin); }
-.oath-name { font-size:18px; font-weight:800; color:var(--paladin); margin-bottom:8px; font-family:'Cinzel',serif; }
+.oath-name { font-size:18px; font-weight:800; color:var(--paladin); margin-bottom:8px; font-family:var(--font-ui); }
 .oath-desc { color:var(--text-secondary); font-size:14px; line-height:1.7; }
 .oath-stat { display:flex; gap:8px; align-items:flex-start; margin-top:10px; font-size:13px; }
 .oath-stat-icon { color:var(--paladin); flex-shrink:0; margin-top:2px; }
@@ -237,6 +232,9 @@ hr.fancy { border:none; height:1px; background:linear-gradient(90deg,transparent
       <li><a href="/">All Guides</a></li>
     </ul>
     <div class="header-actions">
+      <button class="icon-btn" title="Search" aria-label="Search" style="min-width:unset;padding:0.45rem 0.7rem;">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><line x1="13.5" y1="13.5" x2="18" y2="18"/></svg>
+      </button>
       <button class="icon-btn theme-toggle" title="Toggle theme" aria-label="Toggle theme">
         <span class="toggle-icon">☀️</span> Light
       </button>

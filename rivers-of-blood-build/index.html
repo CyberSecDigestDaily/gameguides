@@ -14,21 +14,14 @@
 <meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/site.css">
 <style>
-/* Rivers of Blood — deep crimson theme */
-:root {
-  --bg: #120d11; --surface: #1c1219; --surface2: #261822; --border: #4a2838;
-  --accent: #c0212b; --accent2: #8b1520; --gold: #d4a84c; --gold2: #f5d880;
-  --text: #f0ead8; --text2: #c8bfb0; --text3: #d0c8bc;
-  --blue: #5b8fd4; --green: #5db87a; --crimson: #c0212b; --crimson-dim: rgba(192,33,43,0.08);
-}
+/* Elden Ring — bengara crimson */
 .hero {
   background:
-    radial-gradient(ellipse at 50% 0%,   rgba(192,33,43,0.45) 0%, transparent 65%),
-    radial-gradient(ellipse at 30% 100%, rgba(120,10,20,0.06) 0%, transparent 60%),
-    #120d11 !important;
+    radial-gradient(ellipse at 50% 0%, rgba(176,73,42,0.22) 0%, transparent 70%),
+    var(--surface);
 }
 /* Bleed buildup bar widget */
 .bleed-bar-wrap { margin: 20px 0; }
@@ -47,26 +40,17 @@
 .synergy-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .synergy-tag { font-size: 11px; padding: 2px 8px; border-radius: 12px; border: 1px solid var(--border); color: var(--text2); background: var(--surface2); }
 .synergy-tag.active { border-color: var(--accent); color: var(--accent); background: rgba(192,33,43,0.08); }
-/* Progression stages */
-.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
-.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
-.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
-.prog-header.mid   { background: rgba(91,143,212,.15); color: var(--blue); }
-.prog-header.end   { background: rgba(192,33,43,.15);  color: var(--accent); }
-.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
-.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
 /* Rotation steps */
 .rotation-steps { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
 .rotation-step { display: flex; gap: 12px; background: var(--surface2); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; align-items: flex-start; transition: border-color 0.2s; }
 .rotation-step:hover { border-color: var(--accent); }
-.rotation-num { font-size: 22px; font-weight: 900; font-family: 'Cinzel', serif; color: var(--accent); flex-shrink: 0; min-width: 30px; line-height: 1; margin-top: 2px; }
+.rotation-num { font-size: 22px; font-weight: 900; font-family: var(--font-ui); color: var(--accent); flex-shrink: 0; min-width: 30px; line-height: 1; margin-top: 2px; }
 .rotation-action { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
 .rotation-why { font-size: 13px; color: var(--text2); line-height: 1.5; }
 /* Boss tips */
 .boss-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; }
 .boss-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.boss-header { padding: 9px 14px; border-bottom: 1px solid var(--border); font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--text); display: flex; align-items: center; justify-content: space-between; }
+.boss-header { padding: 9px 14px; border-bottom: 1px solid var(--border); font-family: var(--font-ui); font-size: 13px; font-weight: 700; color: var(--text); display: flex; align-items: center; justify-content: space-between; }
 .boss-difficulty { font-size: 10px; padding: 2px 6px; border-radius: 3px; font-family: sans-serif; font-weight: 600; text-transform: uppercase; }
 .diff-easy   { background: rgba(93,184,122,0.15); color: #5db87a; }
 .diff-medium { background: rgba(212,168,76,0.15);  color: var(--gold); }
@@ -74,9 +58,6 @@
 .diff-brutal { background: rgba(155,0,155,0.15);   color: #bb86fc; }
 .boss-body { padding: 10px 14px; font-size: 13px; color: var(--text2); line-height: 1.6; }
 .boss-tip-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-top: 8px; margin-bottom: 3px; font-weight: 700; }
-/* Wiki links */
-.wiki-link { display: inline-block; font-size: 11px; color: var(--gold); text-decoration: none; margin-left: 4px; opacity: .75; }
-.wiki-link:hover { opacity: 1; text-decoration: underline; }
 /* Callout variants */
 .callout.tip     { background: rgba(93,184,122,0.08);  border: 1px solid rgba(93,184,122,0.3);  }
 .callout.warning { background: rgba(255,152,0,0.08);   border: 1px solid rgba(255,152,0,0.3);   }
@@ -132,6 +113,9 @@
       <li><a href="/">All Guides</a></li>
     </ul>
     <div class="header-actions">
+      <button class="icon-btn" title="Search" aria-label="Search" style="min-width:unset;padding:0.45rem 0.7rem;">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><line x1="13.5" y1="13.5" x2="18" y2="18"/></svg>
+      </button>
       <button class="icon-btn theme-toggle" title="Toggle theme" aria-label="Toggle theme">
         <span class="toggle-icon">☀️</span> Light
       </button>

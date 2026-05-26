@@ -1,638 +1,1288 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blood Guides — Gaming Builds, Guides &amp; Walkthroughs</title>
-  <meta name="description" content="Comprehensive gaming guides — builds, walkthroughs, tips, and strategies for Elden Ring, Diablo 4, Space Marine 2, Darktide, Baldur's Gate 3 and more.">
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://bloodguides.pages.dev/">
-  <meta property="og:site_name"   content="Blood Guides">
-  <meta property="og:title"       content="Blood Guides — Gaming Builds, Guides &amp; Walkthroughs">
-  <meta property="og:description" content="Comprehensive gaming guides — builds, walkthroughs, tips, and strategies. Clear, tested, no fluff.">
-  <meta property="og:image"       content="https://bloodguides.pages.dev/og-image.png">
-  <meta name="twitter:card"       content="summary_large_image">
-  <meta name="twitter:image"      content="https://bloodguides.pages.dev/og-image.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/site.css">
-  <style>
-    /* ── Page-level overrides ───────────────────────────────── */
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Blood Guides — Builds, Walkthroughs &amp; Mechanics</title>
+<meta name="description" content="Comprehensive gaming guides — builds, walkthroughs, tips, and strategies for Elden Ring, Diablo 4, Space Marine 2, Darktide, Baldur's Gate 3 and more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bloodguides.pages.dev/">
+<meta property="og:site_name" content="Blood Guides">
+<meta property="og:title" content="Blood Guides — Builds, Walkthroughs &amp; Mechanics">
+<meta property="og:description" content="Comprehensive gaming guides. Clear, tested, no fluff.">
+<meta property="og:image" content="https://bloodguides.pages.dev/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ====================================================================
+   BLOOD GUIDES — Codex design system
+   Palette: Sanzo Wada · A Dictionary of Color Combinations, Vol. 2
+   Pigments — bengara · kihada · bishamon · konjō · tonoko · shiracha
+   ==================================================================== */
+:root {
+  --bengara:    #B0492A;
+  --bengara-2:  #8E3A1F;
+  --bengara-3:  #F0DCD0;
+  --kihada:     #D9A22F;
+  --kihada-3:   #F4E5C2;
+  --bishamon:   #1F6F73;
+  --bishamon-3: #CCE0DE;
+  --konjo:      #1E4E78;
+  --konjo-3:    #CFDAE6;
+  --tonoko:     #A8966E;
+  --suo:        #8E3A4A;
+  --sumi:       #2B2520;
+  --shiracha:   #EDE7DE;
 
-    /* Logo icon — amber square with inner cross */
-    .logo-icon {
-      width: 30px; height: 30px;
-      background: var(--accent);
-      border-radius: 5px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .logo-icon svg { width: 16px; height: 16px; color: #fff; }
+  --ink:        var(--sumi);
+  --paper:      var(--shiracha);
+  --bg:         var(--paper);
+  --bg-soft:    #E2D9CA;
+  --surface:    #F6F1E7;
+  --surface-2:  #E5DDCC;
+  --surface-3:  #D4C8B1;
+  --line:       #C9BCA1;
+  --line-soft:  #DDD0B6;
 
-    /* Patch notes specific layout */
-    .patch-header {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 0.35rem;
-      flex-wrap: wrap;
-    }
+  --ink-2:      #4A3F35;
+  --ink-3:      #6F6253;
+  --ink-4:      #94876F;
 
-    /* Star colour in headings area */
-    .star { color: var(--gold); }
+  --accent:     var(--bengara);
+  --accent-2:   var(--bengara-2);
+  --accent-soft:var(--bengara-3);
+  --accent-ink: #F6F1E7;
 
-    /* Rating badge  */
-    .card-rating .star { font-size: 0.85rem; }
+  --positive:   var(--bishamon);
+  --warn:       var(--kihada);
+  --critical:   var(--bengara);
+  --info:       var(--konjo);
+  --positive-soft: var(--bishamon-3);
+  --warn-soft:     var(--kihada-3);
+  --info-soft:     var(--konjo-3);
 
-    /* Filter label */
-    .filter-label-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    .filter-game-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      flex-shrink: 0;
-    }
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius:    12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
 
-    /* Section rule */
-    .section-rule {
-      height: 1px;
-      background: var(--border);
-      margin: 0.5rem 0 2rem;
-    }
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.04);
+  --shadow:    0 4px 14px oklch(0 0 0 / 0.06);
+  --shadow-lg: 0 20px 50px -16px oklch(0 0 0 / 0.12);
 
-    /* Game colour badges for patch notes */
-    .game-er    { color: #E8A070; }
-    .game-d4    { color: #C060B0; }
-    .game-sm2   { color: #6090D0; }
-    .game-dt    { color: #B04040; }
-    .game-bg3   { color: #7060C0; }
-    .game-fo76  { color: #60A060; }
-    .game-fo4   { color: #80A040; }
-    .game-poe2  { color: #A07030; }
-  </style>
+  --font-display: 'Instrument Serif', 'EB Garamond', Georgia, serif;
+  --font: 'DM Sans', system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --content-pad: 32px;
+  --gap-card: 14px;
+}
+
+[data-theme="dark"] {
+  --bengara:    #C75A38;
+  --bengara-2:  #A04425;
+  --bengara-3:  #3A1F18;
+  --kihada:     #E3B14A;
+  --kihada-3:   #3A2E16;
+  --bishamon:   #38938F;
+  --bishamon-3: #163230;
+  --konjo:      #4374A6;
+  --konjo-3:    #14253A;
+  --tonoko:     #B0986A;
+  --suo:        #B0526A;
+  --sumi:       #15110D;
+  --shiracha:   #E8DDC9;
+
+  --ink:        var(--shiracha);
+  --paper:      var(--sumi);
+  --bg:         var(--paper);
+  --bg-soft:    #100D0A;
+  --surface:    #221D17;
+  --surface-2:  #2C2620;
+  --surface-3:  #3A332B;
+  --line:       #3A3128;
+  --line-soft:  #2E2820;
+
+  --ink-2:      #C5B89F;
+  --ink-3:      #998C75;
+  --ink-4:      #6F6553;
+
+  --accent:     var(--bengara);
+  --accent-2:   var(--bengara-2);
+  --accent-soft:var(--bengara-3);
+  --accent-ink: #FBF4E6;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow:    0 4px 14px rgba(0,0,0,0.45);
+  --shadow-lg: 0 20px 50px -16px rgba(0,0,0,0.6);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-feature-settings: "ss01","cv01","cv02";
+}
+button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; padding: 0; }
+input, select, textarea { font: inherit; color: inherit; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+h1,h2,h3,h4,h5 { margin: 0; font-weight: 600; letter-spacing: -0.01em; }
+.display { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.005em; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-4); }
+
+/* Bookplate */
+.bookplate { position: absolute; inset: 0; }
+.bookplate svg { width: 100%; height: 100%; display: block; }
+
+/* App shell */
+.app {
+  display: grid;
+  grid-template-columns: 240px minmax(0,1fr);
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* Sidebar */
+.sidebar {
+  border-right: 1px solid var(--line-soft);
+  background: var(--bg-soft);
+  padding: 24px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 18px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.brand-mark {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--bg);
+  display: grid; place-items: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.brand-mark::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 40%, var(--accent) 100%);
+  opacity: 0.5;
+}
+.brand-mark span { position: relative; z-index: 1; }
+.brand-name { display: flex; flex-direction: column; line-height: 1; }
+.brand-name .nm { font-family: var(--font-display); font-weight: 400; font-size: 19px; letter-spacing: -0.005em; line-height: 1.1; white-space: nowrap; }
+.brand-name .nm em { font-style: italic; color: var(--accent); }
+.brand-name .sub { font-size: 10px; color: var(--ink-3); margin-top: 5px; letter-spacing: 0.06em; font-weight: 500; text-transform: uppercase; }
+.nav-label { font-size: 10.5px; letter-spacing: 0.08em; color: var(--ink-4); text-transform: uppercase; margin: 4px 10px 8px; font-weight: 600; }
+.nav { display: flex; flex-direction: column; gap: 1px; }
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  color: var(--ink-2);
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: background 120ms, color 120ms;
+  text-align: left;
+  width: 100%;
+}
+.nav-item:hover { background: var(--surface-2); color: var(--ink); }
+.nav-item.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+[data-theme="dark"] .nav-item.active { background: var(--surface-2); }
+.nav-item .ic { width: 16px; height: 16px; opacity: 0.85; flex-shrink: 0; color: currentColor; }
+.nav-item.active .ic { color: var(--accent); opacity: 1; }
+.nav-item .badge { margin-left: auto; font-size: 10.5px; font-family: var(--font-mono); color: var(--ink-3); background: var(--surface-2); padding: 2px 6px; border-radius: 999px; font-weight: 500; }
+[data-theme="dark"] .nav-item .badge { background: var(--surface-3); }
+.nav-item.active .badge { color: var(--accent); background: var(--accent-soft); }
+.game-list { display: flex; flex-direction: column; gap: 2px; }
+.game-pill {
+  display: flex; align-items: center; gap: 10px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  text-align: left; width: 100%;
+  cursor: pointer;
+  transition: background 120ms;
+}
+.game-pill:hover { background: var(--surface-2); }
+.game-pill.active { background: var(--surface); box-shadow: var(--shadow-sm); }
+[data-theme="dark"] .game-pill.active { background: var(--surface-2); }
+.game-glyph { width: 28px; height: 28px; border-radius: 7px; display: grid; place-items: center; font-weight: 700; font-size: 10px; letter-spacing: 0; flex-shrink: 0; color: #fff; }
+.game-info { flex: 1; min-width: 0; }
+.game-name { font-size: 12.5px; font-weight: 600; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.game-tag { font-size: 10.5px; color: var(--ink-4); margin-top: 1px; }
+.game-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); opacity: 0; }
+.game-pill.active .game-dot { opacity: 1; }
+.sidebar-foot { margin-top: auto; padding: 14px; background: var(--surface); border: 1px solid var(--line-soft); border-radius: 12px; }
+.sidebar-foot .label { font-size: 10px; letter-spacing: 0.08em; color: var(--ink-4); text-transform: uppercase; font-weight: 600; }
+.sidebar-foot .value { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin: 4px 0 8px; }
+.sidebar-foot .prog { height: 4px; background: var(--surface-3); border-radius: 2px; overflow: hidden; }
+.sidebar-foot .prog i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+.sidebar-foot .meta { font-size: 11px; color: var(--ink-3); margin-top: 8px; display: flex; justify-content: space-between; }
+
+/* Main area */
+.main {
+  padding: 20px var(--content-pad) 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-width: 0;
+}
+
+/* Topbar */
+.topbar { display: flex; align-items: center; gap: 12px; }
+.search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  transition: border-color 120ms, background 120ms;
+  cursor: pointer;
+}
+.search:focus-within { border-color: var(--ink-4); }
+.search input { flex: 1; background: none; border: none; outline: none; font-size: 13.5px; color: var(--ink); }
+.search input::placeholder { color: var(--ink-4); }
+.search .kbd { font-family: var(--font-mono); font-size: 10px; color: var(--ink-3); background: var(--surface-2); border: 1px solid var(--line-soft); padding: 2px 6px; border-radius: 4px; }
+.icon-btn {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  color: var(--ink-2);
+  transition: background 120ms, color 120ms;
+  position: relative;
+  flex-shrink: 0;
+}
+.icon-btn:hover { background: var(--surface-2); color: var(--ink); }
+.icon-btn .dot { position: absolute; top: 8px; right: 9px; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; border: 1.5px solid var(--surface); }
+.user-pill { display: flex; align-items: center; gap: 10px; padding: 4px 12px 4px 4px; background: var(--surface); border: 1px solid var(--line-soft); border-radius: 999px; }
+.user-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--ink)); display: grid; place-items: center; font-weight: 700; font-size: 11px; color: #fff; }
+.user-name { font-size: 13px; font-weight: 600; line-height: 1.1; }
+.user-rank { font-size: 10.5px; color: var(--ink-3); margin-top: 1px; }
+
+/* Section headers */
+.section-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.section-head h2 { font-family: var(--font-display); font-size: 30px; font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; margin: 0; text-wrap: balance; }
+.section-head .eyebrow { font-size: 11px; letter-spacing: 0.06em; color: var(--ink-3); text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+.section-head .tools { display: flex; gap: 6px; align-items: center; }
+.section-head .more { font-size: 12px; color: var(--ink-3); font-weight: 500; cursor: pointer; }
+.section-head .more:hover { color: var(--accent); }
+.chip { font-size: 12px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: transparent; color: var(--ink-3); cursor: pointer; transition: all 120ms; border: 1px solid transparent; }
+.chip:hover { color: var(--ink); background: var(--surface-2); }
+.chip.active { color: var(--ink); background: var(--surface); border-color: var(--line-soft); box-shadow: var(--shadow-sm); }
+[data-theme="dark"] .chip.active { background: var(--surface-3); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; transition: transform 120ms, background 120ms, box-shadow 120ms; }
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn-accent { background: var(--accent); color: var(--accent-ink); }
+.btn-accent:hover { transform: translateY(-1px); background: var(--accent-2); }
+.btn-ghost { background: var(--surface); color: var(--ink); border: 1px solid var(--line-soft); }
+.btn-ghost:hover { background: var(--surface-2); }
+.btn-sm { padding: 7px 12px; font-size: 12px; }
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow);
+  min-height: 420px;
+}
+.hero-body { padding: 44px 44px 38px; display: flex; flex-direction: column; gap: 18px; justify-content: center; }
+.hero-visual { position: relative; overflow: hidden; background: var(--surface-2); }
+.hero-visual::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(43,37,32,0.18) 100%);
+  mix-blend-mode: multiply;
+}
+[data-theme="dark"] .hero-visual::after { background: linear-gradient(135deg, transparent 0%, rgba(15,13,10,0.35) 100%); mix-blend-mode: normal; }
+.hero-visual .floating-badge {
+  position: absolute;
+  background: rgba(43,37,32,0.72);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(237,231,222,0.15);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 12px;
+  z-index: 2;
+  color: #EDE7DE;
+}
+.hero-visual .floating-badge .l { font-size: 10px; color: rgba(237,231,222,0.65); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+.hero-visual .floating-badge .v { font-weight: 600; font-family: var(--font-mono); font-size: 13px; margin-top: 3px; }
+.hero-visual .floating-badge.bg-top { top: 28px; left: 28px; }
+.hero-visual .floating-badge.bg-bot { bottom: 28px; right: 28px; }
+.hero-visual-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 22px 28px; z-index: 2; color: #EDE7DE; background: linear-gradient(180deg, transparent, rgba(15,13,10,0.78)); }
+.hero-visual-overlay .credit { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.7; }
+.hero-visual-overlay .title { font-family: var(--font-display); font-style: italic; font-size: 18px; margin-top: 6px; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 600; width: max-content; }
+.hero-eyebrow .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); position: relative; }
+.hero-eyebrow .pulse::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 1.5px solid var(--accent); opacity: 0.3; animation: pulse 1.6s ease-out infinite; }
+@keyframes pulse { 0% { transform: scale(0.5); opacity: 0.5; } 100% { transform: scale(2); opacity: 0; } }
+.hero-title { font-family: var(--font-display); font-size: 64px; font-weight: 400; line-height: 0.98; letter-spacing: -0.015em; margin: 0; }
+.hero-title em { font-style: italic; color: var(--accent); font-weight: 400; }
+.hero-desc { font-size: 14px; color: var(--ink-3); max-width: 480px; line-height: 1.6; }
+.hero-meta { display: flex; gap: 24px; font-size: 12px; color: var(--ink-3); }
+.hero-meta strong { color: var(--ink); font-weight: 600; font-family: var(--font-mono); font-size: 13px; display: block; margin-bottom: 2px; }
+.hero-meta div .l { font-size: 10px; color: var(--ink-4); letter-spacing: 0.06em; text-transform: uppercase; }
+.hero-cta { display: flex; gap: 10px; margin-top: 12px; }
+
+/* Stat tiles */
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--gap-card); }
+.stat-tile { padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); display: flex; flex-direction: column; gap: 4px; cursor: pointer; transition: transform 120ms, box-shadow 120ms; }
+.stat-tile:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.stat-tile .label { font-size: 11.5px; color: var(--ink-3); font-weight: 500; }
+.stat-tile .value { font-size: 28px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.1; margin-top: 4px; font-family: var(--font); }
+.stat-tile .change { font-size: 11px; color: var(--ink-4); margin-top: 6px; display: flex; align-items: center; gap: 6px; }
+.stat-tile .change .pip { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+/* Build cards */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: var(--gap-card); }
+.build-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; transition: transform 150ms, box-shadow 150ms, border-color 150ms; cursor: pointer; display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+.build-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--line); }
+.build-art { height: 160px; position: relative; background: var(--surface-3); overflow: hidden; display: grid; place-items: center; }
+.build-art::after { content: none; }
+.build-art .tier { position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; display: grid; place-items: center; background: rgba(43,37,32,0.78); color: #EDE7DE; font-weight: 700; font-size: 12px; border-radius: 999px; z-index: 2; backdrop-filter: blur(8px); font-family: var(--font); }
+.build-art .tier[data-t="S"] { background: var(--accent); color: var(--accent-ink); }
+.build-art .game-tag { position: absolute; bottom: 10px; left: 10px; font-size: 10.5px; letter-spacing: 0.04em; font-weight: 500; color: #EDE7DE; background: rgba(43,37,32,0.62); backdrop-filter: blur(8px); padding: 4px 10px; border-radius: 999px; z-index: 2; }
+.build-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.build-meta { font-size: 10.5px; color: var(--ink-4); letter-spacing: 0.04em; font-weight: 600; text-transform: uppercase; }
+.build-title { font-family: var(--font-display); font-size: 22px; font-weight: 400; letter-spacing: -0.005em; line-height: 1.15; }
+.build-sub { font-size: 12px; color: var(--ink-3); }
+.build-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; margin-top: 10px; }
+.build-stats .col { display: flex; flex-direction: column; gap: 4px; }
+.build-stats .col .l { font-size: 9.5px; color: var(--ink-4); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+.build-stats .col .bar { height: 3px; background: var(--surface-3); border-radius: 2px; overflow: hidden; }
+.build-stats .col .bar i { display: block; height: 100%; background: var(--ink); border-radius: 2px; }
+.build-stats .col .bar i.hi { background: var(--accent); }
+.build-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 10px; }
+.build-tag { font-size: 10.5px; padding: 2px 8px; border-radius: 999px; background: var(--surface-2); color: var(--ink-3); border: 1px solid var(--line-soft); }
+.build-foot { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-top: 1px solid var(--line-soft); font-size: 11.5px; color: var(--ink-3); }
+.build-foot .reads { font-family: var(--font-mono); }
+.bookmark-btn { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 6px; color: var(--ink-4); transition: color 120ms, background 120ms; }
+.bookmark-btn:hover { color: var(--accent); background: var(--surface-2); }
+.bookmark-btn.on { color: var(--accent); }
+
+/* News + Trending */
+.news-trend { display: grid; grid-template-columns: minmax(0,1.45fr) minmax(0,1fr); gap: 14px; align-items: stretch; }
+.news-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: transform 150ms, box-shadow 150ms; display: flex; flex-direction: column; }
+.news-card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.news-list { display: flex; flex-direction: column; gap: 0; }
+.news-item { display: flex; flex-direction: column; gap: 4px; padding: 13px 18px; border-bottom: 1px solid var(--line-soft); cursor: pointer; transition: background 120ms; text-decoration: none; color: inherit; }
+.news-item:last-child { border-bottom: none; }
+.news-item:hover { background: var(--surface-2); }
+.news-item-head { display: flex; align-items: center; gap: 8px; font-size: 10.5px; color: var(--ink-4); }
+.news-item-title { font-size: 12.5px; color: var(--ink-2); line-height: 1.45; }
+.patch-tag { font-family: var(--font-mono); font-size: 9px; padding: 1px 6px; border-radius: 999px; font-weight: 600; letter-spacing: 0.04em; }
+.patch-tag[data-t="NERF"] { background: var(--bengara-3); color: var(--critical); }
+.patch-tag[data-t="BUFF"] { background: var(--positive-soft); color: var(--positive); }
+.patch-tag[data-t="NEW"]  { background: var(--warn-soft); color: var(--kihada); }
+.patch-tag[data-t="FIX"]  { background: var(--info-soft); color: var(--info); }
+[data-theme="dark"] .patch-tag[data-t="NEW"] { color: var(--warn); }
+
+/* Trending panel */
+.trend-panel { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 22px 22px 12px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+.trend-panel::before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; width: 8px; background: linear-gradient(180deg, var(--bengara) 0%, var(--bengara) 28%, var(--kihada) 28%, var(--kihada) 56%, var(--bishamon) 56%, var(--bishamon) 78%, var(--konjo) 78%); }
+.trend-panel-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; padding-right: 14px; }
+.trend-panel-head .eyebrow { font-family: var(--font-display); font-style: italic; font-size: 18px; letter-spacing: -0.005em; color: var(--ink); white-space: nowrap; }
+.trend-panel-head .more { font-size: 11px; color: var(--ink-3); font-family: var(--font-mono); letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; }
+.trend-panel-head .more:hover { color: var(--accent); }
+.trend-list { list-style: none; margin: 0; padding: 0; flex: 1; padding-right: 14px; }
+.trend-item { display: grid; grid-template-columns: 32px 1fr; gap: 12px; align-items: start; padding: 12px 0; border-bottom: 1px dashed var(--line-soft); cursor: pointer; }
+.trend-item:last-child { border-bottom: none; }
+.trend-item:hover .t-title { color: var(--accent); }
+.trend-item .rank { font-family: var(--font-display); font-style: italic; font-size: 22px; color: var(--bengara); line-height: 1; font-weight: 400; }
+.trend-item .t-title { font-size: 13px; line-height: 1.4; font-weight: 600; transition: color 120ms; margin: 0; }
+.trend-item .t-meta { font-size: 10.5px; color: var(--ink-4); margin-top: 4px; font-family: var(--font-mono); letter-spacing: 0.02em; }
+
+/* About grid */
+.about-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: var(--gap-card); }
+.about-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 22px; }
+.about-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 400; letter-spacing: -0.005em; margin-bottom: 10px; line-height: 1.2; }
+.about-card p { font-size: 13px; color: var(--ink-3); line-height: 1.65; }
+
+/* Coming soon */
+.coming-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: var(--gap-card); }
+.coming-card { background: var(--surface); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.coming-card .game-label { font-size: 10.5px; color: var(--accent); letter-spacing: 0.04em; font-weight: 600; text-transform: uppercase; }
+.coming-card .guide-name { font-family: var(--font-display); font-size: 17px; font-weight: 400; letter-spacing: -0.005em; line-height: 1.25; }
+.coming-badge { display: inline-block; font-size: 9.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-top: 4px; width: max-content; font-family: var(--font-mono); }
+.coming-badge.planned { background: var(--info-soft); color: var(--info); }
+
+/* Search overlay */
+.search-overlay { position: fixed; inset: 0; background: rgba(15,13,10,0.55); z-index: 1000; display: grid; place-items: start center; padding-top: 120px; backdrop-filter: blur(6px); animation: fadeIn 160ms ease-out; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.search-palette { width: min(640px, calc(100% - 32px)); background: var(--surface); border-radius: 14px; border: 1px solid var(--line); box-shadow: var(--shadow-lg); overflow: hidden; display: flex; flex-direction: column; max-height: 520px; animation: slideDown 200ms ease-out; }
+@keyframes slideDown { from { transform: translateY(-12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.search-palette-input { display: flex; align-items: center; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--line-soft); }
+.search-palette-input input { flex: 1; background: none; border: none; outline: none; font-size: 15px; color: var(--ink); }
+.search-palette-input input::placeholder { color: var(--ink-4); }
+.search-palette-results { overflow-y: auto; padding: 6px; }
+.search-result { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 8px; cursor: pointer; font-size: 13.5px; }
+.search-result:hover, .search-result.active { background: var(--surface-2); }
+.search-result .ic2 { width: 28px; height: 28px; border-radius: 7px; background: var(--surface-2); display: grid; place-items: center; color: var(--ink-3); flex-shrink: 0; }
+.search-result.active .ic2 { background: var(--accent-soft); color: var(--accent); }
+.search-result .nm { font-weight: 600; }
+.search-result .t { font-size: 11px; color: var(--ink-4); margin-top: 1px; }
+.search-result .arrow { margin-left: auto; opacity: 0; color: var(--ink-4); }
+.search-result.active .arrow { opacity: 1; }
+.search-palette-foot { padding: 10px 16px; border-top: 1px solid var(--line-soft); font-size: 11px; color: var(--ink-4); display: flex; gap: 16px; }
+.search-palette-foot .kbd2 { font-family: var(--font-mono); background: var(--surface-2); border: 1px solid var(--line-soft); padding: 1px 5px; border-radius: 4px; margin-right: 4px; }
+.search-empty { padding: 28px 20px; text-align: center; color: var(--ink-4); font-size: 13px; }
+
+/* Divider */
+.divider { height: 1px; background: var(--line-soft); margin: 8px 0; }
+
+/* Responsive */
+@media (max-width: 1340px) {
+  .app { grid-template-columns: 232px minmax(0,1fr); }
+  .hero { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 280px; }
+  .news-trend { grid-template-columns: 1fr; }
+}
+@media (max-width: 920px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .main { padding: 16px 18px 60px; }
+  .stat-row { grid-template-columns: repeat(2,1fr); }
+  .hero-title { font-size: 30px; }
+}
+</style>
 </head>
 <body>
+<div id="root"></div>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-    <!-- Logo -->
-    <a class="logo" href="/">
-      <span class="logo-icon" aria-hidden="true">
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <line x1="8" y1="1" x2="8" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <line x1="4" y1="6" x2="12" y2="6" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="8" cy="14" r="1.5" fill="white"/>
-        </svg>
-      </span>
-      Blood Guides
-    </a>
+<script type="text/babel">
+const { useState, useEffect, useMemo, useRef } = React;
 
-    <!-- Main nav -->
-    <nav class="nav" id="main-nav" aria-label="Main navigation">
+// ============================================================
+//  DATA
+// ============================================================
+const GAMES = [
+  { id: "elden-ring",   name: "Elden Ring",        short: "ER",  tag: "Open World Soulslike", builds: 4, hue: 28 },
+  { id: "diablo-4",     name: "Diablo 4",           short: "D4",  tag: "Action RPG",           builds: 4, hue: 285 },
+  { id: "bg3",          name: "Baldur's Gate 3",    short: "BG",  tag: "RPG",                  builds: 0, hue: 260 },
+  { id: "spacemarine2", name: "Space Marine 2",     short: "SM",  tag: "Action Shooter",       builds: 0, hue: 220 },
+  { id: "darktide",     name: "40K: Darktide",      short: "DT",  tag: "Co-op Shooter",        builds: 0, hue: 0 },
+  { id: "fallout76",    name: "Fallout 76",          short: "F76", tag: "RPG Survival",         builds: 0, hue: 120 },
+  { id: "fallout4",     name: "Fallout 4",           short: "F4",  tag: "RPG Shooter",          builds: 0, hue: 90 },
+];
 
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-haspopup="true">
-          Builds <span class="caret">▾</span>
-        </button>
-        <div class="nav-dropdown-menu">
-          <a href="/samurai-bleed-build/">Samurai Bleed Build</a>
-          <a href="/elden-ring-tank-build/">Tank Build (Great Shield)</a>
-          <a href="/dragon-faith-build/">Dragon Faith Build</a>
-          <a href="/rivers-of-blood-build/">Rivers of Blood Build</a>
-          <a href="/diablo4-necromancer-minion-build/">Necromancer Minion</a>
-          <a href="/diablo4-druid-bear-build/">Druid Bear</a>
-          <a href="/diablo4-paladin-blessed-hammer-build/">Paladin Blessed Hammer</a>
-          <a href="/diablo4-whirlwind-barbarian-build/">Whirlwind Barbarian</a>
-        </div>
-      </div>
+const BUILDS = [
+  { id: "samurai-bleed",     game: "Elden Ring",  game_id: "elden-ring", archetype: "Dex / Arcane",  title: "Samurai Bleed",     weapon: "Rivers of Blood",   tier: "S", reads: "184K", dmg: 92, def: 60, mob: 78, util: 70, tags: ["Bleed","PvE","PvP"],    url: "/samurai-bleed-build/" },
+  { id: "tank-build",        game: "Elden Ring",  game_id: "elden-ring", archetype: "Strength",      title: "Great Shield Tank", weapon: "Fingerprint Shield",tier: "S", reads: "97K",  dmg: 60, def: 99, mob: 22, util: 50, tags: ["Tank","PvE","Beginner"],url: "/elden-ring-tank-build/" },
+  { id: "dragon-faith",      game: "Elden Ring",  game_id: "elden-ring", archetype: "Faith / Str",   title: "Dragon Faith",      weapon: "Dragonclaw + Axe",  tier: "A", reads: "62K",  dmg: 78, def: 72, mob: 55, util: 80, tags: ["Faith","PvE","Incant"], url: "/dragon-faith-build/" },
+  { id: "rivers-of-blood",   game: "Elden Ring",  game_id: "elden-ring", archetype: "Dex / Arcane",  title: "Rivers of Blood",   weapon: "Rivers of Blood",   tier: "S", reads: "143K", dmg: 88, def: 50, mob: 84, util: 90, tags: ["Bleed","PvE","PvP"],    url: "/rivers-of-blood-build/" },
+  { id: "necromancer-minion",game: "Diablo 4",    game_id: "diablo-4",   archetype: "Necromancer",   title: "Minion Army",        weapon: "Bone Spear",        tier: "S", reads: "72K",  dmg: 80, def: 70, mob: 50, util: 75, tags: ["Minions","PvE"],        url: "/diablo4-necromancer-minion-build/" },
+  { id: "druid-bear",        game: "Diablo 4",    game_id: "diablo-4",   archetype: "Druid",         title: "Werebear Build",     weapon: "Pulverize",         tier: "A", reads: "41K",  dmg: 75, def: 88, mob: 60, util: 65, tags: ["Tank","PvE"],           url: "/diablo4-druid-bear-build/" },
+  { id: "paladin-hammer",    game: "Diablo 4",    game_id: "diablo-4",   archetype: "Crusader",      title: "Blessed Hammer",     weapon: "Flail + Shield",    tier: "S", reads: "88K",  dmg: 85, def: 75, mob: 55, util: 70, tags: ["Holy","PvE","S-Tier"], url: "/diablo4-paladin-blessed-hammer-build/" },
+  { id: "whirlwind-barb",    game: "Diablo 4",    game_id: "diablo-4",   archetype: "Barbarian",     title: "Whirlwind Barb",     weapon: "Two-Hander",        tier: "A", reads: "67K",  dmg: 88, def: 65, mob: 75, util: 60, tags: ["AoE","PvE"],            url: "/diablo4-whirlwind-barbarian-build/" },
+];
 
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-haspopup="true">
-          Games <span class="caret">▾</span>
-        </button>
-        <div class="nav-dropdown-menu">
-          <a href="/?game=elden-ring">Elden Ring</a>
-          <a href="/?game=diablo-4">Diablo 4</a>
-          <a href="/?game=bg3">Baldur's Gate 3</a>
-          <a href="/?game=spacemarine2">40K: Space Marine 2</a>
-          <a href="/?game=darktide">40K: Darktide</a>
-          <a href="/?game=fallout76">Fallout 76</a>
-          <a href="/?game=fallout4">Fallout 4</a>
-        </div>
-      </div>
+const PATCH_NOTES = [
+  { game: "Diablo 4",          game_id: "diablo-4",     ver: "Season 12", date: "28 Apr 2026", tag: "NEW",  title: "Lord of Hatred expansion — Hatred Rifts, Vessel of Hatred content, class reworks across all archetypes", url: "https://maxroll.gg/d4/news/diablo-4-season-8-compendium-updates-build-guides" },
+  { game: "Space Marine 2",    game_id: "spacemarine2", ver: "Patch 13",  date: "21 May 2026", tag: "NEW",  title: "Purgation update: Kadaku swamp operation, full Siege Mode rework, Hive Tyrant added, Iron Hands DLC", url: "https://www.focus-entmt.com/en/news/warhammer-40000-space-marine-2-shadowdrops-its-purgation-update-just-in-time-for-the-warhammer-skulls-festival" },
+  { game: "40K: Darktide",     game_id: "darktide",     ver: "1.11.6",   date: "21 May 2026", tag: "BUFF", title: "Skitarii class revealed at Warhammer Skulls 2026. Carapace rebalance, Veteran Krak Grenade nerf", url: "#" },
+  { game: "Elden Ring NR",     game_id: "elden-ring",   ver: "1.03.2",   date: "Jan 2026",    tag: "BUFF", title: "Executor, Raider, Guardian buffed. Revenant summon spirits now scale with Depth in Deep of Night mode", url: "https://en.bandainamcoent.eu/elden-ring/news/elden-ring-nightreign-patch-notes-version-1032" },
+  { game: "Fallout 76",        game_id: "fallout76",    ver: "Season 25",date: "Apr 2026",    tag: "NEW",  title: "Infestations update: new end-game content, Deathclaw C.A.M.P. pet, new seasonal fish added", url: "#" },
+  { game: "Baldur's Gate 3",   game_id: "bg3",          ver: "Hotfix 36",date: "Mar 2026",    tag: "FIX",  title: "Crash fixes, frame drops resolved, corrupted saves repaired. Cross-play (Patch 8) now stable", url: "https://bg3.wiki/wiki/Patch_Notes" },
+];
 
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-trigger" aria-haspopup="true">
-          Walkthroughs <span class="caret">▾</span>
-        </button>
-        <div class="nav-dropdown-menu">
-          <a href="/#coming-soon">Elden Ring Boss Guides</a>
-          <a href="/#coming-soon">Diablo 4 Campaign</a>
-          <a href="/#coming-soon">BG3 Act Guides</a>
-          <a href="/#coming-soon">Space Marine 2 Operations</a>
-        </div>
-      </div>
+const TRENDING = [
+  { rank: 1, title: "Best Bleed Weapons After Patch 1.16",       game: "Elden Ring",    comments: "243", url: "https://sevenswords.uk/best-weapons-for-bleed-builds-in-elden-ring/" },
+  { rank: 2, title: "Lord of Hatred — Season 12 Tier List",       game: "Diablo 4",      comments: "187", url: "https://maxroll.gg/d4/news/diablo-4-season-8-compendium-updates-build-guides" },
+  { rank: 3, title: "Purgation Update — What's New in Patch 13",  game: "Space Marine 2",comments: "112", url: "https://www.focus-entmt.com/en/news/warhammer-40000-space-marine-2-shadowdrops-its-purgation-update-just-in-time-for-the-warhammer-skulls-festival" },
+  { rank: 4, title: "Skitarii Class Revealed — Skulls 2026",       game: "Darktide",      comments: "94",  url: "#" },
+  { rank: 5, title: "Patch 8 Cross-Play — Best Subclasses Ranked",game: "BG3",           comments: "78",  url: "#" },
+  { rank: 6, title: "Season 25 Infestations — Best Builds Guide", game: "Fallout 76",    comments: "56",  url: "#" },
+];
 
-      <a class="nav-link" href="/#latest-news">News</a>
-    </nav>
+const STATS = [
+  { label: "Live builds",    value: "8",     change: "+4 this month",   hue: 28 },
+  { label: "Games covered",  value: "7",     change: "Expanding soon",  hue: 175 },
+  { label: "In the pipeline",value: "12",    change: "Guides coming",   hue: 250 },
+  { label: "Avg read time",  value: "9 min", change: "No padding, just data", hue: 90 },
+];
 
-    <div class="header-actions">
-      <button class="icon-btn" title="Search" aria-label="Search" style="min-width:unset;padding:0.45rem 0.7rem;">
-        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <circle cx="8.5" cy="8.5" r="6"/>
-          <line x1="13.5" y1="13.5" x2="18" y2="18"/>
-        </svg>
-      </button>
-      <button class="icon-btn theme-toggle" title="Toggle theme" aria-label="Toggle dark/light mode">
-        <span class="toggle-icon">☀️</span> Light
-      </button>
-      <button class="icon-btn nav-mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">☰</button>
-    </div>
+const COMING_SOON = [
+  { game: "Elden Ring",     title: "Moonveil Mage Build",              status: "in-progress" },
+  { game: "Elden Ring",     title: "Faith Incantation Build",          status: "planned" },
+  { game: "Diablo 4",       title: "Sorceress Ice Shards — Season 12", status: "in-progress" },
+  { game: "BG3",            title: "Patch 8 Subclass Tier List",       status: "in-progress" },
+  { game: "BG3",            title: "Honour Mode Paladin Build",        status: "planned" },
+  { game: "Space Marine 2", title: "Techmarine Class Guide",           status: "in-progress" },
+  { game: "Darktide",       title: "Veteran Build — Post 1.11.6",      status: "in-progress" },
+  { game: "Darktide",       title: "Skitarii Class Guide",             status: "planned" },
+  { game: "Fallout 76",     title: "Season 25 Infestations Guide",     status: "in-progress" },
+  { game: "Fallout 4",      title: "Anniversary Edition Tier List",    status: "planned" },
+  { game: "Space Marine 2", title: "Siege Mode Operations Guide",      status: "planned" },
+  { game: "Black Myth",     title: "Immobilise Build Guide",           status: "planned" },
+];
 
-  </div>
-</header>
+// ============================================================
+//  PALETTE SWITCHER
+// ============================================================
+const PALETTES = {
+  "showa-cover": {
+    label: "Showa Cover", sub: "Bengara · Kihada · Bishamon",
+    light: { bengara:"#B0492A","bengara-2":"#8E3A1F","bengara-3":"#F0DCD0",kihada:"#D9A22F","kihada-3":"#F4E5C2",bishamon:"#1F6F73","bishamon-3":"#CCE0DE",konjo:"#1E4E78","konjo-3":"#CFDAE6",tonoko:"#A8966E",sumi:"#2B2520",shiracha:"#EDE7DE" },
+    dark:  { bengara:"#C75A38","bengara-2":"#A04425","bengara-3":"#3A1F18",kihada:"#E3B14A","kihada-3":"#3A2E16",bishamon:"#38938F","bishamon-3":"#163230",konjo:"#4374A6","konjo-3":"#14253A",tonoko:"#B0986A",sumi:"#15110D",shiracha:"#E8DDC9" }
+  },
+  "aki-autumn": {
+    label: "Aki · Autumn", sub: "Kuchiba · Akabeni · Susutake",
+    light: { bengara:"#A8331D","bengara-2":"#7A2515","bengara-3":"#EFD6CC",kihada:"#C58A1F","kihada-3":"#EFDEBC",bishamon:"#3B6B58","bishamon-3":"#D2DED8",konjo:"#2B3E66","konjo-3":"#CCD2DD",tonoko:"#8C6A45",sumi:"#241B14",shiracha:"#E8DECB" },
+    dark:  { bengara:"#C04E32","bengara-2":"#923922","bengara-3":"#3A1C13",kihada:"#D89B3C","kihada-3":"#36280F",bishamon:"#5A957F","bishamon-3":"#1A2E27",konjo:"#4D6394","konjo-3":"#192038",tonoko:"#B08868",sumi:"#13100A",shiracha:"#E8DECB" }
+  },
+  "fuyu-winter": {
+    label: "Fuyu · Winter", sub: "Sumi · Aijiro · Konjō · Suō",
+    light: { bengara:"#8E3A4A","bengara-2":"#6E2935","bengara-3":"#E8D8DD",kihada:"#A88546","kihada-3":"#E8DCC2",bishamon:"#326B7A","bishamon-3":"#CFDDE0",konjo:"#1B3A66","konjo-3":"#C6CFDF",tonoko:"#867E70",sumi:"#181614",shiracha:"#E6E2DC" },
+    dark:  { bengara:"#B0526A","bengara-2":"#84394E","bengara-3":"#321B22",kihada:"#C4994A","kihada-3":"#2E2410",bishamon:"#4F94A0","bishamon-3":"#152A30",konjo:"#446FA4","konjo-3":"#142239",tonoko:"#9A9082",sumi:"#0F0D0B",shiracha:"#E2DED8" }
+  },
+};
 
-<!-- MAIN -->
-<main>
-  <div class="container">
+function applyPalette(name, theme) {
+  const p = PALETTES[name] || PALETTES["showa-cover"];
+  const map = theme === "dark" ? p.dark : p.light;
+  const root = document.documentElement;
+  Object.entries(map).forEach(([k,v]) => root.style.setProperty(`--${k}`, v));
+}
 
-    <!-- PAGE HEADER -->
-    <div class="page-header">
-      <h2>Character Builds</h2>
-      <p class="page-subtitle">Curated builds for optimal performance across your favourite games.</p>
-    </div>
+// ============================================================
+//  BOOKPLATE ART — Sanzo Wada inspired flat SVG panels
+// ============================================================
+const BP_PALETTES = {
+  "elden-ring":   ["bengara","sumi","kihada"],
+  "diablo-4":     ["bengara","sumi","tonoko"],
+  "bg3":          ["konjo","sumi","shiracha"],
+  "spacemarine2": ["konjo","tonoko","sumi"],
+  "darktide":     ["sumi","bengara","shiracha"],
+  "fallout76":    ["bishamon","tonoko","sumi"],
+  "fallout4":     ["kihada","bengara","sumi"],
+};
+const BP_FALLBACK = ["tonoko","sumi","shiracha"];
 
-    <!-- ── PATCH NOTES + TRENDING ─────────────────────────────── -->
-    <div class="info-grid" id="latest-news">
+const Motifs = {
+  "elden-ring": (
+    <g fill="currentColor">
+      <circle cx="50" cy="34" r="22" opacity="0.18" />
+      <path d="M48 92 L48 50 L46 50 L46 92 Z M52 92 L52 50 L54 50 L54 92 Z" />
+      <path d="M50 16 L42 28 L36 24 L40 36 L30 34 L38 44 L26 46 L40 50 L60 50 L74 46 L62 44 L70 34 L60 36 L64 24 L58 28 Z" />
+      <path d="M44 92 L56 92 L60 96 L40 96 Z" />
+    </g>
+  ),
+  "diablo-4": (
+    <g fill="currentColor">
+      <path d="M50 8 L44 26 L28 20 L38 36 L20 38 L36 48 L28 64 L50 56 L72 64 L64 48 L80 38 L62 36 L72 20 L56 26 Z" opacity="0.9"/>
+      <circle cx="50" cy="48" r="8" opacity="0.7"/>
+      <path d="M46 56 L54 56 L58 96 L42 96 Z" opacity="0.6"/>
+    </g>
+  ),
+  "bg3": (
+    <g fill="currentColor">
+      <path d="M22 96 L22 42 L18 36 L26 36 L26 26 L28 26 L28 36 L36 36 L32 42 L32 96 Z" />
+      <path d="M48 96 L48 28 L43 20 L52 20 L52 8 L54 8 L54 20 L63 20 L58 28 L58 96 Z" />
+      <path d="M74 96 L74 46 L70 40 L78 40 L78 30 L80 30 L80 40 L88 40 L84 46 L84 96 Z" />
+      <rect x="0" y="92" width="100" height="2" />
+    </g>
+  ),
+  "spacemarine2": (
+    <g fill="currentColor">
+      <path d="M50 8 L50 92 M8 50 L92 50" stroke="currentColor" strokeWidth="7" strokeLinecap="round" fill="none" opacity="0.8"/>
+      <path d="M50 8 L58 28 L78 22 L64 38 L84 46 L64 54 L78 70 L58 64 L50 84 L42 64 L22 70 L36 54 L16 46 L36 38 L22 22 L42 28 Z" opacity="0.5"/>
+      <circle cx="50" cy="50" r="12" opacity="0.9"/>
+    </g>
+  ),
+  "darktide": (
+    <g fill="currentColor">
+      <path d="M50 6 L58 24 L78 18 L66 34 L84 42 L66 50 L78 68 L60 60 L54 80 L50 94 L46 80 L40 60 L22 68 L34 50 L16 42 L34 34 L22 18 L42 24 Z" opacity="0.85"/>
+      <circle cx="50" cy="42" r="10"/>
+      <circle cx="50" cy="42" r="5" fill="var(--paper)" opacity="0.6"/>
+    </g>
+  ),
+  "fallout76": (
+    <g fill="currentColor">
+      <circle cx="50" cy="46" r="34" fill="none" stroke="currentColor" strokeWidth="6"/>
+      <circle cx="50" cy="46" r="24" fill="none" stroke="currentColor" strokeWidth="3" opacity="0.5"/>
+      <path d="M38 46 L50 20 L62 46 Z" opacity="0.8"/>
+      <path d="M40 52 L60 52 L62 96 L38 96 Z" opacity="0.5"/>
+    </g>
+  ),
+  "fallout4": (
+    <g fill="currentColor">
+      <circle cx="50" cy="44" r="32" fill="none" stroke="currentColor" strokeWidth="5"/>
+      <path d="M30 44 L50 10 L70 44 Z" opacity="0.7"/>
+      <path d="M26 56 L74 56 L78 96 L22 96 Z" opacity="0.4"/>
+      <rect x="42" y="56" width="16" height="16" opacity="0.8"/>
+    </g>
+  ),
+};
 
-      <!-- LEFT: Latest Patch Notes (wider) -->
-      <div class="info-card">
-        <div class="info-card-header">
-          <span class="info-card-icon">⚡</span>
-          <h3 class="info-card-title">Latest Patch Notes</h3>
-        </div>
-
-        <!-- Diablo 4 — Season 12 -->
-        <a class="info-item" href="https://maxroll.gg/d4/news/diablo-4-season-8-compendium-updates-build-guides" target="_blank" rel="noopener">
-          <div class="patch-header">
-            <span class="info-item-game game-d4">Diablo 4</span>
-            <span class="info-item-version">Season 12</span>
-            <span class="info-item-time">28 Apr 2026</span>
-          </div>
-          <p class="info-item-text">Lord of Hatred expansion launches. Vessel of Hatred content, Hatred Rifts, new class skills and reworks across all archetypes.</p>
-        </a>
-
-        <!-- Space Marine 2 — Patch 13 -->
-        <a class="info-item" href="https://www.focus-entmt.com/en/news/warhammer-40000-space-marine-2-shadowdrops-its-purgation-update-just-in-time-for-the-warhammer-skulls-festival" target="_blank" rel="noopener">
-          <div class="patch-header">
-            <span class="info-item-game game-sm2">Space Marine 2</span>
-            <span class="info-item-version">Patch 13</span>
-            <span class="info-item-time">21 May 2026</span>
-          </div>
-          <p class="info-item-text">Purgation update: new Kadaku swamp operation, full Siege Mode rework, Hive Tyrant added, Iron Hands Chapter DLC.</p>
-        </a>
-
-        <!-- Darktide — Skitarii / 1.11.6 -->
-        <a class="info-item" href="https://www.windowscentral.com/gaming/warhammer-day-xbox-and-pc-game-announcements-were-getting-a-content-roadmap-for-darktide-dark-heresys-alpha-test-a-2nd-playable-character-for-boltgun-2-and-much-more" target="_blank" rel="noopener">
-          <div class="patch-header">
-            <span class="info-item-game game-dt">40K: Darktide</span>
-            <span class="info-item-version">1.11.6 + Skulls</span>
-            <span class="info-item-time">21 May 2026</span>
-          </div>
-          <p class="info-item-text">Skitarii class revealed at Warhammer Skulls 2026. Patch 1.11.6: Carapace enemy rebalance, Veteran Krak Grenade nerf.</p>
-        </a>
-
-        <!-- Elden Ring Nightreign -->
-        <a class="info-item" href="https://en.bandainamcoent.eu/elden-ring/news/elden-ring-nightreign-patch-notes-version-1032" target="_blank" rel="noopener">
-          <div class="patch-header">
-            <span class="info-item-game game-er">Elden Ring Nightreign</span>
-            <span class="info-item-version">1.03.2</span>
-            <span class="info-item-time">Jan 2026</span>
-          </div>
-          <p class="info-item-text">Executor, Raider, and Guardian classes buffed. Revenant summon spirits now scale with Depth in Deep of Night mode.</p>
-        </a>
-
-        <!-- Fallout 76 — Season 25 -->
-        <a class="info-item" href="https://nukaknights.com/articles/fallout-76-patchnotes-21st-april-2026-patch-67.html" target="_blank" rel="noopener">
-          <div class="patch-header">
-            <span class="info-item-game game-fo76">Fallout 76</span>
-            <span class="info-item-version">Season 25</span>
-            <span class="info-item-time">Apr 2026</span>
-          </div>
-          <p class="info-item-text">Infestations update: new end-game Infestations content, Deathclaw C.A.M.P. pet, new seasonal fish added.</p>
-        </a>
-
-        <!-- BG3 Hotfix 36 -->
-        <a class="info-item" href="https://bg3.wiki/wiki/Patch_Notes" target="_blank" rel="noopener">
-          <div class="patch-header">
-            <span class="info-item-game game-bg3">Baldur's Gate 3</span>
-            <span class="info-item-version">Hotfix 36</span>
-            <span class="info-item-time">Mar 2026</span>
-          </div>
-          <p class="info-item-text">Crash fixes and frame rate drops resolved. Corrupted saves repaired. Cross-play (added in Patch 8) now stable across platforms.</p>
-        </a>
-
-      </div><!-- /left -->
-
-      <!-- RIGHT: Trending Now (narrower) -->
-      <div class="info-card">
-        <div class="info-card-header">
-          <span class="info-card-icon">📈</span>
-          <h3 class="info-card-title">Trending Now</h3>
-        </div>
-
-        <a class="info-item" href="https://sevenswords.uk/best-weapons-for-bleed-builds-in-elden-ring/" target="_blank" rel="noopener">
-          <div class="trending-item">
-            <div class="trending-item-content">
-              <div class="trending-item-title">Best Bleed Weapons After Patch 1.16</div>
-              <div class="trending-item-meta">
-                <span class="trending-category game-er">Elden Ring</span>
-                <span class="trending-time">· 5h ago</span>
-              </div>
-            </div>
-            <span class="trending-chevron">›</span>
-          </div>
-        </a>
-
-        <a class="info-item" href="https://maxroll.gg/d4/news/diablo-4-season-8-compendium-updates-build-guides" target="_blank" rel="noopener">
-          <div class="trending-item">
-            <div class="trending-item-content">
-              <div class="trending-item-title">Lord of Hatred — Season 12 Tier List</div>
-              <div class="trending-item-meta">
-                <span class="trending-category game-d4">Diablo 4</span>
-                <span class="trending-time">· 1d ago</span>
-              </div>
-            </div>
-            <span class="trending-chevron">›</span>
-          </div>
-        </a>
-
-        <a class="info-item" href="https://www.focus-entmt.com/en/news/warhammer-40000-space-marine-2-shadowdrops-its-purgation-update-just-in-time-for-the-warhammer-skulls-festival" target="_blank" rel="noopener">
-          <div class="trending-item">
-            <div class="trending-item-content">
-              <div class="trending-item-title">Purgation Update — What's New in Patch 13</div>
-              <div class="trending-item-meta">
-                <span class="trending-category game-sm2">Space Marine 2</span>
-                <span class="trending-time">· 2d ago</span>
-              </div>
-            </div>
-            <span class="trending-chevron">›</span>
-          </div>
-        </a>
-
-        <a class="info-item" href="https://www.windowscentral.com/gaming/warhammer-day-xbox-and-pc-game-announcements-were-getting-a-content-roadmap-for-darktide-dark-heresys-alpha-test-a-2nd-playable-character-for-boltgun-2-and-much-more" target="_blank" rel="noopener">
-          <div class="trending-item">
-            <div class="trending-item-content">
-              <div class="trending-item-title">Skitarii Class Revealed — Warhammer Skulls 2026</div>
-              <div class="trending-item-meta">
-                <span class="trending-category game-dt">40K: Darktide</span>
-                <span class="trending-time">· 4d ago</span>
-              </div>
-            </div>
-            <span class="trending-chevron">›</span>
-          </div>
-        </a>
-
-        <a class="info-item" href="https://bg3.wiki/wiki/Patch_Notes" target="_blank" rel="noopener">
-          <div class="trending-item">
-            <div class="trending-item-content">
-              <div class="trending-item-title">Patch 8 Cross-Play — Best Subclasses Ranked</div>
-              <div class="trending-item-meta">
-                <span class="trending-category game-bg3">Baldur's Gate 3</span>
-                <span class="trending-time">· 1w ago</span>
-              </div>
-            </div>
-            <span class="trending-chevron">›</span>
-          </div>
-        </a>
-
-        <a class="info-item" href="https://nukaknights.com/articles/expected-changes-for-the-backwoods-update-on-3rd-march-2026.html" target="_blank" rel="noopener">
-          <div class="trending-item">
-            <div class="trending-item-content">
-              <div class="trending-item-title">Season 25 Infestations — Best Builds Guide</div>
-              <div class="trending-item-meta">
-                <span class="trending-category game-fo76">Fallout 76</span>
-                <span class="trending-time">· 2w ago</span>
-              </div>
-            </div>
-            <span class="trending-chevron">›</span>
-          </div>
-        </a>
-
-      </div><!-- /right -->
-    </div><!-- /info-grid -->
-
-    <!-- ── FILTERS ─────────────────────────────────────────────── -->
-    <div class="filters-section">
-      <div class="filter-label-row">
-        <span class="filter-game-label">Game</span>
-        <div class="filter-buttons">
-          <button class="filter-btn active" data-game="all">All Games</button>
-          <button class="filter-btn" data-game="elden-ring">Elden Ring</button>
-          <button class="filter-btn" data-game="diablo-4">Diablo 4</button>
-          <button class="filter-btn" data-game="bg3">Baldur's Gate 3</button>
-          <button class="filter-btn" data-game="spacemarine2">Space Marine 2</button>
-          <button class="filter-btn" data-game="darktide">Darktide</button>
-          <button class="filter-btn" data-game="fallout76">Fallout 76</button>
-          <button class="filter-btn" data-game="fallout4">Fallout 4</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── FEATURED GUIDES ─────────────────────────────────────── -->
-    <h2 class="section-heading">Featured Builds</h2>
-    <div class="section-rule"></div>
-
-    <div class="guide-grid" id="guides-grid">
-
-      <!-- Samurai Bleed -->
-      <a class="guide-card" data-game="elden-ring" href="/samurai-bleed-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #6B1010 0%, #3A0808 50%, #130404 100%);">
-          <span class="card-placeholder">⚔</span>
-          <div class="card-img-footer">
-            <span class="card-category">Samurai</span>
-            <span class="card-rating"><span class="star">★</span> 4.9</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Elden Ring</div>
-          <h3 class="guide-card-title">Samurai Bleed Build</h3>
-        </div>
-      </a>
-
-      <!-- Tank Build -->
-      <a class="guide-card" data-game="elden-ring" href="/elden-ring-tank-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #142840 0%, #0A1828 50%, #040C14 100%);">
-          <span class="card-placeholder">🛡</span>
-          <div class="card-img-footer">
-            <span class="card-category">Guardian</span>
-            <span class="card-rating"><span class="star">★</span> 4.7</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Elden Ring</div>
-          <h3 class="guide-card-title">Tank Build (Great Shield)</h3>
-        </div>
-      </a>
-
-      <!-- Dragon Faith -->
-      <a class="guide-card" data-game="elden-ring" href="/dragon-faith-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #602008 0%, #381005 50%, #120503 100%);">
-          <span class="card-placeholder">🐉</span>
-          <div class="card-img-footer">
-            <span class="card-category">Prophet</span>
-            <span class="card-rating"><span class="star">★</span> 4.8</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Elden Ring</div>
-          <h3 class="guide-card-title">Dragon Faith Build</h3>
-        </div>
-      </a>
-
-      <!-- Rivers of Blood -->
-      <a class="guide-card" data-game="elden-ring" href="/rivers-of-blood-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #5A0A0A 0%, #340505 50%, #100303 100%);">
-          <span class="card-placeholder">🗡</span>
-          <div class="card-img-footer">
-            <span class="card-category">Assassin</span>
-            <span class="card-rating"><span class="star">★</span> 4.9</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Elden Ring</div>
-          <h3 class="guide-card-title">Rivers of Blood Build</h3>
-        </div>
-      </a>
-
-      <!-- Necromancer -->
-      <a class="guide-card" data-game="diablo-4" href="/diablo4-necromancer-minion-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #381060 0%, #200838 50%, #0A0415 100%);">
-          <span class="card-placeholder">💀</span>
-          <div class="card-img-footer">
-            <span class="card-category">Necromancer</span>
-            <span class="card-rating"><span class="star">★</span> 4.6</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Diablo 4</div>
-          <h3 class="guide-card-title">Necromancer Minion Build</h3>
-        </div>
-      </a>
-
-      <!-- Druid Bear -->
-      <a class="guide-card" data-game="diablo-4" href="/diablo4-druid-bear-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #1E4010 0%, #102508 50%, #050D03 100%);">
-          <span class="card-placeholder">🐻</span>
-          <div class="card-img-footer">
-            <span class="card-category">Druid</span>
-            <span class="card-rating"><span class="star">★</span> 4.5</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Diablo 4</div>
-          <h3 class="guide-card-title">Druid Bear Build</h3>
-        </div>
-      </a>
-
-      <!-- Paladin -->
-      <a class="guide-card" data-game="diablo-4" href="/diablo4-paladin-blessed-hammer-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #604808 0%, #382C04 50%, #120E02 100%);">
-          <span class="card-placeholder">⚡</span>
-          <div class="card-img-footer">
-            <span class="card-category">Paladin</span>
-            <span class="card-rating"><span class="star">★</span> 4.8</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Diablo 4 · S-Tier</div>
-          <h3 class="guide-card-title">Paladin Blessed Hammer</h3>
-        </div>
-      </a>
-
-      <!-- Barbarian -->
-      <a class="guide-card" data-game="diablo-4" href="/diablo4-whirlwind-barbarian-build/">
-        <div class="guide-card-img" style="background: linear-gradient(145deg, #602008 0%, #381005 50%, #120503 100%);">
-          <span class="card-placeholder">🌀</span>
-          <div class="card-img-footer">
-            <span class="card-category">Barbarian</span>
-            <span class="card-rating"><span class="star">★</span> 4.7</span>
-          </div>
-        </div>
-        <div class="guide-card-info">
-          <div class="guide-card-game">Diablo 4 · S-Tier</div>
-          <h3 class="guide-card-title">Whirlwind Barbarian</h3>
-        </div>
-      </a>
-
-    </div><!-- /guide-grid -->
-
-    <!-- ── ABOUT ───────────────────────────────────────────────── -->
-    <h2 class="section-heading">What Is Blood Guides?</h2>
-    <div class="section-rule"></div>
-
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>No Fluff. Just Guides.</h3>
-        <p>Every guide is written by someone who has actually played the build — tested in PvE, checked against bosses, verified with accurate item locations. No padding, no vague advice.</p>
-      </div>
-      <div class="about-card">
-        <h3>Every Game. Every Playstyle.</h3>
-        <p>Starting with Elden Ring and Diablo 4, expanding across Soulslikes, ARPGs, shooters, co-op campaigns and beyond. If a game has a meta worth optimising, it'll be here.</p>
-      </div>
-      <div class="about-card">
-        <h3>Built for Readability</h3>
-        <p>Stat tables, item cards, variant tabs, boss notes, quick reference tables. Guides are structured so you find exactly what you need, whether you want the full explanation or just the numbers.</p>
-      </div>
-      <div class="about-card">
-        <h3>Always Up to Date</h3>
-        <p>Guides are reviewed after major patches. Build recommendations reflect current viability — if something gets nerfed, the guide says so and tells you what to run instead.</p>
-      </div>
-    </div>
-
-    <!-- ── COMING SOON ─────────────────────────────────────────── -->
-    <h2 class="section-heading" id="coming-soon">Coming Soon</h2>
-    <div class="section-rule"></div>
-
-    <div class="coming-grid">
-      <div class="coming-card">
-        <div class="game-label">Elden Ring</div>
-        <div class="guide-name">Moonveil Mage Build</div>
-        <span class="coming-badge">In Progress</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">Elden Ring</div>
-        <div class="guide-name">Faith Incantation Build</div>
-        <span class="coming-badge planned">Planned</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">Diablo 4</div>
-        <div class="guide-name">Sorceress Ice Shards — Season 12</div>
-        <span class="coming-badge">In Progress</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">Baldur's Gate 3</div>
-        <div class="guide-name">Patch 8 Subclass Tier List</div>
-        <span class="coming-badge">In Progress</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">Baldur's Gate 3</div>
-        <div class="guide-name">Honour Mode Paladin Build</div>
-        <span class="coming-badge planned">Planned</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">40K: Space Marine 2</div>
-        <div class="guide-name">Techmarine Class Guide — Patch 12+</div>
-        <span class="coming-badge">In Progress</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">40K: Darktide</div>
-        <div class="guide-name">Veteran Build — Post 1.11.6</div>
-        <span class="coming-badge">In Progress</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">40K: Darktide</div>
-        <div class="guide-name">Skitarii Class Guide</div>
-        <span class="coming-badge planned">Planned</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">Fallout 76</div>
-        <div class="guide-name">Season 25 Infestations Build Guide</div>
-        <span class="coming-badge">In Progress</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">Fallout 4</div>
-        <div class="guide-name">Anniversary Edition Build Tier List</div>
-        <span class="coming-badge planned">Planned</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">40K: Space Marine 2</div>
-        <div class="guide-name">Siege Mode Operations Guide</div>
-        <span class="coming-badge planned">Planned</span>
-      </div>
-      <div class="coming-card">
-        <div class="game-label">Black Myth: Wukong</div>
-        <div class="guide-name">Immobilise Build Guide</div>
-        <span class="coming-badge planned">Planned</span>
-      </div>
-    </div>
-
-  </div>
-</main>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-section">
-      <h4>Blood Guides</h4>
-      <a href="/">Home</a>
-      <a href="/#coming-soon">Coming Soon</a>
-      <a href="/#latest-news">Patch Notes</a>
-    </div>
-    <div class="footer-section">
-      <h4>Elden Ring</h4>
-      <a href="/samurai-bleed-build/">Samurai Bleed</a>
-      <a href="/elden-ring-tank-build/">Tank Build</a>
-      <a href="/dragon-faith-build/">Dragon Faith</a>
-      <a href="/rivers-of-blood-build/">Rivers of Blood</a>
-    </div>
-    <div class="footer-section">
-      <h4>Diablo 4</h4>
-      <a href="/diablo4-necromancer-minion-build/">Necromancer</a>
-      <a href="/diablo4-druid-bear-build/">Druid Bear</a>
-      <a href="/diablo4-paladin-blessed-hammer-build/">Paladin</a>
-      <a href="/diablo4-whirlwind-barbarian-build/">Barbarian</a>
-    </div>
-    <div class="footer-section">
-      <h4>More Games</h4>
-      <a href="/#coming-soon">Space Marine 2</a>
-      <a href="/#coming-soon">Darktide</a>
-      <a href="/#coming-soon">Baldur's Gate 3</a>
-      <a href="/#coming-soon">Fallout 76</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Blood Guides &nbsp;·&nbsp; <a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></p>
-  </div>
-</footer>
-
-<script src="/site.js"></script>
-<script>
-(function () {
-  // Filter guides by game
-  var filterBtns = document.querySelectorAll('.filter-btn[data-game]');
-  var guideCards = document.querySelectorAll('#guides-grid .guide-card');
-
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var game = btn.dataset.game;
-      filterBtns.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      guideCards.forEach(function (card) {
-        card.style.display = (game === 'all' || card.dataset.game === game) ? '' : 'none';
-      });
-    });
-  });
-
-  // Read URL param ?game= on load
-  var params = new URLSearchParams(window.location.search);
-  var gameParam = params.get('game');
-  if (gameParam) {
-    var matchBtn = document.querySelector('.filter-btn[data-game="' + gameParam + '"]');
-    if (matchBtn) matchBtn.click();
+function bpHash(s) {
+  let h = 2166136261;
+  for (let i = 0; i < String(s).length; i++) {
+    h ^= String(s).charCodeAt(i);
+    h = (h * 16777619) >>> 0;
   }
-}());
+  return h;
+}
+
+const BP_ALIAS = {
+  "Elden Ring":"elden-ring","Diablo 4":"diablo-4","Baldur's Gate 3":"bg3",
+  "Space Marine 2":"spacemarine2","40K: Darktide":"darktide",
+  "Fallout 76":"fallout76","Fallout 4":"fallout4",
+};
+function resolveGameId(id) {
+  if (!id) return "elden-ring";
+  return BP_ALIAS[id] || id;
+}
+const cssVar = (n) => `var(--${n})`;
+
+function LayoutA({ field, ink, accent, motif, paperColor }) {
+  return (
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <rect width="100" height="100" fill={paperColor} />
+      <rect x="0" y="0" width="78" height="74" fill={field} />
+      <g transform="translate(8 6) scale(0.62)" color={ink}>{motif}</g>
+      <rect x="78" y="0" width="22" height="100" fill={accent} />
+      <rect x="0" y="74" width="38" height="26" fill={ink} />
+      <rect x="38" y="74" width="40" height="26" fill={paperColor} />
+    </svg>
+  );
+}
+function LayoutB({ field, ink, accent, motif, paperColor }) {
+  return (
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <rect width="100" height="100" fill={paperColor} />
+      <rect x="0" y="6" width="68" height="88" fill={field} />
+      <g transform="translate(2 8) scale(0.64)" color={ink}>{motif}</g>
+      <rect x="74" y="14" width="14" height="36" fill={accent} />
+      <rect x="74" y="56" width="20" height="32" fill={ink} />
+    </svg>
+  );
+}
+function LayoutC({ field, ink, accent, motif, paperColor }) {
+  return (
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+      <rect width="100" height="100" fill={field} />
+      <rect x="0" y="0" width="100" height="10" fill={ink} />
+      <g transform="translate(8 10) scale(0.66)" color={ink}>{motif}</g>
+      <rect x="72" y="72" width="28" height="28" fill={accent} />
+      <rect x="72" y="72" width="28" height="6" fill={ink} />
+    </svg>
+  );
+}
+const BP_LAYOUTS = [LayoutA, LayoutB, LayoutC];
+
+function Bookplate({ gameId, seed }) {
+  const g = resolveGameId(gameId);
+  const palNames = BP_PALETTES[g] || BP_FALLBACK;
+  const motif = Motifs[g] || Motifs["elden-ring"];
+  const idx = bpHash(seed || g) % BP_LAYOUTS.length;
+  const Layout = BP_LAYOUTS[idx];
+  const rot = bpHash((seed || "") + "r") % 3;
+  const ordered = [palNames[rot % 3], palNames[(rot + 1) % 3], palNames[(rot + 2) % 3]];
+  return (
+    <div style={{ position:"absolute", inset:0, overflow:"hidden" }} aria-hidden="true">
+      <Layout
+        field={cssVar(ordered[0])}
+        ink={cssVar(ordered[1])}
+        accent={cssVar(ordered[2])}
+        paperColor="var(--shiracha)"
+        motif={motif}
+      />
+    </div>
+  );
+}
+
+// ============================================================
+//  ICONS
+// ============================================================
+const Ic = ({ d, size=16, stroke="currentColor", fill="none" }) => (
+  <svg className="ic" width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke={stroke} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    {Array.isArray(d) ? d.map((p,i) => <path key={i} d={p}/>) : <path d={d}/>}
+  </svg>
+);
+const Icons = {
+  home:     <Ic d="M3 11.5 12 4l9 7.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/>,
+  builds:   <Ic d={["M4 16l8-8 8 8M4 16v4h16v-4","M9 11l3-3 3 3"]}/>,
+  bosses:   <Ic d="M12 3 4 6v6c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V6z"/>,
+  weapons:  <Ic d={["M14.5 14.5 4 4v2l10.5 10.5","M14.5 14.5l5 5","M19.5 19.5 21 21"]}/>,
+  news:     <Ic d={["M4 5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z","M8 8h8M8 12h8M8 16h5"]}/>,
+  bookmark: <Ic d="M6 3h12v18l-6-4-6 4"/>,
+  bookmarkFill: <Ic d="M6 3h12v18l-6-4-6 4" fill="currentColor" stroke="currentColor"/>,
+  search:   <Ic d={["M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16z","M21 21l-4.3-4.3"]}/>,
+  bell:     <Ic d={["M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9","M10 21a2 2 0 0 0 4 0"]}/>,
+  sun:      <Ic d={["M12 3v2M12 19v2M5 12H3M21 12h-2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4","M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"]}/>,
+  moon:     <Ic d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>,
+  arrow:    <Ic d={["M5 12h14","M13 5l7 7-7 7"]}/>,
+  flag:     <Ic d={["M4 21V4","M4 4h12l-2 4 2 4H4"]}/>,
+};
+
+// ============================================================
+//  SIDEBAR
+// ============================================================
+function Sidebar({ activeSection, setSection, activeGame, setGame }) {
+  const navItems = [
+    { id: "home",    label: "Home",        icon: Icons.home,    badge: null },
+    { id: "builds",  label: "Builds",      icon: Icons.builds,  badge: "8" },
+    { id: "news",    label: "Patch Notes", icon: Icons.news,    badge: "6" },
+    { id: "coming",  label: "Coming Soon", icon: Icons.flag,    badge: "12" },
+  ];
+  return (
+    <aside className="sidebar">
+      <div className="brand">
+        <div className="brand-mark"><span>b</span></div>
+        <div className="brand-name">
+          <div className="nm"><em>Blood</em> Guides</div>
+          <div className="sub">codex · est 2026</div>
+        </div>
+      </div>
+
+      <div>
+        <div className="nav-label">Navigate</div>
+        <div className="nav">
+          {navItems.map(item => (
+            <button
+              key={item.id}
+              className={"nav-item" + (activeSection === item.id ? " active" : "")}
+              onClick={() => {
+                setSection(item.id);
+                const el = document.getElementById("section-" + item.id);
+                if (el) el.scrollIntoView({ behavior:"smooth" });
+              }}>
+              {item.icon}
+              <span>{item.label}</span>
+              {item.badge && <span className="badge">{item.badge}</span>}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div className="nav-label">Games</div>
+        <div className="game-list">
+          {GAMES.map(g => (
+            <button
+              key={g.id}
+              className={"game-pill" + (activeGame === g.id ? " active" : "")}
+              onClick={() => setGame(g.id)}>
+              <span className="game-glyph" style={{
+                background: `linear-gradient(135deg, oklch(0.65 0.16 ${g.hue}), oklch(0.42 0.12 ${(g.hue+30)%360}))`
+              }}>{g.short}</span>
+              <div className="game-info">
+                <div className="game-name">{g.name}</div>
+                <div className="game-tag">{g.builds > 0 ? `${g.builds} builds` : g.tag}</div>
+              </div>
+              <span className="game-dot"/>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="sidebar-foot">
+        <div className="label">Site coverage</div>
+        <div className="value">8 builds</div>
+        <div className="prog"><i style={{width:"38%"}}/></div>
+        <div className="meta">
+          <span>7 games · growing</span>
+          <span>12 WIP</span>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+// ============================================================
+//  TOPBAR
+// ============================================================
+function Topbar({ theme, setTheme, openSearch }) {
+  return (
+    <div className="topbar">
+      <button className="search" onClick={openSearch} style={{textAlign:"left"}}>
+        {Icons.search}
+        <span style={{flex:1, color:"var(--ink-4)", fontSize:13.5}}>Search builds, patch notes, games…</span>
+        <span className="kbd">⌘K</span>
+      </button>
+      <button className="icon-btn" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} title="Toggle theme">
+        {theme === "dark" ? Icons.sun : Icons.moon}
+      </button>
+      <button className="icon-btn" title="Notifications">
+        {Icons.bell}<span className="dot"/>
+      </button>
+      <div className="user-pill">
+        <div className="user-avatar">BG</div>
+        <div>
+          <div className="user-name">Blood Guides</div>
+          <div className="user-rank">Est. 2026</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+//  HERO
+// ============================================================
+function HeroSection() {
+  const featured = BUILDS[0]; // Samurai Bleed
+  return (
+    <div className="hero" id="section-home">
+      <div className="hero-body">
+        <div className="hero-eyebrow">
+          <span className="pulse"/>
+          Featured this week
+        </div>
+        <h1 className="hero-title">
+          The Complete<br/><em>Bleed Build</em>
+        </h1>
+        <p className="hero-desc">
+          Every weapon swap, every stat threshold, the boss order that breaks the game open.
+          Dual katanas, Rivers of Blood, three variants — fully tested through NG+7.
+        </p>
+        <div className="hero-meta">
+          <div><div className="l">Reads</div><strong>184,205</strong></div>
+          <div><div className="l">Duration</div><strong>22 min</strong></div>
+          <div><div className="l">Updated</div><strong>2 days ago</strong></div>
+        </div>
+        <div className="hero-cta">
+          <a href="/samurai-bleed-build/" className="btn btn-accent">Read guide</a>
+          <a href="/rivers-of-blood-build/" className="btn btn-ghost">Rivers of Blood →</a>
+        </div>
+      </div>
+      <div className="hero-visual">
+        <Bookplate gameId="elden-ring" seed="hero-samurai-bleed" />
+        <div className="floating-badge bg-top">
+          <div className="l">Tier</div>
+          <div className="v">S — PvE / PvP</div>
+        </div>
+        <div className="floating-badge bg-bot">
+          <div className="l">Primary stat</div>
+          <div className="v">ARC 80 · DEX 55</div>
+        </div>
+        <div className="hero-visual-overlay">
+          <div className="credit">Elden Ring · Dex / Arcane</div>
+          <div className="title">Rivers of Blood · Uchigatana</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+//  STATS ROW
+// ============================================================
+function StatRow() {
+  return (
+    <div className="stat-row">
+      {STATS.map((s,i) => (
+        <div className="stat-tile" key={i}>
+          <div className="label">{s.label}</div>
+          <div className="value">{s.value}</div>
+          <div className="change"><span className="pip"/>{s.change}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ============================================================
+//  BUILDS SECTION
+// ============================================================
+function BuildCard({ b, bookmarked, onBookmark }) {
+  return (
+    <a className="build-card" href={b.url}>
+      <div className="build-art">
+        <Bookplate gameId={b.game_id} seed={b.id} />
+        <span className="game-tag">{b.game}</span>
+        <span className="tier" data-t={b.tier}>{b.tier}</span>
+      </div>
+      <div className="build-body">
+        <div className="build-meta">{b.archetype}</div>
+        <div className="build-title">{b.title}</div>
+        <div className="build-sub">{b.weapon}</div>
+        <div className="build-stats">
+          {[["DMG",b.dmg],["DEF",b.def],["MOB",b.mob],["UTL",b.util]].map(([l,v]) => (
+            <div className="col" key={l}>
+              <span className="l">{l}</span>
+              <div className="bar"><i className={v > 75 ? "hi" : ""} style={{width:v+"%"}}/></div>
+            </div>
+          ))}
+        </div>
+        <div className="build-tags">
+          {b.tags.slice(0,3).map(t => <span className="build-tag" key={t}>{t}</span>)}
+        </div>
+      </div>
+      <div className="build-foot">
+        <span className="reads">{b.reads} reads</span>
+        <button
+          className={"bookmark-btn" + (bookmarked ? " on" : "")}
+          onClick={e => { e.preventDefault(); e.stopPropagation(); onBookmark(b.id); }}
+          title="Bookmark">
+          {bookmarked ? Icons.bookmarkFill : Icons.bookmark}
+        </button>
+      </div>
+    </a>
+  );
+}
+
+function BuildsSection({ filterGame, setFilterGame, bookmarks, toggleBookmark }) {
+  const filterGames = [
+    { id: "all", label: "All Games" },
+    { id: "elden-ring", label: "Elden Ring" },
+    { id: "diablo-4", label: "Diablo 4" },
+  ];
+  const filtered = filterGame === "all" ? BUILDS : BUILDS.filter(b => b.game_id === filterGame);
+  return (
+    <div id="section-builds">
+      <div className="section-head">
+        <div>
+          <div className="eyebrow">Character Builds</div>
+          <h2>Featured Builds</h2>
+        </div>
+        <div className="tools">
+          {filterGames.map(g => (
+            <button
+              key={g.id}
+              className={"chip" + (filterGame === g.id ? " active" : "")}
+              onClick={() => setFilterGame(g.id)}>
+              {g.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="cards-grid">
+        {filtered.map(b => (
+          <BuildCard
+            key={b.id}
+            b={b}
+            bookmarked={bookmarks.includes(b.id)}
+            onBookmark={toggleBookmark}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+//  PATCH NOTES + TRENDING
+// ============================================================
+function PatchTrending() {
+  return (
+    <div id="section-news">
+      <div className="section-head">
+        <div>
+          <div className="eyebrow">What's happening</div>
+          <h2>Patch Notes &amp; Trending</h2>
+        </div>
+      </div>
+      <div className="news-trend">
+        {/* Patch notes */}
+        <div className="news-card">
+          <div style={{padding:"16px 18px 10px", borderBottom:"1px solid var(--line-soft)"}}>
+            <div style={{fontFamily:"var(--font-display)",fontStyle:"italic",fontSize:18,letterSpacing:"-0.005em"}}>Latest Patch Notes</div>
+          </div>
+          <div className="news-list">
+            {PATCH_NOTES.map((p,i) => (
+              <a key={i} className="news-item" href={p.url} target="_blank" rel="noopener noreferrer">
+                <div className="news-item-head">
+                  <span className="patch-tag" data-t={p.tag}>{p.tag}</span>
+                  <span style={{fontFamily:"var(--font-mono)",letterSpacing:"0.02em"}}>{p.game}</span>
+                  <span style={{marginLeft:"auto"}}>{p.ver} · {p.date}</span>
+                </div>
+                <div className="news-item-title">{p.title}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Trending */}
+        <div className="trend-panel">
+          <div className="trend-panel-head">
+            <span className="eyebrow">Trending Now</span>
+            <span className="more">View all →</span>
+          </div>
+          <ul className="trend-list">
+            {TRENDING.map(t => (
+              <li key={t.rank}>
+                <a className="trend-item" href={t.url} target="_blank" rel="noopener noreferrer" style={{textDecoration:"none",color:"inherit"}}>
+                  <span className="rank">{t.rank}</span>
+                  <div>
+                    <p className="t-title">{t.title}</p>
+                    <p className="t-meta">{t.game} · {t.comments} comments</p>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+//  ABOUT
+// ============================================================
+function AboutSection() {
+  const items = [
+    { title: "No Fluff. Just Guides.", body: "Every guide is written by someone who has actually played the build — tested in PvE, checked against bosses, verified with accurate item locations. No padding, no vague advice." },
+    { title: "Every Game. Every Playstyle.", body: "Starting with Elden Ring and Diablo 4, expanding across Soulslikes, ARPGs, shooters, co-op campaigns and beyond. If a game has a meta worth optimising, it'll be here." },
+    { title: "Built for Readability", body: "Stat tables, item cards, boss notes, quick reference tables. Guides are structured so you find exactly what you need — full explanation or just the numbers." },
+    { title: "Always Up to Date", body: "Guides are reviewed after major patches. Build recommendations reflect current viability — if something gets nerfed, the guide says so and tells you what to run instead." },
+  ];
+  return (
+    <div>
+      <div className="section-head">
+        <div>
+          <div className="eyebrow">About the site</div>
+          <h2>What Is Blood Guides?</h2>
+        </div>
+      </div>
+      <div className="about-grid">
+        {items.map(item => (
+          <div className="about-card" key={item.title}>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+//  COMING SOON
+// ============================================================
+function ComingSoonSection() {
+  return (
+    <div id="section-coming">
+      <div className="section-head">
+        <div>
+          <div className="eyebrow">In the pipeline</div>
+          <h2>Coming Soon</h2>
+        </div>
+      </div>
+      <div className="coming-grid">
+        {COMING_SOON.map((c,i) => (
+          <div className="coming-card" key={i}>
+            <div className="game-label">{c.game}</div>
+            <div className="guide-name">{c.title}</div>
+            <span className={"coming-badge" + (c.status === "planned" ? " planned" : "")}>
+              {c.status === "planned" ? "Planned" : "In Progress"}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+//  SEARCH PALETTE
+// ============================================================
+function SearchPalette({ open, onClose }) {
+  const inputRef = useRef(null);
+  const [q, setQ] = useState("");
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (open) { setQ(""); setActive(0); setTimeout(() => inputRef.current && inputRef.current.focus(), 30); }
+  }, [open]);
+
+  const items = useMemo(() => {
+    const all = BUILDS.map(b => ({ kind:"Build", label:b.title, tag:b.game, url:b.url }));
+    const query = q.toLowerCase().trim();
+    if (!query) return all;
+    return all.filter(i => i.label.toLowerCase().includes(query) || i.tag.toLowerCase().includes(query));
+  }, [q]);
+
+  useEffect(() => { setActive(0); }, [q]);
+
+  useEffect(() => {
+    if (!open) return;
+    const fn = e => {
+      if (e.key === "Escape") { onClose(); }
+      else if (e.key === "ArrowDown") { e.preventDefault(); setActive(a => Math.min(a+1, items.length-1)); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); setActive(a => Math.max(a-1, 0)); }
+      else if (e.key === "Enter") {
+        const r = items[active];
+        if (r) { window.location.href = r.url; onClose(); }
+      }
+    };
+    window.addEventListener("keydown", fn);
+    return () => window.removeEventListener("keydown", fn);
+  }, [open, items, active, onClose]);
+
+  if (!open) return null;
+  return (
+    <div className="search-overlay" onClick={onClose}>
+      <div className="search-palette" onClick={e => e.stopPropagation()}>
+        <div className="search-palette-input">
+          {Icons.search}
+          <input ref={inputRef} value={q} onChange={e => setQ(e.target.value)} placeholder="Search builds, games…"/>
+        </div>
+        <div className="search-palette-results">
+          {items.length === 0 && <div className="search-empty">No results for "{q}"</div>}
+          {items.map((r,i) => (
+            <a key={i} href={r.url}
+              className={"search-result" + (i === active ? " active" : "")}
+              onMouseEnter={() => setActive(i)}>
+              <div className="ic2">{Icons.builds}</div>
+              <div style={{minWidth:0}}>
+                <div className="nm">{r.label}</div>
+                <div className="t">{r.kind} · {r.tag}</div>
+              </div>
+              <span className="arrow">{Icons.arrow}</span>
+            </a>
+          ))}
+        </div>
+        <div className="search-palette-foot">
+          <span><span className="kbd2">↑↓</span>navigate</span>
+          <span><span className="kbd2">↵</span>open</span>
+          <span><span className="kbd2">esc</span>close</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ============================================================
+//  FOOTER
+// ============================================================
+function Footer() {
+  return (
+    <footer style={{borderTop:"1px solid var(--line-soft)", padding:"32px 0 20px", marginTop:8}}>
+      <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(160px,1fr))", gap:24, marginBottom:28}}>
+        <div>
+          <div style={{fontFamily:"var(--font-display)",fontStyle:"italic",fontSize:17,marginBottom:12}}>Blood Guides</div>
+          <div style={{fontSize:12,color:"var(--ink-3)",lineHeight:1.8}}>Clear, tested guides.<br/>No fluff.</div>
+        </div>
+        <div>
+          <div style={{fontSize:10.5,letterSpacing:"0.08em",textTransform:"uppercase",color:"var(--ink-4)",fontWeight:600,marginBottom:10}}>Elden Ring</div>
+          {[["Samurai Bleed","/samurai-bleed-build/"],["Tank Build","/elden-ring-tank-build/"],["Dragon Faith","/dragon-faith-build/"],["Rivers of Blood","/rivers-of-blood-build/"]].map(([label,url]) => (
+            <a key={url} href={url} style={{display:"block",fontSize:12.5,color:"var(--ink-3)",padding:"3px 0",transition:"color 100ms"}}
+               onMouseEnter={e=>e.target.style.color="var(--accent)"} onMouseLeave={e=>e.target.style.color="var(--ink-3)"}>{label}</a>
+          ))}
+        </div>
+        <div>
+          <div style={{fontSize:10.5,letterSpacing:"0.08em",textTransform:"uppercase",color:"var(--ink-4)",fontWeight:600,marginBottom:10}}>Diablo 4</div>
+          {[["Necromancer Minion","/diablo4-necromancer-minion-build/"],["Druid Bear","/diablo4-druid-bear-build/"],["Paladin Hammer","/diablo4-paladin-blessed-hammer-build/"],["Whirlwind Barb","/diablo4-whirlwind-barbarian-build/"]].map(([label,url]) => (
+            <a key={url} href={url} style={{display:"block",fontSize:12.5,color:"var(--ink-3)",padding:"3px 0",transition:"color 100ms"}}
+               onMouseEnter={e=>e.target.style.color="var(--accent)"} onMouseLeave={e=>e.target.style.color="var(--ink-3)"}>{label}</a>
+          ))}
+        </div>
+        <div>
+          <div style={{fontSize:10.5,letterSpacing:"0.08em",textTransform:"uppercase",color:"var(--ink-4)",fontWeight:600,marginBottom:10}}>Coming Soon</div>
+          {[["Space Marine 2","#"],["Darktide","#"],["Baldur's Gate 3","#"],["Fallout 76","#"]].map(([label,url]) => (
+            <a key={label} href={url} style={{display:"block",fontSize:12.5,color:"var(--ink-3)",padding:"3px 0"}}>{label}</a>
+          ))}
+        </div>
+      </div>
+      <div style={{paddingTop:16,borderTop:"1px solid var(--line-soft)",fontSize:11,color:"var(--ink-4)",display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:8}}>
+        <span>© 2026 Blood Guides</span>
+        <span style={{fontFamily:"var(--font-mono)",fontSize:10,letterSpacing:"0.06em"}}>BENGARA · KIHADA · BISHAMON · KONJŌ</span>
+      </div>
+    </footer>
+  );
+}
+
+// ============================================================
+//  APP
+// ============================================================
+function App() {
+  const [theme, setTheme] = useState("light");
+  const [activeSection, setSection] = useState("home");
+  const [activeGame, setGame] = useState("elden-ring");
+  const [filterGame, setFilterGame] = useState("all");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [bookmarks, setBookmarks] = useState(["samurai-bleed","rivers-of-blood"]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    applyPalette("showa-cover", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const fn = e => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") { e.preventDefault(); setSearchOpen(true); }
+    };
+    window.addEventListener("keydown", fn);
+    return () => window.removeEventListener("keydown", fn);
+  }, []);
+
+  const toggleBookmark = id => setBookmarks(b => b.includes(id) ? b.filter(x => x !== id) : [...b, id]);
+
+  return (
+    <div className="app">
+      <Sidebar activeSection={activeSection} setSection={setSection} activeGame={activeGame} setGame={setGame} />
+      <main className="main">
+        <Topbar theme={theme} setTheme={setTheme} openSearch={() => setSearchOpen(true)} />
+        <HeroSection />
+        <StatRow />
+        <BuildsSection filterGame={filterGame} setFilterGame={setFilterGame} bookmarks={bookmarks} toggleBookmark={toggleBookmark} />
+        <PatchTrending />
+        <AboutSection />
+        <ComingSoonSection />
+        <Footer />
+      </main>
+      <SearchPalette open={searchOpen} onClose={() => setSearchOpen(false)} />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
 </script>
 </body>
 </html>

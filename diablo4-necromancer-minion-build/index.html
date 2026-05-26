@@ -14,30 +14,21 @@
 <meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/site.css">
 <style>
-/* Page-specific variables — Necromancer purple/bone theme */
-:root {
-  --bg: #16131f; --surface: #1f1c2e; --surface2: #2a263c; --border: #3e3858;
-  --accent: #9b6dda; --accent2: #5b2d8e; --gold: #d4a84c; --gold2: #f5d880;
-  --text: #f0ead8; --text2: #c8bfb0; --text3: #d0c8bc;
-  --blue: #5b8fd4; --green: #5db87a;
-}
-/* Necromancer hero — deep bone-purple */
+/* D4 Necromancer — deep violet */
 .hero {
   background:
-    radial-gradient(ellipse at 50% 0%,   rgba(100,40,180,0.40) 0%, transparent 70%),
-    radial-gradient(ellipse at 30% 100%, rgba(155,109,218,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 100%, rgba(11,10,14,1) 40%,  transparent 100%),
-    #16131f !important;
+    radial-gradient(ellipse at 50% 0%, rgba(100,40,180,0.16) 0%, transparent 70%),
+    var(--surface);
 }
 /* D4-specific badge colours */
 .badge.purple { color: var(--accent); border-color: var(--accent); background: rgba(155,109,218,0.10); }
 /* Skill tree progression cards */
 .progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
 .prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+.prog-header { padding: 10px 16px; font-family: var(--font-ui); font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
 .prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
 .prog-header.mid   { background: rgba(91,143,212,.15); color: var(--blue); }
 .prog-header.end   { background: rgba(155,109,218,.15); color: var(--accent); }
@@ -46,9 +37,9 @@
 /* Book of the Dead grid */
 .botd-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 16px 0; }
 .botd-card { background: var(--surface); border: 1px solid var(--border); border-top: 2px solid var(--accent); border-radius: 0 0 4px 4px; padding: 16px 18px; }
-.botd-card .botd-type { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-.botd-card .botd-name { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); margin-bottom: 6px; }
-.botd-card .botd-tag { display: inline-block; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--green); color: var(--green); border-radius: 2px; margin-bottom: 8px; }
+.botd-card .botd-type { font-family: var(--font-ui); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+.botd-card .botd-name { font-family: var(--font-ui); font-size: 14px; color: var(--gold); margin-bottom: 6px; }
+.botd-card .botd-tag { display: inline-block; font-family: var(--font-ui); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--green); color: var(--green); border-radius: 2px; margin-bottom: 8px; }
 .botd-card .botd-tag.alt { border-color: var(--blue); color: var(--blue); }
 .botd-card .botd-tag.warn { border-color: var(--accent); color: var(--accent); }
 .botd-card p { font-size: 15px; margin-bottom: 6px; }
@@ -62,15 +53,15 @@
 /* ── Skill Tree Widget ───────────────────────────────────────────────── */
 .stw{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;margin:20px 0}
 .stw-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-.stw-title{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
+.stw-title{font-family:var(--font-ui);font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--gold)}
 .stw-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .stw-controls button{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:4px;cursor:pointer;font-size:13px}
 .stw-controls button:hover{border-color:var(--accent);color:var(--accent)}
 #nec-slider{width:200px;accent-color:var(--accent)}
-.stw-pt-label{font-family:'Cinzel',serif;font-size:12px;color:var(--gold2);min-width:80px}
+.stw-pt-label{font-family:var(--font-ui);font-size:12px;color:var(--gold2);min-width:80px}
 .stw-nodes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
 .stw-group{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:10px;flex:1 1 180px}
-.stw-group-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.stw-group-label{font-family:var(--font-ui);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
 .stw-node{display:inline-flex;align-items:center;gap:4px;padding:4px 8px;border-radius:4px;border:1px solid var(--border);font-size:11px;margin:2px;opacity:.3;transition:opacity .15s,border-color .15s,box-shadow .15s;cursor:default;white-space:nowrap}
 .stw-node.active{opacity:1}
 .stw-node.current{box-shadow:0 0 0 2px var(--gold2)}
@@ -85,7 +76,7 @@
 .stw-callout{background:var(--surface2);border-left:3px solid var(--accent);padding:10px 14px;font-size:13px;margin-bottom:16px;border-radius:0 4px 4px 0;min-height:44px;line-height:1.6}
 .stw-table-wrap{max-height:280px;overflow-y:auto;border:1px solid var(--border);border-radius:4px}
 .stw-table{width:100%;border-collapse:collapse;font-size:12px}
-.stw-table th{background:var(--surface2);position:sticky;top:0;padding:6px 10px;text-align:left;font-family:'Cinzel',serif;font-size:10px;letter-spacing:.05em;border-bottom:1px solid var(--border)}
+.stw-table th{background:var(--surface2);position:sticky;top:0;padding:6px 10px;text-align:left;font-family:var(--font-ui);font-size:10px;letter-spacing:.05em;border-bottom:1px solid var(--border)}
 .stw-table td{padding:5px 10px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top}
 .stw-table tr.stw-active-row td{background:rgba(155,109,218,.15)}
 .stw-table tr.stw-done-row{opacity:.5}
@@ -139,6 +130,9 @@
       <li><a href="/">All Guides</a></li>
     </ul>
     <div class="header-actions">
+      <button class="icon-btn" title="Search" aria-label="Search" style="min-width:unset;padding:0.45rem 0.7rem;">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><line x1="13.5" y1="13.5" x2="18" y2="18"/></svg>
+      </button>
       <button class="icon-btn theme-toggle" title="Toggle theme" aria-label="Toggle theme">
         <span class="toggle-icon">☀️</span> Light
       </button>

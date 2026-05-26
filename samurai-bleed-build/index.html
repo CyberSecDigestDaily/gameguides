@@ -14,36 +14,15 @@
 <meta name="twitter:image" content="https://bloodguides.pages.dev/og-image.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/site.css">
 <style>
-/* Page-specific variables — needed so html[data-theme="light"] in site.css
-   can override these with higher specificity (0-1-1 vs 0-1-0). */
-:root {
-  --bg: #16131f; --surface: #1f1c2e; --surface2: #2a263c; --border: #3e3858;
-  --accent: #c0392b; --accent2: #8b1a1a; --gold: #d4a84c; --gold2: #f5d880;
-  --text: #f0ead8; --text2: #c8bfb0; --text3: #d0c8bc;
-  --blue: #5b8fd4; --green: #5db87a;
-}
-/* Samurai build hero — deep crimson */
+/* Elden Ring — bengara rust */
 .hero {
   background:
-    radial-gradient(ellipse at 50% 0%,   rgba(139,26,26,0.40) 0%, transparent 70%),
-    radial-gradient(ellipse at 50% 100%, rgba(11,10,14,1) 40%,  transparent 100%),
-    #16131f !important;
+    radial-gradient(ellipse at 50% 0%, rgba(176,73,42,0.18) 0%, transparent 70%),
+    var(--surface);
 }
-/* Wiki links */
-.wiki-link { display: inline-block; font-size: 11px; color: var(--gold); text-decoration: none; margin-left: 4px; opacity: .75; }
-.wiki-link:hover { opacity: 1; text-decoration: underline; }
-/* Levelling progression cards */
-.progression-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0 24px; }
-.prog-stage { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-.prog-header { padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
-.prog-header.early { background: rgba(93,184,122,.15); color: var(--green); }
-.prog-header.mid { background: rgba(91,143,212,.15); color: var(--blue); }
-.prog-header.end { background: rgba(192,57,43,.15); color: var(--accent); }
-.prog-stage > p { padding: 10px 16px; margin: 0; font-size: 14px; line-height: 1.6; }
-.prog-stage > p + p { padding-top: 8px; border-top: 1px solid var(--border); }
 </style>
 </head>
 <body>
@@ -94,6 +73,9 @@
       <li><a href="/">All Guides</a></li>
     </ul>
     <div class="header-actions">
+      <button class="icon-btn" title="Search" aria-label="Search" style="min-width:unset;padding:0.45rem 0.7rem;">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="8.5" cy="8.5" r="6"/><line x1="13.5" y1="13.5" x2="18" y2="18"/></svg>
+      </button>
       <button class="icon-btn theme-toggle" title="Toggle theme" aria-label="Toggle theme">
         <span class="toggle-icon">☀️</span> Light
       </button>
